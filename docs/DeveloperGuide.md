@@ -9,7 +9,7 @@ title: Developer Guide
 
 ## **Acknowledgements**
 
-* {list here sources of all reused/adapted ideas, code, documentation, and third-party libraries -- include links to the original source as well}
+* This project is based on the AddressBook-Level3 project created by the [SE-EDU initiative](https://se-education.org).
 
 --------------------------------------------------------------------------------------------------------------------
 
@@ -257,56 +257,69 @@ _{Explain here how the data archiving feature will be implemented}_
 
 **Target user profile**:
 
-* has a need to manage a significant number of contacts
+* wants to manage and track expenses
 * prefer desktop apps over other types
 * can type fast
 * prefers typing to mouse interactions
 * is reasonably comfortable using CLI apps
 
-**Value proposition**: manage contacts faster than a typical mouse/GUI driven app
+**Value proposition**: manage expenses faster than a typical mouse/GUI driven app
 
 
 ### User stories
 
 Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unlikely to have) - `*`
 
-| Priority | As a …​                                    | I want to …​                     | So that I can…​                                                        |
-| -------- | ------------------------------------------ | ------------------------------ | ---------------------------------------------------------------------- |
-| `* * *`  | new user                                   | see usage instructions         | refer to instructions when I forget how to use the App                 |
-| `* * *`  | user                                       | add a new person               |                                                                        |
-| `* * *`  | user                                       | delete a person                | remove entries that I no longer need                                   |
-| `* * *`  | user                                       | find a person by name          | locate details of persons without having to go through the entire list |
-| `* *`    | user                                       | hide private contact details   | minimize chance of someone else seeing them by accident                |
-| `*`      | user with many persons in the address book | sort persons by name           | locate a person easily                                                 |
+| Priority | As a …​                                    | I want to …​                                                | So that I can…​                                                       |
+| -------- | ------------------------------------------ |-------------------------------------------------------------|-----------------------------------------------------------------------|
+| `* * *`  | new user                                   | see usage instructions                                      | try features suitable for new users                                   |
+| `* * *`  | user                                       | add an expenditure with details such as type of expenditure |                                                                       |
+| `* * *`  | user                                       | delete an expenditure                                       | remove entries that I keyed wrongly                                   |
+| `* * *`  | user                                       | edit an expenditure along with its details                  |                                                                       |
+| `* * *`  | user                                       | view all expenditure recorded                               | locate details of persons without having to go through the entire list |
 
 *{More to be added}*
 
 ### Use cases
 
-(For all use cases below, the **System** is the `AddressBook` and the **Actor** is the `user`, unless specified otherwise)
+(For all use cases below, the **System** is the `ExpenditureExpert` and the **Actor** is the `user`, unless specified otherwise)
 
-**Use case: Delete a person**
+**Use case: UC01 Add an expenditure**
 
 **MSS**
 
-1.  User requests to list persons
-2.  AddressBook shows a list of persons
-3.  User requests to delete a specific person in the list
-4.  AddressBook deletes the person
+1.  User requests to add an expenditure.
+2.  ExpenditureExpert adds the expenditure to the list.
 
     Use case ends.
 
 **Extensions**
 
-* 2a. The list is empty.
+    1a. Invalid syntax entered.
+        1a1. ExpenditureExpert requests to check command parsed and enter command again.
+        Use case ends.
 
-  Use case ends.
+    2a. Missing syntax or syntax field(s).
+        2a1. ExpenditureExpert request to check command parsed and enter command again.
+        Use case ends.
 
-* 3a. The given index is invalid.
+**Use case: UC02 list all expenditure**
 
-    * 3a1. AddressBook shows an error message.
+**MSS**
 
-      Use case resumes at step 2.
+**Extensions**
+
+**Use case: UC03 Delete an expenditure**
+
+**MSS**
+
+**Extensions**
+
+**Use case: UC04 Edit an expenditure**
+
+**MSS**
+
+**Extensions**
 
 *{More to be added}*
 
