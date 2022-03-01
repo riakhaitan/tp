@@ -43,7 +43,7 @@ Expense Expert is a **desktop app for keeping track of your expenses, and managi
 **:information_source: Notes about the command format:**<br>
 
 - Words in `UPPER_CASE` are the parameters to be supplied by the user.<br>
-  e.g. in `add d/DESCRIPTION`, `DESCRIPTION` is a parameter which can be used as `add d/Dinner at ECP`.
+  e.g. in `d/DESCRIPTION`, `DESCRIPTION` is a parameter which can be used as `d/Dinner at ECP`.
 
 - Items in square brackets are optional.<br>
   e.g `d/DESCRIPTION [c/CATEGORY]` can be used as `d/Dinner at ECP c/Food` or as `d/Dinner at ECP`.
@@ -95,7 +95,7 @@ Format: `edit INDEX [d/DESCIPTION] [a/AMOUNT] [c/CATEGORY]`
 Examples:
 
 - `edit 1 a/40`
-- `edit 2 d/Groceries from Sheng Shiong a/80`
+- `edit 2 d/Groceries from Fairprice a/80`
 
 ### Deleting an expense : `delete INDEX`
 
