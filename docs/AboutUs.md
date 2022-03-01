@@ -48,6 +48,7 @@ We are a team based in the [School of Computing, National University of Singapor
 [[github](http://github.com/riakhaitan)] [[portfolio](team/riakhaitan.md)]
 
 - Role:
+  - Developer
   - Documentation
   - Deliverable and deadlines
 
@@ -59,5 +60,6 @@ We are a team based in the [School of Computing, National University of Singapor
 [[portfolio](team/shivang211.md)]
 
 - Role:
+  - Developer
   - Documentation
   - Testing
