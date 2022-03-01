@@ -43,9 +43,9 @@ We are a team based in the [School of Computing, National University of Singapor
 
 ### Ria Khaitan
 
-<img src="images/johndoe.png" width="200px">
+<img src="images/riakhaitan.png" width="200px">
 
-[[github](http://github.com/riakhaitan)] [[portfolio](team/johndoe.md)]
+[[github](http://github.com/riakhaitan)] [[portfolio](team/riakhaitan.md)]
 
 - Role:
   - Documentation
