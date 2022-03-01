@@ -61,7 +61,7 @@ Expense Expert is a **desktop app for keeping track of your expenses, and managi
 
 ### Viewing help : `help`
 
-Shows a message explaning how to access the help page.
+Shows a message explaining how to access the help page.
 
 Format: `help`
 
@@ -69,7 +69,7 @@ Format: `help`
 
 Adds an expense to the list.
 
-Format: `add n/EXPENSE_TITLE a/AMOUNT [t/TAG]…​`
+Format: `add d/EXPENSE_TITLE a/AMOUNT c/DESCRIPTION`
 
 <div markdown="span" class="alert alert-primary">:bulb: **Tip:**
 An expense can have any number of tags (including 0)
@@ -77,8 +77,8 @@ An expense can have any number of tags (including 0)
 
 Examples:
 
-- `add n/Dinner at Privé a/35 t/Extra expenditure`
-- `add n/Groceries a/50 t/Essentials`
+- `add d/Dinner at Privé a/35 c/Extra expenditure`
+- `add d/Groceries a/50 c/Essentials`
 
 ### Listing all expenses : `list`
 
@@ -88,23 +88,24 @@ Format: `list`
 
 ### Editing an expense : `edit`
 
-Edits an existing expense in the list.
+Edits an existing expense in the list. You need to specify the index of the expense from the list and only the syntax of the fields you want to change together with the value you want to change to. You can specify one or more fields. Run `list` before executing the command to identify the index of the expense.
 
-Format: `edit [n/NAME] [a/AMOUNT] [t/TAG]…​`
-
-Examples:
-
-- `edit n/Dinner at Privé a/40` Edits the amount of the mentioned expense.
-
-### Deleting an expense : `delete`
-
-Deletes the specified expense from the list.
-
-Format: `delete n/EXPENSE_TITLE`
+Format: `edit INDEX [d/DESCIPTION] [a/AMOUNT] [c/CATEGORY]`
 
 Examples:
 
-- `list` followed by `delete n/Dinner at Privé` deletes the specified expense.
+- `edit 1 a/40`
+- `edit 2 d/Groceries from Sheng Shiong a/80`
+
+### Deleting an expense : `delete INDEX`
+
+Deletes the expense specified by the index from the list. Run `list` before executing the command to identify the index of the expense.
+
+Format: `delete INDEX`
+
+Examples:
+
+- `delete 1`
 
 ### Exiting the program : `quit`
 
