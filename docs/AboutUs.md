@@ -5,55 +5,59 @@ title: About Us
 
 We are a team based in the [School of Computing, National University of Singapore](http://www.comp.nus.edu.sg).
 
-You can reach us at the email `seer[at]comp.nus.edu.sg`
-
 ## Project team
 
-### John Doe
+### Andy Lam Wei Jie
 
 <img src="images/johndoe.png" width="200px">
 
-[[homepage](http://www.comp.nus.edu.sg/~damithch)]
-[[github](https://github.com/johndoe)]
+[[github](https://github.com/lamwj98)]
 [[portfolio](team/johndoe.md)]
 
-* Role: Project Advisor
+- Role:
+  - Integration
+  - In charge of `Model`
 
-### Jane Doe
+### Loh Wei Ming, Darin
 
 <img src="images/johndoe.png" width="200px">
 
-[[github](http://github.com/johndoe)]
+[[github](http://github.com/talkintomato)]
 [[portfolio](team/johndoe.md)]
 
-* Role: Team Lead
-* Responsibilities: UI
+- Role:
+  - Team Lead
+  - In charge of `UI`
 
-### Johnny Doe
+### Tham Jin Lin
+
+<img src="images/jltham.png" width="200px">
+
+[[github](http://github.com/jltham)]
+[[portfolio](team/jltham.md)]
+
+- Role:
+  - Scheduling and tracking
+  - Code Quality
+  - In charge of `Storage`
+
+### Ria Khaitan
 
 <img src="images/johndoe.png" width="200px">
 
-[[github](http://github.com/johndoe)] [[portfolio](team/johndoe.md)]
+[[github](http://github.com/riakhaitan)] [[portfolio](team/johndoe.md)]
 
-* Role: Developer
-* Responsibilities: Data
+- Role:
+  - Documentation
+  - Deliverable and deadlines
 
-### Jean Doe
+### Shivang Gupta
 
 <img src="images/johndoe.png" width="200px">
 
-[[github](http://github.com/johndoe)]
+[[github](http://github.com/Shivang211)]
 [[portfolio](team/johndoe.md)]
 
-* Role: Developer
-* Responsibilities: Dev Ops + Threading
-
-### James Doe
-
-<img src="images/johndoe.png" width="200px">
-
-[[github](http://github.com/johndoe)]
-[[portfolio](team/johndoe.md)]
-
-* Role: Developer
-* Responsibilities: UI
+- Role:
+  - Documentation
+  - Testing
