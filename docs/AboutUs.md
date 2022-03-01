@@ -53,10 +53,10 @@ We are a team based in the [School of Computing, National University of Singapor
 
 ### Shivang Gupta
 
-<img src="images/johndoe.png" width="200px">
+<img src="images/shivang211.png" width="200px">
 
 [[github](http://github.com/Shivang211)]
-[[portfolio](team/johndoe.md)]
+[[portfolio](team/shivang211.md)]
 
 - Role:
   - Documentation
