@@ -63,6 +63,8 @@ Expense Expert is a **desktop app for keeping track of your expenses, and managi
 
 Shows a message explaining how to access the help page.
 
+![Help](images/Help_Ui.png)
+
 Format: `help`
 
 ### Adding an expense : `add`
