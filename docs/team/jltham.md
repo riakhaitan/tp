@@ -16,8 +16,6 @@ Given below are my contributions to the project.
   - Highlights: _(to be added soon)_
   - Credits: _(to be added soon)_
 
-- **New Feature**: _(to be added soon)_
-
 - **Code contributed**: [RepoSense link](https://nus-cs2103-ay2122s2.github.io/tp-dashboard/?search=jltham&breakdown=true)
 
 - **Project management**: _(to be added soon)_
