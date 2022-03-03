@@ -49,8 +49,8 @@ We are a team based in the [School of Computing, National University of Singapor
 
 - Role:
   - Developer
-  - Documentation
-  - Deliverable and deadlines
+  - Documentation and deliverables
+  - Deadlines
 
 ### Shivang Gupta
 
