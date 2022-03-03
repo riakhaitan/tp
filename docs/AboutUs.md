@@ -9,10 +9,10 @@ We are a team based in the [School of Computing, National University of Singapor
 
 ### Andy Lam Wei Jie
 
-<img src="images/johndoe.png" width="200px">
+<img src="images/lamwj98.png" width="200px">
 
 [[github](https://github.com/lamwj98)]
-[[portfolio](team/johndoe.md)]
+[[portfolio](team/lamwj98.md)]
 
 - Role:
   - Integration
