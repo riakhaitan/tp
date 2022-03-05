@@ -47,7 +47,7 @@ public interface Model {
     /**
      * Replaces address book data with the data in {@code addressBook}.
      */
-    void setExpenditureExpert(ReadOnlyExpenditureExpert addressBook);
+    void setExpenditureExpert(ReadOnlyExpenditureExpert expenditureExpert);
 
     /** Returns the AddressBook */
     ReadOnlyExpenditureExpert getExpenditureExpert();
