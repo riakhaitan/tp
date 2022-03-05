@@ -1,0 +1,27 @@
+{
+  "Expense" : [ {
+    "Description" : "Took Grab",
+    "Amount" : "10",
+    "ExpenseCategory" : "Travel"
+  }, {
+    "Description" : "Took Bus",
+    "Amount" : "3",
+    "ExpenseCategory" : "Travel"
+  }, {
+    "Description" : "McDonalds",
+    "Amount" : "15",
+    "ExpenseCategory" : "Food"
+  }, {
+    "Description" : "Pizza",
+    "Amount" : "30",
+    "ExpenseCategory" : "Food"
+  }, {
+    "Description" : "Ice Cream",
+    "Amount" : "4",
+    "ExpenseCategory" : "Food"
+  }, {
+    "Description" : "Watched Movie",
+    "Amount" : "12",
+    "ExpenseCategory" : "Entertainment"
+  } ]
+}
