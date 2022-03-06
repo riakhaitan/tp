@@ -1,0 +1,11 @@
+{
+  "expenses": [ {
+    "description": "Build a Bear",
+    "expenseCategory": "Entertainment",
+    "amount": "68",
+  }, {
+    "description": "Build a Bear",
+    "expenseCategory": "Entertainment",
+    "amount": "68"
+  } ]
+}

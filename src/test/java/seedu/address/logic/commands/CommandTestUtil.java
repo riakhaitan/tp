@@ -55,16 +55,31 @@ public class CommandTestUtil {
 
     public static final String PREAMBLE_WHITESPACE = "\t  \r  \n";
     public static final String PREAMBLE_NON_EMPTY = "NonEmptyPreamble";
-
-    public static final EditCommand.EditExpenseDescriptor DESC_AMY;
-    public static final EditCommand.EditExpenseDescriptor DESC_BOB;
     */
+    public static final String VALID_DESCRIPTION_ANNUAL_SPOTIFY = "Annual Spotify Fees";
+    public static final String VALID_DESCRIPTION_BUILD_A_BEAR = "Build a Bear Workshop";
+    public static final String VALID_EXPENSE_CATEGORY_ENTERTAINMENT= "Entertainment";
+    public static final String VALID_AMOUNT_ANNUAL_SPOTIFY = "200";
+    public static final String VALID_AMOUNT_BUILD_A_BEAR = "80";
+
+    public static final String VALID_DESCRIPTION_DESC_ANNUAL_SPOTIFY = " " + PREFIX_DESCRIPTION + VALID_DESCRIPTION_ANNUAL_SPOTIFY;
+    public static final String VALID_DESCRIPTION_DESC_BUILD_A_BEAR = " " + PREFIX_DESCRIPTION + VALID_DESCRIPTION_BUILD_A_BEAR;
+    public static final String VALID_EXPENSE_CATEGORY_DESC_ENTERTAINMENT = " " + PREFIX_EXPENSE_CATEGORY + VALID_EXPENSE_CATEGORY_ENTERTAINMENT;
+    public static final String VALID_AMOUNT_DESC_ANNUAL_SPOTIFY = " " + PREFIX_AMOUNT + VALID_AMOUNT_ANNUAL_SPOTIFY;
+    public static final String VALID_AMOUNT_DESC_BUILD_A_BEAR = " " + PREFIX_AMOUNT + VALID_AMOUNT_BUILD_A_BEAR;
+
+    public static final EditCommand.EditExpenseDescriptor DESC_ANNUAL_SPOTIFY_FEES;
+    public static final EditCommand.EditExpenseDescriptor DESC_BUILD_A_BEAR;
 
     static {
-        DESC_AMY = new EditExpenseDescriptorBuilder().withDescription(VALID_NAME_AMY)
-                .withExpenseCategory(VALID_PHONE_AMY).withAmount(VALID_EMAIL_AMY).build();
-        DESC_BOB = new EditExpenseDescriptorBuilder().withDescription(VALID_NAME_BOB)
-                .withExpenseCategory(VALID_PHONE_BOB).withAmount(VALID_EMAIL_BOB).build();
+        DESC_ANNUAL_SPOTIFY_FEES = new EditExpenseDescriptorBuilder()
+                .withDescription(VALID_DESCRIPTION_ANNUAL_SPOTIFY)
+                .withExpenseCategory(VALID_EXPENSE_CATEGORY_ENTERTAINMENT)
+                .withAmount(VALID_AMOUNT_ANNUAL_SPOTIFY).build();
+        DESC_BUILD_A_BEAR = new EditExpenseDescriptorBuilder()
+                .withDescription(VALID_DESCRIPTION_BUILD_A_BEAR)
+                .withExpenseCategory(VALID_EXPENSE_CATEGORY_ENTERTAINMENT)
+                .withAmount(VALID_AMOUNT_BUILD_A_BEAR).build();
     }
 
     /**

@@ -1,0 +1,7 @@
+{
+  "expenses": [ {
+    "description": "Valid Expense",
+    "phone": "Valid Category",
+    "email": "Invalid Amount",
+  } ]
+}

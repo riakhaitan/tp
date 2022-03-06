@@ -2,7 +2,7 @@ package seedu.address.storage;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
-import static seedu.address.testutil.TypicalPersons.getTypicalAddressBook;
+import static seedu.address.testutil.TypicalExpenses.getTypicalExpenditureExpert;
 
 import java.nio.file.Path;
 
@@ -22,7 +22,7 @@ public class StorageManagerTest {
 
     @BeforeEach
     public void setUp() {
-        JsonExpenditureExpertStorage expenditureExpertStorage = new JsonAddressBookStorage(getTempFilePath("ab"));
+        JsonExpenditureExpertStorage expenditureExpertStorage = new JsonExpenditureExpertStorage(getTempFilePath("ab"));
         JsonUserPrefsStorage userPrefsStorage = new JsonUserPrefsStorage(getTempFilePath("prefs"));
         storageManager = new StorageManager(expenditureExpertStorage, userPrefsStorage);
     }
@@ -46,7 +46,7 @@ public class StorageManagerTest {
     }
 
     @Test
-    public void addressBookReadSave() throws Exception {
+    public void expenditureExpertReadSave() throws Exception {
         /*
          * Note: This is an integration test that verifies the StorageManager is properly wired to the
          * {@link JsonAddressBookStorage} class.

@@ -1,15 +1,10 @@
 package seedu.address.testutil;
 
-import static seedu.address.logic.commands.CommandTestUtil.VALID_ADDRESS_AMY;
-import static seedu.address.logic.commands.CommandTestUtil.VALID_ADDRESS_BOB;
-import static seedu.address.logic.commands.CommandTestUtil.VALID_EMAIL_AMY;
-import static seedu.address.logic.commands.CommandTestUtil.VALID_EMAIL_BOB;
-import static seedu.address.logic.commands.CommandTestUtil.VALID_NAME_AMY;
-import static seedu.address.logic.commands.CommandTestUtil.VALID_NAME_BOB;
-import static seedu.address.logic.commands.CommandTestUtil.VALID_PHONE_AMY;
-import static seedu.address.logic.commands.CommandTestUtil.VALID_PHONE_BOB;
-import static seedu.address.logic.commands.CommandTestUtil.VALID_TAG_FRIEND;
-import static seedu.address.logic.commands.CommandTestUtil.VALID_TAG_HUSBAND;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_DESCRIPTION_ANNUAL_SPOTIFY;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_DESCRIPTION_BUILD_A_BEAR;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_EXPENSE_CATEGORY_DESC_ENTERTAINMENT;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_AMOUNT_ANNUAL_SPOTIFY;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_AMOUNT_BUILD_A_BEAR;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -77,8 +72,15 @@ public class TypicalExpenses {
     public static final Expense INTERNET_BILLS = new ExpenseBuilder().withDescription("Internet Bills")
             .withExpenseCategory("Bills").withAmount("69").build();
 
+    public static final Expense ANNUAL_SPOTIFY = new ExpenseBuilder().withDescription(VALID_DESCRIPTION_ANNUAL_SPOTIFY)
+            .withExpenseCategory(VALID_EXPENSE_CATEGORY_DESC_ENTERTAINMENT)
+            .withAmount(VALID_AMOUNT_ANNUAL_SPOTIFY).build();
+    public static final Expense BUILD_A_BEAR = new ExpenseBuilder().withDescription(VALID_DESCRIPTION_BUILD_A_BEAR)
+            .withExpenseCategory(VALID_EXPENSE_CATEGORY_DESC_ENTERTAINMENT)
+            .withAmount(VALID_AMOUNT_BUILD_A_BEAR).build();
 
-    public static final String KEYWORD_MATCHING_APPARATUS = "Apparatus"; // A keyword that matches APPARATUS
+
+    public static final String KEYWORD_MATCHING_RENT = "Rent"; // A keyword that matches Rent
 
     private TypicalExpenses() {} // prevents instantiation
 
