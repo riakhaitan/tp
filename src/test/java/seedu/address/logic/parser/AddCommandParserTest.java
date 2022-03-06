@@ -1,19 +1,25 @@
 package seedu.address.logic.parser;
 
 import static seedu.address.commons.core.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
-import static seedu.address.logic.commands.CommandTestUtil.*;
+import static seedu.address.logic.commands.CommandTestUtil.AMOUNT_DESC_ANNUAL_SPOTIFY;
+import static seedu.address.logic.commands.CommandTestUtil.AMOUNT_DESC_BUILD_A_BEAR;
+import static seedu.address.logic.commands.CommandTestUtil.DESCRIPTION_DESC_ANNUAL_SPOTIFY;
+import static seedu.address.logic.commands.CommandTestUtil.DESCRIPTION_DESC_BUILD_A_BEAR;
+import static seedu.address.logic.commands.CommandTestUtil.EXPENSE_CATEGORY_DESC_ENTERTAINMENT;
+import static seedu.address.logic.commands.CommandTestUtil.INVALID_AMOUNT_DESC;
+import static seedu.address.logic.commands.CommandTestUtil.PREAMBLE_NON_EMPTY;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_AMOUNT_BUILD_A_BEAR;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_DESCRIPTION_BUILD_A_BEAR;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_EXPENSE_CATEGORY_ENTERTAINMENT;
 import static seedu.address.logic.parser.CommandParserTestUtil.assertParseFailure;
 import static seedu.address.logic.parser.CommandParserTestUtil.assertParseSuccess;
-import static seedu.address.testutil.TypicalExpenses.ANNUAL_NETFLIX_FEES;
 import static seedu.address.testutil.TypicalExpenses.BUILD_A_BEAR;
 
 import org.junit.jupiter.api.Test;
 
 import seedu.address.logic.commands.AddCommand;
-import seedu.address.model.expense.Expense;
-import seedu.address.model.expense.Description;
-import seedu.address.model.expense.ExpenseCategory;
 import seedu.address.model.expense.Amount;
+import seedu.address.model.expense.Expense;
 import seedu.address.testutil.ExpenseBuilder;
 
 public class AddCommandParserTest {

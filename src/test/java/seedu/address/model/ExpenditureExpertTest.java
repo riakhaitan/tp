@@ -15,8 +15,6 @@ import org.junit.jupiter.api.Test;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import seedu.address.model.expense.Expense;
-import seedu.address.model.expense.exceptions.DuplicateExpenseException;
-import seedu.address.testutil.ExpenseBuilder;
 
 public class ExpenditureExpertTest {
 

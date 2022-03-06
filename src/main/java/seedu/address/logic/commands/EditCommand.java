@@ -1,7 +1,9 @@
 package seedu.address.logic.commands;
 
 import static java.util.Objects.requireNonNull;
-import static seedu.address.logic.parser.CliSyntax.*;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_AMOUNT;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_DESCRIPTION;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_EXPENSE_CATEGORY;
 import static seedu.address.model.Model.PREDICATE_SHOW_ALL_EXPENSES;
 
 import java.util.List;
@@ -12,10 +14,11 @@ import seedu.address.commons.core.index.Index;
 import seedu.address.commons.util.CollectionUtil;
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.Model;
-import seedu.address.model.expense.Expense;
-import seedu.address.model.expense.Description;
-import seedu.address.model.expense.ExpenseCategory;
 import seedu.address.model.expense.Amount;
+import seedu.address.model.expense.Description;
+import seedu.address.model.expense.Expense;
+import seedu.address.model.expense.ExpenseCategory;
+
 
 /**
  * Edits the details of an existing expense in the expenditure expert.
@@ -83,7 +86,8 @@ public class EditCommand extends Command {
         assert expenseToEdit != null;
 
         Description updatedDescription = editExpenseDescriptor.getDescription().orElse(expenseToEdit.getDescription());
-        ExpenseCategory updatedExpenseCategory = editExpenseDescriptor.getExpenseCategory().orElse(expenseToEdit.getExpenseCategory());
+        ExpenseCategory updatedExpenseCategory = editExpenseDescriptor
+                .getExpenseCategory().orElse(expenseToEdit.getExpenseCategory());
         Amount updatedAmount = editExpenseDescriptor.getAmount().orElse(expenseToEdit.getAmount());
 
         return new Expense(updatedDescription, updatedExpenseCategory, updatedAmount);

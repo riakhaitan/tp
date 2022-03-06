@@ -5,6 +5,11 @@ import static java.util.Objects.requireNonNull;
 public class ExpenseCategory {
     public final String expenseCategory;
 
+    /**
+     * Constructs a {@code ExpenseCategory}
+     *
+     * @param expenseCategory to indicate the category of the expense.
+     */
     public ExpenseCategory(String expenseCategory) {
         requireNonNull(expenseCategory);
         this.expenseCategory = expenseCategory;

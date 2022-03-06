@@ -1,23 +1,16 @@
 package seedu.address.logic.parser;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 import static seedu.address.logic.parser.ParserUtil.MESSAGE_INVALID_INDEX;
 import static seedu.address.testutil.Assert.assertThrows;
 import static seedu.address.testutil.TypicalIndexes.INDEX_FIRST_EXPENSE;
 
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.HashSet;
-import java.util.Set;
-
 import org.junit.jupiter.api.Test;
 
 import seedu.address.logic.parser.exceptions.ParseException;
-import seedu.address.model.expense.Expense;
+import seedu.address.model.expense.Amount;
 import seedu.address.model.expense.Description;
 import seedu.address.model.expense.ExpenseCategory;
-import seedu.address.model.expense.Amount;
 
 public class ParserUtilTest {
 

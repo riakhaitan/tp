@@ -2,9 +2,9 @@ package seedu.address.logic.parser;
 
 import static java.util.Objects.requireNonNull;
 import static seedu.address.commons.core.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_AMOUNT;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_DESCRIPTION;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_EXPENSE_CATEGORY;
-import static seedu.address.logic.parser.CliSyntax.PREFIX_AMOUNT;
 
 import seedu.address.commons.core.index.Index;
 import seedu.address.logic.commands.EditCommand;
@@ -36,10 +36,12 @@ public class EditCommandParser implements Parser<EditCommand> {
 
         EditExpenseDescriptor editExpenseDescriptor = new EditExpenseDescriptor();
         if (argMultimap.getValue(PREFIX_DESCRIPTION).isPresent()) {
-            editExpenseDescriptor.setDescription(ParserUtil.parseDescription(argMultimap.getValue(PREFIX_DESCRIPTION).get()));
+            editExpenseDescriptor.setDescription(ParserUtil.parseDescription(
+                    argMultimap.getValue(PREFIX_DESCRIPTION).get()));
         }
         if (argMultimap.getValue(PREFIX_EXPENSE_CATEGORY).isPresent()) {
-            editExpenseDescriptor.setExpenseCategory(ParserUtil.parseExpenseCategory(argMultimap.getValue(PREFIX_EXPENSE_CATEGORY).get()));
+            editExpenseDescriptor.setExpenseCategory(ParserUtil.parseExpenseCategory(
+                    argMultimap.getValue(PREFIX_EXPENSE_CATEGORY).get()));
         }
         if (argMultimap.getValue(PREFIX_AMOUNT).isPresent()) {
             editExpenseDescriptor.setAmount(ParserUtil.parseAmount(argMultimap.getValue(PREFIX_AMOUNT).get()));

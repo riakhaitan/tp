@@ -77,7 +77,8 @@ public class ExpenditureExpert implements ReadOnlyExpenditureExpert {
     /**
      * Replaces the given expense {@code target} in the list with {@code editedExpense}.
      * {@code target} must exist in the expenditure expert.
-     * The expense identity of {@code editedExpense} must not be the same as another existing expense in the expenditure expert.
+     * The expense identity of {@code editedExpense} must not be the same as another existing expense in
+     * the expenditure expert.
      */
     public void setExpense(Expense target, Expense editedExpense) {
         requireNonNull(editedExpense);

@@ -7,7 +7,9 @@ import java.util.logging.Logger;
 
 import seedu.address.commons.core.LogsCenter;
 import seedu.address.commons.exceptions.DataConversionException;
-import seedu.address.model.*;
+import seedu.address.model.ReadOnlyExpenditureExpert;
+import seedu.address.model.ReadOnlyUserPrefs;
+import seedu.address.model.UserPrefs;
 
 /**
  * Manages storage of ExpenditureExpert data in local storage.
@@ -57,7 +59,8 @@ public class StorageManager implements Storage {
     }
 
     @Override
-    public Optional<ReadOnlyExpenditureExpert> readExpenditureExpert(Path filePath) throws DataConversionException, IOException {
+    public Optional<ReadOnlyExpenditureExpert> readExpenditureExpert(Path filePath)
+            throws DataConversionException, IOException {
         logger.fine("Attempting to read data from file: " + filePath);
         return expenditureExpertStorage.readExpenditureExpert(filePath);
     }

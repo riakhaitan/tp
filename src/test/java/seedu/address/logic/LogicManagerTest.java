@@ -3,11 +3,7 @@ package seedu.address.logic;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static seedu.address.commons.core.Messages.MESSAGE_INVALID_EXPENSE_DISPLAYED_INDEX;
 import static seedu.address.commons.core.Messages.MESSAGE_UNKNOWN_COMMAND;
-import static seedu.address.logic.commands.CommandTestUtil.EXPENSE_CATEGORY_DESC_ENTERTAINMENT;
-import static seedu.address.logic.commands.CommandTestUtil.DESCRIPTION_DESC_ANNUAL_SPOTIFY;
-import static seedu.address.logic.commands.CommandTestUtil.AMOUNT_DESC_ANNUAL_SPOTIFY;
 import static seedu.address.testutil.Assert.assertThrows;
-import static seedu.address.testutil.TypicalExpenses.ANNUAL_NETFLIX_FEES;
 
 import java.io.IOException;
 import java.nio.file.Path;
@@ -16,17 +12,17 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.io.TempDir;
 
-import seedu.address.logic.commands.AddCommand;
 import seedu.address.logic.commands.CommandResult;
 import seedu.address.logic.commands.ListCommand;
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.logic.parser.exceptions.ParseException;
-import seedu.address.model.*;
-import seedu.address.model.expense.Expense;
+import seedu.address.model.Model;
+import seedu.address.model.ModelManager;
+import seedu.address.model.ReadOnlyExpenditureExpert;
+import seedu.address.model.UserPrefs;
 import seedu.address.storage.JsonExpenditureExpertStorage;
 import seedu.address.storage.JsonUserPrefsStorage;
 import seedu.address.storage.StorageManager;
-import seedu.address.testutil.ExpenseBuilder;
 
 public class LogicManagerTest {
     private static final IOException DUMMY_IO_EXCEPTION = new IOException("dummy exception");
@@ -64,13 +60,14 @@ public class LogicManagerTest {
         assertCommandSuccess(listCommand, ListCommand.MESSAGE_SUCCESS, model);
     }
 
-    //FAILED BUT DK WHETHER NEED?
+    //FAILED NEED TO CHECK AGAIN!
     /*
     @Test
     public void execute_storageThrowsIoException_throwsCommandException() {
         // Setup LogicManager with JsonExpenditureExpertIoExceptionThrowingStub
         JsonExpenditureExpertStorage expenditureExpertStorage =
-                new JsonExpenditureExpertIoExceptionThrowingStub(temporaryFolder.resolve("ioExceptionExpenditureExpert.json"));
+                new JsonExpenditureExpertIoExceptionThrowingStub(temporaryFolder
+                .resolve("ioExceptionExpenditureExpert.json"));
         JsonUserPrefsStorage userPrefsStorage =
                 new JsonUserPrefsStorage(temporaryFolder.resolve("ioExceptionUserPrefs.json"));
         StorageManager storage = new StorageManager(expenditureExpertStorage, userPrefsStorage);
@@ -85,12 +82,12 @@ public class LogicManagerTest {
         String expectedMessage = LogicManager.FILE_OPS_ERROR_MESSAGE + DUMMY_IO_EXCEPTION;
         assertCommandFailure(addCommand, CommandException.class, expectedMessage, expectedModel);
     }
+    */
 
     @Test
     public void getFilteredExpenseList_modifyList_throwsUnsupportedOperationException() {
         assertThrows(UnsupportedOperationException.class, () -> logic.getFilteredExpenseList().remove(0));
     }
-     */
 
     /**
      * Executes the command and confirms that
@@ -154,7 +151,8 @@ public class LogicManagerTest {
         }
 
         @Override
-        public void saveExpenditureExpert(ReadOnlyExpenditureExpert expenditureExpert, Path filePath) throws IOException {
+        public void saveExpenditureExpert(ReadOnlyExpenditureExpert expenditureExpert, Path filePath)
+                throws IOException {
             throw DUMMY_IO_EXCEPTION;
         }
     }

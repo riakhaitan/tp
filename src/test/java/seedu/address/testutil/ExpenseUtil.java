@@ -1,17 +1,12 @@
 package seedu.address.testutil;
 
+import static seedu.address.logic.parser.CliSyntax.PREFIX_AMOUNT;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_DESCRIPTION;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_EXPENSE_CATEGORY;
-import static seedu.address.logic.parser.CliSyntax.PREFIX_AMOUNT;
-
-import java.util.Set;
 
 import seedu.address.logic.commands.AddCommand;
 import seedu.address.logic.commands.EditCommand.EditExpenseDescriptor;
 import seedu.address.model.expense.Expense;
-import seedu.address.model.expense.ExpenseCategory;
-import seedu.address.model.expense.Description;
-import seedu.address.model.expense.Amount;
 
 /**
  * A utility class for Expense.
@@ -41,8 +36,10 @@ public class ExpenseUtil {
      */
     public static String getEditExpenseDescriptorDetails(EditExpenseDescriptor descriptor) {
         StringBuilder sb = new StringBuilder();
-        descriptor.getDescription().ifPresent(description -> sb.append(PREFIX_DESCRIPTION).append(description.description).append(" "));
-        descriptor.getExpenseCategory().ifPresent(expenseCategory -> sb.append(PREFIX_EXPENSE_CATEGORY).append(expenseCategory.expenseCategory).append(" "));
+        descriptor.getDescription().ifPresent(description -> sb.append(PREFIX_DESCRIPTION)
+                .append(description.description).append(" "));
+        descriptor.getExpenseCategory().ifPresent(expenseCategory -> sb.append(PREFIX_EXPENSE_CATEGORY)
+                .append(expenseCategory.expenseCategory).append(" "));
         descriptor.getAmount().ifPresent(amount -> sb.append(PREFIX_AMOUNT).append(amount.amount).append(" "));
         return sb.toString();
     }

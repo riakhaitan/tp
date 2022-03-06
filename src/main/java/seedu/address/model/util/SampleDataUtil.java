@@ -2,10 +2,10 @@ package seedu.address.model.util;
 
 import seedu.address.model.ExpenditureExpert;
 import seedu.address.model.ReadOnlyExpenditureExpert;
-import seedu.address.model.expense.Expense;
-import seedu.address.model.expense.Description;
-import seedu.address.model.expense.ExpenseCategory;
 import seedu.address.model.expense.Amount;
+import seedu.address.model.expense.Description;
+import seedu.address.model.expense.Expense;
+import seedu.address.model.expense.ExpenseCategory;
 
 /**
  * Contains utility methods for populating {@code ExpenditureExpert} with sample data.

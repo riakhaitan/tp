@@ -10,7 +10,6 @@ import static seedu.address.testutil.TypicalExpenses.ELECTRICAL_APPLIANCES;
 import static seedu.address.testutil.TypicalExpenses.FISHING_APPARATUS;
 import static seedu.address.testutil.TypicalExpenses.getTypicalExpenditureExpert;
 
-
 import java.util.Arrays;
 import java.util.Collections;
 

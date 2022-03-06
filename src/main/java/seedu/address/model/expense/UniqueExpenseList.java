@@ -11,7 +11,7 @@ import javafx.collections.ObservableList;
 import seedu.address.model.expense.exceptions.DuplicateExpenseException;
 import seedu.address.model.expense.exceptions.ExpenseNotFoundException;
 
-public class UniqueExpenseList implements Iterable<Expense>{
+public class UniqueExpenseList implements Iterable<Expense> {
     private final ObservableList<Expense> internalList = FXCollections.observableArrayList();
     private final ObservableList<Expense> internalUnmodifiableList =
             FXCollections.unmodifiableObservableList(internalList);

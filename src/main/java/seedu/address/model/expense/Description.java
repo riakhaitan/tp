@@ -9,6 +9,11 @@ public class Description {
 
     public final String description;
 
+    /**
+     * Construct a {@code Description}
+     *
+     * @param description to describe the expense.
+     */
     public Description(String description) {
         requireNonNull(description);
         this.description = description;

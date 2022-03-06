@@ -15,10 +15,19 @@ import seedu.address.commons.util.ConfigUtil;
 import seedu.address.commons.util.StringUtil;
 import seedu.address.logic.Logic;
 import seedu.address.logic.LogicManager;
-import seedu.address.model.*;
+import seedu.address.model.ExpenditureExpert;
+import seedu.address.model.Model;
+import seedu.address.model.ModelManager;
+import seedu.address.model.ReadOnlyExpenditureExpert;
+import seedu.address.model.ReadOnlyUserPrefs;
+import seedu.address.model.UserPrefs;
 import seedu.address.model.util.SampleDataUtil;
-import seedu.address.storage.*;
 import seedu.address.storage.ExpenditureExpertStorage;
+import seedu.address.storage.JsonExpenditureExpertStorage;
+import seedu.address.storage.JsonUserPrefsStorage;
+import seedu.address.storage.Storage;
+import seedu.address.storage.StorageManager;
+import seedu.address.storage.UserPrefsStorage;
 import seedu.address.ui.Ui;
 import seedu.address.ui.UiManager;
 
@@ -47,7 +56,8 @@ public class MainApp extends Application {
 
         UserPrefsStorage userPrefsStorage = new JsonUserPrefsStorage(config.getUserPrefsFilePath());
         UserPrefs userPrefs = initPrefs(userPrefsStorage);
-        ExpenditureExpertStorage expenditureExpertStorage = new JsonExpenditureExpertStorage(userPrefs.getExpenditureExpertFilePath());
+        ExpenditureExpertStorage expenditureExpertStorage =
+                new JsonExpenditureExpertStorage(userPrefs.getExpenditureExpertFilePath());
         storage = new StorageManager(expenditureExpertStorage, userPrefsStorage);
 
         initLogging(config);
@@ -60,9 +70,10 @@ public class MainApp extends Application {
     }
 
     /**
-     * Returns a {@code ModelManager} with the data from {@code storage}'s expenditure expert and {@code userPrefs}. <br>
-     * The data from the sample expenditure expert will be used instead if {@code storage}'s expenditure expert is not found,
-     * or an empty expenditure expert will be used instead if errors occur when reading {@code storage}'s expenditure expert.
+     * Returns a {@code ModelManager} with the data from {@code storage}'s expenditure expert
+     * and {@code userPrefs}. <br> The data from the sample expenditure expert will be used instead
+     * if {@code storage}'s expenditure expert is not found, or an empty expenditure expert will be used instead
+     * if errors occur when reading {@code storage}'s expenditure expert.
      */
     private Model initModelManager(Storage storage, ReadOnlyUserPrefs userPrefs) {
         Optional<ReadOnlyExpenditureExpert> expenditureExpertOptional;

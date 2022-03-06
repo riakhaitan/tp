@@ -1,8 +1,8 @@
 package seedu.address.model.expense;
 
-import java.util.Objects;
-
 import static seedu.address.commons.util.CollectionUtil.requireAllNonNull;
+
+import java.util.Objects;
 
 public class Expense {
     // Identity fields
@@ -32,6 +32,12 @@ public class Expense {
         return amount;
     }
 
+    /**
+     * Check if two Expense objects are the same or have the same content.
+     *
+     * @param otherExpense Expense object that is being compared to.
+     * @return true if they same or have the same content and false otherwise.
+     */
     public boolean isSameExpense(Expense otherExpense) {
         if (otherExpense == this) {
             return true;

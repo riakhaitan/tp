@@ -8,7 +8,6 @@ import static seedu.address.testutil.Assert.assertThrows;
 import static seedu.address.testutil.TypicalExpenses.ANNUAL_NETFLIX_FEES;
 import static seedu.address.testutil.TypicalExpenses.CAR_WASH;
 
-
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Arrays;

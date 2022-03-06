@@ -28,7 +28,8 @@ public interface ExpenditureExpertStorage {
     /**
      * @see #getExpenditureExpertFilePath()
      */
-    Optional<ReadOnlyExpenditureExpert> readExpenditureExpert(Path filePath) throws DataConversionException, IOException;
+    Optional<ReadOnlyExpenditureExpert> readExpenditureExpert(Path filePath)
+            throws DataConversionException, IOException;
 
     /**
      * Saves the given {@link ReadOnlyExpenditureExpert} to the storage.

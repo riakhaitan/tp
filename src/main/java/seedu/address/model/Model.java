@@ -4,8 +4,8 @@ import java.nio.file.Path;
 import java.util.function.Predicate;
 
 import javafx.collections.ObservableList;
-import seedu.address.model.expense.Expense;
 import seedu.address.commons.core.GuiSettings;
+import seedu.address.model.expense.Expense;
 
 /**
  * The API of the Model component.
@@ -72,7 +72,8 @@ public interface Model {
     /**
      * Replaces the given expense {@code target} with {@code editedExpense}.
      * {@code target} must exist in the expenditure expert.
-     * The expense identity of {@code editedExpense} must not be the same as another existing expense in the expenditure expert.
+     * The expense identity of {@code editedExpense} must not be the same as another existing expense in
+     * the expenditure expert.
      */
     void setExpense(Expense target, Expense editedExpense);
 

@@ -13,14 +13,19 @@ public class Amount {
      * converted into float for summation.
      */
     public static final String VALIDATION_REGEX =
-            "^\\$?([1-9]{1}[0-9]{0,2}(\\,[0-9]{3})*(\\.[0-9]{0,2})?|[1-9]{1}[0-9]{0,}" +
-                    "(\\.[0-9]{0,2})?|0(\\.[0-9]{0,2})?|(\\.[0-9]{1,2})?)$";
+            "^\\$?([1-9]{1}[0-9]{0,2}(\\,[0-9]{3})*(\\.[0-9]{0,2})?|[1-9]{1}[0-9]{0,}"
+                    + "(\\.[0-9]{0,2})?|0(\\.[0-9]{0,2})?|(\\.[0-9]{1,2})?)$";
 
     public static final String MESSAGE_CONSTRAINTS =
             "Amount should only contain numerical characters and decimal, in valid number format.";
 
     public final String amount;
 
+    /**
+     * Constructs a (@code Amount).
+     *
+     * @param amount A valid amount.
+     */
     public Amount(String amount) {
         requireNonNull(amount);
         checkArgument(isValidAmount(amount), MESSAGE_CONSTRAINTS);

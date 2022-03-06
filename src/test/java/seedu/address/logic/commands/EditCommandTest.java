@@ -4,15 +4,15 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static seedu.address.logic.commands.CommandTestUtil.DESC_ANNUAL_SPOTIFY_FEES;
 import static seedu.address.logic.commands.CommandTestUtil.DESC_BUILD_A_BEAR;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_AMOUNT_BUILD_A_BEAR;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_DESCRIPTION_BUILD_A_BEAR;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_EXPENSE_CATEGORY_ENTERTAINMENT;
-import static seedu.address.logic.commands.CommandTestUtil.VALID_AMOUNT_BUILD_A_BEAR;
 import static seedu.address.logic.commands.CommandTestUtil.assertCommandFailure;
 import static seedu.address.logic.commands.CommandTestUtil.assertCommandSuccess;
 import static seedu.address.logic.commands.CommandTestUtil.showExpenseAtIndex;
+import static seedu.address.testutil.TypicalExpenses.getTypicalExpenditureExpert;
 import static seedu.address.testutil.TypicalIndexes.INDEX_FIRST_EXPENSE;
 import static seedu.address.testutil.TypicalIndexes.INDEX_SECOND_EXPENSE;
-import static seedu.address.testutil.TypicalExpenses.getTypicalExpenditureExpert;
 
 import org.junit.jupiter.api.Test;
 
@@ -54,11 +54,15 @@ public class EditCommandTest {
         Expense lastExpense = model.getFilteredExpenseList().get(indexLastExpense.getZeroBased());
 
         ExpenseBuilder expenseInList = new ExpenseBuilder(lastExpense);
-        Expense editedExpense = expenseInList.withDescription(VALID_DESCRIPTION_BUILD_A_BEAR).withExpenseCategory(VALID_EXPENSE_CATEGORY_ENTERTAINMENT)
+        Expense editedExpense = expenseInList
+                .withDescription(VALID_DESCRIPTION_BUILD_A_BEAR)
+                .withExpenseCategory(VALID_EXPENSE_CATEGORY_ENTERTAINMENT)
                 .withAmount(VALID_AMOUNT_BUILD_A_BEAR).build();
 
-        EditExpenseDescriptor descriptor = new EditExpenseDescriptorBuilder().withDescription(VALID_DESCRIPTION_BUILD_A_BEAR)
-                .withExpenseCategory(VALID_EXPENSE_CATEGORY_ENTERTAINMENT).withAmount(VALID_AMOUNT_BUILD_A_BEAR).build();
+        EditExpenseDescriptor descriptor = new EditExpenseDescriptorBuilder()
+                .withDescription(VALID_DESCRIPTION_BUILD_A_BEAR)
+                .withExpenseCategory(VALID_EXPENSE_CATEGORY_ENTERTAINMENT)
+                .withAmount(VALID_AMOUNT_BUILD_A_BEAR).build();
         EditCommand editCommand = new EditCommand(indexLastExpense, descriptor);
 
         String expectedMessage = String.format(EditCommand.MESSAGE_EDIT_EXPENSE_SUCCESS, editedExpense);
@@ -86,7 +90,8 @@ public class EditCommandTest {
         showExpenseAtIndex(model, INDEX_FIRST_EXPENSE);
 
         Expense expenseInFilteredList = model.getFilteredExpenseList().get(INDEX_FIRST_EXPENSE.getZeroBased());
-        Expense editedExpense = new ExpenseBuilder(expenseInFilteredList).withDescription(VALID_DESCRIPTION_BUILD_A_BEAR).build();
+        Expense editedExpense = new ExpenseBuilder(expenseInFilteredList)
+                .withDescription(VALID_DESCRIPTION_BUILD_A_BEAR).build();
         EditCommand editCommand = new EditCommand(INDEX_FIRST_EXPENSE,
                 new EditExpenseDescriptorBuilder().withDescription(VALID_DESCRIPTION_BUILD_A_BEAR).build());
 
@@ -122,7 +127,8 @@ public class EditCommandTest {
     @Test
     public void execute_invalidExpenseIndexUnfilteredList_failure() {
         Index outOfBoundIndex = Index.fromOneBased(model.getFilteredExpenseList().size() + 1);
-        EditExpenseDescriptor descriptor = new EditExpenseDescriptorBuilder().withDescription(VALID_DESCRIPTION_BUILD_A_BEAR).build();
+        EditExpenseDescriptor descriptor = new EditExpenseDescriptorBuilder()
+                .withDescription(VALID_DESCRIPTION_BUILD_A_BEAR).build();
         EditCommand editCommand = new EditCommand(outOfBoundIndex, descriptor);
 
         assertCommandFailure(editCommand, model, Messages.MESSAGE_INVALID_EXPENSE_DISPLAYED_INDEX);

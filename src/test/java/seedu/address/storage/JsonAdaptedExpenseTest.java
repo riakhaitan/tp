@@ -5,17 +5,12 @@ import static seedu.address.storage.JsonAdaptedExpense.MISSING_FIELD_MESSAGE_FOR
 import static seedu.address.testutil.Assert.assertThrows;
 import static seedu.address.testutil.TypicalExpenses.BASEBALL_LESSON_FEES;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.stream.Collectors;
-
-
 import org.junit.jupiter.api.Test;
 
 import seedu.address.commons.exceptions.IllegalValueException;
-import seedu.address.model.expense.ExpenseCategory;
-import seedu.address.model.expense.Description;
 import seedu.address.model.expense.Amount;
+import seedu.address.model.expense.Description;
+import seedu.address.model.expense.ExpenseCategory;
 
 public class JsonAdaptedExpenseTest {
 

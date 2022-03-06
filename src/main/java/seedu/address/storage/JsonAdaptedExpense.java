@@ -1,19 +1,14 @@
 package seedu.address.storage;
 
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
-import java.util.stream.Collectors;
-
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import seedu.address.commons.exceptions.IllegalValueException;
-import seedu.address.model.expense.Expense;
-import seedu.address.model.expense.Description;
-import seedu.address.model.expense.ExpenseCategory;
 import seedu.address.model.expense.Amount;
+import seedu.address.model.expense.Description;
+import seedu.address.model.expense.Expense;
+import seedu.address.model.expense.ExpenseCategory;
+
 /**
  * Jackson-friendly version of {@link Expense}.
  */
@@ -29,7 +24,8 @@ class JsonAdaptedExpense {
      * Constructs a {@code JsonAdaptedExpense} with the given expense details.
      */
     @JsonCreator
-    public JsonAdaptedExpense(@JsonProperty("description") String description, @JsonProperty("expenseCategory") String expenseCategory,
+    public JsonAdaptedExpense(@JsonProperty("description") String description,
+                              @JsonProperty("expenseCategory") String expenseCategory,
                              @JsonProperty("email") String amount) {
         this.description = description;
         this.expenseCategory = expenseCategory;
@@ -52,12 +48,14 @@ class JsonAdaptedExpense {
      */
     public Expense toModelType() throws IllegalValueException {
         if (description == null) {
-            throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT, Description.class.getSimpleName()));
+            throw new IllegalValueException(String.format(
+                    MISSING_FIELD_MESSAGE_FORMAT, Description.class.getSimpleName()));
         }
         final Description modelDescription = new Description(description);
 
         if (expenseCategory == null) {
-            throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT, ExpenseCategory.class.getSimpleName()));
+            throw new IllegalValueException(String.format(
+                    MISSING_FIELD_MESSAGE_FORMAT, ExpenseCategory.class.getSimpleName()));
         }
         final ExpenseCategory modelExpenseCategory = new ExpenseCategory(expenseCategory);
 

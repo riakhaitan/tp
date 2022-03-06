@@ -31,7 +31,8 @@ public class JsonExpenditureExpertStorageTest {
     }
 
     private java.util.Optional<ReadOnlyExpenditureExpert> readExpenditureExpert(String filePath) throws Exception {
-        return new JsonExpenditureExpertStorage(Paths.get(filePath)).readExpenditureExpert(addToTestDataPathIfNotNull(filePath));
+        return new JsonExpenditureExpertStorage(Paths.get(filePath))
+                .readExpenditureExpert(addToTestDataPathIfNotNull(filePath));
     }
 
     private Path addToTestDataPathIfNotNull(String prefsFileInTestDataFolder) {
@@ -52,12 +53,14 @@ public class JsonExpenditureExpertStorageTest {
 
     @Test
     public void readExpenditureExpert_invalidExpenseExpenditureExpert_throwDataConversionException() {
-        assertThrows(DataConversionException.class, () -> readExpenditureExpert("invalidExpenseExpenditureExpert.json"));
+        assertThrows(DataConversionException.class, () -> readExpenditureExpert(
+                "invalidExpenseExpenditureExpert.json"));
     }
 
     @Test
     public void readExpenditureExpert_invalidAndValidExpenseExpenditureExpert_throwDataConversionException() {
-        assertThrows(DataConversionException.class, () -> readExpenditureExpert("invalidAndValidExpenseExpenditureExpert.json"));
+        assertThrows(DataConversionException.class, () -> readExpenditureExpert(
+                "invalidAndValidExpenseExpenditureExpert.json"));
     }
 
     @Test
