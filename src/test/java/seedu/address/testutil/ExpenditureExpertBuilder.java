@@ -23,7 +23,7 @@ public class ExpenditureExpertBuilder {
     /**
      * Adds a new {@code Person} to the {@code AddressBook} that we are building.
      */
-    public ExpenditureExpertBuilder withPerson(Expense expense) {
+    public ExpenditureExpertBuilder withExpense(Expense expense) {
         expenditureExpert.addExpense(expense);
         return this;
     }

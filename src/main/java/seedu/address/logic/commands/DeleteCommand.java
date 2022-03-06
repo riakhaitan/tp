@@ -8,7 +8,6 @@ import seedu.address.commons.core.Messages;
 import seedu.address.commons.core.index.Index;
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.Model;
-import seedu.address.model.person.Person;
 import seedu.address.model.expense.Expense;
 
 /**
@@ -37,7 +36,7 @@ public class DeleteCommand extends Command {
         List<Expense> lastShownList = model.getFilteredExpenseList();
 
         if (targetIndex.getZeroBased() >= lastShownList.size()) {
-            throw new CommandException(Messages.MESSAGE_INVALID_PERSON_DISPLAYED_INDEX);
+            throw new CommandException(Messages.MESSAGE_INVALID_EXPENSE_DISPLAYED_INDEX);
         }
 
         Expense expenseToDelete = lastShownList.get(targetIndex.getZeroBased());

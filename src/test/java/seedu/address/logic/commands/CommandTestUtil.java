@@ -54,22 +54,24 @@ public class CommandTestUtil {
     public static final String INVALID_TAG_DESC = " " + PREFIX_TAG + "hubby*"; // '*' not allowed in tags
 
     public static final String PREAMBLE_WHITESPACE = "\t  \r  \n";
-    public static final String PREAMBLE_NON_EMPTY = "NonEmptyPreamble";
     */
+    public static final String PREAMBLE_NON_EMPTY = "NonEmptyPreamble";
     public static final String VALID_DESCRIPTION_ANNUAL_SPOTIFY = "Annual Spotify Fees";
     public static final String VALID_DESCRIPTION_BUILD_A_BEAR = "Build a Bear Workshop";
     public static final String VALID_EXPENSE_CATEGORY_ENTERTAINMENT= "Entertainment";
     public static final String VALID_AMOUNT_ANNUAL_SPOTIFY = "200";
     public static final String VALID_AMOUNT_BUILD_A_BEAR = "80";
 
-    public static final String VALID_DESCRIPTION_DESC_ANNUAL_SPOTIFY = " " + PREFIX_DESCRIPTION + VALID_DESCRIPTION_ANNUAL_SPOTIFY;
-    public static final String VALID_DESCRIPTION_DESC_BUILD_A_BEAR = " " + PREFIX_DESCRIPTION + VALID_DESCRIPTION_BUILD_A_BEAR;
-    public static final String VALID_EXPENSE_CATEGORY_DESC_ENTERTAINMENT = " " + PREFIX_EXPENSE_CATEGORY + VALID_EXPENSE_CATEGORY_ENTERTAINMENT;
-    public static final String VALID_AMOUNT_DESC_ANNUAL_SPOTIFY = " " + PREFIX_AMOUNT + VALID_AMOUNT_ANNUAL_SPOTIFY;
-    public static final String VALID_AMOUNT_DESC_BUILD_A_BEAR = " " + PREFIX_AMOUNT + VALID_AMOUNT_BUILD_A_BEAR;
+    public static final String DESCRIPTION_DESC_ANNUAL_SPOTIFY = " " + PREFIX_DESCRIPTION + VALID_DESCRIPTION_ANNUAL_SPOTIFY;
+    public static final String DESCRIPTION_DESC_BUILD_A_BEAR = " " + PREFIX_DESCRIPTION + VALID_DESCRIPTION_BUILD_A_BEAR;
+    public static final String EXPENSE_CATEGORY_DESC_ENTERTAINMENT = " " + PREFIX_EXPENSE_CATEGORY + VALID_EXPENSE_CATEGORY_ENTERTAINMENT;
+    public static final String AMOUNT_DESC_ANNUAL_SPOTIFY = " " + PREFIX_AMOUNT + VALID_AMOUNT_ANNUAL_SPOTIFY;
+    public static final String AMOUNT_DESC_BUILD_A_BEAR = " " + PREFIX_AMOUNT + VALID_AMOUNT_BUILD_A_BEAR;
 
     public static final EditCommand.EditExpenseDescriptor DESC_ANNUAL_SPOTIFY_FEES;
     public static final EditCommand.EditExpenseDescriptor DESC_BUILD_A_BEAR;
+
+    public static final String INVALID_AMOUNT_DESC = " " + PREFIX_AMOUNT + "2!";
 
     static {
         DESC_ANNUAL_SPOTIFY_FEES = new EditExpenseDescriptorBuilder()

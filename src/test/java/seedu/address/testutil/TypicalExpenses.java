@@ -1,17 +1,13 @@
 package seedu.address.testutil;
 
-import static seedu.address.logic.commands.CommandTestUtil.VALID_DESCRIPTION_ANNUAL_SPOTIFY;
-import static seedu.address.logic.commands.CommandTestUtil.VALID_DESCRIPTION_BUILD_A_BEAR;
-import static seedu.address.logic.commands.CommandTestUtil.VALID_EXPENSE_CATEGORY_DESC_ENTERTAINMENT;
-import static seedu.address.logic.commands.CommandTestUtil.VALID_AMOUNT_ANNUAL_SPOTIFY;
-import static seedu.address.logic.commands.CommandTestUtil.VALID_AMOUNT_BUILD_A_BEAR;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
 import seedu.address.model.ExpenditureExpert;
 import seedu.address.model.expense.Expense;
+
+import static seedu.address.logic.commands.CommandTestUtil.*;
 
 /**
  * A utility class containing a list of {@code Person} objects to be used in tests.
@@ -73,10 +69,10 @@ public class TypicalExpenses {
             .withExpenseCategory("Bills").withAmount("69").build();
 
     public static final Expense ANNUAL_SPOTIFY = new ExpenseBuilder().withDescription(VALID_DESCRIPTION_ANNUAL_SPOTIFY)
-            .withExpenseCategory(VALID_EXPENSE_CATEGORY_DESC_ENTERTAINMENT)
+            .withExpenseCategory(VALID_EXPENSE_CATEGORY_ENTERTAINMENT)
             .withAmount(VALID_AMOUNT_ANNUAL_SPOTIFY).build();
     public static final Expense BUILD_A_BEAR = new ExpenseBuilder().withDescription(VALID_DESCRIPTION_BUILD_A_BEAR)
-            .withExpenseCategory(VALID_EXPENSE_CATEGORY_DESC_ENTERTAINMENT)
+            .withExpenseCategory(VALID_EXPENSE_CATEGORY_ENTERTAINMENT)
             .withAmount(VALID_AMOUNT_BUILD_A_BEAR).build();
 
 

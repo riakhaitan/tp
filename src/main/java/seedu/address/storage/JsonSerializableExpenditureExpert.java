@@ -14,7 +14,7 @@ import seedu.address.model.ReadOnlyExpenditureExpert;
 import seedu.address.model.expense.Expense;
 
 /**
- * An Immutable AddressBook that is serializable to JSON format.
+ * An Immutable ExpenditureExpert that is serializable to JSON format.
  */
 @JsonRootName(value = "expenditureexpert")
 class JsonSerializableExpenditureExpert {
@@ -24,7 +24,7 @@ class JsonSerializableExpenditureExpert {
     private final List<JsonAdaptedExpense> expenses = new ArrayList<>();
 
     /**
-     * Constructs a {@code JsonSerializableAddressBook} with the given persons.
+     * Constructs a {@code JsonSerializableExpenditureExpert} with the given persons.
      */
     @JsonCreator
     public JsonSerializableExpenditureExpert(@JsonProperty("expenses") List<JsonAdaptedExpense> expenses) {
@@ -32,12 +32,12 @@ class JsonSerializableExpenditureExpert {
     }
 
     /**
-     * Converts a given {@code ReadOnlyAddressBook} into this class for Jackson use.
+     * Converts a given {@code ReadOnlyExpenditureExpert} into this class for Jackson use.
      *
-     * @param source future changes to this will not affect the created {@code JsonSerializableAddressBook}.
+     * @param source future changes to this will not affect the created {@code JsonSerializableExpenditureExpert}.
      */
     public JsonSerializableExpenditureExpert(ReadOnlyExpenditureExpert source) {
-        expenses.addAll(source.getExpenseList().stream().map(JsonAdaptedExpenditureExpert::new).collect(Collectors.toList()));
+        expenses.addAll(source.getExpenseList().stream().map(JsonAdaptedExpense::new).collect(Collectors.toList()));
     }
 
     /**

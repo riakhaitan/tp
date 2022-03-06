@@ -4,7 +4,6 @@ import static java.util.Objects.requireNonNull;
 
 import seedu.address.commons.core.Messages;
 import seedu.address.model.Model;
-import seedu.address.model.expense.Description;
 import seedu.address.model.expense.DescriptionContainsKeywordsPredicate;
 
 /**
@@ -31,7 +30,7 @@ public class FindCommand extends Command {
         requireNonNull(model);
         model.updateFilteredExpenseList(predicate);
         return new CommandResult(
-                String.format(Messages.MESSAGE_PERSONS_LISTED_OVERVIEW, model.getFilteredExpenseList().size()));
+                String.format(Messages.MESSAGE_EXPENSES_LISTED_OVERVIEW, model.getFilteredExpenseList().size()));
     }
 
     @Override

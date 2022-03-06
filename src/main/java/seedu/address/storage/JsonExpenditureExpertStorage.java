@@ -12,7 +12,6 @@ import seedu.address.commons.exceptions.DataConversionException;
 import seedu.address.commons.exceptions.IllegalValueException;
 import seedu.address.commons.util.FileUtil;
 import seedu.address.commons.util.JsonUtil;
-import seedu.address.model.ReadOnlyAddressBook;
 import seedu.address.model.ReadOnlyExpenditureExpert;
 
 /**
@@ -20,7 +19,7 @@ import seedu.address.model.ReadOnlyExpenditureExpert;
  */
 public class JsonExpenditureExpertStorage implements ExpenditureExpertStorage {
 
-    private static final Logger logger = LogsCenter.getLogger(JsonAddressBookStorage.class);
+    private static final Logger logger = LogsCenter.getLogger(JsonExpenditureExpertStorage.class);
 
     private Path filePath;
 
@@ -28,7 +27,7 @@ public class JsonExpenditureExpertStorage implements ExpenditureExpertStorage {
         this.filePath = filePath;
     }
 
-    public Path getExpenditureExpertPath() {
+    public Path getExpenditureExpertFilePath() {
         return filePath;
     }
 

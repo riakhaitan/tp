@@ -8,9 +8,8 @@ import java.util.List;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import seedu.address.model.person.exceptions.DuplicateExpenseException;
-import seedu.address.model.person.exceptions.DuplicatePersonException;
-import seedu.address.model.person.exceptions.ExpenseNotFoundException;
+import seedu.address.model.expense.exceptions.DuplicateExpenseException;
+import seedu.address.model.expense.exceptions.ExpenseNotFoundException;
 
 public class UniqueExpenseList implements Iterable<Expense>{
     private final ObservableList<Expense> internalList = FXCollections.observableArrayList();
@@ -51,7 +50,7 @@ public class UniqueExpenseList implements Iterable<Expense>{
         }
 
         if (!target.isSameExpense(editedExpense) && contains(editedExpense)) {
-            throw new DuplicatePersonException();
+            throw new DuplicateExpenseException();
         }
 
         internalList.set(index, editedExpense);

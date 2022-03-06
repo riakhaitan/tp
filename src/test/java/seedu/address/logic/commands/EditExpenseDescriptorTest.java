@@ -33,7 +33,7 @@ public class EditExpenseDescriptorTest {
         assertFalse(DESC_ANNUAL_SPOTIFY_FEES.equals(DESC_BUILD_A_BEAR));
 
         // different name -> returns false
-        EditExpenseDescriptor editedAnnualNetflix = new EditExpenseDescriptorBuilder(DESC_ANNUAL_SPOTIFY_FEES).withName(VALID_DESCRIPTION_BUILD_A_BEAR).build();
+        EditExpenseDescriptor editedAnnualNetflix = new EditExpenseDescriptorBuilder(DESC_ANNUAL_SPOTIFY_FEES).withDescription(VALID_DESCRIPTION_BUILD_A_BEAR).build();
         assertFalse(DESC_ANNUAL_SPOTIFY_FEES.equals(editedAnnualNetflix));
 
         // different phone -> returns false
