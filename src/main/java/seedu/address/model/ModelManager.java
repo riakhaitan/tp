@@ -14,7 +14,7 @@ import seedu.address.commons.core.LogsCenter;
 import seedu.address.model.expense.Expense;
 
 /**
- * Represents the in-memory model of the address book data.
+ * Represents the in-memory model of the expenditure expert data.
  */
 public class ModelManager implements Model {
     private static final Logger logger = LogsCenter.getLogger(ModelManager.class);
@@ -24,12 +24,12 @@ public class ModelManager implements Model {
     private final FilteredList<Expense> filteredExpenses;
 
     /**
-     * Initializes a ModelManager with the given addressBook and userPrefs.
+     * Initializes a ModelManager with the given expenditureExpert and userPrefs.
      */
     public ModelManager(ReadOnlyExpenditureExpert expenditureExpert, ReadOnlyUserPrefs userPrefs) {
         requireAllNonNull(expenditureExpert, userPrefs);
 
-        logger.fine("Initializing with address book: " + expenditureExpert + " and user prefs " + userPrefs);
+        logger.fine("Initializing with expenditure expert: " + expenditureExpert + " and user prefs " + userPrefs);
 
         this.expenditureExpert = new ExpenditureExpert(expenditureExpert);
         this.userPrefs = new UserPrefs(userPrefs);
@@ -70,12 +70,12 @@ public class ModelManager implements Model {
     }
 
     @Override
-    public void setExpenditureExpertFilePath(Path addressBookFilePath) {
-        requireNonNull(addressBookFilePath);
-        userPrefs.setExpenditureExpertFilePath(addressBookFilePath);
+    public void setExpenditureExpertFilePath(Path expenditureExpertFilePath) {
+        requireNonNull(expenditureExpertFilePath);
+        userPrefs.setExpenditureExpertFilePath(expenditureExpertFilePath);
     }
 
-    //=========== AddressBook ================================================================================
+    //=========== ExpenditureExpert ================================================================================
 
     @Override
     public void setExpenditureExpert(ReadOnlyExpenditureExpert expenditureExpert) {

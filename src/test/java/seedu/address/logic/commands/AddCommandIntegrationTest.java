@@ -26,7 +26,7 @@ public class AddCommandIntegrationTest {
     }
 
     @Test
-    public void execute_newPerson_success() {
+    public void execute_newExpense_success() {
         Expense validExpense = new ExpenseBuilder().build();
 
         Model expectedModel = new ModelManager(model.getExpenditureExpert(), new UserPrefs());
@@ -37,9 +37,9 @@ public class AddCommandIntegrationTest {
     }
 
     @Test
-    public void execute_duplicatePerson_throwsCommandException() {
-        Expense personInList = model.getExpenditureExpert().getExpenseList().get(0);
-        assertCommandFailure(new AddCommand(personInList), model, AddCommand.MESSAGE_DUPLICATE_EXPENSE);
+    public void execute_duplicateExpense_throwsCommandException() {
+        Expense expenseInList = model.getExpenditureExpert().getExpenseList().get(0);
+        assertCommandFailure(new AddCommand(expenseInList), model, AddCommand.MESSAGE_DUPLICATE_EXPENSE);
     }
 
 }

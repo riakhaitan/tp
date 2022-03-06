@@ -61,35 +61,35 @@ public class ModelManagerTest {
     }
 
     @Test
-    public void setAddressBookFilePath_nullPath_throwsNullPointerException() {
+    public void setExpenditureExpertFilePath_nullPath_throwsNullPointerException() {
         assertThrows(NullPointerException.class, () -> modelManager.setExpenditureExpertFilePath(null));
     }
 
     @Test
-    public void setAddressBookFilePath_validPath_setsAddressBookFilePath() {
+    public void setExpenditureExpertFilePath_validPath_setsExpenditureExpertFilePath() {
         Path path = Paths.get("address/book/file/path");
         modelManager.setExpenditureExpertFilePath(path);
         assertEquals(path, modelManager.getExpenditureExpertFilePath());
     }
 
     @Test
-    public void hasPerson_nullPerson_throwsNullPointerException() {
+    public void hasExpense_nullExpense_throwsNullPointerException() {
         assertThrows(NullPointerException.class, () -> modelManager.hasExpense(null));
     }
 
     @Test
-    public void hasPerson_personNotInAddressBook_returnsFalse() {
+    public void hasExpense_expenseNotInExpenditureExpert_returnsFalse() {
         assertFalse(modelManager.hasExpense(ANNUAL_NETFLIX_FEES));
     }
 
     @Test
-    public void hasPerson_personInAddressBook_returnsTrue() {
+    public void hasExpense_expenseInExpenditureExpert_returnsTrue() {
         modelManager.addExpense(ANNUAL_NETFLIX_FEES);
         assertTrue(modelManager.hasExpense(ANNUAL_NETFLIX_FEES));
     }
 
     @Test
-    public void getFilteredPersonList_modifyList_throwsUnsupportedOperationException() {
+    public void getFilteredExpenseList_modifyList_throwsUnsupportedOperationException() {
         assertThrows(UnsupportedOperationException.class, () -> modelManager.getFilteredExpenseList().remove(0));
     }
 
@@ -104,6 +104,7 @@ public class ModelManagerTest {
         modelManager = new ModelManager(expenditureExpert, userPrefs);
         ModelManager modelManagerCopy = new ModelManager(expenditureExpert, userPrefs);
         assertTrue(modelManager.equals(modelManagerCopy));
+
 
         // same object -> returns true
         assertTrue(modelManager.equals(modelManager));

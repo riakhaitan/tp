@@ -6,7 +6,7 @@ import seedu.address.model.expense.ExpenseCategory;
 import seedu.address.model.expense.Amount;
 
 /**
- * A utility class to help with building Person objects.
+ * A utility class to help with building Expense objects.
  */
 public class ExpenseBuilder {
 
@@ -19,7 +19,7 @@ public class ExpenseBuilder {
     private Amount amount;
 
     /**
-     * Creates a {@code PersonBuilder} with the default details.
+     * Creates a {@code ExpenseBuilder} with the default details.
      */
     public ExpenseBuilder() {
         description = new Description(DEFAULT_DESCRIPTION);
@@ -28,7 +28,7 @@ public class ExpenseBuilder {
     }
 
     /**
-     * Initializes the PersonBuilder with the data of {@code personToCopy}.
+     * Initializes the ExpenseBuilder with the data of {@code expenseToCopy}.
      */
     public ExpenseBuilder(Expense expenseToCopy) {
         description = expenseToCopy.getDescription();
@@ -53,7 +53,7 @@ public class ExpenseBuilder {
     }
 
     /**
-     * Sets the {@code Amount} of the {@code Person} that we are building.
+     * Sets the {@code Amount} of the {@code Expense} that we are building.
      */
     public ExpenseBuilder withAmount(String amount) {
         this.amount = new Amount(amount);

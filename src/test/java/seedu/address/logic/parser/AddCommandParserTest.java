@@ -21,15 +21,15 @@ public class AddCommandParserTest {
 
     @Test
     public void parse_allFieldsPresent_success() {
-        Expense expectedPerson = new ExpenseBuilder(BUILD_A_BEAR).build();
+        Expense expectedExpense = new ExpenseBuilder(BUILD_A_BEAR).build();
 
         // multiple descriptions - last description accepted
         assertParseSuccess(parser, DESCRIPTION_DESC_ANNUAL_SPOTIFY + DESCRIPTION_DESC_BUILD_A_BEAR
-                + EXPENSE_CATEGORY_DESC_ENTERTAINMENT + AMOUNT_DESC_BUILD_A_BEAR, new AddCommand(expectedPerson));
+                + EXPENSE_CATEGORY_DESC_ENTERTAINMENT + AMOUNT_DESC_BUILD_A_BEAR, new AddCommand(expectedExpense));
 
         // multiple amounts - last amount accepted
         assertParseSuccess(parser, DESCRIPTION_DESC_BUILD_A_BEAR + EXPENSE_CATEGORY_DESC_ENTERTAINMENT
-                + AMOUNT_DESC_ANNUAL_SPOTIFY + AMOUNT_DESC_BUILD_A_BEAR, new AddCommand(expectedPerson));
+                + AMOUNT_DESC_ANNUAL_SPOTIFY + AMOUNT_DESC_BUILD_A_BEAR, new AddCommand(expectedExpense));
     }
 
 

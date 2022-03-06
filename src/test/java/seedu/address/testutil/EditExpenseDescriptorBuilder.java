@@ -9,7 +9,7 @@ import seedu.address.model.expense.ExpenseCategory;
 import seedu.address.model.expense.Amount;
 
 /**
- * A utility class to help with building EditPersonDescriptor objects.
+ * A utility class to help with building EditExpenseDescriptor objects.
  */
 public class EditExpenseDescriptorBuilder {
 
@@ -24,7 +24,7 @@ public class EditExpenseDescriptorBuilder {
     }
 
     /**
-     * Returns an {@code EditPersonDescriptor} with fields containing {@code person}'s details
+     * Returns an {@code EditExpenseDescriptor} with fields containing {@code expense}'s details
      */
     public EditExpenseDescriptorBuilder(Expense expense) {
         descriptor = new EditExpenseDescriptor();

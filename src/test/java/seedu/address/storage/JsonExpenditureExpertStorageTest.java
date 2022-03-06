@@ -51,18 +51,18 @@ public class JsonExpenditureExpertStorageTest {
     }
 
     @Test
-    public void readExpenditureExpert_invalidPersonAddressBook_throwDataConversionException() {
+    public void readExpenditureExpert_invalidExpenseExpenditureExpert_throwDataConversionException() {
         assertThrows(DataConversionException.class, () -> readExpenditureExpert("invalidExpenseExpenditureExpert.json"));
     }
 
     @Test
-    public void readExpenditureExpert_invalidAndValidPersonAddressBook_throwDataConversionException() {
+    public void readExpenditureExpert_invalidAndValidExpenseExpenditureExpert_throwDataConversionException() {
         assertThrows(DataConversionException.class, () -> readExpenditureExpert("invalidAndValidExpenseExpenditureExpert.json"));
     }
 
     @Test
     public void readAndSaveExpenditureExpert_allInOrder_success() throws Exception {
-        Path filePath = testFolder.resolve("TempAddressBook.json");
+        Path filePath = testFolder.resolve("TempExpenditureExpert.json");
         ExpenditureExpert original = getTypicalExpenditureExpert();
         JsonExpenditureExpertStorage jsonExpenditureExpertStorage = new JsonExpenditureExpertStorage(filePath);
 
@@ -92,7 +92,7 @@ public class JsonExpenditureExpertStorageTest {
     }
 
     /**
-     * Saves {@code addressBook} at the specified {@code filePath}.
+     * Saves {@code expenditureExpert} at the specified {@code filePath}.
      */
     private void saveExpenditureExpert(ReadOnlyExpenditureExpert expenditureExpert, String filePath) {
         try {

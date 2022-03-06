@@ -18,7 +18,7 @@ public class ExpenseCategory {
     @Override
     public boolean equals(Object other) {
         return other == this // short circuit if same object
-                || (other instanceof Description // instanceof handles nulls
+                || (other instanceof ExpenseCategory // instanceof handles nulls
                 && expenseCategory.equals(((ExpenseCategory) other).expenseCategory)); // state check
     }
 

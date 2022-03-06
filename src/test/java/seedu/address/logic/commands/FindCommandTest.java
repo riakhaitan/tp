@@ -6,8 +6,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import static seedu.address.commons.core.Messages.MESSAGE_EXPENSES_LISTED_OVERVIEW;
 import static seedu.address.logic.commands.CommandTestUtil.assertCommandSuccess;
 import static seedu.address.testutil.TypicalExpenses.CAR_WASH;
-import static seedu.address.testutil.TypicalExpenses.ELECTRICAL_APPLIANCES;
-import static seedu.address.testutil.TypicalExpenses.FISHING_APPARATUS;
+import static seedu.address.testutil.TypicalExpenses.ELECTRONIC_CAR_WASH;
 import static seedu.address.testutil.TypicalExpenses.getTypicalExpenditureExpert;
 
 import java.util.Arrays;
@@ -50,12 +49,12 @@ public class FindCommandTest {
         // null -> returns false
         assertFalse(findFirstCommand.equals(null));
 
-        // different person -> returns false
+        // different expense -> returns false
         assertFalse(findFirstCommand.equals(findSecondCommand));
     }
 
     @Test
-    public void execute_zeroKeywords_noPersonFound() {
+    public void execute_zeroKeywords_noExpenseFound() {
         String expectedMessage = String.format(MESSAGE_EXPENSES_LISTED_OVERVIEW, 0);
         DescriptionContainsKeywordsPredicate predicate = preparePredicate(" ");
         FindCommand command = new FindCommand(predicate);
@@ -65,13 +64,13 @@ public class FindCommandTest {
     }
 
     @Test
-    public void execute_multipleKeywords_multiplePersonsFound() {
+    public void execute_multipleKeywords_multipleExpensesFound() {
         String expectedMessage = String.format(MESSAGE_EXPENSES_LISTED_OVERVIEW, 3);
-        DescriptionContainsKeywordsPredicate predicate = preparePredicate("Kurz Elle Kunz");
+        DescriptionContainsKeywordsPredicate predicate = preparePredicate("Car Wash");
         FindCommand command = new FindCommand(predicate);
         expectedModel.updateFilteredExpenseList(predicate);
         assertCommandSuccess(command, model, expectedMessage, expectedModel);
-        assertEquals(Arrays.asList(CAR_WASH, ELECTRICAL_APPLIANCES, FISHING_APPARATUS), model.getFilteredExpenseList());
+        assertEquals(Arrays.asList(CAR_WASH, ELECTRONIC_CAR_WASH), model.getFilteredExpenseList());
     }
 
     /**

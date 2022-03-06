@@ -19,14 +19,14 @@ import seedu.address.model.expense.Amount;
 public class ExpenseUtil {
 
     /**
-     * Returns an add command string for adding the {@code person}.
+     * Returns an add command string for adding the {@code expense}.
      */
     public static String getAddCommand(Expense expense) {
         return AddCommand.COMMAND_WORD + " " + getExpenseDetails(expense);
     }
 
     /**
-     * Returns the part of command string for the given {@code person}'s details.
+     * Returns the part of command string for the given {@code expense}'s details.
      */
     public static String getExpenseDetails(Expense expense) {
         StringBuilder sb = new StringBuilder();
@@ -37,7 +37,7 @@ public class ExpenseUtil {
     }
 
     /**
-     * Returns the part of command string for the given {@code EditPersonDescriptor}'s details.
+     * Returns the part of command string for the given {@code EditExpenseDescriptor}'s details.
      */
     public static String getEditExpenseDescriptorDetails(EditExpenseDescriptor descriptor) {
         StringBuilder sb = new StringBuilder();

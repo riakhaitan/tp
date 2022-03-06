@@ -18,7 +18,7 @@ import seedu.address.model.expense.ExpenseCategory;
 import seedu.address.model.expense.Amount;
 
 /**
- * Edits the details of an existing person in the address book.
+ * Edits the details of an existing expense in the expenditure expert.
  */
 public class EditCommand extends Command {
 

@@ -10,7 +10,7 @@ import seedu.address.commons.exceptions.DataConversionException;
 import seedu.address.model.*;
 
 /**
- * Manages storage of AddressBook data in local storage.
+ * Manages storage of ExpenditureExpert data in local storage.
  */
 public class StorageManager implements Storage {
 
@@ -19,7 +19,7 @@ public class StorageManager implements Storage {
     private UserPrefsStorage userPrefsStorage;
 
     /**
-     * Creates a {@code StorageManager} with the given {@code AddressBookStorage} and {@code UserPrefStorage}.
+     * Creates a {@code StorageManager} with the given {@code ExpenditureExpertStorage} and {@code UserPrefStorage}.
      */
     public StorageManager(ExpenditureExpertStorage expenditureExpertStorage, UserPrefsStorage userPrefsStorage) {
         this.expenditureExpertStorage = expenditureExpertStorage;
@@ -44,7 +44,7 @@ public class StorageManager implements Storage {
     }
 
 
-    // ================ AddressBook methods ==============================
+    // ================ ExpenditureExpert methods ==============================
 
     @Override
     public Path getExpenditureExpertFilePath() {

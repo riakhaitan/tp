@@ -8,7 +8,7 @@ import seedu.address.model.Model;
 import seedu.address.model.expense.Expense;
 
 /**
- * Adds a person to the address book.
+ * Adds a expense to the expenditure expert.
  */
 public class AddCommand extends Command {
 
@@ -30,7 +30,7 @@ public class AddCommand extends Command {
     private final Expense toAdd;
 
     /**
-     * Creates an AddCommand to add the specified {@code Person}
+     * Creates an AddCommand to add the specified {@code Expense}
      */
     public AddCommand(Expense expense) {
         requireNonNull(expense);

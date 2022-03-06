@@ -26,7 +26,7 @@ class JsonAdaptedExpense {
     private final String amount;
 
     /**
-     * Constructs a {@code JsonAdaptedPerson} with the given person details.
+     * Constructs a {@code JsonAdaptedExpense} with the given expense details.
      */
     @JsonCreator
     public JsonAdaptedExpense(@JsonProperty("description") String description, @JsonProperty("expenseCategory") String expenseCategory,
@@ -46,9 +46,9 @@ class JsonAdaptedExpense {
     }
 
     /**
-     * Converts this Jackson-friendly adapted person object into the model's {@code Person} object.
+     * Converts this Jackson-friendly adapted expense object into the model's {@code Expense} object.
      *
-     * @throws IllegalValueException if there were any data constraints violated in the adapted person.
+     * @throws IllegalValueException if there were any data constraints violated in the adapted expense.
      */
     public Expense toModelType() throws IllegalValueException {
         if (description == null) {

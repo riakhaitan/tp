@@ -37,9 +37,9 @@ public class UniqueExpenseList implements Iterable<Expense>{
     }
 
     /**
-     * Replaces the expense {@code target} in the list with {@code editedPerson}.
+     * Replaces the expense {@code target} in the list with {@code editedExpense}.
      * {@code target} must exist in the list.
-     * The person identity of {@code editedPerson} must not be the same as another existing person in the list.
+     * The expense identity of {@code editedExpense} must not be the same as another existing expense in the list.
      */
     public void setExpense(Expense target, Expense editedExpense) {
         requireAllNonNull(target, editedExpense);
@@ -74,7 +74,7 @@ public class UniqueExpenseList implements Iterable<Expense>{
 
     /**
      * Replaces the contents of this list with {@code expenses}.
-     * {@code expenses} must not contain duplicate persons.
+     * {@code expenses} must not contain duplicate expenses.
      */
     public void setExpenses(List<Expense> expenses) {
         requireAllNonNull(expenses);
@@ -110,7 +110,7 @@ public class UniqueExpenseList implements Iterable<Expense>{
     }
 
     /**
-     * Returns true if {@code persons} contains only unique persons.
+     * Returns true if {@code expenses} contains only unique expenses.
      */
     private boolean expensesAreUnique(List<Expense> expenses) {
         for (int i = 0; i < expenses.size() - 1; i++) {

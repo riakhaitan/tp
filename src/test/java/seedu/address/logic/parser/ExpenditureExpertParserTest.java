@@ -31,7 +31,7 @@ import seedu.address.testutil.ExpenseUtil;
 
 public class ExpenditureExpertParserTest {
 
-    private final AddressBookParser parser = new AddressBookParser();
+    private final ExpenditureExpertParser parser = new ExpenditureExpertParser();
 
     @Test
     public void parseCommand_add() throws Exception {

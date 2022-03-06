@@ -49,8 +49,8 @@ public class StorageManagerTest {
     public void expenditureExpertReadSave() throws Exception {
         /*
          * Note: This is an integration test that verifies the StorageManager is properly wired to the
-         * {@link JsonAddressBookStorage} class.
-         * More extensive testing of UserPref saving/reading is done in {@link JsonAddressBookStorageTest} class.
+         * {@link JsonExpenditureExpertStorage} class.
+         * More extensive testing of UserPref saving/reading is done in {@link JsonExpenditureExpertStorageTest} class.
          */
         ExpenditureExpert original = getTypicalExpenditureExpert();
         storageManager.saveExpenditureExpert(original);

@@ -24,7 +24,7 @@ class JsonSerializableExpenditureExpert {
     private final List<JsonAdaptedExpense> expenses = new ArrayList<>();
 
     /**
-     * Constructs a {@code JsonSerializableExpenditureExpert} with the given persons.
+     * Constructs a {@code JsonSerializableExpenditureExpert} with the given expenses.
      */
     @JsonCreator
     public JsonSerializableExpenditureExpert(@JsonProperty("expenses") List<JsonAdaptedExpense> expenses) {

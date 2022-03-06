@@ -2,11 +2,11 @@ package seedu.address.logic.parser;
 
 import static seedu.address.commons.core.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
 
-import static seedu.address.logic.commands.CommandTestUtil.DESC_BUILD_A_BEAR;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_DESCRIPTION_BUILD_A_BEAR;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_AMOUNT_BUILD_A_BEAR;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_EXPENSE_CATEGORY_ENTERTAINMENT;
 import static seedu.address.logic.commands.CommandTestUtil.DESCRIPTION_DESC_ANNUAL_SPOTIFY;
+import static seedu.address.logic.commands.CommandTestUtil.DESCRIPTION_DESC_BUILD_A_BEAR;
 import static seedu.address.logic.commands.CommandTestUtil.AMOUNT_DESC_ANNUAL_SPOTIFY;
 import static seedu.address.logic.commands.CommandTestUtil.AMOUNT_DESC_BUILD_A_BEAR;
 import static seedu.address.logic.commands.CommandTestUtil.EXPENSE_CATEGORY_DESC_ENTERTAINMENT;
@@ -92,6 +92,7 @@ public class EditCommandParserTest {
 
     @Test
     public void parse_oneFieldSpecified_success() {
+
         // description
         Index targetIndex = INDEX_THIRD_EXPENSE;
         String userInput = targetIndex.getOneBased() + DESCRIPTION_DESC_ANNUAL_SPOTIFY;
@@ -102,12 +103,13 @@ public class EditCommandParserTest {
 
         // expense category
         userInput = targetIndex.getOneBased() + EXPENSE_CATEGORY_DESC_ENTERTAINMENT;
-        descriptor = new EditExpenseDescriptorBuilder().withDescription(VALID_EXPENSE_CATEGORY_ENTERTAINMENT).build();
+        descriptor = new EditExpenseDescriptorBuilder().withExpenseCategory(VALID_EXPENSE_CATEGORY_ENTERTAINMENT).build();
         expectedCommand = new EditCommand(targetIndex, descriptor);
         assertParseSuccess(parser, userInput, expectedCommand);
 
+
         // amount
-        userInput = targetIndex.getOneBased() + VALID_AMOUNT_ANNUAL_SPOTIFY;
+        userInput = targetIndex.getOneBased() + AMOUNT_DESC_ANNUAL_SPOTIFY;
         descriptor = new EditExpenseDescriptorBuilder().withAmount(VALID_AMOUNT_ANNUAL_SPOTIFY).build();
         expectedCommand = new EditCommand(targetIndex, descriptor);
         assertParseSuccess(parser, userInput, expectedCommand);
@@ -117,9 +119,12 @@ public class EditCommandParserTest {
     public void parse_multipleRepeatedFields_acceptsLast() {
         Index targetIndex = INDEX_FIRST_EXPENSE;
         String userInput = targetIndex.getOneBased() + AMOUNT_DESC_BUILD_A_BEAR + AMOUNT_DESC_ANNUAL_SPOTIFY
-                + AMOUNT_DESC_BUILD_A_BEAR + DESCRIPTION_DESC_ANNUAL_SPOTIFY + DESC_BUILD_A_BEAR;
+                + EXPENSE_CATEGORY_DESC_ENTERTAINMENT
+                + AMOUNT_DESC_BUILD_A_BEAR + DESCRIPTION_DESC_ANNUAL_SPOTIFY + DESCRIPTION_DESC_BUILD_A_BEAR;
 
-        EditExpenseDescriptor descriptor = new EditExpenseDescriptorBuilder().withDescription(VALID_DESCRIPTION_BUILD_A_BEAR)
+        EditExpenseDescriptor descriptor = new EditExpenseDescriptorBuilder()
+                .withDescription(VALID_DESCRIPTION_BUILD_A_BEAR)
+                .withExpenseCategory(VALID_EXPENSE_CATEGORY_ENTERTAINMENT)
                 .withAmount(VALID_AMOUNT_BUILD_A_BEAR).build();
         EditCommand expectedCommand = new EditCommand(targetIndex, descriptor);
 

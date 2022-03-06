@@ -26,12 +26,12 @@ import seedu.address.testutil.ExpenseBuilder;
 public class AddCommandTest {
 
     @Test
-    public void constructor_nullPerson_throwsNullPointerException() {
+    public void constructor_nullExpense_throwsNullPointerException() {
         assertThrows(NullPointerException.class, () -> new AddCommand(null));
     }
 
     @Test
-    public void execute_personAcceptedByModel_addSuccessful() throws Exception {
+    public void execute_expenseAcceptedByModel_addSuccessful() throws Exception {
         ModelStubAcceptingExpenseAdded modelStub = new ModelStubAcceptingExpenseAdded();
         Expense validExpense = new ExpenseBuilder().build();
 
@@ -70,7 +70,7 @@ public class AddCommandTest {
         // null -> returns false
         assertFalse(addAnnualNetflixCommand.equals(null));
 
-        // different person -> returns false
+        // different expense -> returns false
         assertFalse(addAnnualNetflixCommand.equals(addBaseballLessonCommand));
     }
 
@@ -109,7 +109,7 @@ public class AddCommandTest {
         }
 
         @Override
-        public void addExpense(Expense person) {
+        public void addExpense(Expense expense) {
             throw new AssertionError("This method should not be called.");
         }
 
@@ -124,7 +124,7 @@ public class AddCommandTest {
         }
 
         @Override
-        public boolean hasExpense(Expense person) {
+        public boolean hasExpense(Expense expense) {
             throw new AssertionError("This method should not be called.");
         }
 
@@ -150,7 +150,7 @@ public class AddCommandTest {
     }
 
     /**
-     * A Model stub that contains a single person.
+     * A Model stub that contains a single expense.
      */
     private class ModelStubWithExpense extends ModelStub {
         private final Expense expense;
@@ -168,15 +168,15 @@ public class AddCommandTest {
     }
 
     /**
-     * A Model stub that always accept the person being added.
+     * A Model stub that always accept the expense being added.
      */
     private class ModelStubAcceptingExpenseAdded extends ModelStub {
         final ArrayList<Expense> expensesAdded = new ArrayList<>();
 
         @Override
-        public boolean hasExpense(Expense person) {
-            requireNonNull(person);
-            return expensesAdded.stream().anyMatch(person::isSameExpense);
+        public boolean hasExpense(Expense expense) {
+            requireNonNull(expense);
+            return expensesAdded.stream().anyMatch(expense::isSameExpense);
         }
 
         @Override

@@ -4,9 +4,9 @@ import seedu.address.model.ExpenditureExpert;
 import seedu.address.model.expense.Expense;
 
 /**
- * A utility class to help with building Addressbook objects.
+ * A utility class to help with building ExpenditureExpert objects.
  * Example usage: <br>
- *     {@code AddressBook ab = new AddressBookBuilder().withPerson("John", "Doe").build();}
+ *     {@code ExpenditureExpert ee = new ExpenditureExpertBuilder().withExpense("Grab", "Groceries").build();}
  */
 public class ExpenditureExpertBuilder {
 
@@ -21,7 +21,7 @@ public class ExpenditureExpertBuilder {
     }
 
     /**
-     * Adds a new {@code Person} to the {@code AddressBook} that we are building.
+     * Adds a new {@code Expense} to the {@code ExpenditureExpert} that we are building.
      */
     public ExpenditureExpertBuilder withExpense(Expense expense) {
         expenditureExpert.addExpense(expense);

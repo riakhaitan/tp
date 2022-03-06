@@ -24,17 +24,17 @@ public interface Logic {
     CommandResult execute(String commandText) throws CommandException, ParseException;
 
     /**
-     * Returns the AddressBook.
+     * Returns the ExpenditureExpert.
      *
      * @see seedu.address.model.Model#getExpenditureExpert()
      */
     ReadOnlyExpenditureExpert getExpenditureExpert();
 
-    /** Returns an unmodifiable view of the filtered list of persons */
+    /** Returns an unmodifiable view of the filtered list of expenses */
     ObservableList<Expense> getFilteredExpenseList();
 
     /**
-     * Returns the user prefs' address book file path.
+     * Returns the user prefs' expenditure expert file path.
      */
     Path getExpenditureExpertFilePath();
 

@@ -9,7 +9,7 @@ import static seedu.address.logic.commands.CommandTestUtil.VALID_EXPENSE_CATEGOR
 import static seedu.address.logic.commands.CommandTestUtil.VALID_AMOUNT_BUILD_A_BEAR;
 import static seedu.address.logic.commands.CommandTestUtil.assertCommandFailure;
 import static seedu.address.logic.commands.CommandTestUtil.assertCommandSuccess;
-import static seedu.address.logic.commands.CommandTestUtil.showPersonAtIndex;
+import static seedu.address.logic.commands.CommandTestUtil.showExpenseAtIndex;
 import static seedu.address.testutil.TypicalIndexes.INDEX_FIRST_EXPENSE;
 import static seedu.address.testutil.TypicalIndexes.INDEX_SECOND_EXPENSE;
 import static seedu.address.testutil.TypicalExpenses.getTypicalExpenditureExpert;
@@ -51,10 +51,10 @@ public class EditCommandTest {
     @Test
     public void execute_someFieldsSpecifiedUnfilteredList_success() {
         Index indexLastExpense = Index.fromOneBased(model.getFilteredExpenseList().size());
-        Expense lastPerson = model.getFilteredExpenseList().get(indexLastExpense.getZeroBased());
+        Expense lastExpense = model.getFilteredExpenseList().get(indexLastExpense.getZeroBased());
 
-        ExpenseBuilder personInList = new ExpenseBuilder(lastPerson);
-        Expense editedExpense = personInList.withDescription(VALID_DESCRIPTION_BUILD_A_BEAR).withExpenseCategory(VALID_EXPENSE_CATEGORY_ENTERTAINMENT)
+        ExpenseBuilder expenseInList = new ExpenseBuilder(lastExpense);
+        Expense editedExpense = expenseInList.withDescription(VALID_DESCRIPTION_BUILD_A_BEAR).withExpenseCategory(VALID_EXPENSE_CATEGORY_ENTERTAINMENT)
                 .withAmount(VALID_AMOUNT_BUILD_A_BEAR).build();
 
         EditExpenseDescriptor descriptor = new EditExpenseDescriptorBuilder().withDescription(VALID_DESCRIPTION_BUILD_A_BEAR)
@@ -64,7 +64,7 @@ public class EditCommandTest {
         String expectedMessage = String.format(EditCommand.MESSAGE_EDIT_EXPENSE_SUCCESS, editedExpense);
 
         Model expectedModel = new ModelManager(new ExpenditureExpert(model.getExpenditureExpert()), new UserPrefs());
-        expectedModel.setExpense(lastPerson, editedExpense);
+        expectedModel.setExpense(lastExpense, editedExpense);
 
         assertCommandSuccess(editCommand, model, expectedMessage, expectedModel);
     }
@@ -83,7 +83,7 @@ public class EditCommandTest {
 
     @Test
     public void execute_filteredList_success() {
-        showPersonAtIndex(model, INDEX_FIRST_EXPENSE);
+        showExpenseAtIndex(model, INDEX_FIRST_EXPENSE);
 
         Expense expenseInFilteredList = model.getFilteredExpenseList().get(INDEX_FIRST_EXPENSE.getZeroBased());
         Expense editedExpense = new ExpenseBuilder(expenseInFilteredList).withDescription(VALID_DESCRIPTION_BUILD_A_BEAR).build();
@@ -109,12 +109,12 @@ public class EditCommandTest {
 
     @Test
     public void execute_duplicateExpenseFilteredList_failure() {
-        showPersonAtIndex(model, INDEX_FIRST_EXPENSE);
+        showExpenseAtIndex(model, INDEX_FIRST_EXPENSE);
 
-        // edit person in filtered list into a duplicate in address book
-        Expense personInList = model.getExpenditureExpert().getExpenseList().get(INDEX_SECOND_EXPENSE.getZeroBased());
+        // edit expense in filtered list into a duplicate in expenditure expert
+        Expense expenseInList = model.getExpenditureExpert().getExpenseList().get(INDEX_SECOND_EXPENSE.getZeroBased());
         EditCommand editCommand = new EditCommand(INDEX_FIRST_EXPENSE,
-                new EditExpenseDescriptorBuilder(personInList).build());
+                new EditExpenseDescriptorBuilder(expenseInList).build());
 
         assertCommandFailure(editCommand, model, EditCommand.MESSAGE_DUPLICATE_EXPENSE);
     }
@@ -130,13 +130,13 @@ public class EditCommandTest {
 
     /**
      * Edit filtered list where index is larger than size of filtered list,
-     * but smaller than size of address book
+     * but smaller than size of expenditure expert
      */
     @Test
     public void execute_invalidExpenseIndexFilteredList_failure() {
-        showPersonAtIndex(model, INDEX_FIRST_EXPENSE);
+        showExpenseAtIndex(model, INDEX_FIRST_EXPENSE);
         Index outOfBoundIndex = INDEX_SECOND_EXPENSE;
-        // ensures that outOfBoundIndex is still in bounds of address book list
+        // ensures that outOfBoundIndex is still in bounds of expenditure expert list
         assertTrue(outOfBoundIndex.getZeroBased() < model.getExpenditureExpert().getExpenseList().size());
 
         EditCommand editCommand = new EditCommand(outOfBoundIndex,

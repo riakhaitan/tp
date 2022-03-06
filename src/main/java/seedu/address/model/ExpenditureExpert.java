@@ -10,7 +10,7 @@ import seedu.address.model.expense.UniqueExpenseList;
 
 /**
  * Wraps all data at the address-book level
- * Duplicates are not allowed (by .isSamePerson comparison)
+ * Duplicates are not allowed (by .isSameExpense comparison)
  */
 public class ExpenditureExpert implements ReadOnlyExpenditureExpert {
 
@@ -40,15 +40,15 @@ public class ExpenditureExpert implements ReadOnlyExpenditureExpert {
     //// list overwrite operations
 
     /**
-     * Replaces the contents of the person list with {@code persons}.
-     * {@code persons} must not contain duplicate persons.
+     * Replaces the contents of the expense list with {@code expenses}.
+     * {@code expenses} must not contain duplicate expenses.
      */
     public void setExpenses(List<Expense> expenses) {
         this.expenses.setExpenses(expenses);
     }
 
     /**
-     * Resets the existing data of this {@code AddressBook} with {@code newData}.
+     * Resets the existing data of this {@code ExpenditureExpert} with {@code newData}.
      */
     public void resetData(ReadOnlyExpenditureExpert newData) {
         requireNonNull(newData);
@@ -56,10 +56,10 @@ public class ExpenditureExpert implements ReadOnlyExpenditureExpert {
         setExpenses(newData.getExpenseList());
     }
 
-    //// person-level operations
+    //// expense-level operations
 
     /**
-     * Returns true if a person with the same identity as {@code person} exists in the address book.
+     * Returns true if a expense with the same identity as {@code expense} exists in the expenditure expert.
      */
     public boolean hasExpense(Expense expense) {
         requireNonNull(expense);
@@ -67,27 +67,27 @@ public class ExpenditureExpert implements ReadOnlyExpenditureExpert {
     }
 
     /**
-     * Adds a person to the address book.
-     * The person must not already exist in the address book.
+     * Adds a expense to the expenditure expert.
+     * The expense must not already exist in the expenditure expert.
      */
     public void addExpense(Expense e) {
         expenses.add(e);
     }
 
     /**
-     * Replaces the given person {@code target} in the list with {@code editedPerson}.
-     * {@code target} must exist in the address book.
-     * The person identity of {@code editedPerson} must not be the same as another existing person in the address book.
+     * Replaces the given expense {@code target} in the list with {@code editedExpense}.
+     * {@code target} must exist in the expenditure expert.
+     * The expense identity of {@code editedExpense} must not be the same as another existing expense in the expenditure expert.
      */
-    public void setExpense(Expense target, Expense editedPerson) {
-        requireNonNull(editedPerson);
+    public void setExpense(Expense target, Expense editedExpense) {
+        requireNonNull(editedExpense);
 
-        expenses.setExpense(target, editedPerson);
+        expenses.setExpense(target, editedExpense);
     }
 
     /**
-     * Removes {@code key} from this {@code AddressBook}.
-     * {@code key} must exist in the address book.
+     * Removes {@code key} from this {@code ExpenditureExpert}.
+     * {@code key} must exist in the expenditure expert.
      */
     public void removeExpense(Expense key) {
         expenses.remove(key);

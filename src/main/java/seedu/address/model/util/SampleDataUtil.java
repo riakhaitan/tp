@@ -8,7 +8,7 @@ import seedu.address.model.expense.ExpenseCategory;
 import seedu.address.model.expense.Amount;
 
 /**
- * Contains utility methods for populating {@code AddressBook} with sample data.
+ * Contains utility methods for populating {@code ExpenditureExpert} with sample data.
  */
 public class SampleDataUtil {
     public static Expense[] getSampleExpenses() {

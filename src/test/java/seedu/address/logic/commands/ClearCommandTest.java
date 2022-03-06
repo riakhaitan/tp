@@ -10,7 +10,7 @@ import seedu.address.model.*;
 public class ClearCommandTest {
 
     @Test
-    public void execute_emptyAddressBook_success() {
+    public void execute_emptyExpenditureExpert_success() {
         Model model = new ModelManager();
         Model expectedModel = new ModelManager();
 
@@ -18,7 +18,7 @@ public class ClearCommandTest {
     }
 
     @Test
-    public void execute_nonEmptyAddressBook_success() {
+    public void execute_nonEmptyExpenditureExpert_success() {
         Model model = new ModelManager(getTypicalExpenditureExpert(), new UserPrefs());
         Model expectedModel = new ModelManager(getTypicalExpenditureExpert(), new UserPrefs());
         expectedModel.setExpenditureExpert(new ExpenditureExpert());

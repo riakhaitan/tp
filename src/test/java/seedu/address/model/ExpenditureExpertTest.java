@@ -61,7 +61,7 @@ public class ExpenditureExpertTest {
     }
 
     /**
-     * A stub ReadOnlyAddressBook whose persons list can violate interface constraints.
+     * A stub ReadOnlyExpenditureExpert whose expenses list can violate interface constraints.
      */
     private static class ExpenditureExpertStub implements ReadOnlyExpenditureExpert {
         private final ObservableList<Expense> expenses = FXCollections.observableArrayList();
