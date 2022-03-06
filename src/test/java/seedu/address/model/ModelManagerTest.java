@@ -6,7 +6,8 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import static seedu.address.model.Model.PREDICATE_SHOW_ALL_EXPENSES;
 import static seedu.address.testutil.Assert.assertThrows;
 import static seedu.address.testutil.TypicalExpenses.ANNUAL_NETFLIX_FEES;
-import static seedu.address.testutil.TypicalExpenses.BASEBALL_LESSON_FEES;
+import static seedu.address.testutil.TypicalExpenses.CAR_WASH;
+
 
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -96,7 +97,7 @@ public class ModelManagerTest {
     @Test
     public void equals() {
         ExpenditureExpert expenditureExpert = new ExpenditureExpertBuilder()
-                .withExpense(ANNUAL_NETFLIX_FEES).withExpense(BASEBALL_LESSON_FEES).build();
+                .withExpense(ANNUAL_NETFLIX_FEES).withExpense(CAR_WASH).build();
         ExpenditureExpert differentExpenditureExpert = new ExpenditureExpert();
         UserPrefs userPrefs = new UserPrefs();
 

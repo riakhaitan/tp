@@ -22,7 +22,7 @@ public class TypicalExpenses {
             .withExpenseCategory("Miscellaneous").withAmount("20").build();
     public static final Expense DENTAL = new ExpenseBuilder().withDescription("Dental")
             .withExpenseCategory("Medical").withAmount("200").build();
-    public static final Expense ELECTRONIC_CAR_WASH = new ExpenseBuilder().withDescription("Electronic Car Wash")
+    public static final Expense ELECTRICAL_APPLIANCES = new ExpenseBuilder().withDescription("Electrical Appliances")
             .withExpenseCategory("Miscellaneous").withAmount("50").build();
     public static final Expense FISHING_APPARATUS = new ExpenseBuilder().withDescription("Fishing Apparatus")
             .withExpenseCategory("Entertainment").withAmount("159.5").build();
@@ -58,6 +58,6 @@ public class TypicalExpenses {
 
     public static List<Expense> getTypicalExpenses() {
         return new ArrayList<>(Arrays.asList(ANNUAL_NETFLIX_FEES, BASEBALL_LESSON_FEES, CAR_WASH, DENTAL,
-                ELECTRONIC_CAR_WASH, FISHING_APPARATUS, GROCERIES));
+                ELECTRICAL_APPLIANCES, FISHING_APPARATUS, GROCERIES));
     }
 }

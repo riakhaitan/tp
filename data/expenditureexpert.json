@@ -23,5 +23,9 @@
     "description" : "Watched Movie",
     "expenseCategory" : "Entertainment",
     "amount" : "12"
+  }, {
+    "description" : "Took Train",
+    "expenseCategory" : "Travel",
+    "amount" : "2"
   } ]
 }
