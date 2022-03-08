@@ -1,0 +1,7 @@
+{
+  "expenses": [ {
+    "description": "Valid Expense",
+    "expenseCategory": "Valid Category",
+    "amount``": "Invalid Amount",
+  } ]
+}
