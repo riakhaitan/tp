@@ -1,7 +1,7 @@
 {
   "expenses": [ {
     "description": "Valid Expense",
-    "phone": "Valid Category",
-    "email": "Invalid Amount",
+    "expenseCategory": "Valid Category",
+    "amount``": "Invalid Amount",
   } ]
 }
