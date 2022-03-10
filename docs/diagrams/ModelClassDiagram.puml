@@ -5,46 +5,41 @@ skinparam arrowColor MODEL_COLOR
 skinparam classBackgroundColor MODEL_COLOR
 
 Package Model <<Rectangle>>{
-Class "<<interface>>\nReadOnlyAddressBook" as ReadOnlyAddressBook
+Class "<<interface>>\nReadOnlyExpenditureExpert" as ReadOnlyExpenditureExpert
 Class "<<interface>>\nReadOnlyUserPrefs" as ReadOnlyUserPrefs
 Class "<<interface>>\nModel" as Model
-Class AddressBook
+Class ExpenditureExpert
 Class ModelManager
 Class UserPrefs
 
-Class UniquePersonList
-Class Person
-Class Address
-Class Email
-Class Name
-Class Phone
-Class Tag
+Class UniqueExpenseList
+Class Expense
+Class Description
+Class ExpenseCategory
+Class Amount
 
 }
 
 Class HiddenOutside #FFFFFF
 HiddenOutside ..> Model
 
-AddressBook .up.|> ReadOnlyAddressBook
+ExpenditureExpert .up.|> ReadOnlyExpenditureExpert
 
 ModelManager .up.|> Model
 Model .right.> ReadOnlyUserPrefs
-Model .left.> ReadOnlyAddressBook
-ModelManager -left-> "1" AddressBook
+Model .left.> ReadOnlyExpenditureExpert
+ModelManager -left-> "1" ExpenditureExpert
 ModelManager -right-> "1" UserPrefs
 UserPrefs .up.|> ReadOnlyUserPrefs
 
-AddressBook *--> "1" UniquePersonList
-UniquePersonList --> "~* all" Person
-Person *--> Name
-Person *--> Phone
-Person *--> Email
-Person *--> Address
-Person *--> "*" Tag
+ExpenditureExpert *--> "1" UniqueExpenseList
+UniqueExpenseList --> "~* all" Expense
+Expense *--> Description
+Expense *--> ExpenseCategory
+Expense *--> Amount
 
-Name -[hidden]right-> Phone
-Phone -[hidden]right-> Address
-Address -[hidden]right-> Email
+Expense -[hidden]right-> Description
+ExpenseCategory -[hidden]right-> Amount
 
-ModelManager -->"~* filtered" Person
+ModelManager -->"~* filtered" Expense
 @enduml
