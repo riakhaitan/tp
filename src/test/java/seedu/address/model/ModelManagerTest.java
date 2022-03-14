@@ -16,7 +16,7 @@ import org.junit.jupiter.api.Test;
 
 import seedu.address.commons.core.GuiSettings;
 import seedu.address.model.expense.DescriptionContainsKeywordsPredicate;
-import seedu.address.testutil.ExpenditureExpertBuilder;
+import seedu.address.testutil.ExpenseExpertBuilder;
 
 public class ModelManagerTest {
 
@@ -26,7 +26,7 @@ public class ModelManagerTest {
     public void constructor() {
         assertEquals(new UserPrefs(), modelManager.getUserPrefs());
         assertEquals(new GuiSettings(), modelManager.getGuiSettings());
-        assertEquals(new ExpenditureExpert(), new ExpenditureExpert(modelManager.getExpenditureExpert()));
+        assertEquals(new ExpenseExpert(), new ExpenseExpert(modelManager.getExpenseExpert()));
     }
 
     @Test
@@ -37,14 +37,14 @@ public class ModelManagerTest {
     @Test
     public void setUserPrefs_validUserPrefs_copiesUserPrefs() {
         UserPrefs userPrefs = new UserPrefs();
-        userPrefs.setExpenditureExpertFilePath(Paths.get("address/book/file/path"));
+        userPrefs.setExpenseExpertFilePath(Paths.get("address/book/file/path"));
         userPrefs.setGuiSettings(new GuiSettings(1, 2, 3, 4));
         modelManager.setUserPrefs(userPrefs);
         assertEquals(userPrefs, modelManager.getUserPrefs());
 
         // Modifying userPrefs should not modify modelManager's userPrefs
         UserPrefs oldUserPrefs = new UserPrefs(userPrefs);
-        userPrefs.setExpenditureExpertFilePath(Paths.get("new/address/book/file/path"));
+        userPrefs.setExpenseExpertFilePath(Paths.get("new/address/book/file/path"));
         assertEquals(oldUserPrefs, modelManager.getUserPrefs());
     }
 
@@ -61,15 +61,15 @@ public class ModelManagerTest {
     }
 
     @Test
-    public void setExpenditureExpertFilePath_nullPath_throwsNullPointerException() {
-        assertThrows(NullPointerException.class, () -> modelManager.setExpenditureExpertFilePath(null));
+    public void setExpenseExpertFilePath_nullPath_throwsNullPointerException() {
+        assertThrows(NullPointerException.class, () -> modelManager.setExpenseExpertFilePath(null));
     }
 
     @Test
-    public void setExpenditureExpertFilePath_validPath_setsExpenditureExpertFilePath() {
+    public void setExpenseExpertFilePath_validPath_setsExpenseExpertFilePath() {
         Path path = Paths.get("address/book/file/path");
-        modelManager.setExpenditureExpertFilePath(path);
-        assertEquals(path, modelManager.getExpenditureExpertFilePath());
+        modelManager.setExpenseExpertFilePath(path);
+        assertEquals(path, modelManager.getExpenseExpertFilePath());
     }
 
     @Test
@@ -78,12 +78,12 @@ public class ModelManagerTest {
     }
 
     @Test
-    public void hasExpense_expenseNotInExpenditureExpert_returnsFalse() {
+    public void hasExpense_expenseNotInExpenseExpert_returnsFalse() {
         assertFalse(modelManager.hasExpense(ANNUAL_NETFLIX_FEES));
     }
 
     @Test
-    public void hasExpense_expenseInExpenditureExpert_returnsTrue() {
+    public void hasExpense_expenseInExpenseExpert_returnsTrue() {
         modelManager.addExpense(ANNUAL_NETFLIX_FEES);
         assertTrue(modelManager.hasExpense(ANNUAL_NETFLIX_FEES));
     }
@@ -95,14 +95,14 @@ public class ModelManagerTest {
 
     @Test
     public void equals() {
-        ExpenditureExpert expenditureExpert = new ExpenditureExpertBuilder()
+        ExpenseExpert expenseExpert = new ExpenseExpertBuilder()
                 .withExpense(ANNUAL_NETFLIX_FEES).withExpense(CAR_WASH).build();
-        ExpenditureExpert differentExpenditureExpert = new ExpenditureExpert();
+        ExpenseExpert differentExpenseExpert = new ExpenseExpert();
         UserPrefs userPrefs = new UserPrefs();
 
         // same values -> returns true
-        modelManager = new ModelManager(expenditureExpert, userPrefs);
-        ModelManager modelManagerCopy = new ModelManager(expenditureExpert, userPrefs);
+        modelManager = new ModelManager(expenseExpert, userPrefs);
+        ModelManager modelManagerCopy = new ModelManager(expenseExpert, userPrefs);
         assertTrue(modelManager.equals(modelManagerCopy));
 
 
@@ -115,20 +115,20 @@ public class ModelManagerTest {
         // different types -> returns false
         assertFalse(modelManager.equals(5));
 
-        // different expenditureExpert -> returns false
-        assertFalse(modelManager.equals(new ModelManager(differentExpenditureExpert, userPrefs)));
+        // different expenseExpert -> returns false
+        assertFalse(modelManager.equals(new ModelManager(differentExpenseExpert, userPrefs)));
 
         // different filteredList -> returns false
         String[] keywords = ANNUAL_NETFLIX_FEES.getDescription().description.split("\\s+");
         modelManager.updateFilteredExpenseList(new DescriptionContainsKeywordsPredicate(Arrays.asList(keywords)));
-        assertFalse(modelManager.equals(new ModelManager(expenditureExpert, userPrefs)));
+        assertFalse(modelManager.equals(new ModelManager(expenseExpert, userPrefs)));
 
         // resets modelManager to initial state for upcoming tests
         modelManager.updateFilteredExpenseList(PREDICATE_SHOW_ALL_EXPENSES);
 
         // different userPrefs -> returns false
         UserPrefs differentUserPrefs = new UserPrefs();
-        differentUserPrefs.setExpenditureExpertFilePath(Paths.get("differentFilePath"));
-        assertFalse(modelManager.equals(new ModelManager(expenditureExpert, differentUserPrefs)));
+        differentUserPrefs.setExpenseExpertFilePath(Paths.get("differentFilePath"));
+        assertFalse(modelManager.equals(new ModelManager(expenseExpert, differentUserPrefs)));
     }
 }

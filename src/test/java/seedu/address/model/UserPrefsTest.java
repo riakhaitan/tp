@@ -13,9 +13,9 @@ public class UserPrefsTest {
     }
 
     @Test
-    public void setExpenditureExpertFilePath_nullPath_throwsNullPointerException() {
+    public void setExpenseExpertFilePath_nullPath_throwsNullPointerException() {
         UserPrefs userPrefs = new UserPrefs();
-        assertThrows(NullPointerException.class, () -> userPrefs.setExpenditureExpertFilePath(null));
+        assertThrows(NullPointerException.class, () -> userPrefs.setExpenseExpertFilePath(null));
     }
 
 }

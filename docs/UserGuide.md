@@ -79,7 +79,7 @@ An expense can have any number of tags (including 0)
 
 Examples:
 
-- `add d/Dinner at Privé a/35 c/Extra expenditure`
+- `add d/Dinner at Privé a/35 c/Extra expense`
 - `add d/Groceries a/50 c/Essentials`
 
 ### Listing all expenses : `list`

@@ -2,7 +2,7 @@ package seedu.address.storage;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
-import static seedu.address.testutil.TypicalExpenses.getTypicalExpenditureExpert;
+import static seedu.address.testutil.TypicalExpenses.getTypicalExpenseExpert;
 
 import java.nio.file.Path;
 
@@ -11,8 +11,8 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.io.TempDir;
 
 import seedu.address.commons.core.GuiSettings;
-import seedu.address.model.ExpenditureExpert;
-import seedu.address.model.ReadOnlyExpenditureExpert;
+import seedu.address.model.ExpenseExpert;
+import seedu.address.model.ReadOnlyExpenseExpert;
 import seedu.address.model.UserPrefs;
 
 public class StorageManagerTest {
@@ -24,9 +24,9 @@ public class StorageManagerTest {
 
     @BeforeEach
     public void setUp() {
-        JsonExpenditureExpertStorage expenditureExpertStorage = new JsonExpenditureExpertStorage(getTempFilePath("ab"));
+        JsonExpenseExpertStorage expenseExpertStorage = new JsonExpenseExpertStorage(getTempFilePath("ab"));
         JsonUserPrefsStorage userPrefsStorage = new JsonUserPrefsStorage(getTempFilePath("prefs"));
-        storageManager = new StorageManager(expenditureExpertStorage, userPrefsStorage);
+        storageManager = new StorageManager(expenseExpertStorage, userPrefsStorage);
     }
 
     private Path getTempFilePath(String fileName) {
@@ -48,21 +48,21 @@ public class StorageManagerTest {
     }
 
     @Test
-    public void expenditureExpertReadSave() throws Exception {
+    public void expenseExpertReadSave() throws Exception {
         /*
          * Note: This is an integration test that verifies the StorageManager is properly wired to the
-         * {@link JsonExpenditureExpertStorage} class.
-         * More extensive testing of UserPref saving/reading is done in {@link JsonExpenditureExpertStorageTest} class.
+         * {@link JsonExpenseExpertStorage} class.
+         * More extensive testing of UserPref saving/reading is done in {@link JsonExpenseExpertStorageTest} class.
          */
-        ExpenditureExpert original = getTypicalExpenditureExpert();
-        storageManager.saveExpenditureExpert(original);
-        ReadOnlyExpenditureExpert retrieved = storageManager.readExpenditureExpert().get();
-        assertEquals(original, new ExpenditureExpert(retrieved));
+        ExpenseExpert original = getTypicalExpenseExpert();
+        storageManager.saveExpenseExpert(original);
+        ReadOnlyExpenseExpert retrieved = storageManager.readExpenseExpert().get();
+        assertEquals(original, new ExpenseExpert(retrieved));
     }
 
     @Test
-    public void getExpenditureExpertFilePath() {
-        assertNotNull(storageManager.getExpenditureExpertFilePath());
+    public void getExpenseExpertFilePath() {
+        assertNotNull(storageManager.getExpenseExpertFilePath());
     }
 
 }

@@ -35,45 +35,45 @@ public interface Model {
     void setGuiSettings(GuiSettings guiSettings);
 
     /**
-     * Returns the user prefs' expenditure expert file path.
+     * Returns the user prefs' expense expert file path.
      */
-    Path getExpenditureExpertFilePath();
+    Path getExpenseExpertFilePath();
 
     /**
-     * Sets the user prefs' expenditure expert file path.
+     * Sets the user prefs' expense expert file path.
      */
-    void setExpenditureExpertFilePath(Path expenseExpertFilePath);
+    void setExpenseExpertFilePath(Path expenseExpertFilePath);
 
     /**
-     * Replaces expenditure expert data with the data in {@code expenditureExpert}.
+     * Replaces expense expert data with the data in {@code expenseExpert}.
      */
-    void setExpenditureExpert(ReadOnlyExpenditureExpert expenditureExpert);
+    void setExpenseExpert(ReadOnlyExpenseExpert expenseExpert);
 
-    /** Returns the ExpenditureExpert */
-    ReadOnlyExpenditureExpert getExpenditureExpert();
+    /** Returns the ExpenseExpert */
+    ReadOnlyExpenseExpert getExpenseExpert();
 
     /**
-     * Returns true if a expense with the same identity as {@code expense} exists in the expenditure expert.
+     * Returns true if a expense with the same identity as {@code expense} exists in the expense expert.
      */
     boolean hasExpense(Expense expense);
 
     /**
      * Deletes the given expense.
-     * The expense must exist in the expenditure expert.
+     * The expense must exist in the expense expert.
      */
     void deleteExpense(Expense target);
 
     /**
      * Adds the given expense.
-     * {@code expense} must not already exist in the expenditure expert.
+     * {@code expense} must not already exist in the expense expert.
      */
     void addExpense(Expense expense);
 
     /**
      * Replaces the given expense {@code target} with {@code editedExpense}.
-     * {@code target} must exist in the expenditure expert.
+     * {@code target} must exist in the expense expert.
      * The expense identity of {@code editedExpense} must not be the same as another existing expense in
-     * the expenditure expert.
+     * the expense expert.
      */
     void setExpense(Expense target, Expense editedExpense);
 

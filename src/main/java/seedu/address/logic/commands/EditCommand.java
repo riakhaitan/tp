@@ -21,7 +21,7 @@ import seedu.address.model.expense.ExpenseCategory;
 
 
 /**
- * Edits the details of an existing expense in the expenditure expert.
+ * Edits the details of an existing expense in the expense expert.
  */
 public class EditCommand extends Command {
 
@@ -40,7 +40,7 @@ public class EditCommand extends Command {
 
     public static final String MESSAGE_EDIT_EXPENSE_SUCCESS = "Edited Expense: %1$s";
     public static final String MESSAGE_NOT_EDITED = "At least one field to edit must be provided.";
-    public static final String MESSAGE_DUPLICATE_EXPENSE = "This expense already exists in Expenditure Expert.";
+    public static final String MESSAGE_DUPLICATE_EXPENSE = "This expense already exists in Expense Expert.";
 
     private final Index index;
     private final EditExpenseDescriptor editExpenseDescriptor;

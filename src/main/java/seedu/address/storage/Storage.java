@@ -5,7 +5,7 @@ import java.nio.file.Path;
 import java.util.Optional;
 
 import seedu.address.commons.exceptions.DataConversionException;
-import seedu.address.model.ReadOnlyExpenditureExpert;
+import seedu.address.model.ReadOnlyExpenseExpert;
 import seedu.address.model.ReadOnlyUserPrefs;
 import seedu.address.model.UserPrefs;
 
@@ -13,7 +13,7 @@ import seedu.address.model.UserPrefs;
 /**
  * API of the Storage component
  */
-public interface Storage extends ExpenditureExpertStorage, UserPrefsStorage {
+public interface Storage extends ExpenseExpertStorage, UserPrefsStorage {
 
     @Override
     Optional<UserPrefs> readUserPrefs() throws DataConversionException, IOException;
@@ -22,12 +22,12 @@ public interface Storage extends ExpenditureExpertStorage, UserPrefsStorage {
     void saveUserPrefs(ReadOnlyUserPrefs userPrefs) throws IOException;
 
     @Override
-    Path getExpenditureExpertFilePath();
+    Path getExpenseExpertFilePath();
 
     @Override
-    Optional<ReadOnlyExpenditureExpert> readExpenditureExpert() throws DataConversionException, IOException;
+    Optional<ReadOnlyExpenseExpert> readExpenseExpert() throws DataConversionException, IOException;
 
     @Override
-    void saveExpenditureExpert(ReadOnlyExpenditureExpert expenditureExpert) throws IOException;
+    void saveExpenseExpert(ReadOnlyExpenseExpert expenseExpert) throws IOException;
 
 }

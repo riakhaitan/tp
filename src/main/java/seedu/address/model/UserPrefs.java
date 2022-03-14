@@ -14,7 +14,7 @@ import seedu.address.commons.core.GuiSettings;
 public class UserPrefs implements ReadOnlyUserPrefs {
 
     private GuiSettings guiSettings = new GuiSettings();
-    private Path expenditureExpertFilePath = Paths.get("data" , "expenditureexpert.json");
+    private Path expenseExpertFilePath = Paths.get("data" , "expenseexpert.json");
 
     /**
      * Creates a {@code UserPrefs} with default values.
@@ -35,7 +35,7 @@ public class UserPrefs implements ReadOnlyUserPrefs {
     public void resetData(ReadOnlyUserPrefs newUserPrefs) {
         requireNonNull(newUserPrefs);
         setGuiSettings(newUserPrefs.getGuiSettings());
-        setExpenditureExpertFilePath(newUserPrefs.getExpenditureExpertFilePath());
+        setExpenseExpertFilePath(newUserPrefs.getExpenseExpertFilePath());
     }
 
     public GuiSettings getGuiSettings() {
@@ -47,13 +47,13 @@ public class UserPrefs implements ReadOnlyUserPrefs {
         this.guiSettings = guiSettings;
     }
 
-    public Path getExpenditureExpertFilePath() {
-        return expenditureExpertFilePath;
+    public Path getExpenseExpertFilePath() {
+        return expenseExpertFilePath;
     }
 
-    public void setExpenditureExpertFilePath(Path expenseExpertFilePath) {
+    public void setExpenseExpertFilePath(Path expenseExpertFilePath) {
         requireNonNull(expenseExpertFilePath);
-        this.expenditureExpertFilePath = expenseExpertFilePath;
+        this.expenseExpertFilePath = expenseExpertFilePath;
     }
 
     @Override
@@ -68,19 +68,19 @@ public class UserPrefs implements ReadOnlyUserPrefs {
         UserPrefs o = (UserPrefs) other;
 
         return guiSettings.equals(o.guiSettings)
-                && expenditureExpertFilePath.equals(o.expenditureExpertFilePath);
+                && expenseExpertFilePath.equals(o.expenseExpertFilePath);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(guiSettings, expenditureExpertFilePath);
+        return Objects.hash(guiSettings, expenseExpertFilePath);
     }
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("Gui Settings : " + guiSettings);
-        sb.append("\nLocal data file location : " + expenditureExpertFilePath);
+        sb.append("\nLocal data file location : " + expenseExpertFilePath);
         return sb.toString();
     }
 

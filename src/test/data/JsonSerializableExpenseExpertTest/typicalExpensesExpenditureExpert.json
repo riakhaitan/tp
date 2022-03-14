@@ -1,5 +1,5 @@
 {
-  "_comment": "ExpenditureExpert save file which contains the same Expense values as in TypicalExpenses#getTypicalExpenditureExpert()",
+  "_comment": "ExpenseExpert save file which contains the same Expense values as in TypicalExpenses#getTypicalExpenseExpert()",
   "expenses" : [ {
     "description" : "Annual Netflix Fees",
     "expenseCategory" : "Entertainment",

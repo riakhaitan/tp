@@ -11,7 +11,7 @@ import seedu.address.model.Model;
 import seedu.address.model.expense.Expense;
 
 /**
- * Deletes a expense identified using it's displayed index from the expenditure expert.
+ * Deletes a expense identified using it's displayed index from the expense expert.
  */
 public class DeleteCommand extends Command {
 
