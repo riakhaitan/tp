@@ -14,13 +14,13 @@ public class ExpenseCategoryTest {
     }
 
     @Test
-    public void constructor_invalidAddress_throwsIllegalArgumentException() {
+    public void constructor_invalidExpenseCategory_throwsIllegalArgumentException() {
         String invalidExpense = "";
         assertThrows(IllegalArgumentException.class, () -> new ExpenseCategory(invalidExpense));
     }
 
     @Test
-    public void isValidAddress() {
+    public void isValidExpenseCategory() {
         // null address
         assertThrows(NullPointerException.class, () -> ExpenseCategory.isValidExpenseCategory(null));
 

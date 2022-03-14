@@ -37,16 +37,16 @@ public class ExpenseTest {
                 .build();
         assertTrue(ANNUAL_SPOTIFY.isSameExpense(editedSpotify));
 
-        // name differs in case, all other attributes same -> returns false
+        // expense differs in case, all other attributes same -> returns false
         Expense editedBuildABear = new ExpenseBuilder(BUILD_A_BEAR)
                 .withDescription(VALID_DESCRIPTION_BUILD_A_BEAR.toLowerCase()).build();
         assertFalse(BUILD_A_BEAR.isSameExpense(editedBuildABear));
 
         // TODO: date differs in case, all other attributes same -> returns false
 
-        // name has trailing spaces, all other attributes same -> returns false
-        String nameWithTrailingSpaces = VALID_DESCRIPTION_BUILD_A_BEAR + " ";
-        editedBuildABear = new ExpenseBuilder(BUILD_A_BEAR).withDescription(nameWithTrailingSpaces).build();
+        // expense has trailing spaces, all other attributes same -> returns false
+        String expenseWithTrailingSpaces = VALID_DESCRIPTION_BUILD_A_BEAR + " ";
+        editedBuildABear = new ExpenseBuilder(BUILD_A_BEAR).withDescription(expenseWithTrailingSpaces).build();
         assertFalse(BUILD_A_BEAR.isSameExpense(editedBuildABear));
     }
 
