@@ -10,6 +10,7 @@ public class Expense {
     private final ExpenseCategory expenseCategory;
     private final Amount amount;
 
+
     /**
      * Every field must be present and not null.
      */
@@ -44,7 +45,8 @@ public class Expense {
         }
 
         return otherExpense != null
-                && otherExpense.getDescription().equals(getDescription());
+                && otherExpense.getDescription().equals(getDescription())
+                && otherExpense.getAmount().equals(getAmount());
     }
 
     @Override
