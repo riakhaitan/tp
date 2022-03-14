@@ -27,9 +27,12 @@ public class ExpenseCategoryTest {
         // invalid addresses
         assertFalse(ExpenseCategory.isValidExpenseCategory("")); // empty string
         assertFalse(ExpenseCategory.isValidExpenseCategory(" ")); // spaces only
+        assertFalse(ExpenseCategory.isValidExpenseCategory("-")); // special character
+        assertFalse(ExpenseCategory.isValidExpenseCategory("[")); // special character
+
 
         // valid addresses
         assertTrue(ExpenseCategory.isValidExpenseCategory("Entertainment"));
-        assertTrue(ExpenseCategory.isValidExpenseCategory("-")); // one character
+        assertTrue(ExpenseCategory.isValidExpenseCategory("Public Transport"));
     }
 }
