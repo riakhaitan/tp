@@ -4,10 +4,6 @@
     "expenseCategory" : "Travel",
     "amount" : "10"
   }, {
-    "description" : "Took Bus",
-    "expenseCategory" : "Travel",
-    "amount" : "3"
-  }, {
     "description" : "McDonalds",
     "expenseCategory" : "Food",
     "amount" : "15"
