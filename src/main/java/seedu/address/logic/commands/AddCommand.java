@@ -10,13 +10,13 @@ import seedu.address.model.Model;
 import seedu.address.model.expense.Expense;
 
 /**
- * Adds a expense to the expenditure expert.
+ * Adds a expense to the expense expert.
  */
 public class AddCommand extends Command {
 
     public static final String COMMAND_WORD = "add";
 
-    public static final String MESSAGE_USAGE = COMMAND_WORD + ": Adds an expense to Expenditure Expert. "
+    public static final String MESSAGE_USAGE = COMMAND_WORD + ": Adds an expense to Expense Expert. "
             + "Parameters: "
             + PREFIX_DESCRIPTION + "DESCRIPTION "
             + PREFIX_EXPENSE_CATEGORY + "CATEGORY "
@@ -27,7 +27,7 @@ public class AddCommand extends Command {
             + PREFIX_AMOUNT + "100 ";
 
     public static final String MESSAGE_SUCCESS = "New expense added: %1$s";
-    public static final String MESSAGE_DUPLICATE_EXPENSE = "This expense already exists in Expenditure Expert";
+    public static final String MESSAGE_DUPLICATE_EXPENSE = "This expense already exists in Expense Expert";
 
     private final Expense toAdd;
 

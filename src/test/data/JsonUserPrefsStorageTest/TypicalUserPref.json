@@ -7,5 +7,5 @@
       "y" : 100
     }
   },
-  "expenditureExpertFilePath" : "expenditureexpert.json"
+  "expenseExpertFilePath" : "expenseexpert.json"
 }

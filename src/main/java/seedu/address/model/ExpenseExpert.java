@@ -12,7 +12,7 @@ import seedu.address.model.expense.UniqueExpenseList;
  * Wraps all data at the address-book level
  * Duplicates are not allowed (by .isSameExpense comparison)
  */
-public class ExpenditureExpert implements ReadOnlyExpenditureExpert {
+public class ExpenseExpert implements ReadOnlyExpenseExpert {
 
     private final UniqueExpenseList expenses;
 
@@ -27,12 +27,12 @@ public class ExpenditureExpert implements ReadOnlyExpenditureExpert {
         expenses = new UniqueExpenseList();
     }
 
-    public ExpenditureExpert() {}
+    public ExpenseExpert() {}
 
     /**
      * Creates an ExpenseExpert using the Expenses in the {@code toBeCopied}
      */
-    public ExpenditureExpert(ReadOnlyExpenditureExpert toBeCopied) {
+    public ExpenseExpert(ReadOnlyExpenseExpert toBeCopied) {
         this();
         resetData(toBeCopied);
     }
@@ -48,9 +48,9 @@ public class ExpenditureExpert implements ReadOnlyExpenditureExpert {
     }
 
     /**
-     * Resets the existing data of this {@code ExpenditureExpert} with {@code newData}.
+     * Resets the existing data of this {@code ExpenseExpert} with {@code newData}.
      */
-    public void resetData(ReadOnlyExpenditureExpert newData) {
+    public void resetData(ReadOnlyExpenseExpert newData) {
         requireNonNull(newData);
 
         setExpenses(newData.getExpenseList());
@@ -59,7 +59,7 @@ public class ExpenditureExpert implements ReadOnlyExpenditureExpert {
     //// expense-level operations
 
     /**
-     * Returns true if a expense with the same identity as {@code expense} exists in the expenditure expert.
+     * Returns true if a expense with the same identity as {@code expense} exists in the expense expert.
      */
     public boolean hasExpense(Expense expense) {
         requireNonNull(expense);
@@ -67,8 +67,8 @@ public class ExpenditureExpert implements ReadOnlyExpenditureExpert {
     }
 
     /**
-     * Adds a expense to the expenditure expert.
-     * The expense must not already exist in the expenditure expert.
+     * Adds a expense to the expense expert.
+     * The expense must not already exist in the expense expert.
      */
     public void addExpense(Expense e) {
         expenses.add(e);
@@ -76,9 +76,9 @@ public class ExpenditureExpert implements ReadOnlyExpenditureExpert {
 
     /**
      * Replaces the given expense {@code target} in the list with {@code editedExpense}.
-     * {@code target} must exist in the expenditure expert.
+     * {@code target} must exist in the expense expert.
      * The expense identity of {@code editedExpense} must not be the same as another existing expense in
-     * the expenditure expert.
+     * the expense expert.
      */
     public void setExpense(Expense target, Expense editedExpense) {
         requireNonNull(editedExpense);
@@ -87,8 +87,8 @@ public class ExpenditureExpert implements ReadOnlyExpenditureExpert {
     }
 
     /**
-     * Removes {@code key} from this {@code ExpenditureExpert}.
-     * {@code key} must exist in the expenditure expert.
+     * Removes {@code key} from this {@code ExpenseExpert}.
+     * {@code key} must exist in the expense expert.
      */
     public void removeExpense(Expense key) {
         expenses.remove(key);
@@ -110,8 +110,8 @@ public class ExpenditureExpert implements ReadOnlyExpenditureExpert {
     @Override
     public boolean equals(Object other) {
         return other == this // short circuit if same object
-                || (other instanceof ExpenditureExpert // instanceof handles nulls
-                && expenses.equals(((ExpenditureExpert) other).expenses));
+                || (other instanceof ExpenseExpert // instanceof handles nulls
+                && expenses.equals(((ExpenseExpert) other).expenses));
     }
 
     @Override

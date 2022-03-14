@@ -3,9 +3,9 @@ layout: page
 title: Andy's Project Portfolio Page
 ---
 
-### Project: Expenditure Expert
+### Project: Expense Expert
 
-Expenditure Expert is a desktop expenditure tracking application used for tracking one's personal expenses. The user interacts with it using a CLI, and it has a GUI created with JavaFX. It is written in Java, and has about ~10 kLoC.
+Expense Expert is a desktop expense tracking application used for tracking one's personal expenses. The user interacts with it using a CLI, and it has a GUI created with JavaFX. It is written in Java, and has about ~10 kLoC.
 
 Given below are my contributions to the project.
 

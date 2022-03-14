@@ -15,15 +15,15 @@ import seedu.address.commons.util.ConfigUtil;
 import seedu.address.commons.util.StringUtil;
 import seedu.address.logic.Logic;
 import seedu.address.logic.LogicManager;
-import seedu.address.model.ExpenditureExpert;
+import seedu.address.model.ExpenseExpert;
 import seedu.address.model.Model;
 import seedu.address.model.ModelManager;
-import seedu.address.model.ReadOnlyExpenditureExpert;
+import seedu.address.model.ReadOnlyExpenseExpert;
 import seedu.address.model.ReadOnlyUserPrefs;
 import seedu.address.model.UserPrefs;
 import seedu.address.model.util.SampleDataUtil;
-import seedu.address.storage.ExpenditureExpertStorage;
-import seedu.address.storage.JsonExpenditureExpertStorage;
+import seedu.address.storage.ExpenseExpertStorage;
+import seedu.address.storage.JsonExpenseExpertStorage;
 import seedu.address.storage.JsonUserPrefsStorage;
 import seedu.address.storage.Storage;
 import seedu.address.storage.StorageManager;
@@ -48,7 +48,7 @@ public class MainApp extends Application {
 
     @Override
     public void init() throws Exception {
-        logger.info("=============================[ Initializing ExpenditureExpert ]===========================");
+        logger.info("=============================[ Initializing ExpenseExpert ]===========================");
         super.init();
 
         AppParameters appParameters = AppParameters.parse(getParameters());
@@ -56,9 +56,9 @@ public class MainApp extends Application {
 
         UserPrefsStorage userPrefsStorage = new JsonUserPrefsStorage(config.getUserPrefsFilePath());
         UserPrefs userPrefs = initPrefs(userPrefsStorage);
-        ExpenditureExpertStorage expenditureExpertStorage =
-                new JsonExpenditureExpertStorage(userPrefs.getExpenditureExpertFilePath());
-        storage = new StorageManager(expenditureExpertStorage, userPrefsStorage);
+        ExpenseExpertStorage expenseExpertStorage =
+                new JsonExpenseExpertStorage(userPrefs.getExpenseExpertFilePath());
+        storage = new StorageManager(expenseExpertStorage, userPrefsStorage);
 
         initLogging(config);
 
@@ -70,26 +70,26 @@ public class MainApp extends Application {
     }
 
     /**
-     * Returns a {@code ModelManager} with the data from {@code storage}'s expenditure expert
-     * and {@code userPrefs}. <br> The data from the sample expenditure expert will be used instead
-     * if {@code storage}'s expenditure expert is not found, or an empty expenditure expert will be used instead
-     * if errors occur when reading {@code storage}'s expenditure expert.
+     * Returns a {@code ModelManager} with the data from {@code storage}'s expense expert
+     * and {@code userPrefs}. <br> The data from the sample expense expert will be used instead
+     * if {@code storage}'s expense expert is not found, or an empty expense expert will be used instead
+     * if errors occur when reading {@code storage}'s expense expert.
      */
     private Model initModelManager(Storage storage, ReadOnlyUserPrefs userPrefs) {
-        Optional<ReadOnlyExpenditureExpert> expenditureExpertOptional;
-        ReadOnlyExpenditureExpert initialData;
+        Optional<ReadOnlyExpenseExpert> expenseExpertOptional;
+        ReadOnlyExpenseExpert initialData;
         try {
-            expenditureExpertOptional = storage.readExpenditureExpert();
-            if (!expenditureExpertOptional.isPresent()) {
-                logger.info("Data file not found. Will be starting with a sample Expenditure Expert");
+            expenseExpertOptional = storage.readExpenseExpert();
+            if (!expenseExpertOptional.isPresent()) {
+                logger.info("Data file not found. Will be starting with a sample Expense Expert");
             }
-            initialData = expenditureExpertOptional.orElseGet(SampleDataUtil::getSampleExpenditureExpert);
+            initialData = expenseExpertOptional.orElseGet(SampleDataUtil::getSampleExpenseExpert);
         } catch (DataConversionException e) {
-            logger.warning("Data file not in the correct format. Will be starting with an empty ExpenditureExpert");
-            initialData = new ExpenditureExpert();
+            logger.warning("Data file not in the correct format. Will be starting with an empty ExpenseExpert");
+            initialData = new ExpenseExpert();
         } catch (IOException e) {
-            logger.warning("Problem while reading from the file. Will be starting with an empty ExpenditureExpert");
-            initialData = new ExpenditureExpert();
+            logger.warning("Problem while reading from the file. Will be starting with an empty ExpenseExpert");
+            initialData = new ExpenseExpert();
         }
 
         return new ModelManager(initialData, userPrefs);
@@ -153,7 +153,7 @@ public class MainApp extends Application {
                     + "Using default user prefs");
             initializedPrefs = new UserPrefs();
         } catch (IOException e) {
-            logger.warning("Problem while reading from the file. Will be starting with an empty ExpenditureExpert");
+            logger.warning("Problem while reading from the file. Will be starting with an empty ExpenseExpert");
             initializedPrefs = new UserPrefs();
         }
 
@@ -169,13 +169,13 @@ public class MainApp extends Application {
 
     @Override
     public void start(Stage primaryStage) {
-        logger.info("Starting ExpenditureExpert " + MainApp.VERSION);
+        logger.info("Starting ExpenseExpert " + MainApp.VERSION);
         ui.start(primaryStage);
     }
 
     @Override
     public void stop() {
-        logger.info("============================ [ Stopping ExpenditureExpert ] =============================");
+        logger.info("============================ [ Stopping ExpenseExpert ] =============================");
         try {
             storage.saveUserPrefs(model.getUserPrefs());
         } catch (IOException e) {

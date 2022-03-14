@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import seedu.address.model.ExpenditureExpert;
+import seedu.address.model.ExpenseExpert;
 import seedu.address.model.expense.Expense;
 
 /**
@@ -50,10 +50,10 @@ public class TypicalExpenses {
     private TypicalExpenses() {} // prevents instantiation
 
     /**
-     * Returns an {@code Expenditure Expert} with all the typical expenses.
+     * Returns an {@code Expense Expert} with all the typical expenses.
      */
-    public static ExpenditureExpert getTypicalExpenditureExpert() {
-        ExpenditureExpert ee = new ExpenditureExpert();
+    public static ExpenseExpert getTypicalExpenseExpert() {
+        ExpenseExpert ee = new ExpenseExpert();
         for (Expense expense : getTypicalExpenses()) {
             ee.addExpense(expense);
         }

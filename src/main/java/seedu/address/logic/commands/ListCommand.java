@@ -6,7 +6,7 @@ import static seedu.address.model.Model.PREDICATE_SHOW_ALL_EXPENSES;
 import seedu.address.model.Model;
 
 /**
- * Lists all expenses in the expenditure expert to the user.
+ * Lists all expenses in the expense expert to the user.
  */
 public class ListCommand extends Command {
 

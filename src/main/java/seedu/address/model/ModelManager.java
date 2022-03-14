@@ -14,30 +14,30 @@ import seedu.address.commons.core.LogsCenter;
 import seedu.address.model.expense.Expense;
 
 /**
- * Represents the in-memory model of the expenditure expert data.
+ * Represents the in-memory model of the expense expert data.
  */
 public class ModelManager implements Model {
     private static final Logger logger = LogsCenter.getLogger(ModelManager.class);
 
-    private final ExpenditureExpert expenditureExpert;
+    private final ExpenseExpert expenseExpert;
     private final UserPrefs userPrefs;
     private final FilteredList<Expense> filteredExpenses;
 
     /**
-     * Initializes a ModelManager with the given expenditureExpert and userPrefs.
+     * Initializes a ModelManager with the given expenseExpert and userPrefs.
      */
-    public ModelManager(ReadOnlyExpenditureExpert expenditureExpert, ReadOnlyUserPrefs userPrefs) {
-        requireAllNonNull(expenditureExpert, userPrefs);
+    public ModelManager(ReadOnlyExpenseExpert expenseExpert, ReadOnlyUserPrefs userPrefs) {
+        requireAllNonNull(expenseExpert, userPrefs);
 
-        logger.fine("Initializing with expenditure expert: " + expenditureExpert + " and user prefs " + userPrefs);
+        logger.fine("Initializing with expense expert: " + expenseExpert + " and user prefs " + userPrefs);
 
-        this.expenditureExpert = new ExpenditureExpert(expenditureExpert);
+        this.expenseExpert = new ExpenseExpert(expenseExpert);
         this.userPrefs = new UserPrefs(userPrefs);
-        filteredExpenses = new FilteredList<>(this.expenditureExpert.getExpenseList());
+        filteredExpenses = new FilteredList<>(this.expenseExpert.getExpenseList());
     }
 
     public ModelManager() {
-        this(new ExpenditureExpert(), new UserPrefs());
+        this(new ExpenseExpert(), new UserPrefs());
     }
 
     //=========== UserPrefs ==================================================================================
@@ -65,42 +65,42 @@ public class ModelManager implements Model {
     }
 
     @Override
-    public Path getExpenditureExpertFilePath() {
-        return userPrefs.getExpenditureExpertFilePath();
+    public Path getExpenseExpertFilePath() {
+        return userPrefs.getExpenseExpertFilePath();
     }
 
     @Override
-    public void setExpenditureExpertFilePath(Path expenditureExpertFilePath) {
-        requireNonNull(expenditureExpertFilePath);
-        userPrefs.setExpenditureExpertFilePath(expenditureExpertFilePath);
+    public void setExpenseExpertFilePath(Path expenseExpertFilePath) {
+        requireNonNull(expenseExpertFilePath);
+        userPrefs.setExpenseExpertFilePath(expenseExpertFilePath);
     }
 
-    //=========== ExpenditureExpert ================================================================================
+    //=========== ExpenseExpert ================================================================================
 
     @Override
-    public void setExpenditureExpert(ReadOnlyExpenditureExpert expenditureExpert) {
-        this.expenditureExpert.resetData(expenditureExpert);
+    public void setExpenseExpert(ReadOnlyExpenseExpert expenseExpert) {
+        this.expenseExpert.resetData(expenseExpert);
     }
 
     @Override
-    public ReadOnlyExpenditureExpert getExpenditureExpert() {
-        return expenditureExpert;
+    public ReadOnlyExpenseExpert getExpenseExpert() {
+        return expenseExpert;
     }
 
     @Override
     public boolean hasExpense(Expense expense) {
         requireNonNull(expense);
-        return expenditureExpert.hasExpense(expense);
+        return expenseExpert.hasExpense(expense);
     }
 
     @Override
     public void deleteExpense(Expense target) {
-        expenditureExpert.removeExpense(target);
+        expenseExpert.removeExpense(target);
     }
 
     @Override
     public void addExpense(Expense expense) {
-        expenditureExpert.addExpense(expense);
+        expenseExpert.addExpense(expense);
         updateFilteredExpenseList(PREDICATE_SHOW_ALL_EXPENSES);
     }
 
@@ -108,14 +108,14 @@ public class ModelManager implements Model {
     public void setExpense(Expense target, Expense editedExpense) {
         requireAllNonNull(target, editedExpense);
 
-        expenditureExpert.setExpense(target, editedExpense);
+        expenseExpert.setExpense(target, editedExpense);
     }
 
     //=========== Filtered Expense List Accessors =============================================================
 
     /**
      * Returns an unmodifiable view of the list of {@code Expense} backed by the internal list of
-     * {@code versionedExpenditureExpert}
+     * {@code versionedExpenseExpert}
      */
     @Override
     public ObservableList<Expense> getFilteredExpenseList() {
@@ -142,7 +142,7 @@ public class ModelManager implements Model {
 
         // state check
         ModelManager other = (ModelManager) obj;
-        return expenditureExpert.equals(other.expenditureExpert)
+        return expenseExpert.equals(other.expenseExpert)
                 && userPrefs.equals(other.userPrefs)
                 && filteredExpenses.equals(other.filteredExpenses);
     }

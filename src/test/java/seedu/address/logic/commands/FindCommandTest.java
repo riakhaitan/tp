@@ -8,7 +8,7 @@ import static seedu.address.logic.commands.CommandTestUtil.assertCommandSuccess;
 import static seedu.address.testutil.TypicalExpenses.CAR_WASH;
 import static seedu.address.testutil.TypicalExpenses.ELECTRICAL_APPLIANCES;
 import static seedu.address.testutil.TypicalExpenses.FISHING_APPARATUS;
-import static seedu.address.testutil.TypicalExpenses.getTypicalExpenditureExpert;
+import static seedu.address.testutil.TypicalExpenses.getTypicalExpenseExpert;
 
 import java.util.Arrays;
 import java.util.Collections;
@@ -24,8 +24,8 @@ import seedu.address.model.expense.DescriptionContainsKeywordsPredicate;
  * Contains integration tests (interaction with the Model) for {@code FindCommand}.
  */
 public class FindCommandTest {
-    private Model model = new ModelManager(getTypicalExpenditureExpert(), new UserPrefs());
-    private Model expectedModel = new ModelManager(getTypicalExpenditureExpert(), new UserPrefs());
+    private Model model = new ModelManager(getTypicalExpenseExpert(), new UserPrefs());
+    private Model expectedModel = new ModelManager(getTypicalExpenseExpert(), new UserPrefs());
 
     @Test
     public void equals() {
