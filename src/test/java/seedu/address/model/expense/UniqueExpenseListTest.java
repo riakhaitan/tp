@@ -3,10 +3,11 @@ package seedu.address.model.expense;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-import static seedu.address.logic.commands.CommandTestUtil.*;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_DESCRIPTION_BUILD_A_BEAR;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_EXPENSE_CATEGORY_TRANSPORT;
 import static seedu.address.testutil.Assert.assertThrows;
-import static seedu.address.testutil.TypicalExpenses.ANNUAL_SPOTIFY;
 import static seedu.address.testutil.TypicalExpenses.ANNUAL_NETFLIX_FEES;
+import static seedu.address.testutil.TypicalExpenses.ANNUAL_SPOTIFY;
 
 import java.util.Arrays;
 import java.util.Collections;
@@ -65,12 +66,14 @@ public class UniqueExpenseListTest {
 
     @Test
     public void setExpense_nullEditedExpense_throwsNullPointerException() {
-        assertThrows(NullPointerException.class, () -> UniqueExpenseList.setExpense(ANNUAL_SPOTIFY, null));
+        assertThrows(NullPointerException.class, () -> UniqueExpenseList
+                .setExpense(ANNUAL_SPOTIFY, null));
     }
 
     @Test
     public void setExpense_targetExpenseNotInList_throwsExpenseNotFoundException() {
-        assertThrows(ExpenseNotFoundException.class, () -> UniqueExpenseList.setExpense(ANNUAL_SPOTIFY, ANNUAL_SPOTIFY));
+        assertThrows(ExpenseNotFoundException.class, () -> UniqueExpenseList
+                .setExpense(ANNUAL_SPOTIFY, ANNUAL_SPOTIFY));
     }
 
     @Test
@@ -106,7 +109,8 @@ public class UniqueExpenseListTest {
     public void setExpense_editedExpenseHasNonUniqueIdentity_throwsDuplicateExpenseException() {
         UniqueExpenseList.add(ANNUAL_SPOTIFY);
         UniqueExpenseList.add(ANNUAL_NETFLIX_FEES);
-        assertThrows(DuplicateExpenseException.class, () -> UniqueExpenseList.setExpense(ANNUAL_SPOTIFY, ANNUAL_NETFLIX_FEES));
+        assertThrows(DuplicateExpenseException.class, (
+        ) -> UniqueExpenseList.setExpense(ANNUAL_SPOTIFY, ANNUAL_NETFLIX_FEES));
     }
 
     @Test
@@ -127,13 +131,14 @@ public class UniqueExpenseListTest {
         assertEquals(expectedUniqueExpenseList, UniqueExpenseList);
     }
 
+    // setExpense_nullUniqueExpenseList() -> throwsNullPointerException()
     @Test
-    public void setExpense_nullUniqueExpenseList_throwsNullPointerException() {
+    public void setExpense_nullUniqueExpenseList() {
         assertThrows(NullPointerException.class, () -> UniqueExpenseList.setExpenses((UniqueExpenseList) null));
     }
-
+    // setExpense_UniqueExpenseList -> replacesOwnListWithProvidedUniqueExpenseList
     @Test
-    public void setExpense_UniqueExpenseList_replacesOwnListWithProvidedUniqueExpenseList() {
+    public void setExpense_uniqueExpenseList() {
         UniqueExpenseList.add(ANNUAL_SPOTIFY);
         UniqueExpenseList expectedUniqueExpenseList = new UniqueExpenseList();
         expectedUniqueExpenseList.add(ANNUAL_NETFLIX_FEES);
@@ -164,7 +169,7 @@ public class UniqueExpenseListTest {
 
     @Test
     public void asUnmodifiableObservableList_modifyList_throwsUnsupportedOperationException() {
-        assertThrows(UnsupportedOperationException.class, ()
-                -> UniqueExpenseList.asUnmodifiableObservableList().remove(0));
+        assertThrows(UnsupportedOperationException.class, () -> UniqueExpenseList
+                .asUnmodifiableObservableList().remove(0));
     }
 }
