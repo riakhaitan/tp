@@ -33,7 +33,7 @@ public class Amount {
     }
 
     /**
-     * Returns true if a given string is a valid name.
+     * Returns true if a given string is a valid amount.
      */
     public static boolean isValidAmount(String test) {
         return test.matches(VALIDATION_REGEX) && test != "";
