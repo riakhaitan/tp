@@ -1,14 +1,14 @@
 package seedu.address.model.util;
 
-import seedu.address.model.ExpenditureExpert;
-import seedu.address.model.ReadOnlyExpenditureExpert;
+import seedu.address.model.ExpenseExpert;
+import seedu.address.model.ReadOnlyExpenseExpert;
 import seedu.address.model.expense.Amount;
 import seedu.address.model.expense.Description;
 import seedu.address.model.expense.Expense;
 import seedu.address.model.expense.ExpenseCategory;
 
 /**
- * Contains utility methods for populating {@code ExpenditureExpert} with sample data.
+ * Contains utility methods for populating {@code ExpenseExpert} with sample data.
  */
 public class SampleDataUtil {
     public static Expense[] getSampleExpenses() {
@@ -22,8 +22,8 @@ public class SampleDataUtil {
         };
     }
 
-    public static ReadOnlyExpenditureExpert getSampleExpenditureExpert() {
-        ExpenditureExpert sampleEe = new ExpenditureExpert();
+    public static ReadOnlyExpenseExpert getSampleExpenseExpert() {
+        ExpenseExpert sampleEe = new ExpenseExpert();
         for (Expense sampleExpense : getSampleExpenses()) {
             sampleEe.addExpense(sampleExpense);
         }

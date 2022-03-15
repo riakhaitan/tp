@@ -15,6 +15,7 @@ We are a team based in the [School of Computing, National University of Singapor
 [[portfolio](team/lamwj98.md)]
 
 - Role:
+  - Code base refactoring
   - Integration
   - In charge of `Model`
 

@@ -273,49 +273,49 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 | Priority | As a …​                                    | I want to …​                                                | So that I can…​                                                       |
 | -------- | ------------------------------------------ |-------------------------------------------------------------|-----------------------------------------------------------------------|
 | `* * *`  | new user                                   | see usage instructions                                      | try features suitable for new users                                   |
-| `* * *`  | user                                       | add an expenditure with details such as type of expenditure |                                                                       |
-| `* * *`  | user                                       | delete an expenditure                                       | remove entries that I keyed wrongly                                   |
-| `* * *`  | user                                       | edit an expenditure along with its details                  |                                                                       |
-| `* * *`  | user                                       | view all expenditure recorded                               | locate details of persons without having to go through the entire list |
+| `* * *`  | user                                       | add an expense with details such as type of expense |                                                                       |
+| `* * *`  | user                                       | delete an expense                                       | remove entries that I keyed wrongly                                   |
+| `* * *`  | user                                       | edit an expense along with its details                  |                                                                       |
+| `* * *`  | user                                       | view all expense recorded                               | locate details of persons without having to go through the entire list |
 
 *{More to be added}*
 
 ### Use cases
 
-(For all use cases below, the **System** is the `ExpenditureExpert` and the **Actor** is the `user`, unless specified otherwise)
+(For all use cases below, the **System** is the `ExpenseExpert` and the **Actor** is the `user`, unless specified otherwise)
 
-**Use case: UC01 Add an expenditure**
+**Use case: UC01 Add an expense**
 
 **MSS**
 
-1.  User requests to add an expenditure.
-2.  ExpenditureExpert adds the expenditure to the list.
+1.  User requests to add an expense.
+2.  ExpenseExpert adds the expense to the list.
 
     Use case ends.
 
 **Extensions**
 
     1a. Invalid syntax entered.
-        1a1. ExpenditureExpert requests to check command parsed and enter command again.
+        1a1. ExpenseExpert requests to check command parsed and enter command again.
         Use case ends.
 
     2a. Missing syntax or syntax field(s).
-        2a1. ExpenditureExpert request to check command parsed and enter command again.
+        2a1. ExpenseExpert request to check command parsed and enter command again.
         Use case ends.
 
-**Use case: UC02 list all expenditure**
+**Use case: UC02 list all expense**
 
 **MSS**
 
 **Extensions**
 
-**Use case: UC03 Delete an expenditure**
+**Use case: UC03 Delete an expense**
 
 **MSS**
 
 **Extensions**
 
-**Use case: UC04 Edit an expenditure**
+**Use case: UC04 Edit an expense**
 
 **MSS**
 
@@ -336,7 +336,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 * **Mainstream OS**: Windows, Linux, Unix, OS-X
 * **Private contact detail**: A contact detail that is not meant to be shared with others
-* **Expenditure**:the action of spending funds.
+* **Expense**:the action of spending funds.
 
 --------------------------------------------------------------------------------------------------------------------
 

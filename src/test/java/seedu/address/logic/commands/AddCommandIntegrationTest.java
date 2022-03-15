@@ -2,7 +2,7 @@ package seedu.address.logic.commands;
 
 import static seedu.address.logic.commands.CommandTestUtil.assertCommandFailure;
 import static seedu.address.logic.commands.CommandTestUtil.assertCommandSuccess;
-import static seedu.address.testutil.TypicalExpenses.getTypicalExpenditureExpert;
+import static seedu.address.testutil.TypicalExpenses.getTypicalExpenseExpert;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -22,14 +22,14 @@ public class AddCommandIntegrationTest {
 
     @BeforeEach
     public void setUp() {
-        model = new ModelManager(getTypicalExpenditureExpert(), new UserPrefs());
+        model = new ModelManager(getTypicalExpenseExpert(), new UserPrefs());
     }
 
     @Test
     public void execute_newExpense_success() {
         Expense validExpense = new ExpenseBuilder().build();
 
-        Model expectedModel = new ModelManager(model.getExpenditureExpert(), new UserPrefs());
+        Model expectedModel = new ModelManager(model.getExpenseExpert(), new UserPrefs());
         expectedModel.addExpense(validExpense);
 
         assertCommandSuccess(new AddCommand(validExpense), model,
@@ -38,7 +38,7 @@ public class AddCommandIntegrationTest {
 
     @Test
     public void execute_duplicateExpense_throwsCommandException() {
-        Expense expenseInList = model.getExpenditureExpert().getExpenseList().get(0);
+        Expense expenseInList = model.getExpenseExpert().getExpenseList().get(0);
         assertCommandFailure(new AddCommand(expenseInList), model, AddCommand.MESSAGE_DUPLICATE_EXPENSE);
     }
 

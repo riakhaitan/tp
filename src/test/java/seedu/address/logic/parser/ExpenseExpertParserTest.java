@@ -29,9 +29,9 @@ import seedu.address.testutil.EditExpenseDescriptorBuilder;
 import seedu.address.testutil.ExpenseBuilder;
 import seedu.address.testutil.ExpenseUtil;
 
-public class ExpenditureExpertParserTest {
+public class ExpenseExpertParserTest {
 
-    private final ExpenditureExpertParser parser = new ExpenditureExpertParser();
+    private final ExpenseExpertParser parser = new ExpenseExpertParser();
 
     @Test
     public void parseCommand_add() throws Exception {

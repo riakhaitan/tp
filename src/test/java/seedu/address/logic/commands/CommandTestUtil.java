@@ -13,7 +13,7 @@ import java.util.List;
 
 import seedu.address.commons.core.index.Index;
 import seedu.address.logic.commands.exceptions.CommandException;
-import seedu.address.model.ExpenditureExpert;
+import seedu.address.model.ExpenseExpert;
 import seedu.address.model.Model;
 import seedu.address.model.expense.DescriptionContainsKeywordsPredicate;
 import seedu.address.model.expense.Expense;
@@ -88,21 +88,21 @@ public class CommandTestUtil {
      * Executes the given {@code command}, confirms that <br>
      * - a {@code CommandException} is thrown <br>
      * - the CommandException message matches {@code expectedMessage} <br>
-     * - Expenditure Expert, filtered expense list and selected expense in {@code actualModel} remain unchanged
+     * - Expense Expert, filtered expense list and selected expense in {@code actualModel} remain unchanged
      */
     public static void assertCommandFailure(Command command, Model actualModel, String expectedMessage) {
         // we are unable to defensively copy the model for comparison later, so we can
         // only do so by copying its components.
-        ExpenditureExpert expectedExpenditureExpert = new ExpenditureExpert(actualModel.getExpenditureExpert());
+        ExpenseExpert expectedExpenseExpert = new ExpenseExpert(actualModel.getExpenseExpert());
         List<Expense> expectedFilteredList = new ArrayList<>(actualModel.getFilteredExpenseList());
 
         assertThrows(CommandException.class, expectedMessage, () -> command.execute(actualModel));
-        assertEquals(expectedExpenditureExpert, actualModel.getExpenditureExpert());
+        assertEquals(expectedExpenseExpert, actualModel.getExpenseExpert());
         assertEquals(expectedFilteredList, actualModel.getFilteredExpenseList());
     }
     /**
      * Updates {@code model}'s filtered list to show only the expense at the given {@code targetIndex} in the
-     * {@code model}'s ExpenditureExpert.
+     * {@code model}'s ExpenseExpert.
      */
     public static void showExpenseAtIndex(Model model, Index targetIndex) {
         assertTrue(targetIndex.getZeroBased() < model.getFilteredExpenseList().size());

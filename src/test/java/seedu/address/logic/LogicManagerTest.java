@@ -18,9 +18,9 @@ import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.logic.parser.exceptions.ParseException;
 import seedu.address.model.Model;
 import seedu.address.model.ModelManager;
-import seedu.address.model.ReadOnlyExpenditureExpert;
+import seedu.address.model.ReadOnlyExpenseExpert;
 import seedu.address.model.UserPrefs;
-import seedu.address.storage.JsonExpenditureExpertStorage;
+import seedu.address.storage.JsonExpenseExpertStorage;
 import seedu.address.storage.JsonUserPrefsStorage;
 import seedu.address.storage.StorageManager;
 
@@ -35,10 +35,10 @@ public class LogicManagerTest {
 
     @BeforeEach
     public void setUp() {
-        JsonExpenditureExpertStorage expenditureExpertStorage =
-                new JsonExpenditureExpertStorage(temporaryFolder.resolve("expenditureExpert.json"));
+        JsonExpenseExpertStorage expenseExpertStorage =
+                new JsonExpenseExpertStorage(temporaryFolder.resolve("expenseExpert.json"));
         JsonUserPrefsStorage userPrefsStorage = new JsonUserPrefsStorage(temporaryFolder.resolve("userPrefs.json"));
-        StorageManager storage = new StorageManager(expenditureExpertStorage, userPrefsStorage);
+        StorageManager storage = new StorageManager(expenseExpertStorage, userPrefsStorage);
         logic = new LogicManager(model, storage);
     }
 
@@ -64,13 +64,13 @@ public class LogicManagerTest {
     /*
     @Test
     public void execute_storageThrowsIoException_throwsCommandException() {
-        // Setup LogicManager with JsonExpenditureExpertIoExceptionThrowingStub
-        JsonExpenditureExpertStorage expenditureExpertStorage =
-                new JsonExpenditureExpertIoExceptionThrowingStub(temporaryFolder
-                .resolve("ioExceptionExpenditureExpert.json"));
+        // Setup LogicManager with JsonExpenseExpertIoExceptionThrowingStub
+        JsonExpenseExpertStorage expenseExpertStorage =
+                new JsonExpenseExpertIoExceptionThrowingStub(temporaryFolder
+                .resolve("ioExceptionExpenseExpert.json"));
         JsonUserPrefsStorage userPrefsStorage =
                 new JsonUserPrefsStorage(temporaryFolder.resolve("ioExceptionUserPrefs.json"));
-        StorageManager storage = new StorageManager(expenditureExpertStorage, userPrefsStorage);
+        StorageManager storage = new StorageManager(expenseExpertStorage, userPrefsStorage);
         logic = new LogicManager(model, storage);
 
         // Execute add command
@@ -125,7 +125,7 @@ public class LogicManagerTest {
      */
     private void assertCommandFailure(String inputCommand, Class<? extends Throwable> expectedException,
             String expectedMessage) {
-        Model expectedModel = new ModelManager(model.getExpenditureExpert(), new UserPrefs());
+        Model expectedModel = new ModelManager(model.getExpenseExpert(), new UserPrefs());
         assertCommandFailure(inputCommand, expectedException, expectedMessage, expectedModel);
     }
 
@@ -145,13 +145,13 @@ public class LogicManagerTest {
     /**
      * A stub class to throw an {@code IOException} when the save method is called.
      */
-    private static class JsonExpenditureExpertIoExceptionThrowingStub extends JsonExpenditureExpertStorage {
-        private JsonExpenditureExpertIoExceptionThrowingStub(Path filePath) {
+    private static class JsonExpenseExpertIoExceptionThrowingStub extends JsonExpenseExpertStorage {
+        private JsonExpenseExpertIoExceptionThrowingStub(Path filePath) {
             super(filePath);
         }
 
         @Override
-        public void saveExpenditureExpert(ReadOnlyExpenditureExpert expenditureExpert, Path filePath)
+        public void saveExpenseExpert(ReadOnlyExpenseExpert expenseExpert, Path filePath)
                 throws IOException {
             throw DUMMY_IO_EXCEPTION;
         }

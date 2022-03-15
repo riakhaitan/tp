@@ -5,10 +5,10 @@ skinparam arrowColor MODEL_COLOR
 skinparam classBackgroundColor MODEL_COLOR
 
 Package Model <<Rectangle>>{
-Class "<<interface>>\nReadOnlyExpenditureExpert" as ReadOnlyExpenditureExpert
+Class "<<interface>>\nReadOnlyExpenseExpert" as ReadOnlyExpenseExpert
 Class "<<interface>>\nReadOnlyUserPrefs" as ReadOnlyUserPrefs
 Class "<<interface>>\nModel" as Model
-Class ExpenditureExpert
+Class ExpenseExpert
 Class ModelManager
 Class UserPrefs
 
@@ -23,16 +23,16 @@ Class Amount
 Class HiddenOutside #FFFFFF
 HiddenOutside ..> Model
 
-ExpenditureExpert .up.|> ReadOnlyExpenditureExpert
+ExpenseExpert .up.|> ReadOnlyExpenseExpert
 
 ModelManager .up.|> Model
 Model .right.> ReadOnlyUserPrefs
-Model .left.> ReadOnlyExpenditureExpert
-ModelManager -left-> "1" ExpenditureExpert
+Model .left.> ReadOnlyExpenseExpert
+ModelManager -left-> "1" ExpenseExpert
 ModelManager -right-> "1" UserPrefs
 UserPrefs .up.|> ReadOnlyUserPrefs
 
-ExpenditureExpert *--> "1" UniqueExpenseList
+ExpenseExpert *--> "1" UniqueExpenseList
 UniqueExpenseList --> "~* all" Expense
 Expense *--> Description
 Expense *--> ExpenseCategory

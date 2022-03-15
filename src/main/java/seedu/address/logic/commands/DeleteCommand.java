@@ -11,7 +11,7 @@ import seedu.address.model.Model;
 import seedu.address.model.expense.Expense;
 
 /**
- * Deletes a expense identified using it's displayed index from the expenditure expert.
+ * Deletes a expense identified using it's displayed index from the expense expert.
  */
 public class DeleteCommand extends Command {
 
@@ -20,7 +20,7 @@ public class DeleteCommand extends Command {
     public static final String MESSAGE_USAGE = COMMAND_WORD
             + ": Deletes the expense identified by the index number used in the displayed expense list.\n"
             + "Parameters: INDEX (must be a positive integer)\n"
-            + "Example: " + COMMAND_WORD + " 1";
+            + "Example: " + COMMAND_WORD + " 1\n\n";
 
     public static final String MESSAGE_DELETE_EXPENSE_SUCCESS = "Deleted expense: %1$s";
 
