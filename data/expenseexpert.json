@@ -1,31 +1,18 @@
 {
   "expenses" : [ {
-    "description" : "Took Grab",
-    "expenseCategory" : "Travel",
-    "amount" : "10"
-  }, {
-    "description" : "Took Bus",
-    "expenseCategory" : "Travel",
-    "amount" : "3"
-  }, {
-    "description" : "McDonalds",
+    "description" : "Sushi",
     "expenseCategory" : "Food",
     "amount" : "15"
   }, {
-    "description" : "Pizza",
-    "expenseCategory" : "Food",
-    "amount" : "30"
+    "description" : "Uniqlo shirt",
+    "expenseCategory" : "Fashion",
+    "amount" : "39.99"
   }, {
-    "description" : "Ice Cream",
-    "expenseCategory" : "Food",
-    "amount" : "4"
-  }, {
-    "description" : "Watched Movie",
-    "expenseCategory" : "Entertainment",
-    "amount" : "12"
-  }, {
-    "description" : "Took Train",
-    "expenseCategory" : "Travel",
-    "amount" : "2"
-  } ]
+    "description" : "Uniqlo pants",
+    "expenseCategory" : "Fashion",
+    "amount" : "10"
+  } ],
+  "budget" : {
+    "budget" : "975"
+  }
 }

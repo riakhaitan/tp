@@ -1,5 +1,6 @@
 package seedu.address.model.expense;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static seedu.address.testutil.Assert.assertThrows;
 
@@ -19,7 +20,7 @@ public class AmountTest {
 
     @Test
     public void isValidAmount() {
-        // null address
+        // null amount
         assertThrows(NullPointerException.class, () -> Amount.isValidAmount(null));
 
         /*
@@ -29,9 +30,14 @@ public class AmountTest {
         assertFalse(Amount.isValidAmount(" ")); // spaces only
          */
 
-        // valid addresses
+        // valid amounts
         assertTrue(Amount.isValidAmount("111.1")); //single digit after decimal
         assertTrue(Amount.isValidAmount("22")); // normal integer
         assertTrue(Amount.isValidAmount("2.55")); // double digits after decimal
+    }
+
+    @Test
+    public void asInt() {
+        assertEquals(22, (new Amount("22")).asInt());
     }
 }

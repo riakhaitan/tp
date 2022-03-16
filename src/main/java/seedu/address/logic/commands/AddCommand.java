@@ -7,6 +7,7 @@ import static seedu.address.logic.parser.CliSyntax.PREFIX_EXPENSE_CATEGORY;
 
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.Model;
+import seedu.address.model.budget.Budget;
 import seedu.address.model.expense.Expense;
 
 /**
@@ -27,6 +28,7 @@ public class AddCommand extends Command {
             + PREFIX_AMOUNT + "100 \n\n";
 
     public static final String MESSAGE_SUCCESS = "New expense added: %1$s";
+    public static final String BUDGET_EDITED = "Budget allowance for this month is now: %1$s";
     public static final String MESSAGE_DUPLICATE_EXPENSE = "This expense already exists in Expense Expert";
 
     private final Expense toAdd;
@@ -48,7 +50,22 @@ public class AddCommand extends Command {
         }
 
         model.addExpense(toAdd);
-        return new CommandResult(String.format(MESSAGE_SUCCESS, toAdd));
+        Budget newBudget = resultingBudget(model.getBudget(), toAdd);
+        model.setBudget(newBudget);
+
+        return new CommandResult(String.format(MESSAGE_SUCCESS, toAdd)
+                + "\n\n"
+                + String.format(BUDGET_EDITED, newBudget.getBudget()));
+    }
+
+    /**
+     * Calculates the remaining budget after a new expense has been added
+     * @param initial budget left for the month
+     * @param value of expense to be deducted from budget allowance for the month
+     * @return value of budget as a Budget object
+     */
+    private Budget resultingBudget(Budget initial, Expense value) {
+        return new Budget(initial.asInt() - value.getAmount().asInt());
     }
 
     @Override

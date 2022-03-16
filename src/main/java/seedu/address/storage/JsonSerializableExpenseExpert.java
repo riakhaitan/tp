@@ -22,6 +22,7 @@ class JsonSerializableExpenseExpert {
     public static final String MESSAGE_DUPLICATE_EXPENSE = "Expenses list contains duplicate expense(s).";
 
     private final List<JsonAdaptedExpense> expenses = new ArrayList<>();
+    private JsonAdaptedBudget budget;
 
     /**
      * Constructs a {@code JsonSerializableExpenseExpert} with the given expenses.
@@ -38,6 +39,7 @@ class JsonSerializableExpenseExpert {
      */
     public JsonSerializableExpenseExpert(ReadOnlyExpenseExpert source) {
         expenses.addAll(source.getExpenseList().stream().map(JsonAdaptedExpense::new).collect(Collectors.toList()));
+        this.budget = new JsonAdaptedBudget(source.getBudget());
     }
 
     /**
@@ -54,6 +56,8 @@ class JsonSerializableExpenseExpert {
             }
             expenseExpert.addExpense(expense);
         }
+        expenseExpert.setBudget(this.budget.toModelType());
+
         return expenseExpert;
     }
 

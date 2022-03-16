@@ -1,84 +1,64 @@
 package seedu.address.logic.commands;
 
 import static java.util.Objects.requireNonNull;
-// import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static seedu.address.testutil.Assert.assertThrows;
 
 import java.nio.file.Path;
-import java.util.ArrayList;
-// import java.util.Arrays;
 import java.util.function.Predicate;
 
 import org.junit.jupiter.api.Test;
 
 import javafx.collections.ObservableList;
 import seedu.address.commons.core.GuiSettings;
-import seedu.address.logic.commands.exceptions.CommandException;
-import seedu.address.model.ExpenseExpert;
 import seedu.address.model.Model;
 import seedu.address.model.ReadOnlyExpenseExpert;
 import seedu.address.model.ReadOnlyUserPrefs;
 import seedu.address.model.budget.Budget;
 import seedu.address.model.expense.Expense;
-// import seedu.address.testutil.BudgetBuilder;
-import seedu.address.testutil.ExpenseBuilder;
+import seedu.address.testutil.BudgetBuilder;
 
-public class AddCommandTest {
-
+public class SetBudgetCommandTest {
     @Test
-    public void constructor_nullExpense_throwsNullPointerException() {
-        assertThrows(NullPointerException.class, () -> new AddCommand(null));
+    public void constructor_nullBudget_throwsNullPointerException() {
+        assertThrows(NullPointerException.class, () -> new SetBudgetCommand(null));
     }
 
-    // @Test
-    // public void execute_expenseAcceptedByModel_addSuccessful() throws Exception {
-    //     ModelStubAcceptingExpenseAdded modelStub = new ModelStubAcceptingExpenseAdded();
-    //     Expense validExpense = new ExpenseBuilder().build();
-    //     Budget validBudget = new BudgetBuilder().build();
-    //     Budget newBudget = new Budget(validBudget.asInt() - validExpense.getAmount().asInt());
-
-    //     CommandResult commandResult = new AddCommand(validExpense).execute(modelStub);
-
-    //     assertEquals(String.format(AddCommand.MESSAGE_SUCCESS, validExpense)
-    //             + "\n\n"
-    //             + String.format(AddCommand.BUDGET_EDITED, newBudget),
-    //             commandResult.getFeedbackToUser());
-    //     assertEquals(Arrays.asList(validExpense), modelStub.expensesAdded);
-    // }
-
     @Test
-    public void execute_duplicateExpense_throwsCommandException() {
-        Expense validExpense = new ExpenseBuilder().build();
-        AddCommand addCommand = new AddCommand(validExpense);
-        ModelStub modelStub = new ModelStubWithExpense(validExpense);
+    public void execute_budgetAcceptedByModel_setSuccessful() throws Exception {
+        ModelStubAcceptingBudgetSet modelStub = new ModelStubAcceptingBudgetSet();
+        Budget validBudget = new BudgetBuilder().build();
 
-        assertThrows(CommandException.class, AddCommand.MESSAGE_DUPLICATE_EXPENSE, () -> addCommand.execute(modelStub));
+        CommandResult commandResult = new SetBudgetCommand(validBudget).execute(modelStub);
+
+        assertEquals(String.format(SetBudgetCommand.MESSAGE_SUCCESS, validBudget), commandResult.getFeedbackToUser());
+        assertEquals(validBudget, modelStub.budget);
     }
 
     @Test
     public void equals() {
-        Expense annualNetflix = new ExpenseBuilder().withDescription("Annual Netflix Fees").build();
-        Expense baseballLesson = new ExpenseBuilder().withDescription("Baseball Lesson Fees").build();
-        AddCommand addAnnualNetflixCommand = new AddCommand(annualNetflix);
-        AddCommand addBaseballLessonCommand = new AddCommand(baseballLesson);
+        Budget budgetOf500 = new BudgetBuilder().withBudget("500").build();
+        Budget budgetOf300 = new BudgetBuilder().withBudget("300").build();
+        SetBudgetCommand set500BudgetCommand = new SetBudgetCommand(budgetOf500);
+        SetBudgetCommand set300BudgetCommand = new SetBudgetCommand(budgetOf300);
 
         // same object -> returns true
-        assertTrue(addAnnualNetflixCommand.equals(addAnnualNetflixCommand));
+        assertTrue(set500BudgetCommand.equals(set500BudgetCommand));
 
         // same values -> returns true
-        AddCommand addAnnualNetflixCommandCopy = new AddCommand(annualNetflix);
-        assertTrue(addAnnualNetflixCommand.equals(addAnnualNetflixCommandCopy));
+        SetBudgetCommand set500BudgetCommandCopy = new SetBudgetCommand(budgetOf500);
+        assertTrue(set500BudgetCommand.equals(set500BudgetCommandCopy));
 
         // different types -> returns false
-        assertFalse(addAnnualNetflixCommand.equals(1));
+        assertFalse(set500BudgetCommand.equals(1));
 
         // null -> returns false
-        assertFalse(addAnnualNetflixCommand.equals(null));
+        assertFalse(set500BudgetCommand.equals(null));
 
-        // different expense -> returns false
-        assertFalse(addAnnualNetflixCommand.equals(addBaseballLessonCommand));
+        // different budget -> returns false
+        assertFalse(set500BudgetCommand.equals(set300BudgetCommand));
     }
 
     /**
@@ -167,49 +147,14 @@ public class AddCommandTest {
     }
 
     /**
-     * A Model stub that contains a single expense.
+     * A Model stub that always accept the budget being set.
      */
-    private class ModelStubWithExpense extends ModelStub {
-        private final Expense expense;
-
-        ModelStubWithExpense(Expense expense) {
-            requireNonNull(expense);
-            this.expense = expense;
-        }
-
-        @Override
-        public boolean hasExpense(Expense expense) {
-            requireNonNull(expense);
-            return this.expense.isSameExpense(expense);
-        }
-    }
-
-    /**
-     * A Model stub that always accept the expense being added.
-     */
-    private class ModelStubAcceptingExpenseAdded extends ModelStub {
-        final ArrayList<Expense> expensesAdded = new ArrayList<>();
+    private class ModelStubAcceptingBudgetSet extends ModelStub {
         private Budget budget;
 
         @Override
-        public boolean hasExpense(Expense expense) {
-            requireNonNull(expense);
-            return expensesAdded.stream().anyMatch(expense::isSameExpense);
-        }
-
-        @Override
-        public void addExpense(Expense expense) {
-            requireNonNull(expense);
-            expensesAdded.add(expense);
-        }
-
-        @Override
-        public ReadOnlyExpenseExpert getExpenseExpert() {
-            return new ExpenseExpert();
-        }
-
-        @Override
         public void setBudget(Budget budget) {
+            requireNonNull(budget);
             this.budget = budget;
         }
 
@@ -218,5 +163,4 @@ public class AddCommandTest {
             return this.budget;
         }
     }
-
 }

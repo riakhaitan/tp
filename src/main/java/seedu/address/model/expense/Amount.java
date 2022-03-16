@@ -33,10 +33,17 @@ public class Amount {
     }
 
     /**
-     * Returns true if a given string is a valid name.
+     * Returns true if a given string is a valid amount.
      */
     public static boolean isValidAmount(String test) {
         return test.matches(VALIDATION_REGEX);
+    }
+
+    /**
+     * Returns the amount of the expense as an integer.
+     */
+    public int asInt() {
+        return Integer.valueOf(amount);
     }
 
     @Override

@@ -11,6 +11,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import seedu.address.model.ExpenseExpert;
+import seedu.address.model.budget.Budget;
 import seedu.address.model.expense.Expense;
 
 /**
@@ -42,9 +43,10 @@ public class TypicalExpenses {
             .withAmount(VALID_AMOUNT_ANNUAL_SPOTIFY).build();
     public static final Expense BUILD_A_BEAR = new ExpenseBuilder().withDescription(VALID_DESCRIPTION_BUILD_A_BEAR)
             .withExpenseCategory(VALID_EXPENSE_CATEGORY_ENTERTAINMENT)
-            .withAmount(VALID_AMOUNT_BUILD_A_BEAR).build();
+                    .withAmount(VALID_AMOUNT_BUILD_A_BEAR).build();
 
 
+    public static final Budget MAY_BUDGET = new BudgetBuilder().withBudget("725").build();
     public static final String KEYWORD_MATCHING_RENT = "Rent"; // A keyword that matches Rent
 
     private TypicalExpenses() {} // prevents instantiation
@@ -57,6 +59,7 @@ public class TypicalExpenses {
         for (Expense expense : getTypicalExpenses()) {
             ee.addExpense(expense);
         }
+        ee.setBudget(MAY_BUDGET);
         return ee;
     }
 

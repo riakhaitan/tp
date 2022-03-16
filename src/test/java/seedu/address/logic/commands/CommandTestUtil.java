@@ -42,8 +42,8 @@ public class CommandTestUtil {
     public static final String AMOUNT_DESC_ANNUAL_SPOTIFY = " " + PREFIX_AMOUNT + VALID_AMOUNT_ANNUAL_SPOTIFY;
     public static final String AMOUNT_DESC_BUILD_A_BEAR = " " + PREFIX_AMOUNT + VALID_AMOUNT_BUILD_A_BEAR;
 
-    public static final EditCommand.EditExpenseDescriptor DESC_ANNUAL_SPOTIFY_FEES;
-    public static final EditCommand.EditExpenseDescriptor DESC_BUILD_A_BEAR;
+    public static final seedu.address.logic.commands.EditCommand.EditExpenseDescriptor DESC_ANNUAL_SPOTIFY_FEES;
+    public static final seedu.address.logic.commands.EditCommand.EditExpenseDescriptor DESC_BUILD_A_BEAR;
 
     public static final String INVALID_AMOUNT_DESC = " " + PREFIX_AMOUNT + "2!";
 
