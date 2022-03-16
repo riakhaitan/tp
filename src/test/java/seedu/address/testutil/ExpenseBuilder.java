@@ -1,9 +1,6 @@
 package seedu.address.testutil;
 
-import seedu.address.model.expense.Amount;
-import seedu.address.model.expense.Description;
-import seedu.address.model.expense.Expense;
-import seedu.address.model.expense.ExpenseCategory;
+import seedu.address.model.expense.*;
 
 /**
  * A utility class to help with building Expense objects.
@@ -13,10 +10,12 @@ public class ExpenseBuilder {
     public static final String DEFAULT_DESCRIPTION = "Grab";
     public static final String DEFAULT_EXPENSE_CATEGORY = "Transport";
     public static final String DEFAULT_AMOUNT = "15";
+    public static final String DEFAULT_EXPENSE_DATE = "10";
 
     private Description description;
     private ExpenseCategory expenseCategory;
     private Amount amount;
+    private ExpenseDate expenseDate;
 
     /**
      * Creates a {@code ExpenseBuilder} with the default details.
@@ -25,6 +24,7 @@ public class ExpenseBuilder {
         description = new Description(DEFAULT_DESCRIPTION);
         expenseCategory = new ExpenseCategory(DEFAULT_EXPENSE_CATEGORY);
         amount = new Amount(DEFAULT_AMOUNT);
+        expenseDate = new ExpenseDate(DEFAULT_EXPENSE_DATE);
     }
 
     /**
@@ -34,6 +34,7 @@ public class ExpenseBuilder {
         description = expenseToCopy.getDescription();
         expenseCategory = expenseToCopy.getExpenseCategory();
         amount = expenseToCopy.getAmount();
+        expenseDate = expenseToCopy.getExpenseDate();
     }
 
     /**
@@ -60,8 +61,13 @@ public class ExpenseBuilder {
         return this;
     }
 
+    public ExpenseBuilder withExpenseDate(String expenseDate) {
+        this.expenseDate = new ExpenseDate(expenseDate);
+        return this;
+    }
+
     public Expense build() {
-        return new Expense(description, expenseCategory, amount);
+        return new Expense(description, expenseCategory, amount, expenseDate);
     }
 
 }

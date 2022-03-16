@@ -8,6 +8,7 @@ import seedu.address.logic.parser.exceptions.ParseException;
 import seedu.address.model.expense.Amount;
 import seedu.address.model.expense.Description;
 import seedu.address.model.expense.ExpenseCategory;
+import seedu.address.model.expense.ExpenseDate;
 
 /**
  * Contains utility methods used for parsing strings in the various *Parser classes.
@@ -68,5 +69,14 @@ public class ParserUtil {
             throw new ParseException(Amount.MESSAGE_CONSTRAINTS);
         }
         return new Amount(trimmedAmount);
+    }
+
+    public static ExpenseDate parseDate(String expenseDate) throws ParseException {
+        requireNonNull(expenseDate);
+        String trimmedDate = expenseDate.trim();
+        if (!ExpenseDate.isValidExpenseDate(trimmedDate)) {
+            throw new ParseException(Amount.MESSAGE_CONSTRAINTS);
+        }
+        return new ExpenseDate(trimmedDate);
     }
 }

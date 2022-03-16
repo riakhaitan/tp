@@ -14,10 +14,7 @@ import seedu.address.commons.core.index.Index;
 import seedu.address.commons.util.CollectionUtil;
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.Model;
-import seedu.address.model.expense.Amount;
-import seedu.address.model.expense.Description;
-import seedu.address.model.expense.Expense;
-import seedu.address.model.expense.ExpenseCategory;
+import seedu.address.model.expense.*;
 
 
 /**
@@ -89,8 +86,9 @@ public class EditCommand extends Command {
         ExpenseCategory updatedExpenseCategory = editExpenseDescriptor
                 .getExpenseCategory().orElse(expenseToEdit.getExpenseCategory());
         Amount updatedAmount = editExpenseDescriptor.getAmount().orElse(expenseToEdit.getAmount());
+        ExpenseDate updatedExpenseDate = editExpenseDescriptor.getExpenseDate().orElse(expenseToEdit.getExpenseDate());
 
-        return new Expense(updatedDescription, updatedExpenseCategory, updatedAmount);
+        return new Expense(updatedDescription, updatedExpenseCategory, updatedAmount, updatedExpenseDate);
     }
 
     @Override
@@ -119,6 +117,7 @@ public class EditCommand extends Command {
         private Description description;
         private ExpenseCategory expenseCategory;
         private Amount amount;
+        private ExpenseDate expenseDate;
 
         public EditExpenseDescriptor() {}
 
@@ -130,6 +129,7 @@ public class EditCommand extends Command {
             setDescription(toCopy.description);
             setExpenseCategory(toCopy.expenseCategory);
             setAmount(toCopy.amount);
+            setExpenseDate(toCopy.expenseDate);
         }
 
         /**
@@ -158,9 +158,16 @@ public class EditCommand extends Command {
         public void setAmount(Amount amount) {
             this.amount = amount;
         }
+        public void setExpenseDate(ExpenseDate expenseDate) {
+            this.expenseDate = expenseDate;
+        }
 
         public Optional<Amount> getAmount() {
             return Optional.ofNullable(amount);
+        }
+
+        public Optional<ExpenseDate> getExpenseDate() {
+            return Optional.ofNullable(expenseDate);
         }
 
         @Override

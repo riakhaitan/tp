@@ -1,18 +1,13 @@
 package seedu.address.logic.parser;
 
 import static seedu.address.commons.core.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
-import static seedu.address.logic.parser.CliSyntax.PREFIX_AMOUNT;
-import static seedu.address.logic.parser.CliSyntax.PREFIX_DESCRIPTION;
-import static seedu.address.logic.parser.CliSyntax.PREFIX_EXPENSE_CATEGORY;
+import static seedu.address.logic.parser.CliSyntax.*;
 
 import java.util.stream.Stream;
 
 import seedu.address.logic.commands.AddCommand;
 import seedu.address.logic.parser.exceptions.ParseException;
-import seedu.address.model.expense.Amount;
-import seedu.address.model.expense.Description;
-import seedu.address.model.expense.Expense;
-import seedu.address.model.expense.ExpenseCategory;
+import seedu.address.model.expense.*;
 
 /**
  * Parses input arguments and creates a new AddCommand object
@@ -26,7 +21,7 @@ public class AddCommandParser implements Parser<AddCommand> {
      */
     public AddCommand parse(String args) throws ParseException {
         ArgumentMultimap argMultimap =
-                ArgumentTokenizer.tokenize(args, PREFIX_DESCRIPTION, PREFIX_EXPENSE_CATEGORY, PREFIX_AMOUNT);
+                ArgumentTokenizer.tokenize(args, PREFIX_DESCRIPTION, PREFIX_EXPENSE_CATEGORY, PREFIX_AMOUNT, PREFIX_EXPENSE_DATE );
 
         if (!arePrefixesPresent(argMultimap, PREFIX_DESCRIPTION, PREFIX_EXPENSE_CATEGORY, PREFIX_AMOUNT)
                 || !argMultimap.getPreamble().isEmpty()) {
@@ -37,9 +32,10 @@ public class AddCommandParser implements Parser<AddCommand> {
         ExpenseCategory expenseCategory = ParserUtil
                 .parseExpenseCategory(argMultimap.getValue(PREFIX_EXPENSE_CATEGORY).get());
         Amount amount = ParserUtil.parseAmount(argMultimap.getValue(PREFIX_AMOUNT).get());
+        ExpenseDate expenseDate = ParserUtil.parseDate(argMultimap.getValue(PREFIX_EXPENSE_DATE).get());
 
 
-        Expense expense = new Expense(description, expenseCategory, amount);
+        Expense expense = new Expense(description, expenseCategory, amount, expenseDate);
 
         return new AddCommand(expense);
     }
