@@ -11,7 +11,7 @@ import seedu.address.model.budget.Budget;
 import seedu.address.model.expense.Expense;
 
 /**
- * Adds a expense to the expense expert.
+ * Adds an expense to the expense expert.
  */
 public class AddCommand extends Command {
 
