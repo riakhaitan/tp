@@ -1,7 +1,5 @@
 package seedu.address.model.expense;
 
-import java.time.LocalDate;
-
 import static java.util.Objects.requireNonNull;
 import static seedu.address.commons.util.AppUtil.checkArgument;
 

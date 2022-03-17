@@ -33,7 +33,9 @@ public class Expense {
         return amount;
     }
 
-    public ExpenseDate getExpenseDate() {return expenseDate;}
+    public ExpenseDate getExpenseDate() {
+        return expenseDate;
+    }
 
     /**
      * Check if two Expense objects are the same or have the same content.

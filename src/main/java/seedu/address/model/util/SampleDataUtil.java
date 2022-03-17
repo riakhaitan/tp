@@ -14,12 +14,18 @@ import seedu.address.model.expense.ExpenseDate;
 public class SampleDataUtil {
     public static Expense[] getSampleExpenses() {
         return new Expense[] {
-            new Expense(new Description("All-star Baseball Shoes"), new ExpenseCategory("Apparels"), new Amount("89"), new ExpenseDate("100")),
-            new Expense(new Description("Basketball"), new ExpenseCategory("Sports Equipment"), new Amount("25"), new ExpenseDate("100")),
-            new Expense(new Description("Cake for Andrew's Birthday"), new ExpenseCategory("Gift"), new Amount("60"), new ExpenseDate("100")),
-            new Expense(new Description("Driving Classes"), new ExpenseCategory("Miscellaneous"), new Amount("80"), new ExpenseDate("100")),
-            new Expense(new Description("Ice cream"), new ExpenseCategory("Groceries"), new Amount("20"), new ExpenseDate("100")),
-            new Expense(new Description("Ribbons for Crafting"), new ExpenseCategory("Miscellaneous"), new Amount("5"), new ExpenseDate("100"))
+            new Expense(new Description("All-star Baseball Shoes"),
+                    new ExpenseCategory("Apparels"), new Amount("89"), new ExpenseDate("2002-02-02")),
+            new Expense(new Description("Basketball"),
+                    new ExpenseCategory("Sports Equipment"), new Amount("25"), new ExpenseDate("2002-02-02")),
+            new Expense(new Description("Cake for Andrew's Birthday"),
+                    new ExpenseCategory("Gift"), new Amount("60"), new ExpenseDate("2002-02-02")),
+            new Expense(new Description("Driving Classes"), new
+                    ExpenseCategory("Miscellaneous"), new Amount("80"), new ExpenseDate("2002-02-02")),
+            new Expense(new Description("Ice cream"), new
+                    ExpenseCategory("Groceries"), new Amount("20"), new ExpenseDate("2002-02-02")),
+            new Expense(new Description("Ribbons for Crafting"), new
+                    ExpenseCategory("Miscellaneous"), new Amount("5"), new ExpenseDate("2002-02-02"))
         };
     }
 

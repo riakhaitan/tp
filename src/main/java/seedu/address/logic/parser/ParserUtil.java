@@ -71,6 +71,12 @@ public class ParserUtil {
         return new Amount(trimmedAmount);
     }
 
+    /**
+     * Parses the expense date for the expense.
+     * @param expenseDate expense date given to parse.
+     * @return Expense date with the input date.
+     * @throws ParseException if the input given is wrong.
+     */
     public static ExpenseDate parseDate(String expenseDate) throws ParseException {
         requireNonNull(expenseDate);
         String trimmedDate = expenseDate.trim();
