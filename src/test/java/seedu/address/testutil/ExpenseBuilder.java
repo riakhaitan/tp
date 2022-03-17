@@ -65,6 +65,11 @@ public class ExpenseBuilder {
         return this;
     }
 
+    /**
+     * Sers the {@code ExpenseDate} of the {@code Expense} that we are building
+     * @param expenseDate expense date to be set
+     * @return Expense Builder
+     */
     public ExpenseBuilder withExpenseDate(String expenseDate) {
         this.expenseDate = new ExpenseDate(expenseDate);
         return this;
