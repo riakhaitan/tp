@@ -35,7 +35,7 @@ public class ExpenseTest {
         // different expense category, all other attributes same -> returns false
         editedSpotify = new ExpenseBuilder(ANNUAL_SPOTIFY).withExpenseCategory(VALID_EXPENSE_CATEGORY_TRANSPORT)
                 .build();
-        assertTrue(ANNUAL_SPOTIFY.isSameExpense(editedSpotify));
+        assertFalse(ANNUAL_SPOTIFY.isSameExpense(editedSpotify));
 
         // expense differs in case, all other attributes same -> returns false
         Expense editedBuildABear = new ExpenseBuilder(BUILD_A_BEAR)

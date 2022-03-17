@@ -45,7 +45,7 @@ public class UniqueExpenseListTest {
         UniqueExpenseList.add(ANNUAL_SPOTIFY);
         Expense editedSpotify = new ExpenseBuilder(ANNUAL_SPOTIFY).withExpenseCategory(VALID_EXPENSE_CATEGORY_TRANSPORT)
                 .build();
-        assertTrue(UniqueExpenseList.contains(editedSpotify));
+        assertFalse(UniqueExpenseList.contains(editedSpotify));
     }
 
     @Test

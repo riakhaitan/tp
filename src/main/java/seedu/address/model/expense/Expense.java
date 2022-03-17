@@ -46,7 +46,8 @@ public class Expense {
 
         return otherExpense != null
                 && otherExpense.getDescription().equals(getDescription())
-                && otherExpense.getAmount().equals(getAmount());
+                && otherExpense.getAmount().equals(getAmount())
+                && otherExpense.getExpenseCategory().equals(getExpenseCategory());
     }
 
     @Override
