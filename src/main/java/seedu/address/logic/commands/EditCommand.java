@@ -4,6 +4,7 @@ import static java.util.Objects.requireNonNull;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_AMOUNT;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_DESCRIPTION;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_EXPENSE_CATEGORY;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_EXPENSE_DATE;
 import static seedu.address.model.Model.PREDICATE_SHOW_ALL_EXPENSES;
 
 import java.util.List;
@@ -34,10 +35,12 @@ public class EditCommand extends Command {
             + "Parameters: INDEX (must be a positive integer) "
             + "[" + PREFIX_DESCRIPTION + "DESCRIPTION] "
             + "[" + PREFIX_EXPENSE_CATEGORY + "CATEGORY] "
-            + "[" + PREFIX_AMOUNT + "AMOUNT] \n"
+            + "[" + PREFIX_AMOUNT + "AMOUNT]"
+            + "[" + PREFIX_EXPENSE_DATE + "DATE] \n"
             + "Example: " + COMMAND_WORD + " 1 "
             + PREFIX_DESCRIPTION + "Grocies from ShengShiong "
-            + PREFIX_AMOUNT + "120\n\n";
+            + PREFIX_AMOUNT + "120 "
+            + PREFIX_EXPENSE_DATE + "2022-02-02\n\n";
 
     public static final String MESSAGE_EDIT_EXPENSE_SUCCESS = "Edited Expense: %1$s";
     public static final String MESSAGE_NOT_EDITED = "At least one field to edit must be provided.";
