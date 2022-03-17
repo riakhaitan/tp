@@ -4,7 +4,6 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_DESCRIPTION_BUILD_A_BEAR;
-import static seedu.address.logic.commands.CommandTestUtil.VALID_EXPENSE_CATEGORY_TRANSPORT;
 import static seedu.address.testutil.Assert.assertThrows;
 import static seedu.address.testutil.TypicalExpenses.ANNUAL_NETFLIX_FEES;
 import static seedu.address.testutil.TypicalExpenses.ANNUAL_SPOTIFY;
