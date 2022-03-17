@@ -43,9 +43,8 @@ public class UniqueExpenseListTest {
     @Test
     public void contains_expenseWithSameIdentityFieldsInList_returnsTrue() {
         UniqueExpenseList.add(ANNUAL_SPOTIFY);
-        Expense editedSpotify = new ExpenseBuilder(ANNUAL_SPOTIFY).withExpenseCategory(VALID_EXPENSE_CATEGORY_TRANSPORT)
-                .build();
-        assertFalse(UniqueExpenseList.contains(editedSpotify));
+        Expense editedSpotify = new ExpenseBuilder(ANNUAL_SPOTIFY).build();
+        assertTrue(UniqueExpenseList.contains(editedSpotify));
     }
 
     @Test
