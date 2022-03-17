@@ -2,7 +2,7 @@ package seedu.address.logic.commands;
 
 import static seedu.address.logic.commands.CommandTestUtil.assertCommandSuccess;
 import static seedu.address.logic.commands.CommandTestUtil.showExpenseAtIndex;
-import static seedu.address.testutil.TypicalExpenses.getTypicalExpenditureExpert;
+import static seedu.address.testutil.TypicalExpenses.getTypicalExpenseExpert;
 import static seedu.address.testutil.TypicalIndexes.INDEX_FIRST_EXPENSE;
 
 import org.junit.jupiter.api.BeforeEach;
@@ -22,8 +22,8 @@ public class ListCommandTest {
 
     @BeforeEach
     public void setUp() {
-        model = new ModelManager(getTypicalExpenditureExpert(), new UserPrefs());
-        expectedModel = new ModelManager(model.getExpenditureExpert(), new UserPrefs());
+        model = new ModelManager(getTypicalExpenseExpert(), new UserPrefs());
+        expectedModel = new ModelManager(model.getExpenseExpert(), new UserPrefs());
     }
 
     @Test

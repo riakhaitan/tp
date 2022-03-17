@@ -3,42 +3,42 @@
 
 box Logic LOGIC_COLOR_T1
 participant ":LogicManager" as LogicManager LOGIC_COLOR
-participant ":ExpenditureExpertParser" as ExpenditureExpertParser LOGIC_COLOR
+participant ":ExpenseExpertParser" as ExpenseExpertParser LOGIC_COLOR
 participant "u:UndoCommand" as UndoCommand LOGIC_COLOR
 end box
 
 box Model MODEL_COLOR_T1
 participant ":Model" as Model MODEL_COLOR
-participant ":VersionedExpenditureExpert" as VersionedExpenditureExpert MODEL_COLOR
+participant ":VersionedExpenseExpert" as VersionedExpenseExpert MODEL_COLOR
 end box
 [-> LogicManager : execute(undo)
 activate LogicManager
 
-LogicManager -> ExpenditureExpertParser : parseCommand(undo)
-activate ExpenditureExpertParser
+LogicManager -> ExpenseExpertParser : parseCommand(undo)
+activate ExpenseExpertParser
 
 create UndoCommand
-ExpenditureExpertParser -> UndoCommand
+ExpenseExpertParser -> UndoCommand
 activate UndoCommand
 
-UndoCommand --> ExpenditureExpertParser
+UndoCommand --> ExpenseExpertParser
 deactivate UndoCommand
 
-ExpenditureExpertParser --> LogicManager : u
-deactivate ExpenditureExpertParser
+ExpenseExpertParser --> LogicManager : u
+deactivate ExpenseExpertParser
 
 LogicManager -> UndoCommand : execute()
 activate UndoCommand
 
-UndoCommand -> Model : undoExpenditureExpert()
+UndoCommand -> Model : undoExpenseExpert()
 activate Model
 
-Model -> VersionedExpenditureExpert : undo()
-activate VersionedExpenditureExpert
+Model -> VersionedExpenseExpert : undo()
+activate VersionedExpenseExpert
 
-VersionedExpenditureExpert -> VersionedExpenditureExpert :resetData(ReadOnlyExpenditureExpert)
-VersionedExpenditureExpert --> Model :
-deactivate VersionedExpenditureExpert
+VersionedExpenseExpert -> VersionedExpenseExpert :resetData(ReadOnlyExpenseExpert)
+VersionedExpenseExpert --> Model :
+deactivate VersionedExpenseExpert
 
 Model --> UndoCommand
 deactivate Model

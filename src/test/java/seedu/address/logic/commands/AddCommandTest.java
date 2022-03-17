@@ -16,9 +16,9 @@ import org.junit.jupiter.api.Test;
 import javafx.collections.ObservableList;
 import seedu.address.commons.core.GuiSettings;
 import seedu.address.logic.commands.exceptions.CommandException;
-import seedu.address.model.ExpenditureExpert;
+import seedu.address.model.ExpenseExpert;
 import seedu.address.model.Model;
-import seedu.address.model.ReadOnlyExpenditureExpert;
+import seedu.address.model.ReadOnlyExpenseExpert;
 import seedu.address.model.ReadOnlyUserPrefs;
 import seedu.address.model.expense.Expense;
 import seedu.address.testutil.ExpenseBuilder;
@@ -99,12 +99,12 @@ public class AddCommandTest {
         }
 
         @Override
-        public Path getExpenditureExpertFilePath() {
+        public Path getExpenseExpertFilePath() {
             throw new AssertionError("This method should not be called.");
         }
 
         @Override
-        public void setExpenditureExpertFilePath(Path expenditureExpertFilePath) {
+        public void setExpenseExpertFilePath(Path expenseExpertFilePath) {
             throw new AssertionError("This method should not be called.");
         }
 
@@ -114,12 +114,12 @@ public class AddCommandTest {
         }
 
         @Override
-        public void setExpenditureExpert(ReadOnlyExpenditureExpert newData) {
+        public void setExpenseExpert(ReadOnlyExpenseExpert newData) {
             throw new AssertionError("This method should not be called.");
         }
 
         @Override
-        public ReadOnlyExpenditureExpert getExpenditureExpert() {
+        public ReadOnlyExpenseExpert getExpenseExpert() {
             throw new AssertionError("This method should not be called.");
         }
 
@@ -186,8 +186,8 @@ public class AddCommandTest {
         }
 
         @Override
-        public ReadOnlyExpenditureExpert getExpenditureExpert() {
-            return new ExpenditureExpert();
+        public ReadOnlyExpenseExpert getExpenseExpert() {
+            return new ExpenseExpert();
         }
     }
 

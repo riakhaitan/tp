@@ -6,13 +6,15 @@ import static seedu.address.model.Model.PREDICATE_SHOW_ALL_EXPENSES;
 import seedu.address.model.Model;
 
 /**
- * Lists all expenses in the expenditure expert to the user.
+ * Lists all expenses in the expense expert to the user.
  */
 public class ListCommand extends Command {
 
     public static final String COMMAND_WORD = "list";
 
     public static final String MESSAGE_SUCCESS = "Listed all expenses";
+
+    public static final String HELP_COMMAND = COMMAND_WORD + ": Lists all expenses\n\n";
 
 
     @Override
