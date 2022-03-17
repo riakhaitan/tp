@@ -1,14 +1,14 @@
 package seedu.address.logic.commands;
 
 import static java.util.Objects.requireNonNull;
-// import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static seedu.address.testutil.Assert.assertThrows;
 
 import java.nio.file.Path;
 import java.util.ArrayList;
-// import java.util.Arrays;
+import java.util.Arrays;
 import java.util.function.Predicate;
 
 import org.junit.jupiter.api.Test;
@@ -32,21 +32,23 @@ public class AddCommandTest {
         assertThrows(NullPointerException.class, () -> new AddCommand(null));
     }
 
-    // @Test
-    // public void execute_expenseAcceptedByModel_addSuccessful() throws Exception {
-    //     ModelStubAcceptingExpenseAdded modelStub = new ModelStubAcceptingExpenseAdded();
-    //     Expense validExpense = new ExpenseBuilder().build();
-    //     Budget validBudget = new BudgetBuilder().build();
-    //     Budget newBudget = new Budget(validBudget.asInt() - validExpense.getAmount().asInt());
+    @Test
+    public void execute_expenseAcceptedByModel_addSuccessful() throws Exception {
+        ModelStubAcceptingExpenseAdded modelStub = new ModelStubAcceptingExpenseAdded();
+        Expense validExpense = new ExpenseBuilder().build();
+        // Budget validBudget = new BudgetBuilder().build();
+        // Budget newBudget = new Budget(validBudget.asInt() - validExpense.getAmount().asInt());
 
-    //     CommandResult commandResult = new AddCommand(validExpense).execute(modelStub);
+        CommandResult commandResult = new AddCommand(validExpense).execute(modelStub);
 
-    //     assertEquals(String.format(AddCommand.MESSAGE_SUCCESS, validExpense)
-    //             + "\n\n"
-    //             + String.format(AddCommand.BUDGET_EDITED, newBudget),
-    //             commandResult.getFeedbackToUser());
-    //     assertEquals(Arrays.asList(validExpense), modelStub.expensesAdded);
-    // }
+        assertEquals(String.format(AddCommand.MESSAGE_SUCCESS, validExpense),
+                commandResult.getFeedbackToUser());
+        // assertEquals(String.format(AddCommand.MESSAGE_SUCCESS, validExpense)
+        //         + "\n\n"
+        //         + String.format(AddCommand.BUDGET_EDITED, newBudget),
+        //         commandResult.getFeedbackToUser());
+        assertEquals(Arrays.asList(validExpense), modelStub.expensesAdded);
+    }
 
     @Test
     public void execute_duplicateExpense_throwsCommandException() {
@@ -189,7 +191,7 @@ public class AddCommandTest {
      */
     private class ModelStubAcceptingExpenseAdded extends ModelStub {
         final ArrayList<Expense> expensesAdded = new ArrayList<>();
-        private Budget budget;
+        // private Budget budget;
 
         @Override
         public boolean hasExpense(Expense expense) {
@@ -208,15 +210,15 @@ public class AddCommandTest {
             return new ExpenseExpert();
         }
 
-        @Override
-        public void setBudget(Budget budget) {
-            this.budget = budget;
-        }
+        // @Override
+        // public void setBudget(Budget budget) {
+        //     this.budget = budget;
+        // }
 
-        @Override
-        public Budget getBudget() {
-            return this.budget;
-        }
+        // @Override
+        // public Budget getBudget() {
+        //     return this.budget;
+        // }
     }
 
 }

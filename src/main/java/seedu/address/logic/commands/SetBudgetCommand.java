@@ -37,7 +37,7 @@ public class SetBudgetCommand extends Command {
         requireNonNull(model);
 
         model.setBudget(budget);
-        return new CommandResult(String.format(MESSAGE_SUCCESS, budget.getBudget()));
+        return new CommandResult(String.format(MESSAGE_SUCCESS, budget));
     }
 
     @Override

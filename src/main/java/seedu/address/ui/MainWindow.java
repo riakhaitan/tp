@@ -113,7 +113,8 @@ public class MainWindow extends UiPart<Stage> {
         expenseListPanel = new ExpenseListPanel(logic.getFilteredExpenseList());
         expenseListPanelPlaceholder.getChildren().add(expenseListPanel.getRoot());
 
-        resultDisplay = new ResultDisplay("Budget allowance for the month: $" + logic.getBudget().getBudget());
+        // resultDisplay = new ResultDisplay("Budget allowance for the month: $" + logic.getBudget());
+        resultDisplay = new ResultDisplay("Budget allowance for the month: $" + logic.getBudget());
         resultDisplayPlaceholder.getChildren().add(resultDisplay.getRoot());
 
         StatusBarFooter statusBarFooter = new StatusBarFooter(logic.getExpenseExpertFilePath());

@@ -22,7 +22,7 @@ public class BudgetBuilder {
      * Initializes the BudgetBuilder with the data of {@code budgetToCopy}.
      */
     public BudgetBuilder(Budget budgetToCopy) {
-        budget = budgetToCopy.getBudget();
+        budget = budgetToCopy.toString();
     }
 
     /**

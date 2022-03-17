@@ -57,13 +57,6 @@ public class Budget {
         return Integer.valueOf(budget);
     }
 
-    /**
-     * Returns the value of the budget as a String.
-     */
-    public String getBudget() {
-        return budget;
-    }
-
     @Override
     public String toString() {
         return this.budget;
