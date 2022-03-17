@@ -85,7 +85,7 @@ public class ParserUtil {
             throw new ParseException(Budget.MESSAGE_CONSTRAINTS);
         }
         return new Budget(trimmedBudget);
-    
+
     /**
      * Parses the expense date for the expense.
      * @param expenseDate expense date given to parse.
