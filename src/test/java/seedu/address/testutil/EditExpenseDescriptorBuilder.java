@@ -1,10 +1,7 @@
 package seedu.address.testutil;
 
 import seedu.address.logic.commands.EditCommand.EditExpenseDescriptor;
-import seedu.address.model.expense.Amount;
-import seedu.address.model.expense.Description;
-import seedu.address.model.expense.Expense;
-import seedu.address.model.expense.ExpenseCategory;
+import seedu.address.model.expense.*;
 
 
 /**
@@ -30,6 +27,7 @@ public class EditExpenseDescriptorBuilder {
         descriptor.setDescription(expense.getDescription());
         descriptor.setExpenseCategory(expense.getExpenseCategory());
         descriptor.setAmount(expense.getAmount());
+        descriptor.setExpenseDate(expense.getExpenseDate());
     }
 
     /**
@@ -53,6 +51,11 @@ public class EditExpenseDescriptorBuilder {
      */
     public EditExpenseDescriptorBuilder withAmount(String amount) {
         descriptor.setAmount(new Amount(amount));
+        return this;
+    }
+
+    public EditExpenseDescriptorBuilder withExpenseDate(String expenseDate) {
+        descriptor.setExpenseDate(new ExpenseDate(expenseDate));
         return this;
     }
 

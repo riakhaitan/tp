@@ -14,7 +14,7 @@ public class ExpenseBuilder {
     public static final String DEFAULT_DESCRIPTION = "Grab";
     public static final String DEFAULT_EXPENSE_CATEGORY = "Transport";
     public static final String DEFAULT_AMOUNT = "15";
-    public static final String DEFAULT_EXPENSE_DATE = "10";
+    public static final String DEFAULT_EXPENSE_DATE = "2002-02-02";
 
     private Description description;
     private ExpenseCategory expenseCategory;
