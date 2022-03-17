@@ -9,15 +9,16 @@ public class Expense {
     private final Description description;
     private final ExpenseCategory expenseCategory;
     private final Amount amount;
-
+    private final ExpenseDate expenseDate;
     /**
      * Every field must be present and not null.
      */
-    public Expense(Description description, ExpenseCategory expenseCategory, Amount amount) {
-        requireAllNonNull(description, expenseCategory, amount);
+    public Expense(Description description, ExpenseCategory expenseCategory, Amount amount, ExpenseDate expenseDate) {
+        requireAllNonNull(description, expenseCategory, amount, expenseDate);
         this.description = description;
         this.expenseCategory = expenseCategory;
         this.amount = amount;
+        this.expenseDate = expenseDate;
     }
 
     public Description getDescription() {
@@ -30,6 +31,10 @@ public class Expense {
 
     public Amount getAmount() {
         return amount;
+    }
+
+    public ExpenseDate getExpenseDate() {
+        return expenseDate;
     }
 
     /**
@@ -76,7 +81,9 @@ public class Expense {
                 .append("; Category: ")
                 .append(getExpenseCategory())
                 .append("; Amount: ")
-                .append(getAmount());
+                .append(getAmount())
+                .append(("; Expense Date: "))
+                .append(getExpenseDate());
 
         return builder.toString();
     }

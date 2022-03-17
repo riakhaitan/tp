@@ -8,6 +8,7 @@ import seedu.address.model.expense.Amount;
 import seedu.address.model.expense.Description;
 import seedu.address.model.expense.Expense;
 import seedu.address.model.expense.ExpenseCategory;
+import seedu.address.model.expense.ExpenseDate;
 
 /**
  * Jackson-friendly version of {@link Expense}.
@@ -19,6 +20,7 @@ class JsonAdaptedExpense {
     private final String description;
     private final String expenseCategory;
     private final String amount;
+    private final String expenseDate;
 
     /**
      * Constructs a {@code JsonAdaptedExpense} with the given expense details.
@@ -26,10 +28,11 @@ class JsonAdaptedExpense {
     @JsonCreator
     public JsonAdaptedExpense(@JsonProperty("description") String description,
                               @JsonProperty("expenseCategory") String expenseCategory,
-                             @JsonProperty("email") String amount) {
+                             @JsonProperty("email") String amount, @JsonProperty("expenseDate") String expenseDate) {
         this.description = description;
         this.expenseCategory = expenseCategory;
         this.amount = amount;
+        this.expenseDate = expenseDate;
     }
 
     /**
@@ -39,6 +42,7 @@ class JsonAdaptedExpense {
         description = source.getDescription().description;
         expenseCategory = source.getExpenseCategory().expenseCategory;
         amount = source.getAmount().amount;
+        expenseDate = source.getExpenseDate().expenseDate;
     }
 
     /**
@@ -67,7 +71,16 @@ class JsonAdaptedExpense {
         }
         final Amount modelAmount = new Amount(amount);
 
-        return new Expense(modelDescription, modelExpenseCategory, modelAmount);
+        if (expenseDate == null) {
+            throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT,
+                    ExpenseDate.class.getSimpleName()));
+        }
+        if (!ExpenseDate.isValidExpenseDate(expenseDate)) {
+            throw new IllegalValueException(Amount.MESSAGE_CONSTRAINTS);
+        }
+        final ExpenseDate modelDate = new ExpenseDate(expenseDate);
+
+        return new Expense(modelDescription, modelExpenseCategory, modelAmount, modelDate);
     }
 
 }
