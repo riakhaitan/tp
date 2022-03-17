@@ -24,7 +24,7 @@ public class AddCommand extends Command {
             + "Example: " + COMMAND_WORD + " "
             + PREFIX_DESCRIPTION + "Groceries from Fairprice "
             + PREFIX_EXPENSE_CATEGORY + "GROCERIES "
-            + PREFIX_AMOUNT + "100 ";
+            + PREFIX_AMOUNT + "100 \n\n";
 
     public static final String MESSAGE_SUCCESS = "New expense added: %1$s";
     public static final String MESSAGE_DUPLICATE_EXPENSE = "This expense already exists in Expense Expert";

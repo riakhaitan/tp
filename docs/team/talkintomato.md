@@ -3,7 +3,7 @@ layout: page
 title: Talkintomato's Project Portfolio Page
 ---
 
-### Project: Expense Expert 
+### Project: Expense Expert
 
 Expense Expert - Level 3 is a desktop address book application used for teaching Software Engineering principles. The user interacts with it using a CLI, and it has a GUI created with JavaFX. It is written in Java, and has about 10 kLoC.
 
@@ -18,8 +18,8 @@ Given below are my contributions to the project.
 * **Code contributed**: [RepoSense link](https://nus-cs2103-ay2122s2.github.io/tp-dashboard/?search=talkintomato&breakdown=true)
 
 * **Project management**:
-    * Set up Tp Organization and handled getting the project off the ground. 
-    * Managed releases `v0.1` - `v1.5rc` (3 releases) on GitHub
+    * Set up Tp Organization and handled getting the project off the ground.
+    * Managed releases `v0.1` - `v1.5rc` (3 releases) on GitHub.
 
 * **Enhancements to existing features**:
     * Coming Soon

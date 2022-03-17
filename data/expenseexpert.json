@@ -1,0 +1,8 @@
+{
+  "expenses" : [ {
+    "description" : "food",
+    "expenseCategory" : "food",
+    "expenseDate" : "2002-02-02",
+    "amount" : "10"
+  } ]
+}

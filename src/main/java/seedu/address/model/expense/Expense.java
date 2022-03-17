@@ -9,15 +9,17 @@ public class Expense {
     private final Description description;
     private final ExpenseCategory expenseCategory;
     private final Amount amount;
+    private final ExpenseDate expenseDate;
 
     /**
      * Every field must be present and not null.
      */
-    public Expense(Description description, ExpenseCategory expenseCategory, Amount amount) {
-        requireAllNonNull(description, expenseCategory, amount);
+    public Expense(Description description, ExpenseCategory expenseCategory, Amount amount, ExpenseDate expenseDate) {
+        requireAllNonNull(description, expenseCategory, amount, expenseDate);
         this.description = description;
         this.expenseCategory = expenseCategory;
         this.amount = amount;
+        this.expenseDate = expenseDate;
     }
 
     public Description getDescription() {
@@ -32,6 +34,10 @@ public class Expense {
         return amount;
     }
 
+    public ExpenseDate getExpenseDate() {
+        return expenseDate;
+    }
+
     /**
      * Check if two Expense objects are the same or have the same content.
      *
@@ -44,7 +50,9 @@ public class Expense {
         }
 
         return otherExpense != null
-                && otherExpense.getDescription().equals(getDescription());
+                && otherExpense.getDescription().equals(getDescription())
+                && otherExpense.getAmount().equals(getAmount())
+                && otherExpense.getExpenseCategory().equals(getExpenseCategory());
     }
 
     @Override
@@ -76,7 +84,9 @@ public class Expense {
                 .append("; Category: ")
                 .append(getExpenseCategory())
                 .append("; Amount: ")
-                .append(getAmount());
+                .append(getAmount())
+                .append(("; Expense Date: "))
+                .append(getExpenseDate());
 
         return builder.toString();
     }

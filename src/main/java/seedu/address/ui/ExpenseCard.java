@@ -34,6 +34,8 @@ public class ExpenseCard extends UiPart<Region> {
     @FXML
     private Label amount;
 
+    @FXML
+    private Label expenseDate;
     /**
      * Creates a {@code ExpenseCode} with the given {@code Expense} and index to display.
      */
@@ -44,6 +46,8 @@ public class ExpenseCard extends UiPart<Region> {
         description.setText(expense.getDescription().description);
         expenseCategory.setText(expense.getExpenseCategory().expenseCategory);
         amount.setText(expense.getAmount().amount);
+        expenseDate.setText(expense.getExpenseDate().expenseDate);
+
     }
 
     @Override

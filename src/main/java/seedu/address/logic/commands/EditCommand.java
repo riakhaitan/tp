@@ -18,6 +18,7 @@ import seedu.address.model.expense.Amount;
 import seedu.address.model.expense.Description;
 import seedu.address.model.expense.Expense;
 import seedu.address.model.expense.ExpenseCategory;
+import seedu.address.model.expense.ExpenseDate;
 
 
 /**
@@ -28,7 +29,7 @@ public class EditCommand extends Command {
     public static final String COMMAND_WORD = "edit";
 
     public static final String MESSAGE_USAGE = COMMAND_WORD + ": Edits the details of the expense identified "
-            + "by the index number used in the displayed expense list. "
+            + "by the index number used in the displayed expense list. \n"
             + "Existing values will be overwritten by the input values.\n"
             + "Parameters: INDEX (must be a positive integer) "
             + "[" + PREFIX_DESCRIPTION + "DESCRIPTION] "
@@ -36,7 +37,7 @@ public class EditCommand extends Command {
             + "[" + PREFIX_AMOUNT + "AMOUNT] \n"
             + "Example: " + COMMAND_WORD + " 1 "
             + PREFIX_DESCRIPTION + "Grocies from ShengShiong "
-            + PREFIX_AMOUNT + "120";
+            + PREFIX_AMOUNT + "120\n\n";
 
     public static final String MESSAGE_EDIT_EXPENSE_SUCCESS = "Edited Expense: %1$s";
     public static final String MESSAGE_NOT_EDITED = "At least one field to edit must be provided.";
@@ -89,8 +90,9 @@ public class EditCommand extends Command {
         ExpenseCategory updatedExpenseCategory = editExpenseDescriptor
                 .getExpenseCategory().orElse(expenseToEdit.getExpenseCategory());
         Amount updatedAmount = editExpenseDescriptor.getAmount().orElse(expenseToEdit.getAmount());
+        ExpenseDate updatedExpenseDate = editExpenseDescriptor.getExpenseDate().orElse(expenseToEdit.getExpenseDate());
 
-        return new Expense(updatedDescription, updatedExpenseCategory, updatedAmount);
+        return new Expense(updatedDescription, updatedExpenseCategory, updatedAmount, updatedExpenseDate);
     }
 
     @Override
@@ -119,6 +121,7 @@ public class EditCommand extends Command {
         private Description description;
         private ExpenseCategory expenseCategory;
         private Amount amount;
+        private ExpenseDate expenseDate;
 
         public EditExpenseDescriptor() {}
 
@@ -130,6 +133,7 @@ public class EditCommand extends Command {
             setDescription(toCopy.description);
             setExpenseCategory(toCopy.expenseCategory);
             setAmount(toCopy.amount);
+            setExpenseDate(toCopy.expenseDate);
         }
 
         /**
@@ -158,9 +162,16 @@ public class EditCommand extends Command {
         public void setAmount(Amount amount) {
             this.amount = amount;
         }
+        public void setExpenseDate(ExpenseDate expenseDate) {
+            this.expenseDate = expenseDate;
+        }
 
         public Optional<Amount> getAmount() {
             return Optional.ofNullable(amount);
+        }
+
+        public Optional<ExpenseDate> getExpenseDate() {
+            return Optional.ofNullable(expenseDate);
         }
 
         @Override
