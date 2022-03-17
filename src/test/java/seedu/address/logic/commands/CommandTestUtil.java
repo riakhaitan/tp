@@ -5,6 +5,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_AMOUNT;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_DESCRIPTION;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_EXPENSE_CATEGORY;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_EXPENSE_DATE;
 import static seedu.address.testutil.Assert.assertThrows;
 
 import java.util.ArrayList;
@@ -32,6 +33,8 @@ public class CommandTestUtil {
     public static final String VALID_EXPENSE_CATEGORY_ENTERTAINMENT = "Entertainment";
     public static final String VALID_AMOUNT_ANNUAL_SPOTIFY = "200";
     public static final String VALID_AMOUNT_BUILD_A_BEAR = "80";
+    public static final String VALID_EXPENSE_DATE_ANNUAL_SPOTIFY = "2002-02-02";
+    public static final String VALID_EXPENSE_DATE_BUILD_A_BEAR = "2002-02-02";
 
     public static final String DESCRIPTION_DESC_ANNUAL_SPOTIFY =
             " " + PREFIX_DESCRIPTION + VALID_DESCRIPTION_ANNUAL_SPOTIFY;
@@ -41,6 +44,10 @@ public class CommandTestUtil {
             " " + PREFIX_EXPENSE_CATEGORY + VALID_EXPENSE_CATEGORY_ENTERTAINMENT;
     public static final String AMOUNT_DESC_ANNUAL_SPOTIFY = " " + PREFIX_AMOUNT + VALID_AMOUNT_ANNUAL_SPOTIFY;
     public static final String AMOUNT_DESC_BUILD_A_BEAR = " " + PREFIX_AMOUNT + VALID_AMOUNT_BUILD_A_BEAR;
+    public static final String EXPENSE_DATE_DESC_ANNUAL_SPOTIFY = " " + PREFIX_EXPENSE_DATE
+            + VALID_EXPENSE_DATE_ANNUAL_SPOTIFY;
+    public static final String EXPENSE_DATE_DESC_BUILD_A_BEAR = " " + PREFIX_EXPENSE_DATE
+            + VALID_EXPENSE_DATE_BUILD_A_BEAR;
 
     public static final EditCommand.EditExpenseDescriptor DESC_ANNUAL_SPOTIFY_FEES;
     public static final EditCommand.EditExpenseDescriptor DESC_BUILD_A_BEAR;
@@ -51,11 +58,14 @@ public class CommandTestUtil {
         DESC_ANNUAL_SPOTIFY_FEES = new EditExpenseDescriptorBuilder()
                 .withDescription(VALID_DESCRIPTION_ANNUAL_SPOTIFY)
                 .withExpenseCategory(VALID_EXPENSE_CATEGORY_ENTERTAINMENT)
-                .withAmount(VALID_AMOUNT_ANNUAL_SPOTIFY).build();
+                .withAmount(VALID_AMOUNT_ANNUAL_SPOTIFY)
+                .withExpenseDate(VALID_EXPENSE_DATE_ANNUAL_SPOTIFY).build();
+
         DESC_BUILD_A_BEAR = new EditExpenseDescriptorBuilder()
                 .withDescription(VALID_DESCRIPTION_BUILD_A_BEAR)
                 .withExpenseCategory(VALID_EXPENSE_CATEGORY_ENTERTAINMENT)
-                .withAmount(VALID_AMOUNT_BUILD_A_BEAR).build();
+                .withAmount(VALID_AMOUNT_BUILD_A_BEAR)
+                .withExpenseDate(VALID_EXPENSE_DATE_BUILD_A_BEAR).build();
     }
 
     /**
