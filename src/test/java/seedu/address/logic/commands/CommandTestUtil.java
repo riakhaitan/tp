@@ -2,7 +2,10 @@ package seedu.address.logic.commands;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-import static seedu.address.logic.parser.CliSyntax.*;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_AMOUNT;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_DESCRIPTION;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_EXPENSE_CATEGORY;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_EXPENSE_DATE;
 import static seedu.address.testutil.Assert.assertThrows;
 
 import java.util.ArrayList;
@@ -41,8 +44,10 @@ public class CommandTestUtil {
             " " + PREFIX_EXPENSE_CATEGORY + VALID_EXPENSE_CATEGORY_ENTERTAINMENT;
     public static final String AMOUNT_DESC_ANNUAL_SPOTIFY = " " + PREFIX_AMOUNT + VALID_AMOUNT_ANNUAL_SPOTIFY;
     public static final String AMOUNT_DESC_BUILD_A_BEAR = " " + PREFIX_AMOUNT + VALID_AMOUNT_BUILD_A_BEAR;
-    public static final String EXPENSE_DATE_DESC_ANNUAL_SPOTIFY = " " + PREFIX_EXPENSE_DATE + VALID_EXPENSE_DATE_ANNUAL_SPOTIFY;
-    public static final String EXPENSE_DATE_DESC_BUILD_A_BEAR= " " + PREFIX_EXPENSE_DATE + VALID_EXPENSE_DATE_BUILD_A_BEAR;
+    public static final String EXPENSE_DATE_DESC_ANNUAL_SPOTIFY = " " + PREFIX_EXPENSE_DATE
+            + VALID_EXPENSE_DATE_ANNUAL_SPOTIFY;
+    public static final String EXPENSE_DATE_DESC_BUILD_A_BEAR = " " + PREFIX_EXPENSE_DATE
+            + VALID_EXPENSE_DATE_BUILD_A_BEAR;
 
     public static final EditCommand.EditExpenseDescriptor DESC_ANNUAL_SPOTIFY_FEES;
     public static final EditCommand.EditExpenseDescriptor DESC_BUILD_A_BEAR;
