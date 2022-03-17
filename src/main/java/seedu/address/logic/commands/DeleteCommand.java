@@ -47,7 +47,7 @@ public class DeleteCommand extends Command {
         model.setBudget(newBudget);
         return new CommandResult(String.format(MESSAGE_DELETE_EXPENSE_SUCCESS, expenseToDelete)
                 + "\n\n"
-                + String.format(BUDGET_EDITED, newBudget.getBudget()));
+                + String.format(BUDGET_EDITED, newBudget));
     }
 
     /**

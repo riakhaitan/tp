@@ -66,7 +66,7 @@ public class Budget {
 
     @Override
     public String toString() {
-        return "Budget is: $" + this.budget;
+        return this.budget;
     }
 
     @Override
