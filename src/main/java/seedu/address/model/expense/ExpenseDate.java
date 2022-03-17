@@ -8,8 +8,7 @@ import static seedu.address.commons.util.AppUtil.checkArgument;
 public class ExpenseDate {
 
 
-    //public static final String VALIDATION_REGEX = "^\\d{4}\\-(0?[1-9]|1[012])\\-(0?[1-9]|[12][0-9]|3[01])";
-    public static final String VALIDATION_REGEX = "\\d+";
+    public static final String VALIDATION_REGEX = "^((19|2[0-9])[0-9]{2})-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])$";
     public static final String MESSAGE_CONSTRAINTS =
             "Date should be in a valid format yyyy-mm-dd, and it should not be blank";
 
