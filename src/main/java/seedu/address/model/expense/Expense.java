@@ -79,7 +79,9 @@ public class Expense {
                 .append("; Category: ")
                 .append(getExpenseCategory())
                 .append("; Amount: ")
-                .append(getAmount());
+                .append(getAmount())
+                .append(("; Expense Date: "))
+                .append(getExpenseDate());
 
         return builder.toString();
     }

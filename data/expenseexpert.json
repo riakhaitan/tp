@@ -39,5 +39,10 @@
     "expenseCategory" : "travel",
     "expenseDate" : "100",
     "amount" : "100"
+  }, {
+    "description" : "groceries",
+    "expenseCategory" : "food",
+    "expenseDate" : "220",
+    "amount" : "200"
   } ]
 }
