@@ -4,6 +4,7 @@ import static java.util.Objects.requireNonNull;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_AMOUNT;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_DESCRIPTION;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_EXPENSE_CATEGORY;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_EXPENSE_DATE;
 
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.Model;
@@ -20,11 +21,13 @@ public class AddCommand extends Command {
             + "Parameters: "
             + PREFIX_DESCRIPTION + "DESCRIPTION "
             + PREFIX_EXPENSE_CATEGORY + "CATEGORY "
-            + PREFIX_AMOUNT + "AMOUNT \n"
+            + PREFIX_AMOUNT + "AMOUNT "
+            + PREFIX_EXPENSE_DATE + "DATE] \n"
             + "Example: " + COMMAND_WORD + " "
             + PREFIX_DESCRIPTION + "Groceries from Fairprice "
             + PREFIX_EXPENSE_CATEGORY + "GROCERIES "
-            + PREFIX_AMOUNT + "100 \n\n";
+            + PREFIX_AMOUNT + "100 "
+            + PREFIX_EXPENSE_DATE + "2022-02-02 \n\n";
 
     public static final String MESSAGE_SUCCESS = "New expense added: %1$s";
     public static final String MESSAGE_DUPLICATE_EXPENSE = "This expense already exists in Expense Expert";
