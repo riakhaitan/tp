@@ -165,12 +165,13 @@ public class EditCommand extends Command {
         public void setAmount(Amount amount) {
             this.amount = amount;
         }
-        public void setExpenseDate(ExpenseDate expenseDate) {
-            this.expenseDate = expenseDate;
-        }
 
         public Optional<Amount> getAmount() {
             return Optional.ofNullable(amount);
+        }
+
+        public void setExpenseDate(ExpenseDate expenseDate) {
+            this.expenseDate = expenseDate;
         }
 
         public Optional<ExpenseDate> getExpenseDate() {
@@ -194,7 +195,8 @@ public class EditCommand extends Command {
 
             return getDescription().equals(e.getDescription())
                     && getExpenseCategory().equals(e.getExpenseCategory())
-                    && getAmount().equals(e.getAmount());
+                    && getAmount().equals(e.getAmount())
+                    && getExpenseDate().equals(e.getExpenseDate());
         }
     }
 }

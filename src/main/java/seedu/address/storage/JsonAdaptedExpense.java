@@ -55,11 +55,17 @@ class JsonAdaptedExpense {
             throw new IllegalValueException(String.format(
                     MISSING_FIELD_MESSAGE_FORMAT, Description.class.getSimpleName()));
         }
+        if (!Description.isValidDescription(description)) {
+            throw new IllegalValueException(Description.MESSAGE_CONSTRAINTS);
+        }
         final Description modelDescription = new Description(description);
 
         if (expenseCategory == null) {
             throw new IllegalValueException(String.format(
                     MISSING_FIELD_MESSAGE_FORMAT, ExpenseCategory.class.getSimpleName()));
+        }
+        if (!ExpenseCategory.isValidExpenseCategory(expenseCategory)) {
+            throw new IllegalValueException(ExpenseCategory.MESSAGE_CONSTRAINTS);
         }
         final ExpenseCategory modelExpenseCategory = new ExpenseCategory(expenseCategory);
 
@@ -76,7 +82,7 @@ class JsonAdaptedExpense {
                     ExpenseDate.class.getSimpleName()));
         }
         if (!ExpenseDate.isValidExpenseDate(expenseDate)) {
-            throw new IllegalValueException(Amount.MESSAGE_CONSTRAINTS);
+            throw new IllegalValueException(ExpenseDate.MESSAGE_CONSTRAINTS);
         }
         final ExpenseDate modelDate = new ExpenseDate(expenseDate);
 
