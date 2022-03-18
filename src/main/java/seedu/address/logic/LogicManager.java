@@ -14,6 +14,7 @@ import seedu.address.logic.parser.ExpenseExpertParser;
 import seedu.address.logic.parser.exceptions.ParseException;
 import seedu.address.model.Model;
 import seedu.address.model.ReadOnlyExpenseExpert;
+import seedu.address.model.budget.Budget;
 import seedu.address.model.expense.Expense;
 import seedu.address.storage.Storage;
 
@@ -77,5 +78,10 @@ public class LogicManager implements Logic {
     @Override
     public void setGuiSettings(GuiSettings guiSettings) {
         model.setGuiSettings(guiSettings);
+    }
+
+    @Override
+    public Budget getBudget() {
+        return model.getBudget();
     }
 }

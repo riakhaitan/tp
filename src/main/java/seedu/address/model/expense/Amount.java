@@ -39,6 +39,13 @@ public class Amount {
         return test.matches(VALIDATION_REGEX) && test != "";
     }
 
+    /**
+     * Returns the amount of the expense as an integer.
+     */
+    public int asInt() {
+        return Integer.valueOf(amount);
+    }
+
     @Override
     public String toString() {
         return amount;
