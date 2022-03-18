@@ -33,7 +33,7 @@ Given below are my contributions to the project.
 
 - **Community**:
 
-  - PRs reviewed (with non-trivial review comments): _(to be added soon)_
+  - PRs reviewed (with non-trivial review comments): #68, #69
   - Contributed to forum discussions (examples: _(to be added soon)_
   - Reported bugs and suggestions for other teams in the class _(to be added soon)_
   - Some parts of the history feature I added was adopted by several other class mates _(to be added soon)_

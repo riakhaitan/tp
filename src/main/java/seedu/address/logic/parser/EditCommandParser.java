@@ -46,11 +46,13 @@ public class EditCommandParser implements Parser<EditCommand> {
                     argMultimap.getValue(PREFIX_EXPENSE_CATEGORY).get()));
         }
         if (argMultimap.getValue(PREFIX_AMOUNT).isPresent()) {
-            editExpenseDescriptor.setAmount(ParserUtil.parseAmount(argMultimap.getValue(PREFIX_AMOUNT).get()));
+            editExpenseDescriptor.setAmount(ParserUtil.parseAmount(
+                    argMultimap.getValue(PREFIX_AMOUNT).get()));
         }
 
         if (argMultimap.getValue(PREFIX_EXPENSE_DATE).isPresent()) {
-            editExpenseDescriptor.setExpenseDate(ParserUtil.parseDate(argMultimap.getValue(PREFIX_EXPENSE_DATE).get()));
+            editExpenseDescriptor.setExpenseDate(ParserUtil.parseDate(
+                    argMultimap.getValue(PREFIX_EXPENSE_DATE).get()));
         }
 
         if (!editExpenseDescriptor.isAnyFieldEdited()) {

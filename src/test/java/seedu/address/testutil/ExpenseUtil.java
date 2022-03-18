@@ -43,7 +43,10 @@ public class ExpenseUtil {
                 .append(description.description).append(" "));
         descriptor.getExpenseCategory().ifPresent(expenseCategory -> sb.append(PREFIX_EXPENSE_CATEGORY)
                 .append(expenseCategory.expenseCategory).append(" "));
-        descriptor.getAmount().ifPresent(amount -> sb.append(PREFIX_AMOUNT).append(amount.amount).append(" "));
+        descriptor.getAmount().ifPresent(amount -> sb.append(PREFIX_AMOUNT)
+                .append(amount.amount).append(" "));
+        descriptor.getExpenseDate().ifPresent(expenseDate -> sb.append(PREFIX_EXPENSE_DATE)
+                .append(expenseDate.expenseDate).append(" "));
         return sb.toString();
     }
 }
