@@ -5,6 +5,7 @@ import static java.util.Objects.requireNonNull;
 import java.util.List;
 
 import javafx.collections.ObservableList;
+import seedu.address.model.budget.Budget;
 import seedu.address.model.expense.Expense;
 import seedu.address.model.expense.UniqueExpenseList;
 
@@ -15,6 +16,7 @@ import seedu.address.model.expense.UniqueExpenseList;
 public class ExpenseExpert implements ReadOnlyExpenseExpert {
 
     private final UniqueExpenseList expenses;
+    private Budget budget;
 
     /*
      * The 'unusual' code block below is a non-static initialization block, sometimes used to avoid duplication
@@ -25,6 +27,7 @@ public class ExpenseExpert implements ReadOnlyExpenseExpert {
      */
     {
         expenses = new UniqueExpenseList();
+        budget = new Budget("0");
     }
 
     public ExpenseExpert() {}
@@ -54,6 +57,7 @@ public class ExpenseExpert implements ReadOnlyExpenseExpert {
         requireNonNull(newData);
 
         setExpenses(newData.getExpenseList());
+        setBudget(newData.getBudget());
     }
 
     //// expense-level operations
@@ -94,6 +98,16 @@ public class ExpenseExpert implements ReadOnlyExpenseExpert {
         expenses.remove(key);
     }
 
+    //// budget-level operations
+
+    /**
+     * Replaces the current budget in {@code ExpenseExpert} to {@code budget}
+     */
+    public void setBudget(Budget budget) {
+        requireNonNull(budget);
+        this.budget = budget;
+    }
+
     //// util methods
 
     @Override
@@ -108,14 +122,21 @@ public class ExpenseExpert implements ReadOnlyExpenseExpert {
     }
 
     @Override
+    public Budget getBudget() {
+        return this.budget;
+    }
+
+    @Override
     public boolean equals(Object other) {
         return other == this // short circuit if same object
                 || (other instanceof ExpenseExpert // instanceof handles nulls
-                && expenses.equals(((ExpenseExpert) other).expenses));
+                && expenses.equals(((ExpenseExpert) other).expenses)
+                && budget.equals(((ExpenseExpert) other).budget));
     }
 
     @Override
     public int hashCode() {
         return expenses.hashCode();
     }
+
 }

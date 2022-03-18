@@ -13,13 +13,13 @@ import java.util.Arrays;
 import java.util.List;
 
 import seedu.address.model.ExpenseExpert;
+// import seedu.address.model.budget.Budget;
 import seedu.address.model.expense.Expense;
 
 /**
  * A utility class containing a list of {@code Expense} objects to be used in tests.
  */
 public class TypicalExpenses {
-
     public static final Expense ANNUAL_NETFLIX_FEES = new ExpenseBuilder().withDescription("Annual Netflix Fees")
             .withExpenseCategory("Entertainment").withAmount("200").withExpenseDate("2002-02-02").build();
     public static final Expense BASEBALL_LESSON_FEES = new ExpenseBuilder().withDescription("Baseball Lesson Fees")
@@ -48,7 +48,7 @@ public class TypicalExpenses {
             .withAmount(VALID_AMOUNT_BUILD_A_BEAR)
             .withExpenseDate(VALID_EXPENSE_DATE_BUILD_A_BEAR).build();
 
-
+    // public static final Budget MAY_BUDGET = new BudgetBuilder().withBudget("725").build();
     public static final String KEYWORD_MATCHING_RENT = "Rent"; // A keyword that matches Rent
 
     private TypicalExpenses() {} // prevents instantiation
@@ -61,6 +61,7 @@ public class TypicalExpenses {
         for (Expense expense : getTypicalExpenses()) {
             ee.addExpense(expense);
         }
+        // ee.setBudget(MAY_BUDGET);
         return ee;
     }
 

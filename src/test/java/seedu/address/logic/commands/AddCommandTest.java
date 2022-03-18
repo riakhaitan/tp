@@ -20,7 +20,9 @@ import seedu.address.model.ExpenseExpert;
 import seedu.address.model.Model;
 import seedu.address.model.ReadOnlyExpenseExpert;
 import seedu.address.model.ReadOnlyUserPrefs;
+import seedu.address.model.budget.Budget;
 import seedu.address.model.expense.Expense;
+// import seedu.address.testutil.BudgetBuilder;
 import seedu.address.testutil.ExpenseBuilder;
 
 public class AddCommandTest {
@@ -34,10 +36,17 @@ public class AddCommandTest {
     public void execute_expenseAcceptedByModel_addSuccessful() throws Exception {
         ModelStubAcceptingExpenseAdded modelStub = new ModelStubAcceptingExpenseAdded();
         Expense validExpense = new ExpenseBuilder().build();
+        // Budget validBudget = new BudgetBuilder().build();
+        // Budget newBudget = new Budget(validBudget.asInt() - validExpense.getAmount().asInt());
 
         CommandResult commandResult = new AddCommand(validExpense).execute(modelStub);
 
-        assertEquals(String.format(AddCommand.MESSAGE_SUCCESS, validExpense), commandResult.getFeedbackToUser());
+        assertEquals(String.format(AddCommand.MESSAGE_SUCCESS, validExpense),
+                commandResult.getFeedbackToUser());
+        // assertEquals(String.format(AddCommand.MESSAGE_SUCCESS, validExpense)
+        //         + "\n\n"
+        //         + String.format(AddCommand.BUDGET_EDITED, newBudget),
+        //         commandResult.getFeedbackToUser());
         assertEquals(Arrays.asList(validExpense), modelStub.expensesAdded);
     }
 
@@ -147,6 +156,16 @@ public class AddCommandTest {
         public void updateFilteredExpenseList(Predicate<Expense> predicate) {
             throw new AssertionError("This method should not be called.");
         }
+
+        @Override
+        public void setBudget(Budget budget) {
+            throw new AssertionError("This method should not be called.");
+        }
+
+        @Override
+        public Budget getBudget() {
+            throw new AssertionError("This method should not be called.");
+        }
     }
 
     /**
@@ -172,6 +191,7 @@ public class AddCommandTest {
      */
     private class ModelStubAcceptingExpenseAdded extends ModelStub {
         final ArrayList<Expense> expensesAdded = new ArrayList<>();
+        // private Budget budget;
 
         @Override
         public boolean hasExpense(Expense expense) {
@@ -189,6 +209,16 @@ public class AddCommandTest {
         public ReadOnlyExpenseExpert getExpenseExpert() {
             return new ExpenseExpert();
         }
+
+        // @Override
+        // public void setBudget(Budget budget) {
+        //     this.budget = budget;
+        // }
+
+        // @Override
+        // public Budget getBudget() {
+        //     return this.budget;
+        // }
     }
 
 }
