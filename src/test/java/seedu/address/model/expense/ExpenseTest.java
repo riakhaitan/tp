@@ -81,7 +81,5 @@ public class ExpenseTest {
                 .build();
         assertFalse(ANNUAL_SPOTIFY.equals(editedSpotify));
 
-        // different date -> returns false
-
     }
 }

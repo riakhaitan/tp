@@ -31,11 +31,12 @@ public class CommandTestUtil {
     public static final String VALID_DESCRIPTION_ANNUAL_SPOTIFY = "Annual Spotify Fees";
     public static final String VALID_DESCRIPTION_BUILD_A_BEAR = "Build a Bear Workshop";
     public static final String VALID_EXPENSE_CATEGORY_ENTERTAINMENT = "Entertainment";
+    public static final String VALID_EXPENSE_CATEGORY_UTILITY = "Utility";
     public static final String VALID_EXPENSE_CATEGORY_TRANSPORT = "Transport";
     public static final String VALID_AMOUNT_ANNUAL_SPOTIFY = "200";
     public static final String VALID_AMOUNT_BUILD_A_BEAR = "80";
-    public static final String VALID_EXPENSE_DATE_ANNUAL_SPOTIFY = "2002-02-02";
-    public static final String VALID_EXPENSE_DATE_BUILD_A_BEAR = "2002-02-02";
+    public static final String VALID_EXPENSE_DATE_ANNUAL_SPOTIFY = "2022-02-02";
+    public static final String VALID_EXPENSE_DATE_BUILD_A_BEAR = "2022-03-02";
 
     public static final String DESCRIPTION_DESC_ANNUAL_SPOTIFY =
             " " + PREFIX_DESCRIPTION + VALID_DESCRIPTION_ANNUAL_SPOTIFY;
