@@ -58,6 +58,11 @@ public class ExpenseExpert implements ReadOnlyExpenseExpert {
 
         setExpenses(newData.getExpenseList());
         setBudget(newData.getBudget());
+
+        // Budget newBudget = newData.getBudget();
+        // if (!(newBudget == null)) {
+        //     setBudget(newData.getBudget());
+        // }
     }
 
     //// expense-level operations
