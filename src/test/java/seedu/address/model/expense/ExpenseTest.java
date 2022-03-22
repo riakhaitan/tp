@@ -2,10 +2,11 @@ package seedu.address.model.expense;
 
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-import static seedu.address.logic.commands.CommandTestUtil.*;
-import static seedu.address.testutil.TypicalExpenses.BUILD_A_BEAR;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_AMOUNT_BUILD_A_BEAR;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_DESCRIPTION_BUILD_A_BEAR;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_EXPENSE_CATEGORY_TRANSPORT;
 import static seedu.address.testutil.TypicalExpenses.ANNUAL_SPOTIFY;
-
+import static seedu.address.testutil.TypicalExpenses.BUILD_A_BEAR;
 
 import org.junit.jupiter.api.Test;
 
@@ -32,18 +33,20 @@ public class ExpenseTest {
         assertFalse(ANNUAL_SPOTIFY.isSameExpense(editedSpotify));
 
         // different expense category, all other attributes same -> returns false
-        editedSpotify = new ExpenseBuilder(ANNUAL_SPOTIFY).withExpenseCategory(VALID_EXPENSE_CATEGORY_TRANSPORT).build();
-        assertTrue(ANNUAL_SPOTIFY.isSameExpense(editedSpotify));
+        editedSpotify = new ExpenseBuilder(ANNUAL_SPOTIFY).withExpenseCategory(VALID_EXPENSE_CATEGORY_TRANSPORT)
+                .build();
+        assertFalse(ANNUAL_SPOTIFY.isSameExpense(editedSpotify));
 
-        // name differs in case, all other attributes same -> returns false
-        Expense editedBuildABear = new ExpenseBuilder(BUILD_A_BEAR).withDescription(VALID_DESCRIPTION_BUILD_A_BEAR.toLowerCase()).build();
+        // expense differs in case, all other attributes same -> returns false
+        Expense editedBuildABear = new ExpenseBuilder(BUILD_A_BEAR)
+                .withDescription(VALID_DESCRIPTION_BUILD_A_BEAR.toLowerCase()).build();
         assertFalse(BUILD_A_BEAR.isSameExpense(editedBuildABear));
 
         // TODO: date differs in case, all other attributes same -> returns false
 
-        // name has trailing spaces, all other attributes same -> returns false
-        String nameWithTrailingSpaces = VALID_DESCRIPTION_BUILD_A_BEAR + " ";
-        editedBuildABear = new ExpenseBuilder(BUILD_A_BEAR).withDescription(nameWithTrailingSpaces).build();
+        // expense has trailing spaces, all other attributes same -> returns false
+        String expenseWithTrailingSpaces = VALID_DESCRIPTION_BUILD_A_BEAR + " ";
+        editedBuildABear = new ExpenseBuilder(BUILD_A_BEAR).withDescription(expenseWithTrailingSpaces).build();
         assertFalse(BUILD_A_BEAR.isSameExpense(editedBuildABear));
     }
 
@@ -74,10 +77,9 @@ public class ExpenseTest {
         assertFalse(ANNUAL_SPOTIFY.equals(editedSpotify));
 
         // different expenseCategory -> returns false
-        editedSpotify = new ExpenseBuilder(ANNUAL_SPOTIFY).withExpenseCategory(VALID_EXPENSE_CATEGORY_TRANSPORT).build();
+        editedSpotify = new ExpenseBuilder(ANNUAL_SPOTIFY).withExpenseCategory(VALID_EXPENSE_CATEGORY_TRANSPORT)
+                .build();
         assertFalse(ANNUAL_SPOTIFY.equals(editedSpotify));
-
-        // different date -> returns false
 
     }
 }

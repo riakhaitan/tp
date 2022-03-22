@@ -1,9 +1,8 @@
 package seedu.address.model.expense;
 
-import static seedu.address.testutil.Assert.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-
+import static seedu.address.testutil.Assert.assertThrows;
 
 import org.junit.jupiter.api.Test;
 
@@ -14,13 +13,13 @@ public class ExpenseCategoryTest {
     }
 
     @Test
-    public void constructor_invalidAddress_throwsIllegalArgumentException() {
+    public void constructor_invalidExpenseCategory_throwsIllegalArgumentException() {
         String invalidExpense = "";
         assertThrows(IllegalArgumentException.class, () -> new ExpenseCategory(invalidExpense));
     }
 
     @Test
-    public void isValidAddress() {
+    public void isValidExpenseCategory() {
         // null address
         assertThrows(NullPointerException.class, () -> ExpenseCategory.isValidExpenseCategory(null));
 

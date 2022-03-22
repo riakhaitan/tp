@@ -32,7 +32,8 @@ public class MainWindow extends UiPart<Stage> {
 
     // Independent Ui parts residing in this Ui container
     private ExpenseListPanel expenseListPanel;
-    private ResultDisplay resultDisplay;
+    private BudgetDisplay budgetResultDisplay;
+    private ResultDisplay commandResultDisplay;
     private HelpWindow helpWindow;
 
     @FXML
@@ -43,6 +44,9 @@ public class MainWindow extends UiPart<Stage> {
 
     @FXML
     private StackPane expenseListPanelPlaceholder;
+
+    @FXML
+    private StackPane budgetDisplayPlaceholder;
 
     @FXML
     private StackPane resultDisplayPlaceholder;
@@ -113,8 +117,12 @@ public class MainWindow extends UiPart<Stage> {
         expenseListPanel = new ExpenseListPanel(logic.getFilteredExpenseList());
         expenseListPanelPlaceholder.getChildren().add(expenseListPanel.getRoot());
 
-        resultDisplay = new ResultDisplay();
-        resultDisplayPlaceholder.getChildren().add(resultDisplay.getRoot());
+        budgetResultDisplay = new BudgetDisplay();
+        budgetResultDisplay.showMonthlyBudget(logic.getBudget());
+        budgetDisplayPlaceholder.getChildren().add(budgetResultDisplay.getRoot());
+
+        commandResultDisplay = new ResultDisplay();
+        resultDisplayPlaceholder.getChildren().add(commandResultDisplay.getRoot());
 
         StatusBarFooter statusBarFooter = new StatusBarFooter(logic.getExpenseExpertFilePath());
         statusbarPlaceholder.getChildren().add(statusBarFooter.getRoot());
@@ -176,7 +184,8 @@ public class MainWindow extends UiPart<Stage> {
         try {
             CommandResult commandResult = logic.execute(commandText);
             logger.info("Result: " + commandResult.getFeedbackToUser());
-            resultDisplay.setFeedbackToUser(commandResult.getFeedbackToUser());
+            commandResultDisplay.setFeedbackToUser(commandResult.getFeedbackToUser());
+            budgetResultDisplay.showMonthlyBudget(logic.getBudget());
 
             if (commandResult.isShowHelp()) {
                 handleHelp();
@@ -189,7 +198,7 @@ public class MainWindow extends UiPart<Stage> {
             return commandResult;
         } catch (CommandException | ParseException e) {
             logger.info("Invalid command: " + commandText);
-            resultDisplay.setFeedbackToUser(e.getMessage());
+            commandResultDisplay.setFeedbackToUser(e.getMessage());
             throw e;
         }
     }

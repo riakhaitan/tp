@@ -14,6 +14,8 @@ public class ListCommand extends Command {
 
     public static final String MESSAGE_SUCCESS = "Listed all expenses";
 
+    public static final String HELP_COMMAND = COMMAND_WORD + ": Lists all expenses\n\n";
+
 
     @Override
     public CommandResult execute(Model model) {

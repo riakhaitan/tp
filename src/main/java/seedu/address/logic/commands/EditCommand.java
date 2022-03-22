@@ -4,6 +4,7 @@ import static java.util.Objects.requireNonNull;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_AMOUNT;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_DESCRIPTION;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_EXPENSE_CATEGORY;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_EXPENSE_DATE;
 import static seedu.address.model.Model.PREDICATE_SHOW_ALL_EXPENSES;
 
 import java.util.List;
@@ -18,6 +19,7 @@ import seedu.address.model.expense.Amount;
 import seedu.address.model.expense.Description;
 import seedu.address.model.expense.Expense;
 import seedu.address.model.expense.ExpenseCategory;
+import seedu.address.model.expense.ExpenseDate;
 
 
 /**
@@ -28,15 +30,17 @@ public class EditCommand extends Command {
     public static final String COMMAND_WORD = "edit";
 
     public static final String MESSAGE_USAGE = COMMAND_WORD + ": Edits the details of the expense identified "
-            + "by the index number used in the displayed expense list. "
+            + "by the index number used in the displayed expense list. \n"
             + "Existing values will be overwritten by the input values.\n"
             + "Parameters: INDEX (must be a positive integer) "
             + "[" + PREFIX_DESCRIPTION + "DESCRIPTION] "
             + "[" + PREFIX_EXPENSE_CATEGORY + "CATEGORY] "
-            + "[" + PREFIX_AMOUNT + "AMOUNT] \n"
+            + "[" + PREFIX_AMOUNT + "AMOUNT]"
+            + "[" + PREFIX_EXPENSE_DATE + "DATE] \n"
             + "Example: " + COMMAND_WORD + " 1 "
             + PREFIX_DESCRIPTION + "Grocies from ShengShiong "
-            + PREFIX_AMOUNT + "120";
+            + PREFIX_AMOUNT + "120 "
+            + PREFIX_EXPENSE_DATE + "2022-02-02\n\n";
 
     public static final String MESSAGE_EDIT_EXPENSE_SUCCESS = "Edited Expense: %1$s";
     public static final String MESSAGE_NOT_EDITED = "At least one field to edit must be provided.";
@@ -89,8 +93,9 @@ public class EditCommand extends Command {
         ExpenseCategory updatedExpenseCategory = editExpenseDescriptor
                 .getExpenseCategory().orElse(expenseToEdit.getExpenseCategory());
         Amount updatedAmount = editExpenseDescriptor.getAmount().orElse(expenseToEdit.getAmount());
+        ExpenseDate updatedExpenseDate = editExpenseDescriptor.getExpenseDate().orElse(expenseToEdit.getExpenseDate());
 
-        return new Expense(updatedDescription, updatedExpenseCategory, updatedAmount);
+        return new Expense(updatedDescription, updatedExpenseCategory, updatedAmount, updatedExpenseDate);
     }
 
     @Override
@@ -119,6 +124,7 @@ public class EditCommand extends Command {
         private Description description;
         private ExpenseCategory expenseCategory;
         private Amount amount;
+        private ExpenseDate expenseDate;
 
         public EditExpenseDescriptor() {}
 
@@ -130,6 +136,7 @@ public class EditCommand extends Command {
             setDescription(toCopy.description);
             setExpenseCategory(toCopy.expenseCategory);
             setAmount(toCopy.amount);
+            setExpenseDate(toCopy.expenseDate);
         }
 
         /**
@@ -163,6 +170,14 @@ public class EditCommand extends Command {
             return Optional.ofNullable(amount);
         }
 
+        public void setExpenseDate(ExpenseDate expenseDate) {
+            this.expenseDate = expenseDate;
+        }
+
+        public Optional<ExpenseDate> getExpenseDate() {
+            return Optional.ofNullable(expenseDate);
+        }
+
         @Override
         public boolean equals(Object other) {
             // short circuit if same object
@@ -180,7 +195,8 @@ public class EditCommand extends Command {
 
             return getDescription().equals(e.getDescription())
                     && getExpenseCategory().equals(e.getExpenseCategory())
-                    && getAmount().equals(e.getAmount());
+                    && getAmount().equals(e.getAmount())
+                    && getExpenseDate().equals(e.getExpenseDate());
         }
     }
 }

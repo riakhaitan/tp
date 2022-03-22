@@ -1,9 +1,9 @@
 package seedu.address.model.expense;
 
-import static seedu.address.testutil.Assert.assertThrows;
+
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-
+import static seedu.address.testutil.Assert.assertThrows;
 
 import org.junit.jupiter.api.Test;
 
@@ -21,21 +21,21 @@ public class DescriptionTest {
 
     @Test
     public void isValidDescription() {
-        // null name
+        // null Description
         assertThrows(NullPointerException.class, () -> Description.isValidDescription(null));
 
-        // invalid name
+        // invalid Description
         assertFalse(Description.isValidDescription("")); // empty string
         assertFalse(Description.isValidDescription(" ")); // spaces only
         assertFalse(Description.isValidDescription("^")); // only non-alphanumeric characters
         assertFalse(Description.isValidDescription("taxi*")); // contains non-alphanumeric characters
 
-        // valid name
+        // valid Description
         assertTrue(Description.isValidDescription("mcdonalds")); // alphabets only
         assertTrue(Description.isValidDescription("12345")); // numbers only
         assertTrue(Description.isValidDescription("pizza on 3rd")); // alphanumeric characters
         assertTrue(Description.isValidDescription("Encik TAN")); // with capital letters
-        assertTrue(Description.isValidDescription("3 plates of chicken rice from the deck")); // long names
+        assertTrue(Description.isValidDescription("3 plates of chicken rice from the deck")); // long Description
     }
 
 

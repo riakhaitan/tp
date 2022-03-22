@@ -11,6 +11,8 @@ public class ExitCommand extends Command {
 
     public static final String MESSAGE_EXIT_ACKNOWLEDGEMENT = "Exiting Expense Expert as requested ...";
 
+    public static final String HELP_COMMAND = COMMAND_WORD + ": Exits the app\n\n";
+
     @Override
     public CommandResult execute(Model model) {
         return new CommandResult(MESSAGE_EXIT_ACKNOWLEDGEMENT, false, true);

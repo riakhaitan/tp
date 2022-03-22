@@ -5,9 +5,11 @@ import static java.util.Objects.requireNonNull;
 import seedu.address.commons.core.index.Index;
 import seedu.address.commons.util.StringUtil;
 import seedu.address.logic.parser.exceptions.ParseException;
+import seedu.address.model.budget.Budget;
 import seedu.address.model.expense.Amount;
 import seedu.address.model.expense.Description;
 import seedu.address.model.expense.ExpenseCategory;
+import seedu.address.model.expense.ExpenseDate;
 
 /**
  * Contains utility methods used for parsing strings in the various *Parser classes.
@@ -56,10 +58,10 @@ public class ParserUtil {
     }
 
     /**
-     * Parses a {@code String email} into an {@code Email}.
+     * Parses a {@code String amount} into an {@code Amount}.
      * Leading and trailing whitespaces will be trimmed.
      *
-     * @throws ParseException if the given {@code email} is invalid.
+     * @throws ParseException if the given {@code amount} is invalid.
      */
     public static Amount parseAmount(String amount) throws ParseException {
         requireNonNull(amount);
@@ -68,5 +70,35 @@ public class ParserUtil {
             throw new ParseException(Amount.MESSAGE_CONSTRAINTS);
         }
         return new Amount(trimmedAmount);
+    }
+
+    /**
+     * Parses a {@code String budget} into an {@code Budget}.
+     * Leading and trailing whitespaces will be trimmed.
+     *
+     * @throws ParseException if the given {@code budget} is invalid.
+     */
+    public static Budget parseBudget(String budget) throws ParseException {
+        requireNonNull(budget);
+        String trimmedBudget = budget.trim();
+        if (!Budget.isValidBudget(trimmedBudget)) {
+            throw new ParseException(Budget.MESSAGE_CONSTRAINTS);
+        }
+        return new Budget(trimmedBudget);
+    }
+
+    /**
+     * Parses the expense date for the expense.
+     * @param expenseDate expense date given to parse.
+     * @return Expense date with the input date.
+     * @throws ParseException if the input given is wrong.
+     */
+    public static ExpenseDate parseDate(String expenseDate) throws ParseException {
+        requireNonNull(expenseDate);
+        String trimmedDate = expenseDate.trim();
+        if (!ExpenseDate.isValidExpenseDate(trimmedDate)) {
+            throw new ParseException(Amount.MESSAGE_CONSTRAINTS);
+        }
+        return new ExpenseDate(trimmedDate);
     }
 }

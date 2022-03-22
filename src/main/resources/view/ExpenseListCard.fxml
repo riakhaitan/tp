@@ -28,6 +28,7 @@
       </HBox>
       <Label fx:id="expenseCategory" styleClass="cell_small_label" text="\$expenseCategory" />
       <Label fx:id="amount" styleClass="cell_small_label" text="\$amount" />
+      <Label fx:id="expenseDate" styleClass="cell_small_label" text="\$expenseDate" />
     </VBox>
   </GridPane>
 </HBox>

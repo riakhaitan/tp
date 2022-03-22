@@ -11,6 +11,7 @@ import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
 import seedu.address.commons.core.GuiSettings;
 import seedu.address.commons.core.LogsCenter;
+import seedu.address.model.budget.Budget;
 import seedu.address.model.expense.Expense;
 
 /**
@@ -111,6 +112,17 @@ public class ModelManager implements Model {
         expenseExpert.setExpense(target, editedExpense);
     }
 
+    @Override
+    public void setBudget(Budget budget) {
+        requireNonNull(budget);
+        expenseExpert.setBudget(budget);
+    }
+
+    @Override
+    public Budget getBudget() {
+        return expenseExpert.getBudget();
+    }
+
     //=========== Filtered Expense List Accessors =============================================================
 
     /**
@@ -146,5 +158,4 @@ public class ModelManager implements Model {
                 && userPrefs.equals(other.userPrefs)
                 && filteredExpenses.equals(other.filteredExpenses);
     }
-
 }
