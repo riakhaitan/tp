@@ -27,16 +27,19 @@ public class AmountTest {
         // null amount
         assertThrows(NullPointerException.class, () -> Amount.isValidAmount(null));
 
-        // invalid addresses
+        // invalid Amounts
         assertFalse(Amount.isValidAmount("")); // empty string
         assertFalse(Amount.isValidAmount(" ")); // spaces only
-        assertFalse(Amount.isValidAmount("111.111")); // 3 d.p only
-        assertFalse(Amount.isValidAmount(".111")); // 3 d.p only
-        assertFalse(Amount.isValidAmount("0.111")); // 3 d.p
+        assertFalse(Amount.isValidAmount("111.111")); // 3 d.p
+        assertFalse(Amount.isValidAmount(".111")); // 3 d.p
         assertFalse(Amount.isValidAmount(".")); // decimal only
+        assertFalse(Amount.isValidAmount("111 111.1")); // space division
+        assertFalse(Amount.isValidAmount("111 111.111")); // more than 2 decimal place
+        assertFalse(Amount.isValidAmount("11,11111")); // not multiple of 3 comma spacing
+        assertFalse(Amount.isValidAmount("1111,111")); // comma spacing
+        assertFalse(Amount.isValidAmount("1,111111")); // comma spacing
 
-
-        // valid addresses
+        // valid Amounts
         assertTrue(Amount.isValidAmount("111.1")); // single digit after decimal
         assertTrue(Amount.isValidAmount("0")); // Zero
         assertTrue(Amount.isValidAmount("0.0")); // Zero with decimal
@@ -45,6 +48,9 @@ public class AmountTest {
         assertTrue(Amount.isValidAmount("0.55")); // double digits after decimal with leading 0
         assertTrue(Amount.isValidAmount(".55")); // double digits after decimal without any whole number
         assertTrue(Amount.isValidAmount(".5")); // single digits after decimal without any whole number
+        assertTrue(Amount.isValidAmount("22")); // normal integer
+        assertTrue(Amount.isValidAmount("1,111,111")); // comma spacing
+        assertTrue(Amount.isValidAmount("1,111,111.11")); // comma spacing with decimals
     }
 
     @Test
