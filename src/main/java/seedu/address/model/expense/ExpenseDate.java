@@ -1,23 +1,20 @@
 package seedu.address.model.expense;
 
+import static java.util.Objects.requireNonNull;
+import static seedu.address.commons.util.AppUtil.checkArgument;
+
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
-import static java.util.Objects.requireNonNull;
-import static seedu.address.commons.util.AppUtil.checkArgument;
-
 public class ExpenseDate {
-
-    final static String DATE_FORMAT = "yyyy-MM-dd";
-
     public static final String VALIDATION_REGEX = "^((19|2[0-9])[0-9]{2})-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])$";
+    private static final String DATE_FORMAT = "yyyy-MM-dd";
     public static final String MESSAGE_CONSTRAINTS =
             "Date should be in a valid format " + DATE_FORMAT + ", and it should not be blank";
-
-    private static DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+    private static DateTimeFormatter dtf = DateTimeFormatter.ofPattern(DATE_FORMAT);
     public final LocalDate expenseDate;
 
     /**
