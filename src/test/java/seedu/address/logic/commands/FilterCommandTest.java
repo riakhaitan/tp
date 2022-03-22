@@ -24,7 +24,6 @@ import seedu.address.model.Model;
 import seedu.address.model.ModelManager;
 import seedu.address.model.UserPrefs;
 import seedu.address.model.expense.ExpenseDateIsParsedDatePredicate;
-import seedu.address.model.expense.ExpenseDateIsParsedDatePredicate;
 
 /**
  * Contains integration tests (interaction with the Model) for {@code FilterCommand}.

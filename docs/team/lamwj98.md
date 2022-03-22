@@ -16,13 +16,15 @@ Given below are my contributions to the project.
   - Highlights: _(to be added soon)_
   - Credits: _(to be added soon)_
 
-- **New Feature**: _(to be added soon)_
+- **New Feature**: 
+  - Filtering of Expense List by date or month
 
 - **Code contributed**: [RepoSense link](https://nus-cs2103-ay2122s2.github.io/tp-dashboard/?search=lamwj98&breakdown=true)
 
 - **Project management**: _(to be added soon)_
 
-- **Enhancements to existing features**: _(to be added soon)_
+- **Enhancements to existing features**:
+  - Change ExpenseDate class from keeping data as String to LocalDate (for future usage of dates for comparison)
 
 - **Documentation**:
 
@@ -33,7 +35,7 @@ Given below are my contributions to the project.
 
 - **Community**:
 
-  - PRs reviewed (with non-trivial review comments): #68, #69
+  - PRs reviewed (with non-trivial review comments): #68, #69, #84
   - Contributed to forum discussions (examples: _(to be added soon)_
   - Reported bugs and suggestions for other teams in the class _(to be added soon)_
   - Some parts of the history feature I added was adopted by several other class mates _(to be added soon)_

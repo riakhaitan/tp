@@ -2,8 +2,8 @@ package seedu.address.logic.parser;
 
 import static seedu.address.commons.core.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
 import static seedu.address.logic.commands.CommandTestUtil.FILTER_DATE_DESC;
-import static seedu.address.logic.commands.CommandTestUtil.VALID_FILTER_DATE;
 import static seedu.address.logic.commands.CommandTestUtil.INVALID_FILTER_DATE_DESC;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_FILTER_DATE;
 import static seedu.address.logic.parser.CommandParserTestUtil.assertParseFailure;
 import static seedu.address.logic.parser.CommandParserTestUtil.assertParseSuccess;
 

@@ -24,6 +24,9 @@ public class FilterCommand extends Command {
 
     private final ExpenseDateIsParsedDatePredicate predicate;
 
+    /**
+     * Creates an FilterCommand to add the filter {@code Expense} by date/month.
+     */
     public FilterCommand(ExpenseDateIsParsedDatePredicate predicate) {
         requireNonNull(predicate);
         this.predicate = predicate;

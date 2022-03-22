@@ -6,7 +6,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.function.Predicate;
 
 /**
- * Tests that a {@code Expense}'s {@code Name} matches any of the keywords given.
+ * Tests that a {@code Expense}'s {@code ExpenseDate} matches the parsed date filter.
  */
 public class ExpenseDateIsParsedDatePredicate implements Predicate<Expense> {
 
@@ -16,6 +16,12 @@ public class ExpenseDateIsParsedDatePredicate implements Predicate<Expense> {
     private final LocalDate date;
     private final YearMonth ym;
 
+    /**
+     * Creates a Predicate Object for Filter Command. String parsed will either be of length 7 for filtering
+     * by month and year or length 10 for filtering by exact date.
+     *
+     * @param predicate the filtering date/month.
+     */
     public ExpenseDateIsParsedDatePredicate(String predicate) {
         if (predicate.length() == 7) {
             DateTimeFormatter dtf = DateTimeFormatter.ofPattern(MONTH_FORMAT);
@@ -33,8 +39,8 @@ public class ExpenseDateIsParsedDatePredicate implements Predicate<Expense> {
     public boolean test(Expense expense) {
         //Compare month and year only
         if (ym != null) {
-            return expense.getExpenseDate().expenseDate.getMonthValue() == ym.getMonthValue() &&
-                    expense.getExpenseDate().expenseDate.getYear() == ym.getYear();
+            return expense.getExpenseDate().expenseDate.getMonthValue() == ym.getMonthValue()
+                    && expense.getExpenseDate().expenseDate.getYear() == ym.getYear();
         }
 
         return expense.getExpenseDate().expenseDate.equals(date);
