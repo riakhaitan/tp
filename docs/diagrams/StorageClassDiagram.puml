@@ -14,10 +14,10 @@ Class JsonUserPrefsStorage
 Class "<<interface>>\nStorage" as Storage
 Class StorageManager
 
-package "ExpenditureExpert Storage" #F4F6F6{
-Class "<<interface>>\nExpenditureExpertStorage" as ExpenditureExpertStorage
-Class JsonExpenditureExpertStorage
-Class JsonSerializableExpenditureExpert
+package "ExpenseExpert Storage" #F4F6F6{
+Class "<<interface>>\nExpenseExpertStorage" as ExpenseExpertStorage
+Class JsonExpenseExpertStorage
+Class JsonSerializableExpenseExpert
 Class JsonAdaptedUniqueExpenseList
 Class JsonAdaptedTag
 }
@@ -29,15 +29,15 @@ HiddenOutside ..> Storage
 
 StorageManager .up.|> Storage
 StorageManager -up-> "1" UserPrefsStorage
-StorageManager -up-> "1" ExpenditureExpertStorage
+StorageManager -up-> "1" ExpenseExpertStorage
 
 Storage -left-|> UserPrefsStorage
-Storage -right-|> ExpenditureExpertStorage
+Storage -right-|> ExpenseExpertStorage
 
 JsonUserPrefsStorage .up.|> UserPrefsStorage
-JsonExpenditureExpertStorage .up.|> ExpenditureExpertStorage
-JsonExpenditureExpertStorage ..> JsonSerializableExpenditureExpert
-JsonSerializableExpenditureExpert --> "*" JsonAdaptedPerson
+JsonExpenseExpertStorage .up.|> ExpenseExpertStorage
+JsonExpenseExpertStorage ..> JsonSerializableExpenseExpert
+JsonSerializableExpenseExpert --> "*" JsonAdaptedPerson
 JsonAdaptedPerson --> "*" JsonAdaptedTag
 
 @enduml

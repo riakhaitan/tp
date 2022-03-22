@@ -4,9 +4,9 @@ import javafx.collections.ObservableList;
 import seedu.address.model.expense.Expense;
 
 /**
- * Unmodifiable view of an expenditure expert
+ * Unmodifiable view of an expense expert
  */
-public interface ReadOnlyExpenditureExpert {
+public interface ReadOnlyExpenseExpert {
 
     /**
      * Returns an unmodifiable view of the expenses list.

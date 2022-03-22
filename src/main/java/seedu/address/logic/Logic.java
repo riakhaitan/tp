@@ -7,7 +7,7 @@ import seedu.address.commons.core.GuiSettings;
 import seedu.address.logic.commands.CommandResult;
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.logic.parser.exceptions.ParseException;
-import seedu.address.model.ReadOnlyExpenditureExpert;
+import seedu.address.model.ReadOnlyExpenseExpert;
 import seedu.address.model.expense.Expense;
 
 /**
@@ -24,19 +24,19 @@ public interface Logic {
     CommandResult execute(String commandText) throws CommandException, ParseException;
 
     /**
-     * Returns the ExpenditureExpert.
+     * Returns the ExpenseExpert.
      *
-     * @see seedu.address.model.Model#getExpenditureExpert()
+     * @see seedu.address.model.Model#getExpenseExpert()
      */
-    ReadOnlyExpenditureExpert getExpenditureExpert();
+    ReadOnlyExpenseExpert getExpenseExpert();
 
     /** Returns an unmodifiable view of the filtered list of expenses */
     ObservableList<Expense> getFilteredExpenseList();
 
     /**
-     * Returns the user prefs' expenditure expert file path.
+     * Returns the user prefs' expense expert file path.
      */
-    Path getExpenditureExpertFilePath();
+    Path getExpenseExpertFilePath();
 
     /**
      * Returns the user prefs' GUI settings.

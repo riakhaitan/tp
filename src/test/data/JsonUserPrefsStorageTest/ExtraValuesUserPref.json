@@ -9,5 +9,5 @@
       "z" : 99
     }
   },
-  "expenditureExpertFilePath" : "expenditureexpert.json"
+  "expenseExpertFilePath" : "expenseexpert.json"
 }

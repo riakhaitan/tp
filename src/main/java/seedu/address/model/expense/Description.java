@@ -5,7 +5,7 @@ import static seedu.address.commons.util.AppUtil.checkArgument;
 
 
 /**
- * Represents an Expense's description in the Expenditure Expert.
+ * Represents an Expense's description in the Expense Expert.
  */
 public class Description {
 

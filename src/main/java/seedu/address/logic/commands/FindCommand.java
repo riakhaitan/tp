@@ -7,7 +7,7 @@ import seedu.address.model.Model;
 import seedu.address.model.expense.DescriptionContainsKeywordsPredicate;
 
 /**
- * Finds and lists all expenses in expenditure expert whose name contains any of the argument keywords.
+ * Finds and lists all expenses in expense expert whose name contains any of the argument keywords.
  * Keyword matching is case insensitive.
  */
 public class FindCommand extends Command {
