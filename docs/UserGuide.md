@@ -69,18 +69,15 @@ Format: `help`
 
 ### Adding an expense : `add`
 
-Adds an expense to the list.
+Adds an expense to the list. Description and expense category provided must be in alphanumerical format, amount can only be positive number up to 2 decimal places
+and expense date must be in yyyy-MM-dd format.
 
-Format: `add d/EXPENSE_TITLE a/AMOUNT c/DESCRIPTION`
-
-<div markdown="span" class="alert alert-primary">:bulb: **Tip:**
-An expense can have any number of tags (including 0)
-</div>
+Format: `add d/DESCRIPTION a/AMOUNT c/EXPENSECATEGORy t/EXPENSEDATE`
 
 Examples:
 
-- `add d/Dinner at Privé a/35 c/Extra expense`
-- `add d/Groceries a/50 c/Essentials`
+- `add d/Dinner at Privé a/35 c/Extra expense d/2022-03-22`
+- `add d/Groceries a/50 c/Essentials d/2022-03-23`
 
 ### Listing all expenses : `list`
 
@@ -90,16 +87,17 @@ Format: `list`
 
 ### Editing an expense : `edit`
 
-Edits an existing expense in the list. You need to specify the index of the expense from the list and only the syntax of the fields you want to change together with the value you want to change to. You can specify one or more fields. Run `list` before executing the command to identify the index of the expense.
+Edits an existing expense in the list. You need to specify the index of the expense from the list and only the syntax of the fields you want to change together 
+with the value you want to change to. You can specify one or more fields. Run `list` before executing the command to identify the index of the expense.
 
-Format: `edit INDEX [d/DESCIPTION] [a/AMOUNT] [c/CATEGORY]`
+Format: `edit INDEX [d/DESCIPTION] [a/AMOUNT] [c/CATEGORY] [t/EXPENSECATEGORY]`
 
 Examples:
 
 - `edit 1 a/40`
 - `edit 2 d/Groceries from Fairprice a/80`
 
-### Deleting an expense : `delete INDEX`
+### Deleting an expense : `delete`
 
 Deletes the expense specified by the index from the list. Run `list` before executing the command to identify the index of the expense.
 
@@ -109,6 +107,27 @@ Examples:
 
 - `delete 1`
 
+### Finding expenses: `find`
+
+Find expenses with the stated keyword(s). If more than one keyword is provided, return list of expenses with expense description that matches any of the keywords provided.
+
+Format: `find KEYWORD(S)`
+
+Examples:
+
+- `find Cafe`
+- `find Cafe Grab`
+
+### Filtering expenses: `filter`
+
+Filter expenses with the date/month provided. Date format must be provided in yyyy-MM-dd format and month format must be provided in yyyy-MM format.
+
+Format: `filter ft/DATE/MONTH`
+
+Examples:
+
+- `filter 2022-03-12`
+- `filter 2022-03`
 ### Exiting the program : `quit`
 
 Exits the program.
