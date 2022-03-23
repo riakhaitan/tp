@@ -26,7 +26,7 @@ Expense Expert is a **desktop app for keeping track of your expenses, and managi
 
    - **`list`** : Lists all the expenses you have recorded.
 
-   - **`add`** `d/Lunch at VivoCity $/12.95 c/Food t/2022-03-12` : Adds a new expense of $12.95 for Lunch at Vivocity to your list of expenses
+   - **`add`** `d/Lunch at VivoCity a/12.95 c/Food t/2022-03-12` : Adds a new expense of a/12.95 for Lunch at Vivocity to your list of expenses
 
    - **`delete`** `3` : Deletes the 3rd expense shown in the current list.
 
@@ -52,7 +52,7 @@ Expense Expert is a **desktop app for keeping track of your expenses, and managi
   e.g. if the command specifies `d/DESCRIPTION a/AMOUNT`, `a/AMOUNT d/DESCRIPTION` is also acceptable.
 
 - If a parameter is expected only once in the command but you specified it multiple times, only the last occurrence of the parameter will be taken.<br>
-  e.g. if you specify `$/12.99 $/13.50`, only `$/13.50` will be taken.
+  e.g. if you specify `a/12.99 a/13.50`, only `a/13.50` will be taken.
 
 - Extraneous parameters for commands that do not take in parameters (such as `help`, `list` and `quit`) will be ignored.<br>
   e.g. if the command specifies `help 123`, it will be interpreted as `help`.
@@ -72,12 +72,12 @@ Format: `help`
 Adds an expense to the list. Description and expense category provided must be in alphanumerical format, amount can only be positive number up to 2 decimal places
 and expense date must be in yyyy-MM-dd format.
 
-Format: `add d/DESCRIPTION a/AMOUNT c/EXPENSECATEGORy t/EXPENSEDATE`
+Format: `add d/DESCRIPTION a/AMOUNT c/EXPENSE_CATEGORY t/EXPENSE_DATE`
 
 Examples:
 
-- `add d/Dinner at Privé a/35 c/Extra expense d/2022-03-22`
-- `add d/Groceries a/50 c/Essentials d/2022-03-23`
+- `add d/Dinner at Privé a/35 c/Extra expense t/2022-03-22`
+- `add d/Groceries a/50 c/Essentials t/2022-03-23`
 
 ### Listing all expenses : `list`
 
@@ -90,7 +90,7 @@ Format: `list`
 Edits an existing expense in the list. You need to specify the index of the expense from the list and only the syntax of the fields you want to change together 
 with the value you want to change to. You can specify one or more fields. Run `list` before executing the command to identify the index of the expense.
 
-Format: `edit INDEX [d/DESCIPTION] [a/AMOUNT] [c/CATEGORY] [t/EXPENSECATEGORY]`
+Format: `edit INDEX [d/DESCIPTION] [a/AMOUNT] [c/EXPENSE_CATEGORY] [t/EXPENSE_DATE]`
 
 Examples:
 
@@ -161,11 +161,11 @@ _Details coming soon ..._
 
 ## Command summary
 
-| Action     | Format, Examples                                                                                             |
-| ---------- | ------------------------------------------------------------------------------------------------------------ |
-| **Add**    | `add d/DESCRIPTION $/AMOUNT [c/CATEGORY]` <br> e.g., `d/Lunch at VivoCity $/12.95 c/Food`                    |
-| **Delete** | `delete INDEX`<br> e.g., `delete 3`                                                                          |
-| **Edit**   | `edit INDEX [d/DESCRIPTION] [$/AMOUNT] [c/CATEGORY]`<br> e.g.,`edit 2 d/Lunch at Harbourfront Centre $/6.50` |
-| **List**   | `list`                                                                                                       |
-| **Help**   | `help`                                                                                                       |
-| **Quit**   | `quit`                                                                                                       |
+| Action     | Format, Examples                                                                                                                      |
+| ---------- |---------------------------------------------------------------------------------------------------------------------------------------|
+| **Add**    | `add d/DESCRIPTION a/AMOUNT [c/EXPENSE_CATEGORY] t/EXPENSE_DATE ` <br> e.g., `add d/Lunch at VivoCity a/12.95 c/Food t/2022-03-20`    |
+| **Delete** | `delete INDEX`<br> e.g., `delete 3`                                                                                                   |
+| **Edit**   | `edit INDEX [d/DESCRIPTION] [a/AMOUNT] [c/EXPENSE_CATEGORY] [t/EXPENSE_DATE]`<br> e.g.,`edit 2 d/Lunch at Harbourfront Centre a/6.50` |
+| **List**   | `list`                                                                                                                                |
+| **Help**   | `help`                                                                                                                                |
+| **Quit**   | `quit`                                                                                                                                |
