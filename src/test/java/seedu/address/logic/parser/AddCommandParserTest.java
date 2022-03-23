@@ -8,6 +8,9 @@ import static seedu.address.logic.commands.CommandTestUtil.DESCRIPTION_DESC_BUIL
 import static seedu.address.logic.commands.CommandTestUtil.EXPENSE_CATEGORY_DESC_ENTERTAINMENT;
 import static seedu.address.logic.commands.CommandTestUtil.EXPENSE_DATE_DESC_BUILD_A_BEAR;
 import static seedu.address.logic.commands.CommandTestUtil.INVALID_AMOUNT_DESC;
+import static seedu.address.logic.commands.CommandTestUtil.INVALID_DESCRIPTION_DESC;
+import static seedu.address.logic.commands.CommandTestUtil.INVALID_EXPENSE_CATEGORY_DESC;
+import static seedu.address.logic.commands.CommandTestUtil.INVALID_EXPENSE_DATE_DESC;
 import static seedu.address.logic.commands.CommandTestUtil.PREAMBLE_NON_EMPTY;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_AMOUNT_BUILD_A_BEAR;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_DESCRIPTION_BUILD_A_BEAR;
@@ -21,7 +24,10 @@ import org.junit.jupiter.api.Test;
 
 import seedu.address.logic.commands.AddCommand;
 import seedu.address.model.expense.Amount;
+import seedu.address.model.expense.Description;
 import seedu.address.model.expense.Expense;
+import seedu.address.model.expense.ExpenseCategory;
+import seedu.address.model.expense.ExpenseDate;
 import seedu.address.testutil.ExpenseBuilder;
 
 public class AddCommandParserTest {
@@ -62,6 +68,11 @@ public class AddCommandParserTest {
                         + AMOUNT_DESC_BUILD_A_BEAR + EXPENSE_DATE_DESC_BUILD_A_BEAR,
                 expectedMessage);
 
+        // missing expenseDate prefix
+        assertParseFailure(parser, DESCRIPTION_DESC_BUILD_A_BEAR + EXPENSE_DATE_DESC_BUILD_A_BEAR
+                        + AMOUNT_DESC_BUILD_A_BEAR + VALID_EXPENSE_DATE_BUILD_A_BEAR,
+                expectedMessage);
+
         // all prefixes missing
         assertParseFailure(parser, VALID_DESCRIPTION_BUILD_A_BEAR + VALID_EXPENSE_CATEGORY_ENTERTAINMENT
                         + VALID_AMOUNT_BUILD_A_BEAR + VALID_EXPENSE_DATE_BUILD_A_BEAR,
@@ -73,6 +84,20 @@ public class AddCommandParserTest {
         // invalid amount
         assertParseFailure(parser, INVALID_AMOUNT_DESC + DESCRIPTION_DESC_BUILD_A_BEAR
                 + EXPENSE_CATEGORY_DESC_ENTERTAINMENT + EXPENSE_DATE_DESC_BUILD_A_BEAR, Amount.MESSAGE_CONSTRAINTS);
+
+        // invalid expenseDate
+        assertParseFailure(parser, AMOUNT_DESC_BUILD_A_BEAR + DESCRIPTION_DESC_BUILD_A_BEAR
+                + EXPENSE_CATEGORY_DESC_ENTERTAINMENT + INVALID_EXPENSE_DATE_DESC, ExpenseDate.MESSAGE_CONSTRAINTS);
+
+        // invalid description
+        assertParseFailure(parser, AMOUNT_DESC_BUILD_A_BEAR + INVALID_DESCRIPTION_DESC
+                + EXPENSE_CATEGORY_DESC_ENTERTAINMENT + EXPENSE_DATE_DESC_BUILD_A_BEAR,
+                Description.MESSAGE_CONSTRAINTS);
+
+        // invalid expenseCategory
+        assertParseFailure(parser, AMOUNT_DESC_BUILD_A_BEAR + DESCRIPTION_DESC_BUILD_A_BEAR
+                + INVALID_EXPENSE_CATEGORY_DESC + EXPENSE_DATE_DESC_BUILD_A_BEAR,
+                ExpenseCategory.MESSAGE_CONSTRAINTS);
 
         // non-empty preamble
         assertParseFailure(parser, PREAMBLE_NON_EMPTY + DESCRIPTION_DESC_BUILD_A_BEAR

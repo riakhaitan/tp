@@ -3,14 +3,19 @@ package seedu.address.model.expense;
 import static java.util.Objects.requireNonNull;
 import static seedu.address.commons.util.AppUtil.checkArgument;
 
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+
 public class ExpenseDate {
-
-
     public static final String VALIDATION_REGEX = "^((19|2[0-9])[0-9]{2})-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])$";
+    private static final String DATE_FORMAT = "yyyy-MM-dd";
     public static final String MESSAGE_CONSTRAINTS =
-            "Date should be in a valid format yyyy-mm-dd, and it should not be blank";
-
-    public final String expenseDate;
+            "Date should be in a valid format " + DATE_FORMAT + ", and it should not be blank";
+    private static DateTimeFormatter dtf = DateTimeFormatter.ofPattern(DATE_FORMAT);
+    public final LocalDate expenseDate;
 
     /**
      * Constructs a {@code ExpenseCategory}
@@ -20,19 +25,31 @@ public class ExpenseDate {
     public ExpenseDate(String expenseDate) {
         requireNonNull(expenseDate);
         checkArgument(isValidExpenseDate(expenseDate), MESSAGE_CONSTRAINTS);
-        this.expenseDate = expenseDate;
+        this.expenseDate = LocalDate.parse(expenseDate, dtf);
     }
 
     /**
      * Returns true if a given string is a valid name.
      */
     public static boolean isValidExpenseDate(String test) {
-        return test.matches(VALIDATION_REGEX);
+        boolean regexTest = test.matches(VALIDATION_REGEX);
+        if (regexTest) {
+            try {
+                DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+                df.setLenient(false);
+                df.parse(test);
+            } catch (ParseException e) {
+                return false;
+            }
+            return true;
+        } else {
+            return false;
+        }
     }
 
     @Override
     public String toString() {
-        return expenseDate;
+        return expenseDate.format(dtf);
     }
 
     @Override

@@ -32,10 +32,11 @@ class ExpenseDateTest {
         assertFalse(ExpenseDate.isValidExpenseDate("asad-as-sf")); // replacing numbers with characters
         assertFalse(ExpenseDate.isValidExpenseDate("9999-99-99")); //invalid date
         assertFalse(ExpenseDate.isValidExpenseDate("2022-02-03    ")); //valid date with extra spaces
-        //assertFalse(ExpenseDate.isValidExpenseDate("2022-02-30")); //30 Feb should be false
+        assertFalse(ExpenseDate.isValidExpenseDate("2022-02-30")); //30 Feb should be false
+        assertFalse(ExpenseDate.isValidExpenseDate("2022-02-29")); //29 Feb should be false as 2022 not leap
 
         // valid addresses
         assertTrue(ExpenseDate.isValidExpenseDate("2022-03-03"));
-        assertTrue(ExpenseDate.isValidExpenseDate("2022-02-29"));
+        assertTrue(ExpenseDate.isValidExpenseDate("2022-02-28"));
     }
 }
