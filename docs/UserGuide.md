@@ -26,7 +26,7 @@ Expense Expert is a **desktop app for keeping track of your expenses, and managi
 
    - **`list`** : Lists all the expenses you have recorded.
 
-   - **`add`** `d/Lunch at VivoCity $/12.95 c/Food` : Adds a new expense of $12.95 for Lunch at Vivocity to your list of expenses
+   - **`add`** `d/Lunch at VivoCity $/12.95 c/Food t/2022-03-12` : Adds a new expense of $12.95 for Lunch at Vivocity to your list of expenses
 
    - **`delete`** `3` : Deletes the 3rd expense shown in the current list.
 
@@ -49,7 +49,7 @@ Expense Expert is a **desktop app for keeping track of your expenses, and managi
   e.g `d/DESCRIPTION [c/CATEGORY]` can be used as `d/Dinner at ECP c/Food` or as `d/Dinner at ECP`.
 
 - Parameters can be in any order.<br>
-  e.g. if the command specifies `d/DESCRIPTION $/AMOUNT`, `$/AMOUNT d/DESCRIPTION` is also acceptable.
+  e.g. if the command specifies `d/DESCRIPTION a/AMOUNT`, `a/AMOUNT d/DESCRIPTION` is also acceptable.
 
 - If a parameter is expected only once in the command but you specified it multiple times, only the last occurrence of the parameter will be taken.<br>
   e.g. if you specify `$/12.99 $/13.50`, only `$/13.50` will be taken.
