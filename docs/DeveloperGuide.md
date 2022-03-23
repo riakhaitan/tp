@@ -216,7 +216,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 | `* *`     | user     | find an expense base on keyword(s)                  |                                                                         |
 | `* *`    | user     | filter expenses based on date/month                 |                                                                         |
 | `* *`    | user     | set a monthly budget                                | keep track of my savings and over-expenditure                           |
- 
+
 *{More to be added}*
 
 ### Use cases
