@@ -30,7 +30,7 @@ public class ExpenseUtil {
         sb.append(PREFIX_DESCRIPTION + expense.getDescription().description + " ");
         sb.append(PREFIX_EXPENSE_CATEGORY + expense.getExpenseCategory().expenseCategory + " ");
         sb.append(PREFIX_AMOUNT + expense.getAmount().amount + " ");
-        sb.append(PREFIX_DATE + expense.getExpenseDate().date + " ");
+        sb.append(PREFIX_DATE + expense.getExpenseDate().date.toString() + " ");
         return sb.toString();
     }
 

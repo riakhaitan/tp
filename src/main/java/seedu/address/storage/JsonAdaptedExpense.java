@@ -42,7 +42,7 @@ class JsonAdaptedExpense {
         description = source.getDescription().description;
         expenseCategory = source.getExpenseCategory().expenseCategory;
         amount = source.getAmount().amount;
-        expenseDate = source.getExpenseDate().date;
+        expenseDate = source.getExpenseDate().date.toString();
     }
 
     /**

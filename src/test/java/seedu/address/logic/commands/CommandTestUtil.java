@@ -6,6 +6,7 @@ import static seedu.address.logic.parser.CliSyntax.PREFIX_AMOUNT;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_DATE;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_DESCRIPTION;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_EXPENSE_CATEGORY;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_FILTER_DATE;
 import static seedu.address.testutil.Assert.assertThrows;
 
 import java.util.ArrayList;
@@ -37,10 +38,12 @@ public class CommandTestUtil {
     public static final String VALID_AMOUNT_BUILD_A_BEAR = "80";
     public static final String VALID_EXPENSE_DATE_ANNUAL_SPOTIFY = "2022-02-02";
     public static final String VALID_EXPENSE_DATE_BUILD_A_BEAR = "2022-03-02";
+
     public static final String VALID_BUDGET_AMOUNT_ALPHA = "900";
     public static final String VALID_BUDGET_AMOUNT_BETA = "600";
     public static final String VALID_BUDGET_DATE_ALPHA = "2022-01-01";
     public static final String VALID_BUDGET_DATE_BETA = "2022-03-10";
+    public static final String VALID_FILTER_DATE = "2022-03-03";
 
     public static final String DESCRIPTION_DESC_ANNUAL_SPOTIFY =
             " " + PREFIX_DESCRIPTION + VALID_DESCRIPTION_ANNUAL_SPOTIFY;
@@ -54,6 +57,7 @@ public class CommandTestUtil {
             + VALID_EXPENSE_DATE_ANNUAL_SPOTIFY;
     public static final String EXPENSE_DATE_DESC_BUILD_A_BEAR = " " + PREFIX_DATE
             + VALID_EXPENSE_DATE_BUILD_A_BEAR;
+
     public static final String BUDGET_AMOUNT_DESC_ALPHA =
             " " + PREFIX_AMOUNT + VALID_BUDGET_AMOUNT_ALPHA;
     public static final String BUDGET_AMOUNT_DESC_BETA =
@@ -62,11 +66,17 @@ public class CommandTestUtil {
             " " + PREFIX_DATE + VALID_BUDGET_DATE_ALPHA;
     public static final String BUDGET_DATE_DESC_BETA =
             " " + PREFIX_DATE + VALID_BUDGET_DATE_BETA;
+    public static final String FILTER_DATE_DESC = " " + PREFIX_FILTER_DATE + VALID_FILTER_DATE;
 
     public static final seedu.address.logic.commands.EditCommand.EditExpenseDescriptor DESC_ANNUAL_SPOTIFY_FEES;
     public static final seedu.address.logic.commands.EditCommand.EditExpenseDescriptor DESC_BUILD_A_BEAR;
 
     public static final String INVALID_AMOUNT_DESC = " " + PREFIX_AMOUNT + "2!";
+    public static final String INVALID_DESCRIPTION_DESC = " " + PREFIX_DESCRIPTION + "B@sketb@ll";
+    public static final String INVALID_EXPENSE_CATEGORY_DESC = " " + PREFIX_EXPENSE_CATEGORY + "Tr@vel";
+    public static final String INVALID_EXPENSE_DATE_DESC = " " + PREFIX_DATE + "2022/03/03";
+    public static final String INVALID_FILTER_DATE_DESC = " " + PREFIX_FILTER_DATE + "2022";
+
 
     static {
         DESC_ANNUAL_SPOTIFY_FEES = new EditExpenseDescriptorBuilder()

@@ -32,11 +32,17 @@ public class TypicalExpenses {
     public static final Expense FISHING_APPARATUS = new ExpenseBuilder().withDescription("Fishing Apparatus")
             .withExpenseCategory("Entertainment").withAmount("159.5").withExpenseDate("2022-02-23").build();
     public static final Expense GROCERIES = new ExpenseBuilder().withDescription("Groceries")
-            .withExpenseCategory("Groceries").withAmount("69.85").withExpenseDate("2022-03-12").build();
+            .withExpenseCategory("Groceries").withAmount("69.85").withExpenseDate("2022-01-12").build();
     public static final Expense HOUSING_RENT = new ExpenseBuilder().withDescription("Housing Rent")
             .withExpenseCategory("Housing").withAmount("500").withExpenseDate("2022-02-25").build();
     public static final Expense INTERNET_BILLS = new ExpenseBuilder().withDescription("Internet Bills")
-            .withExpenseCategory("Bills").withAmount("69").withExpenseDate("2022-03-13").build();
+            .withExpenseCategory("Bills").withAmount("69").withExpenseDate("2022-01-13").build();
+
+    public static final String DATE_WITH_NO_MATCH = "2055-03-02";
+    public static final String DATE_WITH_ONE_MATCH = "2022-01-12";
+    public static final String MONTH_WITH_NO_MATCH = "2055-03";
+    public static final String MONTH_WITH_ONE_MATCH = "2022-01";
+    public static final String MONTH_WITH_TWO_MATCHES = "2022-02";
 
     public static final Expense ANNUAL_SPOTIFY = new ExpenseBuilder().withDescription(VALID_DESCRIPTION_ANNUAL_SPOTIFY)
             .withExpenseCategory(VALID_EXPENSE_CATEGORY_ENTERTAINMENT)

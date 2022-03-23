@@ -81,7 +81,7 @@ public class ParserUtil {
         requireNonNull(expenseDate);
         String trimmedDate = expenseDate.trim();
         if (!Date.isValidDate(trimmedDate)) {
-            throw new ParseException(Amount.MESSAGE_CONSTRAINTS);
+            throw new ParseException(Date.MESSAGE_CONSTRAINTS);
         }
         return new Date(trimmedDate);
     }
