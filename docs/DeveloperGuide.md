@@ -303,15 +303,36 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
         2a1. ExpenseExpert request to check command parsed and enter command again.
         Use case ends.
 
-**Use case: UC02 list all expense**
+    3a. Expense parsed is already in ExpenseExpert.
+        3a1. ExpenseExpert notify user that expense already exist in ExpenseExpert.
+        Use case ends.
+
+**Use case: UC02 Delete an expense**
 
 **MSS**
+1. User requests to delete an expense.
+2. Expense Expert deletes the expense from the list.
+
+    Use case ends.
 
 **Extensions**
 
-**Use case: UC03 Delete an expense**
+    1a. Invalid expense entered.
+        1a1. ExpenseExpert requests to check the expense parsed and enter command again.
+        Use case ends.
+    
+    2a. Missing syntax or syntax field(s).
+        2a1. ExpenseExpert request to check command parsed and enter command again.
+        Use case ends.
+
+    3a. Edited expense is a duplicate of another expense in ExpenseExpert.
+        3a1. ExpenseExpert notify user that expense edited will duplicate of another expense in ExpenseExpert.
+        Use case ends.
+
+**Use case: UC03 Edit an expenses**
 
 **MSS**
+
 
 **Extensions**
 
