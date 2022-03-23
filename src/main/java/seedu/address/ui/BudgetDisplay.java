@@ -34,10 +34,11 @@ public class BudgetDisplay extends UiPart<Region> {
      * Reflects the budget set in the application, if it has been set
      */
     public void showMonthlyBudget(Budget budget) {
-        if (budget != null) {
-            String budgetString = budget.toString();
-            requireNonNull(budgetString);
-            budgetDisplay.setText(MONTHLY_BUDGET + budgetString);
+        requireNonNull(budget);
+        String budgetAmount = budget.getBudgetAmount().toString();
+        String budgetDate = budget.getBudgetDate().toString();
+        if (!(budgetAmount == "0" || budgetDate == "1900-01-01")) {
+            budgetDisplay.setText(MONTHLY_BUDGET + budgetAmount + " set on " + budgetDate);
         } else {
             budgetDisplay.setText("Budget for this month has not been set yet!");
         }
