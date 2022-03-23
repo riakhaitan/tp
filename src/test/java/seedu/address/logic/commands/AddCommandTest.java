@@ -20,9 +20,8 @@ import seedu.address.model.ExpenseExpert;
 import seedu.address.model.Model;
 import seedu.address.model.ReadOnlyExpenseExpert;
 import seedu.address.model.ReadOnlyUserPrefs;
-import seedu.address.model.budget.Budget;
+import seedu.address.model.expense.Budget;
 import seedu.address.model.expense.Expense;
-// import seedu.address.testutil.BudgetBuilder;
 import seedu.address.testutil.ExpenseBuilder;
 
 public class AddCommandTest {
@@ -36,17 +35,10 @@ public class AddCommandTest {
     public void execute_expenseAcceptedByModel_addSuccessful() throws Exception {
         ModelStubAcceptingExpenseAdded modelStub = new ModelStubAcceptingExpenseAdded();
         Expense validExpense = new ExpenseBuilder().build();
-        // Budget validBudget = new BudgetBuilder().build();
-        // Budget newBudget = new Budget(validBudget.asInt() - validExpense.getAmount().asInt());
 
         CommandResult commandResult = new AddCommand(validExpense).execute(modelStub);
 
-        assertEquals(String.format(AddCommand.MESSAGE_SUCCESS, validExpense),
-                commandResult.getFeedbackToUser());
-        // assertEquals(String.format(AddCommand.MESSAGE_SUCCESS, validExpense)
-        //         + "\n\n"
-        //         + String.format(AddCommand.BUDGET_EDITED, newBudget),
-        //         commandResult.getFeedbackToUser());
+        assertEquals(String.format(AddCommand.MESSAGE_SUCCESS, validExpense), commandResult.getFeedbackToUser());
         assertEquals(Arrays.asList(validExpense), modelStub.expensesAdded);
     }
 
@@ -182,7 +174,7 @@ public class AddCommandTest {
         @Override
         public boolean hasExpense(Expense expense) {
             requireNonNull(expense);
-            return this.expense.isSameExpense(expense);
+            return this.expense.equals(expense);
         }
     }
 
@@ -196,7 +188,7 @@ public class AddCommandTest {
         @Override
         public boolean hasExpense(Expense expense) {
             requireNonNull(expense);
-            return expensesAdded.stream().anyMatch(expense::isSameExpense);
+            return expensesAdded.stream().anyMatch(expense::equals);
         }
 
         @Override
@@ -209,16 +201,6 @@ public class AddCommandTest {
         public ReadOnlyExpenseExpert getExpenseExpert() {
             return new ExpenseExpert();
         }
-
-        // @Override
-        // public void setBudget(Budget budget) {
-        //     this.budget = budget;
-        // }
-
-        // @Override
-        // public Budget getBudget() {
-        //     return this.budget;
-        // }
     }
 
 }

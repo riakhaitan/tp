@@ -13,7 +13,6 @@ import java.util.Arrays;
 import java.util.List;
 
 import seedu.address.model.ExpenseExpert;
-// import seedu.address.model.budget.Budget;
 import seedu.address.model.expense.Expense;
 
 /**
@@ -61,7 +60,8 @@ public class TypicalExpenses {
         for (Expense expense : getTypicalExpenses()) {
             ee.addExpense(expense);
         }
-        // ee.setBudget(MAY_BUDGET);
+
+        ee.setBudget(new BudgetBuilder().withBudgetAmount("100").withBudgetDate("2020-01-03").build());
         return ee;
     }
 

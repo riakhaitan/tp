@@ -5,7 +5,7 @@ import static java.util.Objects.requireNonNull;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextArea;
 import javafx.scene.layout.Region;
-import seedu.address.model.budget.Budget;
+import seedu.address.model.expense.Budget;
 
 /**
  * A ui for the budget dashboard bar that is displayed at the header of the application.

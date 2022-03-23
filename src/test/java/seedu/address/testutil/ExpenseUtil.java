@@ -1,9 +1,9 @@
 package seedu.address.testutil;
 
 import static seedu.address.logic.parser.CliSyntax.PREFIX_AMOUNT;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_DATE;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_DESCRIPTION;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_EXPENSE_CATEGORY;
-import static seedu.address.logic.parser.CliSyntax.PREFIX_EXPENSE_DATE;
 
 import seedu.address.logic.commands.AddCommand;
 import seedu.address.logic.commands.EditCommand.EditExpenseDescriptor;
@@ -30,7 +30,7 @@ public class ExpenseUtil {
         sb.append(PREFIX_DESCRIPTION + expense.getDescription().description + " ");
         sb.append(PREFIX_EXPENSE_CATEGORY + expense.getExpenseCategory().expenseCategory + " ");
         sb.append(PREFIX_AMOUNT + expense.getAmount().amount + " ");
-        sb.append(PREFIX_EXPENSE_DATE + expense.getExpenseDate().expenseDate + " ");
+        sb.append(PREFIX_DATE + expense.getExpenseDate().date + " ");
         return sb.toString();
     }
 
@@ -45,8 +45,8 @@ public class ExpenseUtil {
                 .append(expenseCategory.expenseCategory).append(" "));
         descriptor.getAmount().ifPresent(amount -> sb.append(PREFIX_AMOUNT)
                 .append(amount.amount).append(" "));
-        descriptor.getExpenseDate().ifPresent(expenseDate -> sb.append(PREFIX_EXPENSE_DATE)
-                .append(expenseDate.expenseDate).append(" "));
+        descriptor.getExpenseDate().ifPresent(expenseDate -> sb.append(PREFIX_DATE)
+                .append(expenseDate.date).append(" "));
         return sb.toString();
     }
 }

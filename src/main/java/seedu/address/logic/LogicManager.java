@@ -14,7 +14,7 @@ import seedu.address.logic.parser.ExpenseExpertParser;
 import seedu.address.logic.parser.exceptions.ParseException;
 import seedu.address.model.Model;
 import seedu.address.model.ReadOnlyExpenseExpert;
-import seedu.address.model.budget.Budget;
+import seedu.address.model.expense.Budget;
 import seedu.address.model.expense.Expense;
 import seedu.address.storage.Storage;
 

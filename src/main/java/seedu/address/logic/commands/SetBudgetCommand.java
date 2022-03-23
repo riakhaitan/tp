@@ -1,11 +1,12 @@
 package seedu.address.logic.commands;
 
 import static java.util.Objects.requireNonNull;
-import static seedu.address.logic.parser.CliSyntax.PREFIX_BUDGET;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_AMOUNT;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_DATE;
 
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.Model;
-import seedu.address.model.budget.Budget;
+import seedu.address.model.expense.Budget;
 
 /**
  * Sets the monthly budget for the expense expert.
@@ -16,9 +17,11 @@ public class SetBudgetCommand extends Command {
 
     public static final String MESSAGE_USAGE = COMMAND_WORD + ": Sets the monthly budget for Expense Expert. "
             + "Parameters: "
-            + PREFIX_BUDGET + "BUDGET "
+            + "[" + PREFIX_AMOUNT + "BUDGET AMOUNT] "
+            + "[" + PREFIX_DATE + "DATE] \n"
             + "Example: " + COMMAND_WORD + " "
-            + PREFIX_BUDGET + "500";
+            + PREFIX_AMOUNT + "100 "
+            + PREFIX_DATE + "2022-02-01 \n";
 
     public static final String MESSAGE_SUCCESS = "Monthly budget set to: %1$s";
 

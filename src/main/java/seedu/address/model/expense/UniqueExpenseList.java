@@ -21,7 +21,7 @@ public class UniqueExpenseList implements Iterable<Expense> {
      */
     public boolean contains(Expense toCheck) {
         requireNonNull(toCheck);
-        return internalList.stream().anyMatch(toCheck::isSameExpense);
+        return internalList.stream().anyMatch(toCheck::equals);
     }
 
     /**
@@ -49,7 +49,7 @@ public class UniqueExpenseList implements Iterable<Expense> {
             throw new ExpenseNotFoundException();
         }
 
-        if (!target.isSameExpense(editedExpense) && contains(editedExpense)) {
+        if (!target.equals(editedExpense) && contains(editedExpense)) {
             throw new DuplicateExpenseException();
         }
 
@@ -115,7 +115,7 @@ public class UniqueExpenseList implements Iterable<Expense> {
     private boolean expensesAreUnique(List<Expense> expenses) {
         for (int i = 0; i < expenses.size() - 1; i++) {
             for (int j = i + 1; j < expenses.size(); j++) {
-                if (expenses.get(i).isSameExpense(expenses.get(j))) {
+                if (expenses.get(i).equals(expenses.get(j))) {
                     return false;
                 }
             }
