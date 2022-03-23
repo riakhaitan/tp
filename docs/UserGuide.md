@@ -87,7 +87,7 @@ Format: `list`
 
 ### Editing an expense : `edit`
 
-Edits an existing expense in the list. You need to specify the index of the expense from the list and only the syntax of the fields you want to change together 
+Edits an existing expense in the list. You need to specify the index of the expense from the list and only the syntax of the fields you want to change together
 with the value you want to change to. You can specify one or more fields. Run `list` before executing the command to identify the index of the expense.
 
 Format: `edit INDEX [d/DESCIPTION] [a/AMOUNT] [c/EXPENSE_CATEGORY] [t/EXPENSE_DATE]`

@@ -322,7 +322,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
     1a. Invalid expense entered.
         1a1. ExpenseExpert requests to check the expense parsed and enter command again.
         Use case ends.
-    
+
     2a. Missing syntax or syntax field(s).
         2a1. ExpenseExpert request to check command parsed and enter command again.
         Use case ends.
