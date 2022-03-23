@@ -17,7 +17,7 @@ public class FindCommand extends Command {
     public static final String MESSAGE_USAGE = COMMAND_WORD + ": Finds all expenses whose names contain any of \n"
             + "the specified keywords (case-insensitive) and displays them as a list with index numbers.\n"
             + "Parameters: KEYWORD [MORE_KEYWORDS]...\n"
-            + "Example: " + COMMAND_WORD + " alice bob charlie\n\n";
+            + "Example: " + COMMAND_WORD + " Cafe Grab Basketball\n\n";
 
     private final DescriptionContainsKeywordsPredicate predicate;
 
