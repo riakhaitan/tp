@@ -33,7 +33,7 @@ class JsonAdaptedBudget {
      */
     public JsonAdaptedBudget(Budget source) {
         this.budgetAmount = source.getBudgetAmount().amount;
-        this.budgetDate = source.getBudgetDate().date;
+        this.budgetDate = source.getBudgetDate().date.toString();
     }
 
     /**
