@@ -34,6 +34,31 @@
     "expenseCategory" : "Miscellaneous",
     "expenseDate" : "2022-03-12",
     "amount" : "10"
+  }, {
+    "description" : "Monthly Gym Membership",
+    "expenseCategory" : "Miscellaneous",
+    "expenseDate" : "2022-03-19",
+    "amount" : "150"
+  }, {
+    "description" : "Grab back home",
+    "expenseCategory" : "Transport",
+    "expenseDate" : "2022-03-22",
+    "amount" : "25"
+  }, {
+    "description" : "Cat and the Fiddle cake",
+    "expenseCategory" : "Food",
+    "expenseDate" : "2022-02-28",
+    "amount" : "45"
+  }, {
+    "description" : "Air ticket to Bali",
+    "expenseCategory" : "Travel",
+    "expenseDate" : "2022-02-28",
+    "amount" : "350"
+  }, {
+    "description" : "Lunch at Harbourfront Centre",
+    "expenseCategory" : "Food",
+    "expenseDate" : "2022-03-20",
+    "amount" : "6.50"
   } ],
   "budget" : {
     "budget" : "1000"
