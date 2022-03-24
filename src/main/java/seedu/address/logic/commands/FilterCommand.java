@@ -8,15 +8,16 @@ import seedu.address.model.Model;
 import seedu.address.model.expense.ExpenseDateIsParsedDatePredicate;
 
 /**
- * Adds an expense to the expense expert.
+ * Filters expenses on expense expert.
  */
 public class FilterCommand extends Command {
 
     public static final String COMMAND_WORD = "filter";
 
-    public static final String MESSAGE_USAGE = COMMAND_WORD + ": Filters expenses by date/month from Expense Expert. "
+    public static final String MESSAGE_USAGE = COMMAND_WORD
+            + ": Filters expenses by date in [yyyy-mm] or [yyyy-mm-dd] format. \n"
             + "Parameters: "
-            + PREFIX_FILTER_DATE + "FILTER DATE/FILTER MONTH \n"
+            + PREFIX_FILTER_DATE + "FILTER_DATE \n"
             + "Example: " + COMMAND_WORD + " "
             + PREFIX_FILTER_DATE + "2022-03 \n\n";
 

@@ -2,65 +2,65 @@
   "expenses" : [ {
     "description" : "Providore Cafe",
     "expenseCategory" : "Food",
-    "expenseDate" : "2022-03-18",
-    "amount" : "100"
+    "amount" : "100",
+    "expenseDate" : "2022-03-18"
   }, {
     "description" : "Grab to Work",
     "expenseCategory" : "Transport",
-    "expenseDate" : "2022-03-18",
-    "amount" : "23"
+    "amount" : "23",
+    "expenseDate" : "2022-03-18"
   }, {
     "description" : "Build a Bear",
     "expenseCategory" : "Entertainment",
-    "expenseDate" : "2022-03-15",
-    "amount" : "150"
+    "amount" : "150",
+    "expenseDate" : "2022-03-15"
   }, {
     "description" : "Spotify Subscription Fees",
     "expenseCategory" : "Entertainment",
-    "expenseDate" : "2022-03-05",
-    "amount" : "15"
+    "amount" : "15",
+    "expenseDate" : "2022-03-05"
   }, {
     "description" : "Car Tyre Replacement",
     "expenseCategory" : "Miscellaneous",
-    "expenseDate" : "2022-03-08",
-    "amount" : "200"
+    "amount" : "200",
+    "expenseDate" : "2022-03-08"
   }, {
     "description" : "Birthday Gift for Andrew",
     "expenseCategory" : "Miscellaneous",
-    "expenseDate" : "2022-03-03",
-    "amount" : "30"
+    "amount" : "30",
+    "expenseDate" : "2022-03-03"
   }, {
     "description" : "Air Diffuser",
     "expenseCategory" : "Miscellaneous",
-    "expenseDate" : "2022-03-12",
-    "amount" : "10"
+    "amount" : "10",
+    "expenseDate" : "2022-03-12"
   }, {
     "description" : "Monthly Gym Membership",
     "expenseCategory" : "Miscellaneous",
-    "expenseDate" : "2022-03-19",
-    "amount" : "150"
+    "amount" : "150",
+    "expenseDate" : "2022-03-19"
   }, {
     "description" : "Grab back home",
     "expenseCategory" : "Transport",
-    "expenseDate" : "2022-03-22",
-    "amount" : "25"
+    "amount" : "25",
+    "expenseDate" : "2022-03-22"
   }, {
     "description" : "Cat and the Fiddle cake",
     "expenseCategory" : "Food",
-    "expenseDate" : "2022-02-28",
-    "amount" : "45"
+    "amount" : "45",
+    "expenseDate" : "2022-02-28"
   }, {
     "description" : "Air ticket to Bali",
     "expenseCategory" : "Travel",
-    "expenseDate" : "2022-02-28",
-    "amount" : "350"
+    "amount" : "350",
+    "expenseDate" : "2022-02-28"
   }, {
     "description" : "Lunch at Harbourfront Centre",
     "expenseCategory" : "Food",
-    "expenseDate" : "2022-03-20",
-    "amount" : "6.50"
+    "amount" : "6.50",
+    "expenseDate" : "2022-03-20"
   } ],
   "budget" : {
-    "budget" : "1000"
+    "budget" : "500"
   }
 }
