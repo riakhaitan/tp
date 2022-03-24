@@ -54,6 +54,11 @@
     "expenseCategory" : "Travel",
     "expenseDate" : "2022-02-28",
     "amount" : "350"
+  }, {
+    "description" : "Lunch at Harbourfront Centre",
+    "expenseCategory" : "Food",
+    "expenseDate" : "2022-03-20",
+    "amount" : "6.50"
   } ],
   "budget" : {
     "budgetAmount" : "2000",
