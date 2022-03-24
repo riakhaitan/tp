@@ -28,7 +28,7 @@ class JsonAdaptedExpense {
     @JsonCreator
     public JsonAdaptedExpense(@JsonProperty("description") String description,
                               @JsonProperty("expenseCategory") String expenseCategory,
-                             @JsonProperty("email") String amount, @JsonProperty("expenseDate") String expenseDate) {
+                             @JsonProperty("amount") String amount, @JsonProperty("expenseDate") String expenseDate) {
         this.description = description;
         this.expenseCategory = expenseCategory;
         this.amount = amount;
@@ -56,7 +56,7 @@ class JsonAdaptedExpense {
                     MISSING_FIELD_MESSAGE_FORMAT, Description.class.getSimpleName()));
         }
         if (!Description.isValidDescription(description)) {
-            throw new IllegalValueException(Description.MESSAGE_CONSTRAINTS);
+            throw new IllegalValueException(Description.MESSAGE_CONSTRAINTS + "description:" + description);
         }
         final Description modelDescription = new Description(description);
 
