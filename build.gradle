@@ -70,7 +70,11 @@ dependencies {
 }
 
 shadowJar {
-    archiveName = 'expenseexpert.jar'
+    archiveName = 'ExpenseExpert.jar'
+}
+
+run {
+    enableAssertions = true
 }
 
 defaultTasks 'clean', 'test'
