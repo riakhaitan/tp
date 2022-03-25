@@ -330,7 +330,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
         1a1. ExpenseExpert requests to check the keyword and enter command again.
         Use case ends.
 
-**Use case: UC03 Set Monthly Budget**
+**Use case: UC06 Set Monthly Budget**
 
 **MSS**
 1. User requests to set a monthly budget.
@@ -352,7 +352,20 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
         3a1. ExpenseExpert notifies the user of the invalidity of the empty budget.
         Use case ends.
 
-*{More to be added}*
+**Use case: UC07 Exit ExpenseExpert**
+
+**MSS**
+1. User requests to exit the app.
+2. Expense Expert exits.
+
+   Use case ends.
+
+**Extensions**
+
+    1a. Invalid keyword entered.
+        1a1. ExpenseExpert requests to check the keyword and enter command again.
+        Use case ends.
+
 
 ### Non-Functional Requirements
 
@@ -397,7 +410,7 @@ testers are expected to do more *exploratory* testing.
 
 1. _{ more test cases …​ }_
 
-### Deleting a expense
+### Deleting an expense
 
 1. Deleting a expense while all expenses are being shown
 
