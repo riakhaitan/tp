@@ -74,6 +74,9 @@ public class HelpCommand extends Command {
             case HelpCommand.COMMAND_WORD:
                 return new CommandResult(HelpCommand.MESSAGE_USAGE);
 
+            case SetBudgetCommand.COMMAND_WORD:
+                return new CommandResult(SetBudgetCommand.MESSAGE_USAGE);
+
             default:
                 throw new CommandException(INVALID_COMMAND_USAGE);
             }
