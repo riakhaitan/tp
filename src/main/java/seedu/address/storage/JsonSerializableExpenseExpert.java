@@ -12,6 +12,7 @@ import seedu.address.commons.exceptions.IllegalValueException;
 import seedu.address.model.ExpenseExpert;
 import seedu.address.model.ReadOnlyExpenseExpert;
 import seedu.address.model.expense.Expense;
+import seedu.address.model.person.Person;
 
 /**
  * An Immutable ExpenseExpert that is serializable to JSON format.
@@ -20,16 +21,20 @@ import seedu.address.model.expense.Expense;
 class JsonSerializableExpenseExpert {
 
     public static final String MESSAGE_DUPLICATE_EXPENSE = "Expenses list contains duplicate expense(s).";
+    public static final String MESSAGE_DUPLICATE_PERSON = "Persons list contains duplicate person(s).";
 
     private final List<JsonAdaptedExpense> expenses = new ArrayList<>();
     private JsonAdaptedBudget budget;
+    private final List<JsonAdaptedPerson> persons = new ArrayList<>();
 
     /**
      * Constructs a {@code JsonSerializableExpenseExpert} with the given expenses.
      */
     @JsonCreator
-    public JsonSerializableExpenseExpert(@JsonProperty("expenses") List<JsonAdaptedExpense> expenses) {
+    public JsonSerializableExpenseExpert(@JsonProperty("expenses") List<JsonAdaptedExpense> expenses,
+                                         @JsonProperty("persons") List <JsonAdaptedPerson> persons) {
         this.expenses.addAll(expenses);
+        this.persons.addAll(persons);
     }
 
     /**
@@ -39,6 +44,7 @@ class JsonSerializableExpenseExpert {
      */
     public JsonSerializableExpenseExpert(ReadOnlyExpenseExpert source) {
         expenses.addAll(source.getExpenseList().stream().map(JsonAdaptedExpense::new).collect(Collectors.toList()));
+        persons.addAll(source.getPersonList().stream().map(JsonAdaptedPerson::new).collect(Collectors.toList()));
         this.budget = new JsonAdaptedBudget(source.getBudget());
     }
 
@@ -55,6 +61,13 @@ class JsonSerializableExpenseExpert {
                 throw new IllegalValueException(MESSAGE_DUPLICATE_EXPENSE);
             }
             expenseExpert.addExpense(expense);
+        }
+        for (JsonAdaptedPerson jsonAdaptedPerson : persons) {
+            Person person = jsonAdaptedPerson.toModelType();
+            if (expenseExpert.hasPerson(person)) {
+                throw new IllegalValueException(MESSAGE_DUPLICATE_PERSON);
+            }
+            expenseExpert.addPerson(person);
         }
         expenseExpert.setBudget(this.budget.toModelType());
 

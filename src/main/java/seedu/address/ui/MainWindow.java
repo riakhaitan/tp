@@ -35,6 +35,7 @@ public class MainWindow extends UiPart<Stage> {
     private BudgetDisplay budgetResultDisplay;
     private ResultDisplay commandResultDisplay;
     private HelpWindow helpWindow;
+    private PersonWhoOweWindow personWhoOweWindow;
 
     @FXML
     private StackPane commandBoxPlaceholder;
@@ -54,6 +55,9 @@ public class MainWindow extends UiPart<Stage> {
     @FXML
     private StackPane statusbarPlaceholder;
 
+    @FXML
+    private StackPane personWhoOwesPlaceHolder;
+
     /**
      * Creates a {@code MainWindow} with the given {@code Stage} and {@code Logic}.
      */
@@ -70,6 +74,7 @@ public class MainWindow extends UiPart<Stage> {
         setAccelerators();
 
         helpWindow = new HelpWindow();
+        personWhoOweWindow = new PersonWhoOweWindow();
     }
 
     public Stage getPrimaryStage() {
