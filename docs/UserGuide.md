@@ -187,6 +187,6 @@ _Details coming soon ..._
 | **List**   | `list`                                                                                                                                |
 | **Filter** | `filter ft/FILTER_DATE` <br> Example: `filter ft/2022-03`                                                                                                                                |
 | **Find**   | `find KEYWORD [MORE_KEYWORDS]` <br> Example: `find Cafe Grab Basketball`                                                                                                                                |
-| **Budget** | `budget b/AMOUNT` <br> Example: `find Cafe Grab Basketball`      
+| **Budget** | `budget b/AMOUNT` <br> Example: `find Cafe Grab Basketball`
 | **Clear**  | `clear`                                                                                                                                ||
 | **Exit**   | `exit`                                                                                                                                |
