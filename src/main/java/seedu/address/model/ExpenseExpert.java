@@ -83,6 +83,11 @@ public class ExpenseExpert implements ReadOnlyExpenseExpert {
         return expenses.contains(expense);
     }
 
+    /**
+     * Checks the existence of a person.
+     * @param person the person whose existence is checked
+     * @return boolean for the result
+     */
     public boolean hasPerson(Person person) {
         requireNonNull(person);
         return persons.contains(person);
@@ -95,6 +100,11 @@ public class ExpenseExpert implements ReadOnlyExpenseExpert {
     public void addExpense(Expense e) {
         expenses.add(e);
     }
+
+    /**
+     * Adds a person to the list.
+     * @param p the person to be added to the list
+     */
     public void addPerson(Person p) {
         persons.add(p);
     }
@@ -111,6 +121,11 @@ public class ExpenseExpert implements ReadOnlyExpenseExpert {
         expenses.setExpense(target, editedExpense);
     }
 
+    /**
+     * Edits a person given another person
+     * @param target the person to be edited
+     * @param editedPerson the edited person
+     */
     public void setPerson(Person target, Person editedPerson) {
         requireNonNull(editedPerson);
 
@@ -125,6 +140,10 @@ public class ExpenseExpert implements ReadOnlyExpenseExpert {
         expenses.remove(key);
     }
 
+    /**
+     * Removes {@code key} from this {@code ExpenseExpert}.
+     * {@code key} must exist in the expense expert.
+     */
     public void removePerson(Person key) {
         persons.remove(key);
     }

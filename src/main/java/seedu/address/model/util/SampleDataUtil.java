@@ -34,8 +34,8 @@ public class SampleDataUtil {
 
     public static Person[] getSamplePersons() {
         return new Person[] {
-                new Person(new PersonName("Alex"), new PersonAmount("20")),
-                new Person(new PersonName("Bob"), new PersonAmount("100"))};
+            new Person(new PersonName("Alex"), new PersonAmount("20")),
+            new Person(new PersonName("Bob"), new PersonAmount("100"))};
     }
 
     public static ReadOnlyExpenseExpert getSampleExpenseExpert() {
@@ -48,6 +48,4 @@ public class SampleDataUtil {
         }
         return sampleEe;
     }
-    
-
 }

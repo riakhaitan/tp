@@ -1,28 +1,25 @@
 package seedu.address.logic.parser;
 
-import seedu.address.logic.commands.AddCommand;
+import static seedu.address.commons.core.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_AMOUNT;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_PERSON_NAME;
+
+import java.util.stream.Stream;
+
 import seedu.address.logic.commands.PersonOwesCommand;
 import seedu.address.logic.parser.exceptions.ParseException;
-import seedu.address.model.expense.Amount;
-import seedu.address.model.expense.Description;
-import seedu.address.model.expense.Expense;
-import seedu.address.model.expense.ExpenseCategory;
-import seedu.address.model.expense.ExpenseDate;
 import seedu.address.model.person.Person;
 import seedu.address.model.person.PersonAmount;
 import seedu.address.model.person.PersonName;
 
-import java.util.stream.Stream;
-
-import static seedu.address.commons.core.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
-import static seedu.address.logic.parser.CliSyntax.PREFIX_AMOUNT;
-import static seedu.address.logic.parser.CliSyntax.PREFIX_DESCRIPTION;
-import static seedu.address.logic.parser.CliSyntax.PREFIX_EXPENSE_CATEGORY;
-import static seedu.address.logic.parser.CliSyntax.PREFIX_EXPENSE_DATE;
-import static seedu.address.logic.parser.CliSyntax.PREFIX_PERSON_NAME;
-
 public class PersonOwesCommandParser implements Parser<PersonOwesCommand> {
 
+    /**
+     * Parses the command for person who owes money
+     * @param args arguements passed to be parsed
+     * @return New {@code PersonOwesCommand}
+     * @throws ParseException
+     */
     public PersonOwesCommand parse(String args) throws ParseException {
         ArgumentMultimap argMultimap =
                 ArgumentTokenizer.tokenize(args, PREFIX_PERSON_NAME, PREFIX_AMOUNT);

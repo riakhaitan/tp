@@ -10,7 +10,7 @@ public class PersonName {
 
     public static final String VALIDATION_REGEX = "(\\w)+";
 
-    public String personName;
+    public final String personName;
 
     /**
      * Construct a {@code PersonName}

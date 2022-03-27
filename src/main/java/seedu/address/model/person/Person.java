@@ -6,19 +6,37 @@ public class Person {
     private final PersonName personName;
     private final PersonAmount personAmount;
 
+    /**
+     * Constructor for the person class.
+     * @param personName the name of the person.
+     * @param personAmount the amount the person owes.
+     */
     public Person(PersonName personName, PersonAmount personAmount) {
         this.personName = personName;
         this.personAmount = personAmount;
     }
 
+    /**
+     * Getter for the name of the person.
+     * @return the name of the person
+     */
     public PersonName getPersonName() {
         return this.personName;
     }
 
+    /**
+     * Getter for the amount the person owes.
+     * @return the amount the person owes.
+     */
     public PersonAmount getPersonAmount() {
         return this.personAmount;
     }
 
+    /**
+     * To compare the equivalence of two persons.
+     * @param otherPerson the person whose equivalence is checked.
+     * @return boolean result of the check.
+     */
     public boolean isSamePerson(Person otherPerson) {
         if (otherPerson == this) {
             return true;

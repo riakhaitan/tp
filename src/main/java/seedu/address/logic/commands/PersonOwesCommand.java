@@ -1,13 +1,17 @@
 package seedu.address.logic.commands;
 
-import seedu.address.logic.commands.exceptions.CommandException;
-import seedu.address.model.Model;
-import seedu.address.model.person.Person;
-
 import static java.util.Objects.requireNonNull;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_AMOUNT;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_PERSON_NAME;
 
+import seedu.address.logic.commands.exceptions.CommandException;
+import seedu.address.model.Model;
+import seedu.address.model.person.Person;
+
+
+/**
+ * Class for the person who owes the user money.
+ */
 public class PersonOwesCommand extends Command {
     public static final String COMMAND_WORD = "person";
 
@@ -25,13 +29,20 @@ public class PersonOwesCommand extends Command {
     private final Person toAdd;
 
     /**
-     * Creates an AddCommand to add the specified {@code Expense}
+     * Constructor for this class.
+     * @param person person to be added to the app.
      */
     public PersonOwesCommand(Person person) {
         requireNonNull(person);
         toAdd = person;
     }
 
+    /**
+     * Executes the given command according to the model.
+     * @param model {@code Model} which the command should operate on.
+     * @return The result of the operation
+     * @throws CommandException
+     */
     @Override
     public CommandResult execute(Model model) throws CommandException {
         requireNonNull(model);
@@ -41,26 +52,16 @@ public class PersonOwesCommand extends Command {
         }
 
         model.addPerson(toAdd);
-        // Budget newBudget = resultingBudget(model.getBudget(), toAdd);
-        // model.setBudget(newBudget);
 
         return new CommandResult(String.format(MESSAGE_SUCCESS, toAdd));
 
-        // return new CommandResult(String.format(MESSAGE_SUCCESS, toAdd)
-        //         + "\n\n"
-        //         + String.format(BUDGET_EDITED, newBudget.getBudget()));
     }
 
-    // /**
-    //  * Calculates the remaining budget after a new expense has been added
-    //  * @param initial budget left for the month
-    //  * @param value of expense to be deducted from budget allowance for the month
-    //  * @return value of budget as a Budget object
-    //  */
-    // private Budget resultingBudget(Budget initial, Expense value) {
-    //     return new Budget(initial.asInt() - value.getAmount().asInt());
-    // }
-
+    /**
+     * Compares two objects of this class.
+     * @param other the object to be compares.
+     * @return boolean result of the comparison.
+     */
     @Override
     public boolean equals(Object other) {
         return other == this // short circuit if same object
