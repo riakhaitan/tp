@@ -131,7 +131,7 @@ Examples:
 
 ### Finding expenses: `budget`
 
-Set a budget for the month. 
+Set a budget for the month.
 
 Format: `budget b/BUDGET`
 
@@ -141,7 +141,7 @@ Examples:
 
 ### Exiting the program : `clear`
 
-Deletes all expenses from Expense Expert. 
+Deletes all expenses from Expense Expert.
 
 Format: `clear`
 
@@ -187,6 +187,6 @@ _Details coming soon ..._
 | **List**   | `list`                                                                                                                                |
 | **Filter** | `filter ft/FILTER_DATE` <br> Example: `filter ft/2022-03`                                                                                                                                |
 | **Find**   | `find KEYWORD [MORE_KEYWORDS]` <br> Example: `find Cafe Grab Basketball`                                                                                                                                |
-| **Budget** | `budget b/AMOUNT` <br> Example: `find Cafe Grab Basketball`       
+| **Budget** | `budget b/AMOUNT` <br> Example: `find Cafe Grab Basketball`
 | **Clear**  | `clear`                                                                                                                                ||
 | **Exit**   | `exit`                                                                                                                                |
