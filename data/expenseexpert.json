@@ -1,0 +1,10 @@
+{
+  "expenses" : [ ],
+  "persons" : [ {
+    "personName" : "alex",
+    "personAmount" : "50"
+  } ],
+  "budget" : {
+    "budget" : "200"
+  }
+}

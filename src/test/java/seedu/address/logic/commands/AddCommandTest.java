@@ -23,7 +23,9 @@ import seedu.address.model.ReadOnlyUserPrefs;
 import seedu.address.model.budget.Budget;
 import seedu.address.model.expense.Expense;
 // import seedu.address.testutil.BudgetBuilder;
+import seedu.address.model.person.Person;
 import seedu.address.testutil.ExpenseBuilder;
+import seedu.address.testutil.PersonBuilder;
 
 public class AddCommandTest {
 
@@ -36,6 +38,7 @@ public class AddCommandTest {
     public void execute_expenseAcceptedByModel_addSuccessful() throws Exception {
         ModelStubAcceptingExpenseAdded modelStub = new ModelStubAcceptingExpenseAdded();
         Expense validExpense = new ExpenseBuilder().build();
+        //Person validPerson = new PersonBuilder().build();
         // Budget validBudget = new BudgetBuilder().build();
         // Budget newBudget = new Budget(validBudget.asInt() - validExpense.getAmount().asInt());
 
@@ -166,7 +169,38 @@ public class AddCommandTest {
         public Budget getBudget() {
             throw new AssertionError("This method should not be called.");
         }
+
+        @Override
+        public void addPerson(Person person) {
+            throw new AssertionError("This method should not be called.");
+        }
+
+        @Override
+        public boolean hasPerson(Person person) {
+            throw new AssertionError("This method should not be called.");
+        }
+
+        @Override
+        public void deletePerson(Person person) {
+            throw new AssertionError("This method should not be called.");
+        }
+
+        @Override
+        public void setPerson(Person target, Person editedPerson) {
+            throw new AssertionError("This method should not be called.");
+        }
+
+        @Override
+        public ObservableList<Person> getFilteredPersonList() {
+            throw new AssertionError("This method should not be called.");
+        }
+
+        @Override
+        public void updateFilteredPersonList(Predicate<Person> predicate) {
+            throw new AssertionError("This method should not be called.");
+        }
     }
+
 
     /**
      * A Model stub that contains a single expense.
