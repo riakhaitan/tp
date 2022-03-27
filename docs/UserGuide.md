@@ -140,6 +140,16 @@ Examples:
 
 - `budget b/500`
 
+### Adding a person who owes you money: `person`
+
+Add a person with a given name who owes you a specific amount.
+
+Format: `person n/PERSON_NAME a/PERSON_AMOUNT`
+
+Examples:
+
+- `person n/Alex a/100`
+
 ### Removing a person who had paid the owes money: `paid`
 
 Removes a person at a given index who has paid the money they have owed.
@@ -150,15 +160,6 @@ Examples:
 
 - `paid 1`
 
-### Adding a person who owes you money: `person`
-
-Add a person with a given name who owes you a specific amount.
-
-Format: `person n/PERSON_NAME a/PERSON_AMOUNT`
-
-Examples:
-
-- `person n/Alex a/100`
 
 ### Exiting the program : `clear`
 
@@ -207,7 +208,7 @@ _Details coming soon ..._
 | **Edit**   | `edit INDEX [d/DESCRIPTION] [a/AMOUNT] [c/EXPENSE_CATEGORY] [t/EXPENSE_DATE]`<br> Example:`edit 2 d/Lunch at Harbourfront Centre a/6.50` |
 | **List**   | `list`                                                                                                                                |
 | **Filter** | `filter ft/FILTER_DATE` <br> Example: `filter ft/2022-03`                                                                                                                           |
-| **Find**   | `find KEYWORD [MORE_KEYWORDS]` <br> Example: `find Cafe Grab Basketball`                                                                                                                           |
+| **Find**   | `find KEYWORD [MORE_KEYWORDS]` <br> Example: `find Cafe Grab Basketball`                                                                                                                        |
 | **Budget** | `budget b/BUDGET` <br> Example: `find Cafe Grab Basketball`     
 | **Person** | `person n/PERSON_NAME a/PERSON_AMOUNT` <br> Example: `person n/Alex a/50`
 | **Paid**   | `paid INDEX` <br> Example: `paid 1`
