@@ -1,5 +1,7 @@
 package seedu.address.model.expense;
 
+import java.util.ArrayList;
+
 import static java.util.Objects.requireNonNull;
 import static seedu.address.commons.util.AppUtil.checkArgument;
 
@@ -9,6 +11,8 @@ public class ExpenseCategory {
      * otherwise " " (a blank string) becomes a valid input.
      */
     public static final String VALIDATION_REGEX = "[\\p{Alnum}][\\p{Alnum} ]*";
+
+    public static ArrayList<String> valid_categories = new ArrayList<>();
 
     public static final String MESSAGE_CONSTRAINTS =
             "Categories should only contain alphanumeric characters and spaces, and it should not be blank";
@@ -30,7 +34,7 @@ public class ExpenseCategory {
      * Returns true if a given string is a valid name.
      */
     public static boolean isValidExpenseCategory(String test) {
-        return test.matches(VALIDATION_REGEX);
+        return test.matches(VALIDATION_REGEX) && valid_categories.contains(test);
     }
 
     @Override
