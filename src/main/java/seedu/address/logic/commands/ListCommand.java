@@ -37,6 +37,9 @@ public class ListCommand extends Command {
     public String observableToString(ObservableList<Person> list) {
         StringBuilder stringBuilder = new StringBuilder();
         int i = 1;
+        if (list.size() == 0) {
+            return ("No person who owes you money can be found");
+        }
         stringBuilder.append("People Who Owe You Money:\n\n");
         for (Person p: list) {
             String string = p.toString();
