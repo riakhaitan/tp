@@ -24,7 +24,8 @@ public class PersonOwesCommand extends Command {
             + PREFIX_AMOUNT + "100 \n\n";
 
     public static final String MESSAGE_SUCCESS = "New person added: %1$s";
-    public static final String MESSAGE_DUPLICATE_EXPENSE = "This person already exists in Expense Expert";
+    public static final String MESSAGE_SUCCESS_LIST = "List of all the poeple who owe you money";
+    public static final String MESSAGE_DUPLICATE_PERSON = "This person already exists in Expense Expert";
 
     private final Person toAdd;
 
@@ -48,7 +49,7 @@ public class PersonOwesCommand extends Command {
         requireNonNull(model);
 
         if (model.hasPerson(toAdd)) {
-            throw new CommandException(MESSAGE_DUPLICATE_EXPENSE);
+            throw new CommandException(MESSAGE_DUPLICATE_PERSON);
         }
 
         model.addPerson(toAdd);

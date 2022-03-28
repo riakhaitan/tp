@@ -1,5 +1,10 @@
 {
-  "expenses" : [ ],
+  "expenses" : [ {
+    "description" : "take grab",
+    "expenseCategory" : "travel",
+    "amount" : "30",
+    "expenseDate" : "2022-02-02"
+  } ],
   "persons" : [ {
     "personName" : "alex",
     "personAmount" : "50"
