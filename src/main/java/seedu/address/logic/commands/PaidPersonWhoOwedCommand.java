@@ -47,9 +47,17 @@ public class PaidPersonWhoOwedCommand extends Command {
         }
 
         Person personToRemove = lastShownList.get(targetIndex.getZeroBased());
+        StringBuilder sb = new StringBuilder();
+
         model.deletePerson(personToRemove);
 
-        return new CommandResult(String.format(MESSAGE_DELETE_PERSON_SUCCESS, personToRemove));
+        String string = personToRemove.toString();
+        String name = string.split(";")[0];
+        String amount = string.split(":")[1].split(" ")[1];
+        String personRemoved = sb.append(name).append(" Amount: $").append(amount).toString();
+
+
+        return new CommandResult(String.format(MESSAGE_DELETE_PERSON_SUCCESS, personRemoved));
 
     }
 

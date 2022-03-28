@@ -52,9 +52,14 @@ public class PersonOwesCommand extends Command {
             throw new CommandException(MESSAGE_DUPLICATE_PERSON);
         }
 
-        model.addPerson(toAdd);
+        StringBuilder sb = new StringBuilder();
 
-        return new CommandResult(String.format(MESSAGE_SUCCESS, toAdd));
+        model.addPerson(toAdd);
+        String string = toAdd.toString();
+        String name = string.split(";")[0];
+        String amount = string.split(":")[1].split(" ")[1];
+        String personAdded = sb.append(name).append(" Amount: $").append(amount).toString();
+        return new CommandResult(String.format(MESSAGE_SUCCESS, personAdded));
 
     }
 
