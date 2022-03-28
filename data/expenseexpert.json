@@ -1,15 +1,21 @@
 {
   "expenses" : [ {
-    "description" : "take grab",
+    "description" : "took grab",
     "expenseCategory" : "travel",
-    "amount" : "30",
-    "expenseDate" : "2022-02-02"
+    "amount" : "20",
+    "expenseDate" : "2022-02-21"
   } ],
   "persons" : [ {
     "personName" : "alex",
     "personAmount" : "50"
+  }, {
+    "personName" : "neel",
+    "personAmount" : "70"
+  }, {
+    "personName" : "bob",
+    "personAmount" : "10"
   } ],
   "budget" : {
-    "budget" : "200"
+    "budget" : "0"
   }
 }

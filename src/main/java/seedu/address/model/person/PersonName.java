@@ -8,7 +8,7 @@ public class PersonName {
     public static final String MESSAGE_CONSTRAINTS =
             "Person name should only consist of alphabets, and it should not be blank";
 
-    public static final String VALIDATION_REGEX = "(\\w)+";
+    public static final String VALIDATION_REGEX = "^[a-zA-Z0-9_ ]*";
 
     public final String personName;
 

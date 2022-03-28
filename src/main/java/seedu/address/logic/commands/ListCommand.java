@@ -2,9 +2,12 @@ package seedu.address.logic.commands;
 
 import static java.util.Objects.requireNonNull;
 import static seedu.address.model.Model.PREDICATE_SHOW_ALL_EXPENSES;
+import static seedu.address.model.Model.PREDICATE_SHOW_ALL_PERSONS;
 
+import javafx.collections.ObservableList;
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.Model;
+import seedu.address.model.person.Person;
 
 /**
  * Lists all expenses in the expense expert to the user.
@@ -25,6 +28,25 @@ public class ListCommand extends Command {
         this.commandWordArg = commandWordArg;
     }
 
+    /**
+     * Converts the observable list into a string.
+     * @param list the list to be converted to a string.
+     * @return the converted string.
+     */
+    public String observableToString(ObservableList<Person> list) {
+        StringBuilder stringBuilder = new StringBuilder();
+        int i = 1;
+        stringBuilder.append("People Who Owe You Money:\n\n");
+        for (Person p: list) {
+            String string = p.toString();
+            String name = string.split(";")[0];
+            String amount = string.split(":")[1].split(" ")[1];
+            stringBuilder.append(i).append(". ").append(name).append(": $").append(amount).append("\n");
+            i++;
+        }
+        return stringBuilder.toString();
+    }
+
 
     @Override
     public CommandResult execute(Model model) throws CommandException {
@@ -34,13 +56,13 @@ public class ListCommand extends Command {
             return new CommandResult(MESSAGE_SUCCESS);
         } else {
             switch (commandWordArg.trim()) {
-                case PersonOwesCommand.COMMAND_WORD:
-                    model.updateFilteredExpenseList(PREDICATE_SHOW_ALL_EXPENSES);
-                    return new CommandResult(PersonOwesCommand.MESSAGE_SUCCESS_LIST);
+            case PersonOwesCommand.COMMAND_WORD:
+                model.updateFilteredPersonList(PREDICATE_SHOW_ALL_PERSONS);
+                return new CommandResult(observableToString(model.getFilteredPersonList()));
 
 
-                default:
-                    throw new CommandException(INVALID_COMMAND_USAGE);
+            default:
+                throw new CommandException(INVALID_COMMAND_USAGE);
             }
         }
     }
