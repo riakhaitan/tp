@@ -31,6 +31,7 @@ Expense Expert is a **desktop app for keeping track of your expenses, and managi
 
    - **`exit`** : Exits the app for you.
 
+
 1. Refer to the [Features](#features) below for details of each command.
 
 ---
@@ -129,7 +130,7 @@ Examples:
 - `find Cafe`
 - `find Cafe Grab`
 
-### Finding expenses: `budget`
+### Setting a monthly Budget: `budget`
 
 Set a budget for the month.
 
@@ -138,6 +139,26 @@ Format: `budget b/BUDGET`
 Examples:
 
 - `budget b/500`
+
+### Adding a person who owes you money: `person`
+
+Add a person with a given name who owes you a specific amount.
+
+Format: `person n/PERSON_NAME a/PERSON_AMOUNT`
+
+Examples:
+
+- `person n/Alex a/100`
+
+### Removing a person who had paid the owes money: `paid`
+
+Removes a person at a given index who has paid the money they have owed.
+
+Format: `paid INDEX`
+
+Examples:
+
+- `paid 1`
 
 ### Exiting the program : `clear`
 
@@ -181,12 +202,17 @@ _Details coming soon ..._
 | Action     | Format, Examples                                                                                                                      |
 | ---------- |---------------------------------------------------------------------------------------------------------------------------------------|
 | **Help**   | `help`                                                                                                                                | |
-| **Add**    | `add d/DESCRIPTION a/AMOUNT [c/EXPENSE_CATEGORY] t/EXPENSE_DATE ` <br> Example: `add d/Lunch at VivoCity a/12.95 c/Food t/2022-03-20`    |
-| **Delete** | `delete INDEX`<br> Example: `delete 3`                                                                                                   |
+| **Add**    | `add d/DESCRIPTION a/AMOUNT [c/EXPENSE_CATEGORY] t/EXPENSE_DATE ` <br> Example: `add d/Lunch at VivoCity a/12.95 c/Food t/2022-03-20`  |
+| **Delete** | `delete INDEX`<br> Example: `delete 3`                                                                                                 |
 | **Edit**   | `edit INDEX [d/DESCRIPTION] [a/AMOUNT] [c/EXPENSE_CATEGORY] [t/EXPENSE_DATE]`<br> Example:`edit 2 d/Lunch at Harbourfront Centre a/6.50` |
 | **List**   | `list`                                                                                                                                |
 | **Filter** | `filter ft/FILTER_DATE` <br> Example: `filter ft/2022-03`                                                                                                                                |
 | **Find**   | `find KEYWORD [MORE_KEYWORDS]` <br> Example: `find Cafe Grab Basketball`                                                                                                                                |
 | **Budget** | `budget b/AMOUNT` <br> Example: `find Cafe Grab Basketball`   
+| **Filter** | `filter ft/FILTER_DATE` <br> Example: `filter ft/2022-03`                                                                                                                           |
+| **Find**   | `find KEYWORD [MORE_KEYWORDS]` <br> Example: `find Cafe Grab Basketball`                                                                                                                        |
+| **Budget** | `budget b/BUDGET` <br> Example: `find Cafe Grab Basketball`     
+| **Person** | `person n/PERSON_NAME a/PERSON_AMOUNT` <br> Example: `person n/Alex a/50`
+| **Paid**   | `paid INDEX` <br> Example: `paid 1`
 | **Clear**  | `clear`                                                                                                                                ||
 | **Exit**   | `exit`                                                                                                                                |
