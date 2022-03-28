@@ -1,10 +1,5 @@
 package seedu.address.testutil;
 
-import seedu.address.model.expense.Amount;
-import seedu.address.model.expense.Description;
-import seedu.address.model.expense.Expense;
-import seedu.address.model.expense.ExpenseCategory;
-import seedu.address.model.expense.ExpenseDate;
 import seedu.address.model.person.Person;
 import seedu.address.model.person.PersonAmount;
 import seedu.address.model.person.PersonName;

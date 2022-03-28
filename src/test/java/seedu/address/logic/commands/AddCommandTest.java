@@ -22,10 +22,8 @@ import seedu.address.model.ReadOnlyExpenseExpert;
 import seedu.address.model.ReadOnlyUserPrefs;
 import seedu.address.model.budget.Budget;
 import seedu.address.model.expense.Expense;
-// import seedu.address.testutil.BudgetBuilder;
 import seedu.address.model.person.Person;
 import seedu.address.testutil.ExpenseBuilder;
-import seedu.address.testutil.PersonBuilder;
 
 public class AddCommandTest {
 
