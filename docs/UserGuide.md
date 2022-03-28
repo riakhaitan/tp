@@ -208,10 +208,10 @@ _Details coming soon ..._
 | **List**   | `list`                                                                                                                                |
 | **Filter** | `filter ft/FILTER_DATE` <br> Example: `filter ft/2022-03`                                                                                                                                |
 | **Find**   | `find KEYWORD [MORE_KEYWORDS]` <br> Example: `find Cafe Grab Basketball`                                                                                                                                |
-| **Budget** | `budget b/AMOUNT` <br> Example: `find Cafe Grab Basketball`   
+| **Budget** | `budget b/AMOUNT` <br> Example: `find Cafe Grab Basketball`  
 | **Filter** | `filter ft/FILTER_DATE` <br> Example: `filter ft/2022-03`                                                                                                                           |
 | **Find**   | `find KEYWORD [MORE_KEYWORDS]` <br> Example: `find Cafe Grab Basketball`                                                                                                                        |
-| **Budget** | `budget b/BUDGET` <br> Example: `find Cafe Grab Basketball`     
+| **Budget** | `budget b/BUDGET` <br> Example: `find Cafe Grab Basketball`  
 | **Person** | `person n/PERSON_NAME a/PERSON_AMOUNT` <br> Example: `person n/Alex a/50`
 | **Paid**   | `paid INDEX` <br> Example: `paid 1`
 | **Clear**  | `clear`                                                                                                                                ||
