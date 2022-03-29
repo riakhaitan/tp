@@ -1,6 +1,5 @@
 package seedu.address.model.expense;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static seedu.address.testutil.Assert.assertThrows;
@@ -51,10 +50,5 @@ public class AmountTest {
         assertTrue(Amount.isValidAmount("22")); // normal integer
         assertTrue(Amount.isValidAmount("1,111,111")); // comma spacing
         assertTrue(Amount.isValidAmount("1,111,111.11")); // comma spacing with decimals
-    }
-
-    @Test
-    public void asInt() {
-        assertEquals(22, (new Amount("22")).asInt());
     }
 }

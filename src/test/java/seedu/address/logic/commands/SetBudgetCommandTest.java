@@ -16,7 +16,7 @@ import seedu.address.commons.core.GuiSettings;
 import seedu.address.model.Model;
 import seedu.address.model.ReadOnlyExpenseExpert;
 import seedu.address.model.ReadOnlyUserPrefs;
-import seedu.address.model.budget.Budget;
+import seedu.address.model.expense.Budget;
 import seedu.address.model.expense.Expense;
 import seedu.address.testutil.BudgetBuilder;
 
@@ -39,8 +39,8 @@ public class SetBudgetCommandTest {
 
     @Test
     public void equals() {
-        Budget budgetOf500 = new BudgetBuilder().withBudget("500").build();
-        Budget budgetOf300 = new BudgetBuilder().withBudget("300").build();
+        Budget budgetOf500 = new BudgetBuilder().withBudgetAmount("500").build();
+        Budget budgetOf300 = new BudgetBuilder().withBudgetAmount("300").build();
         SetBudgetCommand set500BudgetCommand = new SetBudgetCommand(budgetOf500);
         SetBudgetCommand set300BudgetCommand = new SetBudgetCommand(budgetOf300);
 

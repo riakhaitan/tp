@@ -9,29 +9,34 @@ import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
-public class ExpenseDate {
+/**
+ * Represents the date and time instances in Expense Expert as LocalDate and LocalTime.
+ * Guarantees: immutable; is valid as declared in {@link #isValidDate(String)}
+ */
+public class Date {
+
     public static final String VALIDATION_REGEX = "^((19|2[0-9])[0-9]{2})-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])$";
     private static final String DATE_FORMAT = "yyyy-MM-dd";
     public static final String MESSAGE_CONSTRAINTS =
             "Date should be in a valid format " + DATE_FORMAT + ", and it should not be blank";
     private static DateTimeFormatter dtf = DateTimeFormatter.ofPattern(DATE_FORMAT);
-    public final LocalDate expenseDate;
+    public final LocalDate date;
 
     /**
-     * Constructs a {@code ExpenseCategory}
+     * Constructs a {@code Date}
      *
-     * @param expenseDate to indicate the category of the expense.
+     * @param date A valid date.
      */
-    public ExpenseDate(String expenseDate) {
-        requireNonNull(expenseDate);
-        checkArgument(isValidExpenseDate(expenseDate), MESSAGE_CONSTRAINTS);
-        this.expenseDate = LocalDate.parse(expenseDate, dtf);
+    public Date(String date) {
+        requireNonNull(date);
+        checkArgument(isValidDate(date), MESSAGE_CONSTRAINTS);
+        this.date = LocalDate.parse(date, dtf);
     }
 
     /**
-     * Returns true if a given string is a valid name.
+     * Returns true if a given string is a valid date.
      */
-    public static boolean isValidExpenseDate(String test) {
+    public static boolean isValidDate(String test) {
         boolean regexTest = test.matches(VALIDATION_REGEX);
         if (regexTest) {
             try {
@@ -49,18 +54,18 @@ public class ExpenseDate {
 
     @Override
     public String toString() {
-        return expenseDate.format(dtf);
+        return date.format(dtf);
     }
 
     @Override
     public boolean equals(Object other) {
         return other == this // short circuit if same object
-                || (other instanceof ExpenseDate // instanceof handles nulls
-                && expenseDate.equals(((ExpenseDate) other).expenseDate)); // state check
+                || (other instanceof Date // instanceof handles nulls
+                && date.equals(((Date) other).date)); // state check
     }
 
     @Override
     public int hashCode() {
-        return expenseDate.hashCode();
+        return date.hashCode();
     }
 }

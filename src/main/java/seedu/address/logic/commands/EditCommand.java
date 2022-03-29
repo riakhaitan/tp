@@ -2,9 +2,9 @@ package seedu.address.logic.commands;
 
 import static java.util.Objects.requireNonNull;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_AMOUNT;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_DATE;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_DESCRIPTION;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_EXPENSE_CATEGORY;
-import static seedu.address.logic.parser.CliSyntax.PREFIX_EXPENSE_DATE;
 import static seedu.address.model.Model.PREDICATE_SHOW_ALL_EXPENSES;
 
 import java.util.List;
@@ -16,10 +16,10 @@ import seedu.address.commons.util.CollectionUtil;
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.Model;
 import seedu.address.model.expense.Amount;
+import seedu.address.model.expense.Date;
 import seedu.address.model.expense.Description;
 import seedu.address.model.expense.Expense;
 import seedu.address.model.expense.ExpenseCategory;
-import seedu.address.model.expense.ExpenseDate;
 
 
 /**
@@ -36,11 +36,11 @@ public class EditCommand extends Command {
             + "[" + PREFIX_DESCRIPTION + "DESCRIPTION] "
             + "[" + PREFIX_EXPENSE_CATEGORY + "CATEGORY] "
             + "[" + PREFIX_AMOUNT + "AMOUNT]"
-            + "[" + PREFIX_EXPENSE_DATE + "DATE] \n"
+            + "[" + PREFIX_DATE + "DATE] \n"
             + "Example: " + COMMAND_WORD + " 1 "
             + PREFIX_DESCRIPTION + "Grocies from ShengShiong "
             + PREFIX_AMOUNT + "120 "
-            + PREFIX_EXPENSE_DATE + "2022-02-02\n\n";
+            + PREFIX_DATE + "2022-02-02\n\n";
 
     public static final String MESSAGE_EDIT_EXPENSE_SUCCESS = "Edited Expense: %1$s";
     public static final String MESSAGE_NOT_EDITED = "At least one field to edit must be provided.";
@@ -73,7 +73,7 @@ public class EditCommand extends Command {
         Expense expenseToEdit = lastShownList.get(index.getZeroBased());
         Expense editedExpense = createEditedExpense(expenseToEdit, editExpenseDescriptor);
 
-        if (!expenseToEdit.isSameExpense(editedExpense) && model.hasExpense(editedExpense)) {
+        if (!expenseToEdit.equals(editedExpense) && model.hasExpense(editedExpense)) {
             throw new CommandException(MESSAGE_DUPLICATE_EXPENSE);
         }
 
@@ -93,7 +93,7 @@ public class EditCommand extends Command {
         ExpenseCategory updatedExpenseCategory = editExpenseDescriptor
                 .getExpenseCategory().orElse(expenseToEdit.getExpenseCategory());
         Amount updatedAmount = editExpenseDescriptor.getAmount().orElse(expenseToEdit.getAmount());
-        ExpenseDate updatedExpenseDate = editExpenseDescriptor.getExpenseDate().orElse(expenseToEdit.getExpenseDate());
+        Date updatedExpenseDate = editExpenseDescriptor.getExpenseDate().orElse(expenseToEdit.getExpenseDate());
 
         return new Expense(updatedDescription, updatedExpenseCategory, updatedAmount, updatedExpenseDate);
     }
@@ -124,7 +124,7 @@ public class EditCommand extends Command {
         private Description description;
         private ExpenseCategory expenseCategory;
         private Amount amount;
-        private ExpenseDate expenseDate;
+        private Date expenseDate;
 
         public EditExpenseDescriptor() {}
 
@@ -170,11 +170,11 @@ public class EditCommand extends Command {
             return Optional.ofNullable(amount);
         }
 
-        public void setExpenseDate(ExpenseDate expenseDate) {
+        public void setExpenseDate(Date expenseDate) {
             this.expenseDate = expenseDate;
         }
 
-        public Optional<ExpenseDate> getExpenseDate() {
+        public Optional<Date> getExpenseDate() {
             return Optional.ofNullable(expenseDate);
         }
 

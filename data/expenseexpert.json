@@ -61,6 +61,7 @@
     "expenseDate" : "2022-03-20"
   } ],
   "budget" : {
-    "budget" : "500"
+    "budgetAmount" : "2000",
+    "budgetDate" : "2022-03-01"
   }
 }

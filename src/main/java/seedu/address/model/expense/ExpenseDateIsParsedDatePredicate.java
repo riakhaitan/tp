@@ -39,11 +39,11 @@ public class ExpenseDateIsParsedDatePredicate implements Predicate<Expense> {
     public boolean test(Expense expense) {
         //Compare month and year only
         if (ym != null) {
-            return expense.getExpenseDate().expenseDate.getMonthValue() == ym.getMonthValue()
-                    && expense.getExpenseDate().expenseDate.getYear() == ym.getYear();
+            return expense.getExpenseDate().date.getMonthValue() == ym.getMonthValue()
+                    && expense.getExpenseDate().date.getYear() == ym.getYear();
         }
 
-        return expense.getExpenseDate().expenseDate.equals(date);
+        return expense.getExpenseDate().date.equals(date);
     }
 
     @Override

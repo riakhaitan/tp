@@ -9,9 +9,9 @@ import org.junit.jupiter.api.Test;
 
 import seedu.address.logic.parser.exceptions.ParseException;
 import seedu.address.model.expense.Amount;
+import seedu.address.model.expense.Date;
 import seedu.address.model.expense.Description;
 import seedu.address.model.expense.ExpenseCategory;
-import seedu.address.model.expense.ExpenseDate;
 
 public class ParserUtilTest {
 
@@ -111,25 +111,25 @@ public class ParserUtilTest {
     }
 
     @Test
-    public void parseExpenseDate_null_throwsNullPointerException() {
+    public void parseDate_null_throwsNullPointerException() {
         assertThrows(NullPointerException.class, () -> ParserUtil.parseDate((String) null));
     }
 
     @Test
-    public void parseExpenseDate_invalidValue_throwsParseException() {
+    public void parseDate_invalidValue_throwsParseException() {
         assertThrows(ParseException.class, () -> ParserUtil.parseDate(INVALID_EXPENSE_DATE));
     }
 
     @Test
-    public void parseExpenseDate_validValueWithoutWhitespace_returnsAmount() throws Exception {
-        ExpenseDate expectedAmount = new ExpenseDate(VALID_EXPENSE_DATE);
+    public void parseDate_validValueWithoutWhitespace_returnsAmount() throws Exception {
+        Date expectedAmount = new Date(VALID_EXPENSE_DATE);
         assertEquals(expectedAmount, ParserUtil.parseDate(VALID_EXPENSE_DATE));
     }
 
     @Test
-    public void parseAmount_validValueWithWhitespace_returnsExpenseDate() throws Exception {
+    public void parseAmount_validValueWithWhitespace_returnsDate() throws Exception {
         String expenseDatewithWhiteSpace = WHITESPACE + VALID_EXPENSE_DATE + WHITESPACE;
-        ExpenseDate expectedExpenseDate = new ExpenseDate(VALID_EXPENSE_DATE);
-        assertEquals(expectedExpenseDate, ParserUtil.parseDate(expenseDatewithWhiteSpace));
+        Date expectedDate = new Date(VALID_EXPENSE_DATE);
+        assertEquals(expectedDate, ParserUtil.parseDate(expenseDatewithWhiteSpace));
     }
 }
