@@ -2,6 +2,8 @@ package seedu.address.model.expense;
 
 import static seedu.address.commons.util.CollectionUtil.requireAllNonNull;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.Objects;
 
 /**
@@ -11,6 +13,7 @@ public class Budget {
     /**
      * Attribute fields
      */
+    private static DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd");
     private final Amount budgetAmount;
     private final Date budgetDate;
 
@@ -25,6 +28,18 @@ public class Budget {
         requireAllNonNull(budgetAmount, budgetDate);
         this.budgetAmount = budgetAmount;
         this.budgetDate = budgetDate;
+    }
+
+    /**
+     * Constructs a (@code Budget).
+     * Every field must be present and not null.
+     *
+     * @param budgetAmount is valid non-null amount
+     */
+    public Budget(Amount budgetAmount) {
+        requireAllNonNull(budgetAmount);
+        this.budgetAmount = budgetAmount;
+        this.budgetDate = new Date(LocalDate.now().format(dtf));
     }
 
     public Amount getBudgetAmount() {

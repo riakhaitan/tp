@@ -31,13 +31,8 @@ public class DeleteCommandTest {
     public void execute_validIndexUnfilteredList_success() {
         Expense expenseToDelete = model.getFilteredExpenseList().get(INDEX_FIRST_EXPENSE.getZeroBased());
         DeleteCommand deleteCommand = new DeleteCommand(INDEX_FIRST_EXPENSE);
-        // Budget newBudget = new Budget(model.getBudget().asInt() + expenseToDelete.getAmount().asInt());
 
         String expectedMessage = String.format(DeleteCommand.MESSAGE_DELETE_EXPENSE_SUCCESS, expenseToDelete);
-
-        // String expectedMessage = String.format(DeleteCommand.MESSAGE_DELETE_EXPENSE_SUCCESS, expenseToDelete)
-        //         + "\n\n"
-        //         + String.format(DeleteCommand.BUDGET_EDITED, newBudget);
 
         ModelManager expectedModel = new ModelManager(model.getExpenseExpert(), new UserPrefs());
         expectedModel.deleteExpense(expenseToDelete);
@@ -59,13 +54,8 @@ public class DeleteCommandTest {
 
         Expense expenseToDelete = model.getFilteredExpenseList().get(INDEX_FIRST_EXPENSE.getZeroBased());
         DeleteCommand deleteCommand = new DeleteCommand(INDEX_FIRST_EXPENSE);
-        // Budget newBudget = new Budget(model.getBudget().asInt() + expenseToDelete.getAmount().asInt());
 
         String expectedMessage = String.format(DeleteCommand.MESSAGE_DELETE_EXPENSE_SUCCESS, expenseToDelete);
-
-        // String expectedMessage = String.format(DeleteCommand.MESSAGE_DELETE_EXPENSE_SUCCESS, expenseToDelete)
-        //         + "\n\n"
-        //         + String.format(DeleteCommand.BUDGET_EDITED, newBudget);
 
         Model expectedModel = new ModelManager(model.getExpenseExpert(), new UserPrefs());
         expectedModel.deleteExpense(expenseToDelete);

@@ -31,19 +31,11 @@ public class AddCommandIntegrationTest {
 
         Model expectedModel = new ModelManager(model.getExpenseExpert(), new UserPrefs());
         expectedModel.addExpense(validExpense);
-        // Budget newBudget = new Budget(model.getBudget().asInt() - validExpense.getAmount().asInt());
 
         assertCommandSuccess(new AddCommand(validExpense),
                 model,
                 String.format(AddCommand.MESSAGE_SUCCESS, validExpense),
                 expectedModel);
-
-        // assertCommandSuccess(new AddCommand(validExpense),
-        //         model,
-        //         String.format(AddCommand.MESSAGE_SUCCESS, validExpense)
-        //         + "\n\n"
-        //         + String.format(AddCommand.BUDGET_EDITED, newBudget),
-        //         expectedModel);
     }
 
     @Test

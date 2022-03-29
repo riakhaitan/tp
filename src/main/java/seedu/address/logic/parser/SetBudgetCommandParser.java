@@ -2,7 +2,6 @@ package seedu.address.logic.parser;
 
 import static seedu.address.commons.core.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_AMOUNT;
-import static seedu.address.logic.parser.CliSyntax.PREFIX_DATE;
 
 import java.util.stream.Stream;
 
@@ -10,7 +9,6 @@ import seedu.address.logic.commands.SetBudgetCommand;
 import seedu.address.logic.parser.exceptions.ParseException;
 import seedu.address.model.expense.Amount;
 import seedu.address.model.expense.Budget;
-import seedu.address.model.expense.Date;
 
 /**
  * Parses input arguments and creates a new SetBudgetCommand object
@@ -22,17 +20,16 @@ public class SetBudgetCommandParser implements Parser<SetBudgetCommand> {
      * @throws ParseException if the user input does not conform the expected format
      */
     public SetBudgetCommand parse(String args) throws ParseException {
-        ArgumentMultimap argMultimap = ArgumentTokenizer.tokenize(args, PREFIX_AMOUNT, PREFIX_DATE);
+        ArgumentMultimap argMultimap = ArgumentTokenizer.tokenize(args, PREFIX_AMOUNT);
 
-        if (!arePrefixesPresent(argMultimap, PREFIX_AMOUNT, PREFIX_DATE)
+        if (!arePrefixesPresent(argMultimap, PREFIX_AMOUNT)
                 || !argMultimap.getPreamble().isEmpty()) {
             throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, SetBudgetCommand.MESSAGE_USAGE));
         }
 
         Amount budgetAmount = ParserUtil.parseAmount(argMultimap.getValue(PREFIX_AMOUNT).get());
-        Date budgetDate = ParserUtil.parseDate(argMultimap.getValue(PREFIX_DATE).get());
 
-        Budget budget = new Budget(budgetAmount, budgetDate);
+        Budget budget = new Budget(budgetAmount);
 
         return new SetBudgetCommand(budget);
     }
