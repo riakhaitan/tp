@@ -119,6 +119,7 @@ public class ModelManager implements Model {
         expenseExpert.setBudget(budget);
     }
 
+
     @Override
     public void addExpenseCategory(ExpenseCategory expenseCategory) {
         expenseExpert.addExpenseCategory(expenseCategory);

@@ -1,10 +1,4 @@
 {
-  "expenseCategory" : [
-    "Entertainment",
-    "Food",
-    "Miscellaneous",
-    "Travel"
-  ],
   "expenses" : [ {
     "description" : "Providore Cafe",
     "expenseCategory" : "Food",
@@ -68,5 +62,10 @@
   } ],
   "budget" : {
     "budget" : "500"
-  }
+  },
+  "expenseCategories" : [ {
+    "expenseCategory" : "Travel"
+  }, {
+    "expenseCategory" : "Food"
+  } ]
 }

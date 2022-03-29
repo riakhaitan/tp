@@ -61,6 +61,7 @@ public class ExpenseExpert implements ReadOnlyExpenseExpert {
         requireNonNull(newData);
 
         setExpenses(newData.getExpenseList());
+        setCategories(newData.getExpenseCategoryList());
         setBudget(newData.getBudget());
 
         // Budget newBudget = newData.getBudget();
@@ -108,6 +109,14 @@ public class ExpenseExpert implements ReadOnlyExpenseExpert {
     }
 
     //// Category-level operations
+
+    /**
+     * Replaces the contents of the expense Category list with {@code expenseCategories}.
+     * {@code expense categories} must not contain duplicate expense categories.
+     */
+    public void setCategories(List<ExpenseCategory> categories) {
+        this.categories.setExpenseCategories(categories);
+    }
 
     /**
      * Returns true if a expense with the same identity as {@code expense} exists in the expense expert.

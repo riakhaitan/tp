@@ -2,19 +2,14 @@ package seedu.address.logic.parser;
 
 import seedu.address.logic.commands.AddCategoryCommand;
 import seedu.address.logic.parser.exceptions.ParseException;
-import seedu.address.model.expense.Description;
 import seedu.address.model.expense.ExpenseCategory;
 
+import static seedu.address.commons.core.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_EXPENSE_CATEGORY;
-
-
 
 import java.util.stream.Stream;
 
-import static seedu.address.commons.core.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
-
-
-public class AddCategoryParser {
+public class AddCategoryCommandParser {
     /**
      * Parses the given {@code String} of arguments in the context of the AddCommand
      * and returns an AddCommand object for execution.

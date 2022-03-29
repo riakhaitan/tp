@@ -13,9 +13,9 @@ public class AddCategoryCommand extends Command{
 
     public static final String MESSAGE_USAGE = COMMAND_WORD + ": Adds an expense to Expense Expert. "
             + "Parameters: "
-            + PREFIX_DESCRIPTION + "DESCRIPTION \n"
+            + PREFIX_EXPENSE_CATEGORY + "DESCRIPTION \n"
             + "Example: " + COMMAND_WORD + " "
-            + PREFIX_DESCRIPTION + "Entertainment \n\n";
+            + PREFIX_EXPENSE_CATEGORY + "Entertainment \n\n";
 
     public static final String MESSAGE_SUCCESS = "New expense category added: %1$s";
     // public static final String BUDGET_EDITED = "Monthly budget allowance for this category is now: %1$s";
