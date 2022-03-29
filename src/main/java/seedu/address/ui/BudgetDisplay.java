@@ -5,7 +5,7 @@ import static java.util.Objects.requireNonNull;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextArea;
 import javafx.scene.layout.Region;
-import seedu.address.model.budget.Budget;
+import seedu.address.model.expense.Budget;
 
 /**
  * A ui for the budget dashboard bar that is displayed at the header of the application.
@@ -34,10 +34,11 @@ public class BudgetDisplay extends UiPart<Region> {
      * Reflects the budget set in the application, if it has been set
      */
     public void showMonthlyBudget(Budget budget) {
-        if (budget != null) {
-            String budgetString = budget.toString();
-            requireNonNull(budgetString);
-            budgetDisplay.setText(MONTHLY_BUDGET + budgetString);
+        requireNonNull(budget);
+        String budgetAmount = budget.getBudgetAmount().toString();
+        String budgetDate = budget.getBudgetDate().toString();
+        if (!(budgetAmount == "0" || budgetDate == "1900-01-01")) {
+            budgetDisplay.setText(MONTHLY_BUDGET + budgetAmount + " set on " + budgetDate);
         } else {
             budgetDisplay.setText("Budget for this month has not been set yet!");
         }

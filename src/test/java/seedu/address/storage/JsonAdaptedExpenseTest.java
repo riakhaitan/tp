@@ -9,9 +9,9 @@ import org.junit.jupiter.api.Test;
 
 import seedu.address.commons.exceptions.IllegalValueException;
 import seedu.address.model.expense.Amount;
+import seedu.address.model.expense.Date;
 import seedu.address.model.expense.Description;
 import seedu.address.model.expense.ExpenseCategory;
-import seedu.address.model.expense.ExpenseDate;
 
 public class JsonAdaptedExpenseTest {
 
@@ -43,7 +43,7 @@ public class JsonAdaptedExpenseTest {
     public void toModelType_invalidExpenseDate_throwsIllegalValueException() {
         JsonAdaptedExpense expense =
                 new JsonAdaptedExpense(VALID_DESCRIPTION, VALID_EXPENSE_CATEGORY, VALID_AMOUNT, INVALID_EXPENSE_DATE);
-        String expectedMessage = ExpenseDate.MESSAGE_CONSTRAINTS;
+        String expectedMessage = Date.MESSAGE_CONSTRAINTS;
         assertThrows(IllegalValueException.class, expectedMessage, expense::toModelType);
     }
 
@@ -91,7 +91,7 @@ public class JsonAdaptedExpenseTest {
     public void toModelType_nullExpenseDate_throwsIllegalValueException() {
         JsonAdaptedExpense expense = new JsonAdaptedExpense(VALID_DESCRIPTION, VALID_EXPENSE_CATEGORY,
                 VALID_AMOUNT, null);
-        String expectedMessage = String.format(MISSING_FIELD_MESSAGE_FORMAT, ExpenseDate.class.getSimpleName());
+        String expectedMessage = String.format(MISSING_FIELD_MESSAGE_FORMAT, Date.class.getSimpleName());
         assertThrows(IllegalValueException.class, expectedMessage, expense::toModelType);
     }
 

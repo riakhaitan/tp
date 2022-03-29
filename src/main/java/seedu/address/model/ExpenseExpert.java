@@ -3,9 +3,12 @@ package seedu.address.model;
 import static java.util.Objects.requireNonNull;
 
 import java.util.List;
+import java.util.Objects;
 
 import javafx.collections.ObservableList;
-import seedu.address.model.budget.Budget;
+import seedu.address.model.expense.Amount;
+import seedu.address.model.expense.Budget;
+import seedu.address.model.expense.Date;
 import seedu.address.model.expense.Expense;
 import seedu.address.model.expense.UniqueExpenseList;
 import seedu.address.model.person.Person;
@@ -30,8 +33,8 @@ public class ExpenseExpert implements ReadOnlyExpenseExpert {
      */
     {
         expenses = new UniqueExpenseList();
-        budget = new Budget("0");
         persons = new UniquePersonList();
+        budget = new Budget(new Amount("0"), new Date("1900-01-01"));
     }
 
     public ExpenseExpert() {}
@@ -66,11 +69,6 @@ public class ExpenseExpert implements ReadOnlyExpenseExpert {
         setExpenses(newData.getExpenseList());
         setBudget(newData.getBudget());
         setPersons(newData.getPersonList());
-
-        // Budget newBudget = newData.getBudget();
-        // if (!(newBudget == null)) {
-        //     setBudget(newData.getBudget());
-        // }
     }
 
     //// expense-level operations
@@ -192,7 +190,8 @@ public class ExpenseExpert implements ReadOnlyExpenseExpert {
 
     @Override
     public int hashCode() {
-        return expenses.hashCode();
+        // return expenses.hashCode();
+        return Objects.hash(expenses, budget);
     }
 
 }

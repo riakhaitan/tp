@@ -16,6 +16,7 @@
     "personAmount" : "10"
   } ],
   "budget" : {
-    "budget" : "0"
+    "budgetAmount" : "2000",
+    "budgetDate" : "2022-03-01"
   }
 }

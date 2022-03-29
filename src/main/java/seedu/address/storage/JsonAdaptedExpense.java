@@ -5,10 +5,10 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 import seedu.address.commons.exceptions.IllegalValueException;
 import seedu.address.model.expense.Amount;
+import seedu.address.model.expense.Date;
 import seedu.address.model.expense.Description;
 import seedu.address.model.expense.Expense;
 import seedu.address.model.expense.ExpenseCategory;
-import seedu.address.model.expense.ExpenseDate;
 
 /**
  * Jackson-friendly version of {@link Expense}.
@@ -42,7 +42,7 @@ class JsonAdaptedExpense {
         description = source.getDescription().description;
         expenseCategory = source.getExpenseCategory().expenseCategory;
         amount = source.getAmount().amount;
-        expenseDate = source.getExpenseDate().expenseDate.toString();
+        expenseDate = source.getExpenseDate().date.toString();
     }
 
     /**
@@ -79,12 +79,12 @@ class JsonAdaptedExpense {
 
         if (expenseDate == null) {
             throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT,
-                    ExpenseDate.class.getSimpleName()));
+                    Date.class.getSimpleName()));
         }
-        if (!ExpenseDate.isValidExpenseDate(expenseDate)) {
-            throw new IllegalValueException(ExpenseDate.MESSAGE_CONSTRAINTS);
+        if (!Date.isValidDate(expenseDate)) {
+            throw new IllegalValueException(Date.MESSAGE_CONSTRAINTS);
         }
-        final ExpenseDate modelDate = new ExpenseDate(expenseDate);
+        final Date modelDate = new Date(expenseDate);
 
         return new Expense(modelDescription, modelExpenseCategory, modelAmount, modelDate);
     }
