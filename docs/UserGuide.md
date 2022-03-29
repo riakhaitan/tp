@@ -9,7 +9,6 @@ Expense Expert is a **desktop app for keeping track of your expenses, and managi
   {:toc}
 
 ---
-
 ## Quick start
 
 1. Ensure you have Java `11` or above installed in your Computer.
@@ -30,7 +29,8 @@ Expense Expert is a **desktop app for keeping track of your expenses, and managi
 
    - **`delete`** `3` : Deletes the 3rd expense shown in the current list.
 
-   - **`quit`** : Exits the app for you.
+   - **`exit`** : Exits the app for you.
+
 
 1. Refer to the [Features](#features) below for details of each command.
 
@@ -51,10 +51,10 @@ Expense Expert is a **desktop app for keeping track of your expenses, and managi
 - Parameters can be in any order.<br>
   e.g. if the command specifies `d/DESCRIPTION a/AMOUNT`, `a/AMOUNT d/DESCRIPTION` is also acceptable.
 
-- If a parameter is expected only once in the command but you specified it multiple times, only the last occurrence of the parameter will be taken.<br>
+- If a parameter is expected only once in the command but is instead specified multiple times, only the last occurrence of the parameter will be taken.<br>
   e.g. if you specify `a/12.99 a/13.50`, only `a/13.50` will be taken.
 
-- Extraneous parameters for commands that do not take in parameters (such as `help`, `list` and `quit`) will be ignored.<br>
+- Extraneous parameters for commands that do not take in parameters (such as `help`, `list` and `exit`) will be ignored.<br>
   e.g. if the command specifies `help 123`, it will be interpreted as `help`.
 
 </div>
@@ -79,11 +79,15 @@ Examples:
 - `add d/Dinner at Privé a/35 c/Extra expense t/2022-03-22`
 - `add d/Groceries a/50 c/Essentials t/2022-03-23`
 
-### Listing all expenses : `list`
+### Deleting an expense : `delete`
 
-Shows a list of all expenses recorded in Expense Expert.
+Deletes the expense specified by the index from the list. Run `list` before executing the command to identify the index of the expense.
 
-Format: `list`
+Format: `delete INDEX`
+
+Examples:
+
+- `delete 1`
 
 ### Editing an expense : `edit`
 
@@ -97,19 +101,27 @@ Examples:
 - `edit 1 a/40`
 - `edit 2 d/Groceries from Fairprice a/80`
 
-### Deleting an expense : `delete`
+### Listing all expenses : `list`
 
-Deletes the expense specified by the index from the list. Run `list` before executing the command to identify the index of the expense.
+Shows a list of all expenses recorded in Expense Expert.
 
-Format: `delete INDEX`
+Format: `list`
+
+
+### Filtering expenses: `filter`
+
+Filter expenses with the date provided. Date format must be provided in yyyy-MM-dd format or in yyyy-MM format.
+
+Format: `filter ft/DATE`
 
 Examples:
 
-- `delete 1`
+- `filter 2022-03-12`
+- `filter 2022-03`
 
 ### Finding expenses: `find`
 
-Find expenses with the stated keyword(s). If more than one keyword is provided, return list of expenses with expense description that matches any of the keywords provided.
+Find expenses with the stated keyword(s) in descriptors. If more than one keyword is provided, return list of expenses with expense description that matches any of the keywords provided.
 
 Format: `find KEYWORD(S)`
 
@@ -118,21 +130,47 @@ Examples:
 - `find Cafe`
 - `find Cafe Grab`
 
-### Filtering expenses: `filter`
+### Setting a monthly Budget: `budget`
 
-Filter expenses with the date/month provided. Date format must be provided in yyyy-MM-dd format and month format must be provided in yyyy-MM format.
+Set a budget for the month.
 
-Format: `filter ft/DATE/MONTH`
+Format: `budget b/BUDGET`
 
 Examples:
 
-- `filter 2022-03-12`
-- `filter 2022-03`
-### Exiting the program : `quit`
+- `budget b/500`
+
+### Adding a person who owes you money: `person`
+
+Add a person with a given name who owes you a specific amount.
+
+Format: `person n/PERSON_NAME a/PERSON_AMOUNT`
+
+Examples:
+
+- `person n/Alex a/100`
+
+### Removing a person who had paid the owes money: `paid`
+
+Removes a person at a given index who has paid the money they have owed.
+
+Format: `paid INDEX`
+
+Examples:
+
+- `paid 1`
+
+### Exiting the program : `clear`
+
+Deletes all expenses from Expense Expert.
+
+Format: `clear`
+
+### Exiting the program : `exit`
 
 Exits the program.
 
-Format: `quit`
+Format: `exit`
 
 ### Saving the data
 
@@ -140,7 +178,7 @@ Expense Expert data are saved in the hard disk automatically after any command t
 
 ### Editing the data file
 
-Expense Expert data are saved as a JSON file `[JAR file location]/data/ExpenseExpert.json`. Advanced users are welcome to update data directly by editing that data file.
+Expense Expert data are saved as a JSON file `[JAR file location]/data/expenseexpert.json`. Advanced users are welcome to update data directly by editing that data file.
 
 <div markdown="span" class="alert alert-warning">:exclamation: **Caution:**
 If your changes to the data file makes its format invalid, Expense Expert will discard all data and start with an empty data file at the next run.
@@ -154,18 +192,24 @@ _Details coming soon ..._
 
 ## FAQ
 
-**Q**: How do I transfer my data to another Computer?<br>
+**Q**: How can I transfer my data to another Computer?<br>
 **A**: Install the app in the other computer and overwrite the empty data file it creates with the file that contains the data of your previous Expense Expert home folder.
 
 ---
 
 ## Command summary
 
-| Action     | Format, Examples                                                                                                                      |
-| ---------- |---------------------------------------------------------------------------------------------------------------------------------------|
-| **Add**    | `add d/DESCRIPTION a/AMOUNT [c/EXPENSE_CATEGORY] t/EXPENSE_DATE ` <br> e.g., `add d/Lunch at VivoCity a/12.95 c/Food t/2022-03-20`    |
-| **Delete** | `delete INDEX`<br> e.g., `delete 3`                                                                                                   |
-| **Edit**   | `edit INDEX [d/DESCRIPTION] [a/AMOUNT] [c/EXPENSE_CATEGORY] [t/EXPENSE_DATE]`<br> e.g.,`edit 2 d/Lunch at Harbourfront Centre a/6.50` |
-| **List**   | `list`                                                                                                                                |
-| **Help**   | `help`                                                                                                                                |
-| **Quit**   | `quit`                                                                                                                                |
+| Action     | Format, Examples                                                                                                                  |
+| ---------- |-----------------------------------------------------------------------------------------------------------------------------------|
+| **Help**   | `help`                                                                                                                            | |
+| **Add**    | `add d/DESCRIPTION a/AMOUNT [c/EXPENSE_CATEGORY] t/EXPENSE_DATE ` <br> Example: `add d/Lunch at VivoCity a/12.95 c/Food t/2022-03-20` |
+| **Delete** | `delete INDEX`<br> Example: `delete 3`                                                                                            |
+| **Edit**   | `edit INDEX [d/DESCRIPTION] [a/AMOUNT] [c/EXPENSE_CATEGORY] [t/EXPENSE_DATE]`<br> Example:`edit 2 d/Lunch at Harbourfront Centre a/6.50` |
+| **List**   | `list`                                                                                                                            |
+| **Filter** | `filter ft/FILTER_DATE` <br> Example: `filter ft/2022-03`                                                                         |
+| **Find**   | `find KEYWORD [MORE_KEYWORDS]` <br> Example: `find Cafe Grab Basketball`                                                          |
+| **Budget** | `budget b/BUDGET` <br> Example: `budget b/1000`
+| **Person** | `person n/PERSON_NAME a/PERSON_AMOUNT` <br> Example: `person n/Alex a/50`
+| **Paid**   | `paid INDEX` <br> Example: `paid 1`
+| **Clear**  | `clear`                                                                                                                           ||
+| **Exit**   | `exit`                                                                                                                            |

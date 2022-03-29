@@ -28,7 +28,7 @@ class JsonAdaptedExpense {
     @JsonCreator
     public JsonAdaptedExpense(@JsonProperty("description") String description,
                               @JsonProperty("expenseCategory") String expenseCategory,
-                             @JsonProperty("email") String amount, @JsonProperty("expenseDate") String expenseDate) {
+                             @JsonProperty("amount") String amount, @JsonProperty("expenseDate") String expenseDate) {
         this.description = description;
         this.expenseCategory = expenseCategory;
         this.amount = amount;
