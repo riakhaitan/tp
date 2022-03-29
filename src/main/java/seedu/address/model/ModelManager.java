@@ -13,6 +13,7 @@ import seedu.address.commons.core.GuiSettings;
 import seedu.address.commons.core.LogsCenter;
 import seedu.address.model.budget.Budget;
 import seedu.address.model.expense.Expense;
+import seedu.address.model.expense.ExpenseCategory;
 
 /**
  * Represents the in-memory model of the expense expert data.
@@ -116,6 +117,23 @@ public class ModelManager implements Model {
     public void setBudget(Budget budget) {
         requireNonNull(budget);
         expenseExpert.setBudget(budget);
+    }
+
+    @Override
+    public void addExpenseCategory(ExpenseCategory expenseCategory) {
+        expenseExpert.addExpenseCategory(expenseCategory);
+        updateFilteredExpenseList(PREDICATE_SHOW_ALL_EXPENSES);
+    }
+
+    @Override
+    public void deleteExpenseCategory(ExpenseCategory target) {
+        expenseExpert.removeExpenseCategory(target);
+    }
+
+    @Override
+    public boolean hasExpenseCategory(ExpenseCategory expenseCategory) {
+        requireNonNull(expenseCategory);
+        return expenseExpert.hasExpenseCategory(expenseCategory);
     }
 
     @Override

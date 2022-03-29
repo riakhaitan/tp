@@ -7,6 +7,7 @@ import javafx.collections.ObservableList;
 import seedu.address.commons.core.GuiSettings;
 import seedu.address.model.budget.Budget;
 import seedu.address.model.expense.Expense;
+import seedu.address.model.expense.ExpenseCategory;
 
 /**
  * The API of the Model component.
@@ -14,6 +15,9 @@ import seedu.address.model.expense.Expense;
 public interface Model {
     /** {@code Predicate} that always evaluate to true */
     Predicate<Expense> PREDICATE_SHOW_ALL_EXPENSES = unused -> true;
+
+    /** {@code Predicate} that always evaluate to true */
+    Predicate<Expense> PREDICATE_SHOW_ALL_CATEGORIES = unused -> true;
 
     /**
      * Replaces user prefs data with the data in {@code userPrefs}.
@@ -66,7 +70,7 @@ public interface Model {
 
     /**
      * Adds the given expense.
-     * {@code expense} must not already exist in the expense expert.
+     * {@code expenseCategory} must not already exist in the expense expert.
      */
     void addExpense(Expense expense);
 
@@ -77,6 +81,23 @@ public interface Model {
      * the expense expert.
      */
     void setExpense(Expense target, Expense editedExpense);
+
+    /**
+     * Adds the given expense category.
+     * {@code expenseCatgeory} must not already exist in the expense expert.
+     */
+    void addExpenseCategory(ExpenseCategory expenseCategory);
+
+    /**
+     * Deletes the given expense category.
+     * The expense must exist in the expense expert.
+     */
+    void deleteExpenseCategory(ExpenseCategory target);
+
+    /**
+     * Returns true if a expense category with the same identity as {@code expense} exists in the expense expert.
+     */
+    boolean hasExpenseCategory(ExpenseCategory expenseCategory);
 
     /** Returns an unmodifiable view of the filtered expense list */
     ObservableList<Expense> getFilteredExpenseList();

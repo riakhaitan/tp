@@ -1,4 +1,10 @@
 {
+  "expenseCategory" : [
+    "Entertainment",
+    "Food",
+    "Miscellaneous",
+    "Travel"
+  ],
   "expenses" : [ {
     "description" : "Providore Cafe",
     "expenseCategory" : "Food",

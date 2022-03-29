@@ -7,6 +7,8 @@ import java.util.List;
 import javafx.collections.ObservableList;
 import seedu.address.model.budget.Budget;
 import seedu.address.model.expense.Expense;
+import seedu.address.model.expense.ExpenseCategory;
+import seedu.address.model.expense.ExpenseCategoryList;
 import seedu.address.model.expense.UniqueExpenseList;
 
 /**
@@ -16,6 +18,7 @@ import seedu.address.model.expense.UniqueExpenseList;
 public class ExpenseExpert implements ReadOnlyExpenseExpert {
 
     private final UniqueExpenseList expenses;
+    private final ExpenseCategoryList categories;
     private Budget budget;
 
     /*
@@ -28,6 +31,7 @@ public class ExpenseExpert implements ReadOnlyExpenseExpert {
     {
         expenses = new UniqueExpenseList();
         budget = new Budget("0");
+        categories = new ExpenseCategoryList();
     }
 
     public ExpenseExpert() {}
@@ -103,6 +107,33 @@ public class ExpenseExpert implements ReadOnlyExpenseExpert {
         expenses.remove(key);
     }
 
+    //// Category-level operations
+
+    /**
+     * Returns true if a expense with the same identity as {@code expense} exists in the expense expert.
+     */
+    public boolean hasExpenseCategory(ExpenseCategory expenseCategory) {
+        requireNonNull(expenseCategory);
+        return categories.contains(expenseCategory);
+    }
+
+    /**
+     * Adds a expense to the expense expert.
+     * The expense must not already exist in the expense expert.
+     */
+    public void addExpenseCategory(ExpenseCategory expenseCategory) {
+        categories.add(expenseCategory);
+    }
+
+
+    /**
+     * Removes {@code key} from this {@code ExpenseExpert}.
+     * {@code key} must exist in the expense expert.
+     */
+    public void removeExpenseCategory(ExpenseCategory key) {
+        categories.remove(key);
+    }
+
     //// budget-level operations
 
     /**
@@ -119,6 +150,11 @@ public class ExpenseExpert implements ReadOnlyExpenseExpert {
     public String toString() {
         return expenses.asUnmodifiableObservableList().size() + " expenses";
         // TODO: refine later
+    }
+
+    @Override
+    public ObservableList<ExpenseCategory> getExpenseCategoryList() {
+        return categories.asUnmodifiableObservableList();
     }
 
     @Override

@@ -12,6 +12,7 @@ import seedu.address.commons.exceptions.IllegalValueException;
 import seedu.address.model.ExpenseExpert;
 import seedu.address.model.ReadOnlyExpenseExpert;
 import seedu.address.model.expense.Expense;
+import seedu.address.model.expense.ExpenseCategory;
 
 /**
  * An Immutable ExpenseExpert that is serializable to JSON format.
@@ -20,9 +21,12 @@ import seedu.address.model.expense.Expense;
 class JsonSerializableExpenseExpert {
 
     public static final String MESSAGE_DUPLICATE_EXPENSE = "Expenses list contains duplicate expense(s).";
+    public static final String MESSAGE_DUPLICATE_EXPENSE_CATEGORY =
+            "Expenses Category list contains duplicate expense Category.";
 
     private final List<JsonAdaptedExpense> expenses = new ArrayList<>();
     private JsonAdaptedBudget budget;
+    private final List<JsonAdaptedExpenseCategory> expenseCategories = new ArrayList<>();
 
     /**
      * Constructs a {@code JsonSerializableExpenseExpert} with the given expenses.
@@ -38,6 +42,7 @@ class JsonSerializableExpenseExpert {
      * @param source future changes to this will not affect the created {@code JsonSerializableExpenseExpert}.
      */
     public JsonSerializableExpenseExpert(ReadOnlyExpenseExpert source) {
+        expenseCategories.addAll(source.getExpenseCategoryList().stream().map(JsonAdaptedExpenseCategory::new).collect(Collectors.toList()));
         expenses.addAll(source.getExpenseList().stream().map(JsonAdaptedExpense::new).collect(Collectors.toList()));
         this.budget = new JsonAdaptedBudget(source.getBudget());
     }
@@ -49,6 +54,14 @@ class JsonSerializableExpenseExpert {
      */
     public ExpenseExpert toModelType() throws IllegalValueException {
         ExpenseExpert expenseExpert = new ExpenseExpert();
+        for (JsonAdaptedExpenseCategory jsonAdaptedExpenseCategory : expenseCategories) {
+            ExpenseCategory expenseCategory = jsonAdaptedExpenseCategory.toModelType();
+            if (expenseExpert.hasExpenseCategory(expenseCategory)) {
+                throw new IllegalValueException(MESSAGE_DUPLICATE_EXPENSE_CATEGORY);
+            }
+            expenseExpert.addExpenseCategory(expenseCategory);
+        }
+
         for (JsonAdaptedExpense jsonAdaptedExpense : expenses) {
             Expense expense = jsonAdaptedExpense.toModelType();
             if (expenseExpert.hasExpense(expense)) {
