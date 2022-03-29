@@ -178,7 +178,7 @@ Expense Expert data are saved in the hard disk automatically after any command t
 
 ### Editing the data file
 
-Expense Expert data are saved as a JSON file `[JAR file location]/data/ExpenseExpert.json`. Advanced users are welcome to update data directly by editing that data file.
+Expense Expert data are saved as a JSON file `[JAR file location]/data/expenseexpert.json`. Advanced users are welcome to update data directly by editing that data file.
 
 <div markdown="span" class="alert alert-warning">:exclamation: **Caution:**
 If your changes to the data file makes its format invalid, Expense Expert will discard all data and start with an empty data file at the next run.
@@ -199,20 +199,17 @@ _Details coming soon ..._
 
 ## Command summary
 
-| Action     | Format, Examples                                                                                                                      |
-| ---------- |---------------------------------------------------------------------------------------------------------------------------------------|
-| **Help**   | `help`                                                                                                                                | |
-| **Add**    | `add d/DESCRIPTION a/AMOUNT [c/EXPENSE_CATEGORY] t/EXPENSE_DATE ` <br> Example: `add d/Lunch at VivoCity a/12.95 c/Food t/2022-03-20`  |
-| **Delete** | `delete INDEX`<br> Example: `delete 3`                                                                                                 |
+| Action     | Format, Examples                                                                                                                  |
+| ---------- |-----------------------------------------------------------------------------------------------------------------------------------|
+| **Help**   | `help`                                                                                                                            | |
+| **Add**    | `add d/DESCRIPTION a/AMOUNT [c/EXPENSE_CATEGORY] t/EXPENSE_DATE ` <br> Example: `add d/Lunch at VivoCity a/12.95 c/Food t/2022-03-20` |
+| **Delete** | `delete INDEX`<br> Example: `delete 3`                                                                                            |
 | **Edit**   | `edit INDEX [d/DESCRIPTION] [a/AMOUNT] [c/EXPENSE_CATEGORY] [t/EXPENSE_DATE]`<br> Example:`edit 2 d/Lunch at Harbourfront Centre a/6.50` |
-| **List**   | `list`                                                                                                                                |
-| **Filter** | `filter ft/FILTER_DATE` <br> Example: `filter ft/2022-03`                                                                                                                                |
-| **Find**   | `find KEYWORD [MORE_KEYWORDS]` <br> Example: `find Cafe Grab Basketball`                                                                                                                                |
-| **Budget** | `budget b/AMOUNT` <br> Example: `find Cafe Grab Basketball`  
-| **Filter** | `filter ft/FILTER_DATE` <br> Example: `filter ft/2022-03`                                                                                                                           |
-| **Find**   | `find KEYWORD [MORE_KEYWORDS]` <br> Example: `find Cafe Grab Basketball`                                                                                                                        |
-| **Budget** | `budget b/BUDGET` <br> Example: `find Cafe Grab Basketball`  
+| **List**   | `list`                                                                                                                            |
+| **Filter** | `filter ft/FILTER_DATE` <br> Example: `filter ft/2022-03`                                                                         |
+| **Find**   | `find KEYWORD [MORE_KEYWORDS]` <br> Example: `find Cafe Grab Basketball`                                                          |
+| **Budget** | `budget b/BUDGET` <br> Example: `budget b/1000`
 | **Person** | `person n/PERSON_NAME a/PERSON_AMOUNT` <br> Example: `person n/Alex a/50`
 | **Paid**   | `paid INDEX` <br> Example: `paid 1`
-| **Clear**  | `clear`                                                                                                                                ||
-| **Exit**   | `exit`                                                                                                                                |
+| **Clear**  | `clear`                                                                                                                           ||
+| **Exit**   | `exit`                                                                                                                            |
