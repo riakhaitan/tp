@@ -22,7 +22,9 @@ class JsonSerializableExpenseExpert {
 
     public static final String MESSAGE_DUPLICATE_EXPENSE = "Expenses list contains duplicate expense(s).";
     public static final String MESSAGE_DUPLICATE_EXPENSE_CATEGORY =
-            "Expenses Category list contains duplicate expense Category.";
+            "Expenses Category list contains duplicate expense category/categories.";
+    public static final String MESSAGE_INVALID_EXPENSE_CATEGORY =
+            "Expenses Category list contains expenses with invalid expense category/categories.";
 
     private final List<JsonAdaptedExpense> expenses = new ArrayList<>();
     private JsonAdaptedBudget budget;
@@ -61,11 +63,15 @@ class JsonSerializableExpenseExpert {
             }
             expenseExpert.addExpenseCategory(expenseCategory);
         }
-
+        System.out.println(expenseExpert.getExpenseCategoryList());
         for (JsonAdaptedExpense jsonAdaptedExpense : expenses) {
             Expense expense = jsonAdaptedExpense.toModelType();
             if (expenseExpert.hasExpense(expense)) {
                 throw new IllegalValueException(MESSAGE_DUPLICATE_EXPENSE);
+            }
+
+            if (!expenseExpert.hasExpenseCategory(expense.getExpenseCategory())) {
+                throw new IllegalValueException(MESSAGE_INVALID_EXPENSE_CATEGORY);
             }
             expenseExpert.addExpense(expense);
         }

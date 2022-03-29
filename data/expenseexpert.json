@@ -59,6 +59,21 @@
     "expenseCategory" : "Food",
     "amount" : "6.50",
     "expenseDate" : "2022-03-20"
+  }, {
+    "description" : "Gym Membership",
+    "expenseCategory" : "Food",
+    "amount" : "80",
+    "expenseDate" : "2022-02-02"
+  }, {
+    "description" : "Bao",
+    "expenseCategory" : "Food",
+    "amount" : "1",
+    "expenseDate" : "2021-01-01"
+  }, {
+    "description" : "nike",
+    "expenseCategory" : "Shoes",
+    "amount" : "100",
+    "expenseDate" : "2022-01-02"
   } ],
   "budget" : {
     "budget" : "500"
@@ -67,5 +82,13 @@
     "expenseCategory" : "Travel"
   }, {
     "expenseCategory" : "Food"
+  }, {
+    "expenseCategory" : "Miscellaneous"
+  }, {
+    "expenseCategory" : "Entertainment"
+  }, {
+    "expenseCategory" : "Shoes"
+  }, {
+    "expenseCategory" : "transport"
   } ]
 }

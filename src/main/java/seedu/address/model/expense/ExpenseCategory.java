@@ -56,7 +56,6 @@ public class ExpenseCategory {
         }
 
         return otherExpenseCategory != null
-                && otherExpenseCategory.toString().equals(toString());
+                && otherExpenseCategory.toString().equalsIgnoreCase(toString());
     }
-
 }

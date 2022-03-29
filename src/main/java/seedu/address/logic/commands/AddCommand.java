@@ -33,6 +33,9 @@ public class AddCommand extends Command {
     public static final String MESSAGE_SUCCESS = "New expense added: %1$s";
     // public static final String BUDGET_EDITED = "Budget allowance for this month is now: %1$s";
     public static final String MESSAGE_DUPLICATE_EXPENSE = "This expense already exists in Expense Expert";
+    public static final String MESSAGE_INVALID_EXPENSE_CATEGORY =
+            "This expense category does not exists in Expense Expert." +
+            "\nUse the addCat Command to create a new category";
 
     private final Expense toAdd;
 
@@ -50,6 +53,10 @@ public class AddCommand extends Command {
 
         if (model.hasExpense(toAdd)) {
             throw new CommandException(MESSAGE_DUPLICATE_EXPENSE);
+        }
+
+        if (!model.hasExpenseCategory(toAdd.getExpenseCategory())) {
+            throw new CommandException(MESSAGE_INVALID_EXPENSE_CATEGORY);
         }
 
         model.addExpense(toAdd);

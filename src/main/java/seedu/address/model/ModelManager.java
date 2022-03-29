@@ -123,7 +123,6 @@ public class ModelManager implements Model {
     @Override
     public void addExpenseCategory(ExpenseCategory expenseCategory) {
         expenseExpert.addExpenseCategory(expenseCategory);
-        updateFilteredExpenseList(PREDICATE_SHOW_ALL_EXPENSES);
     }
 
     @Override
