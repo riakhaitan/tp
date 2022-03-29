@@ -1,64 +1,19 @@
 {
   "expenses" : [ {
-    "description" : "Providore Cafe",
-    "expenseCategory" : "Food",
-    "amount" : "100",
-    "expenseDate" : "2022-03-18"
+    "description" : "took grab",
+    "expenseCategory" : "travel",
+    "amount" : "20",
+    "expenseDate" : "2022-02-21"
+  } ],
+  "persons" : [ {
+    "personName" : "alex",
+    "personAmount" : "50"
   }, {
-    "description" : "Grab to Work",
-    "expenseCategory" : "Transport",
-    "amount" : "23",
-    "expenseDate" : "2022-03-18"
+    "personName" : "neel",
+    "personAmount" : "70"
   }, {
-    "description" : "Build a Bear",
-    "expenseCategory" : "Entertainment",
-    "amount" : "150",
-    "expenseDate" : "2022-03-15"
-  }, {
-    "description" : "Spotify Subscription Fees",
-    "expenseCategory" : "Entertainment",
-    "amount" : "15",
-    "expenseDate" : "2022-03-05"
-  }, {
-    "description" : "Car Tyre Replacement",
-    "expenseCategory" : "Miscellaneous",
-    "amount" : "200",
-    "expenseDate" : "2022-03-08"
-  }, {
-    "description" : "Birthday Gift for Andrew",
-    "expenseCategory" : "Miscellaneous",
-    "amount" : "30",
-    "expenseDate" : "2022-03-03"
-  }, {
-    "description" : "Air Diffuser",
-    "expenseCategory" : "Miscellaneous",
-    "amount" : "10",
-    "expenseDate" : "2022-03-12"
-  }, {
-    "description" : "Monthly Gym Membership",
-    "expenseCategory" : "Miscellaneous",
-    "amount" : "150",
-    "expenseDate" : "2022-03-19"
-  }, {
-    "description" : "Grab back home",
-    "expenseCategory" : "Transport",
-    "amount" : "25",
-    "expenseDate" : "2022-03-22"
-  }, {
-    "description" : "Cat and the Fiddle cake",
-    "expenseCategory" : "Food",
-    "amount" : "45",
-    "expenseDate" : "2022-02-28"
-  }, {
-    "description" : "Air ticket to Bali",
-    "expenseCategory" : "Travel",
-    "amount" : "350",
-    "expenseDate" : "2022-02-28"
-  }, {
-    "description" : "Lunch at Harbourfront Centre",
-    "expenseCategory" : "Food",
-    "amount" : "6.50",
-    "expenseDate" : "2022-03-20"
+    "personName" : "bob",
+    "personAmount" : "10"
   } ],
   "budget" : {
     "budgetAmount" : "2000",

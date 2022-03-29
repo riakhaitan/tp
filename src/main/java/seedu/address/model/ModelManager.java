@@ -13,6 +13,7 @@ import seedu.address.commons.core.GuiSettings;
 import seedu.address.commons.core.LogsCenter;
 import seedu.address.model.expense.Budget;
 import seedu.address.model.expense.Expense;
+import seedu.address.model.person.Person;
 
 /**
  * Represents the in-memory model of the expense expert data.
@@ -23,6 +24,7 @@ public class ModelManager implements Model {
     private final ExpenseExpert expenseExpert;
     private final UserPrefs userPrefs;
     private final FilteredList<Expense> filteredExpenses;
+    private final FilteredList<Person> filteredPersons;
 
     /**
      * Initializes a ModelManager with the given expenseExpert and userPrefs.
@@ -35,6 +37,7 @@ public class ModelManager implements Model {
         this.expenseExpert = new ExpenseExpert(expenseExpert);
         this.userPrefs = new UserPrefs(userPrefs);
         filteredExpenses = new FilteredList<>(this.expenseExpert.getExpenseList());
+        filteredPersons = new FilteredList<>(this.expenseExpert.getPersonList());
     }
 
     public ModelManager() {
@@ -95,6 +98,12 @@ public class ModelManager implements Model {
     }
 
     @Override
+    public boolean hasPerson(Person person) {
+        requireNonNull(person);
+        return expenseExpert.hasPerson(person);
+    }
+
+    @Override
     public void deleteExpense(Expense target) {
         expenseExpert.removeExpense(target);
     }
@@ -110,6 +119,24 @@ public class ModelManager implements Model {
         requireAllNonNull(target, editedExpense);
 
         expenseExpert.setExpense(target, editedExpense);
+    }
+
+    @Override
+    public void deletePerson(Person target) {
+        expenseExpert.removePerson(target);
+    }
+
+    @Override
+    public void addPerson(Person person) {
+        expenseExpert.addPerson(person);
+        updateFilteredPersonList(PREDICATE_SHOW_ALL_PERSONS);
+    }
+
+    @Override
+    public void setPerson(Person target, Person editedPerson) {
+        requireAllNonNull(target, editedPerson);
+
+        expenseExpert.setPerson(target, editedPerson);
     }
 
     @Override
@@ -135,9 +162,20 @@ public class ModelManager implements Model {
     }
 
     @Override
+    public ObservableList<Person> getFilteredPersonList() {
+        return filteredPersons;
+    }
+
+    @Override
     public void updateFilteredExpenseList(Predicate<Expense> predicate) {
         requireNonNull(predicate);
         filteredExpenses.setPredicate(predicate);
+    }
+
+    @Override
+    public void updateFilteredPersonList(Predicate<Person> predicate) {
+        requireNonNull(predicate);
+        filteredPersons.setPredicate(predicate);
     }
 
     @Override
@@ -156,6 +194,7 @@ public class ModelManager implements Model {
         ModelManager other = (ModelManager) obj;
         return expenseExpert.equals(other.expenseExpert)
                 && userPrefs.equals(other.userPrefs)
-                && filteredExpenses.equals(other.filteredExpenses);
+                && filteredExpenses.equals(other.filteredExpenses)
+                && filteredPersons.equals(other.filteredPersons);
     }
 }

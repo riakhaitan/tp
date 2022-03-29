@@ -9,6 +9,8 @@ import seedu.address.model.expense.Amount;
 import seedu.address.model.expense.Date;
 import seedu.address.model.expense.Description;
 import seedu.address.model.expense.ExpenseCategory;
+import seedu.address.model.person.PersonAmount;
+import seedu.address.model.person.PersonName;
 
 /**
  * Contains utility methods used for parsing strings in the various *Parser classes.
@@ -84,5 +86,35 @@ public class ParserUtil {
             throw new ParseException(Date.MESSAGE_CONSTRAINTS);
         }
         return new Date(trimmedDate);
+    }
+
+    /**
+     * Parses the amount a person owes.
+     * @param personAmount the amount to be parsed.
+     * @return the parsed amount.
+     * @throws ParseException
+     */
+    public static PersonAmount parsePersonAmount(String personAmount) throws ParseException {
+        requireNonNull(personAmount);
+        String trimmedPersonAmount = personAmount.trim();
+        if (!PersonAmount.isValidPersonAmount(trimmedPersonAmount)) {
+            throw new ParseException(PersonAmount.MESSAGE_CONSTRAINTS);
+        }
+        return new PersonAmount(trimmedPersonAmount);
+    }
+
+    /**
+     * Parses the name of the person who owes money.
+     * @param personName the name to be parsed
+     * @return the parsed name
+     * @throws ParseException
+     */
+    public static PersonName parsePersonName(String personName) throws ParseException {
+        requireNonNull(personName);
+        String trimmedPersonName = personName.trim();
+        if (!PersonName.isValidPersonName(trimmedPersonName)) {
+            throw new ParseException(PersonName.MESSAGE_CONSTRAINTS);
+        }
+        return new PersonName(trimmedPersonName);
     }
 }

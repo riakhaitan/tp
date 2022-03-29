@@ -10,6 +10,7 @@ import seedu.address.logic.parser.exceptions.ParseException;
 import seedu.address.model.ReadOnlyExpenseExpert;
 import seedu.address.model.expense.Budget;
 import seedu.address.model.expense.Expense;
+import seedu.address.model.person.Person;
 
 /**
  * API of the Logic component
@@ -33,6 +34,8 @@ public interface Logic {
 
     /** Returns an unmodifiable view of the filtered list of expenses */
     ObservableList<Expense> getFilteredExpenseList();
+
+    ObservableList<Person> getFilteredPersonList();
 
     /** Returns the budget */
     Budget getBudget();

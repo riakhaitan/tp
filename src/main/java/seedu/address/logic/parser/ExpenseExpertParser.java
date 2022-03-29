@@ -16,6 +16,8 @@ import seedu.address.logic.commands.FilterCommand;
 import seedu.address.logic.commands.FindCommand;
 import seedu.address.logic.commands.HelpCommand;
 import seedu.address.logic.commands.ListCommand;
+import seedu.address.logic.commands.PaidPersonWhoOwedCommand;
+import seedu.address.logic.commands.PersonOwesCommand;
 import seedu.address.logic.commands.SetBudgetCommand;
 import seedu.address.logic.parser.exceptions.ParseException;
 
@@ -65,7 +67,7 @@ public class ExpenseExpertParser {
             return new FindCommandParser().parse(arguments);
 
         case ListCommand.COMMAND_WORD:
-            return new ListCommand();
+            return new ListCommand(arguments);
 
         case ExitCommand.COMMAND_WORD:
             return new ExitCommand();
@@ -75,6 +77,10 @@ public class ExpenseExpertParser {
 
         case SetBudgetCommand.COMMAND_WORD:
             return new SetBudgetCommandParser().parse(arguments);
+        case PersonOwesCommand.COMMAND_WORD:
+            return new PersonOwesCommandParser().parse(arguments);
+        case PaidPersonWhoOwedCommand.COMMAND_WORD:
+            return new PaidPersonWhoOwedCommandParser().parse(arguments);
 
         default:
             throw new ParseException(MESSAGE_UNKNOWN_COMMAND);

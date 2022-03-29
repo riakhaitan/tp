@@ -7,6 +7,10 @@ import seedu.address.model.expense.Date;
 import seedu.address.model.expense.Description;
 import seedu.address.model.expense.Expense;
 import seedu.address.model.expense.ExpenseCategory;
+import seedu.address.model.person.Person;
+import seedu.address.model.person.PersonAmount;
+import seedu.address.model.person.PersonName;
+
 
 /**
  * Contains utility methods for populating {@code ExpenseExpert} with sample data.
@@ -29,12 +33,20 @@ public class SampleDataUtil {
         };
     }
 
+    public static Person[] getSamplePersons() {
+        return new Person[] {
+            new Person(new PersonName("Alex"), new PersonAmount("20")),
+            new Person(new PersonName("Bob"), new PersonAmount("100"))};
+    }
+
     public static ReadOnlyExpenseExpert getSampleExpenseExpert() {
         ExpenseExpert sampleEe = new ExpenseExpert();
         for (Expense sampleExpense : getSampleExpenses()) {
             sampleEe.addExpense(sampleExpense);
         }
+        for (Person samplePerson : getSamplePersons()) {
+            sampleEe.addPerson(samplePerson);
+        }
         return sampleEe;
     }
-
 }
