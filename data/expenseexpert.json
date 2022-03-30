@@ -5,15 +5,30 @@
     "amount" : "20",
     "expenseDate" : "2022-02-21"
   }, {
-    "description" : "Groceries",
-    "expenseCategory" : "Groceries",
-    "amount" : "100",
-    "expenseDate" : "2022-02-02"
+    "description" : "mcdonalds",
+    "expenseCategory" : "food",
+    "amount" : "10",
+    "expenseDate" : "2022-03-22"
   }, {
-    "description" : "Sushi",
-    "expenseCategory" : "Food",
-    "amount" : "12",
-    "expenseDate" : "2020-03-11"
+    "description" : "kayaking",
+    "expenseCategory" : "leisure",
+    "amount" : "8",
+    "expenseDate" : "2022-02-18"
+  }, {
+    "description" : "zara",
+    "expenseCategory" : "clothes",
+    "amount" : "100",
+    "expenseDate" : "2022-03-16"
+  }, {
+    "description" : "MRT",
+    "expenseCategory" : "travel",
+    "amount" : "2.8",
+    "expenseDate" : "2022-03-18"
+  }, {
+    "description" : "bowling",
+    "expenseCategory" : "leisure",
+    "amount" : "15",
+    "expenseDate" : "2022-03-10"
   } ],
   "persons" : [ {
     "personName" : "alex",
@@ -23,10 +38,22 @@
     "personAmount" : "70"
   }, {
     "personName" : "bob",
-    "personAmount" : "10"
+    "personAmount" : "200"
+  }, {
+    "personName" : "craig",
+    "personAmount" : "1000"
+  }, {
+    "personName" : "george",
+    "personAmount" : "220"
+  }, {
+    "personName" : "jade",
+    "personAmount" : "50"
+  }, {
+    "personName" : "chris",
+    "personAmount" : "75"
   } ],
   "budget" : {
-    "budgetAmount" : "2000",
-    "budgetDate" : "2022-03-01"
+    "budgetAmount" : "1000",
+    "budgetDate" : "2022-03-30"
   }
 }
