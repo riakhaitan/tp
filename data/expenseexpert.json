@@ -4,6 +4,16 @@
     "expenseCategory" : "travel",
     "amount" : "20",
     "expenseDate" : "2022-02-21"
+  }, {
+    "description" : "Groceries",
+    "expenseCategory" : "Groceries",
+    "amount" : "100",
+    "expenseDate" : "2022-02-02"
+  }, {
+    "description" : "Sushi",
+    "expenseCategory" : "Food",
+    "amount" : "12",
+    "expenseDate" : "2020-03-11"
   } ],
   "persons" : [ {
     "personName" : "alex",
