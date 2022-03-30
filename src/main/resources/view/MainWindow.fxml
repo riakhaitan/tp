@@ -6,13 +6,13 @@
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
-<?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 
+<?import javafx.scene.layout.HBox?>
 <fx:root type="javafx.stage.Stage" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
-         title="Address App" minWidth="450" minHeight="900" onCloseRequest="#handleExit">
+         title="Expense Expert" minWidth="450" minHeight="900" onCloseRequest="#handleExit">
   <icons>
     <Image url="@/images/address_book_32.png" />
   </icons>
@@ -52,14 +52,23 @@
             <Insets top="5" right="10" bottom="5" left="10" />
           </padding>
         </StackPane>
+        <HBox minWidth="500.0" prefWidth="700.0" styleClass="pane-with-border" VBox.vgrow="ALWAYS">
+          <children>
 
-        <VBox fx:id="expenseList" styleClass="pane-with-border" minWidth="340" prefWidth="340" VBox.vgrow="ALWAYS">
-          <padding>
-            <Insets top="10" right="10" bottom="10" left="10" />
-          </padding>
-          <StackPane fx:id="expenseListPanelPlaceholder" VBox.vgrow="ALWAYS"/>
-        </VBox>
-
+            <VBox fx:id="expenseList" styleClass="pane-with-border" minWidth="550" prefWidth="550" VBox.vgrow="ALWAYS">
+              <padding>
+                <Insets top="10" right="10" bottom="10" left="10" />
+              </padding>
+              <StackPane fx:id="expenseListPanelPlaceholder" VBox.vgrow="ALWAYS"/>
+            </VBox>
+            <VBox fx:id="personList" minWidth="340" prefWidth="340" styleClass="pane-with-border">
+              <padding>
+                <Insets bottom="10" left="10" right="10" top="10" />
+              </padding>
+              <StackPane fx:id="personListPanelPlaceholder" VBox.vgrow="ALWAYS" />
+            </VBox>
+          </children>
+        </HBox>
         <StackPane fx:id="statusbarPlaceholder" VBox.vgrow="NEVER" />
       </VBox>
     </Scene>
