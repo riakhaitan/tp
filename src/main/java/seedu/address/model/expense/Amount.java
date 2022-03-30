@@ -4,7 +4,7 @@ import static java.util.Objects.requireNonNull;
 import static seedu.address.commons.util.AppUtil.checkArgument;
 
 /**
- * Represents an Expense's amount in the Expense Expert.
+ * Represents a monetary value's amount (2 decimal place) in the Expense Expert.
  * Guarantees: immutable; is valid as declared in {@link #isValidAmount(String)}
  */
 public class Amount {
@@ -37,13 +37,6 @@ public class Amount {
      */
     public static boolean isValidAmount(String test) {
         return test.matches(VALIDATION_REGEX) && test != "";
-    }
-
-    /**
-     * Returns the amount of the expense as an integer.
-     */
-    public int asInt() {
-        return Integer.valueOf(amount);
     }
 
     @Override

@@ -5,8 +5,12 @@ import static java.util.Objects.requireNonNull;
 import seedu.address.commons.core.index.Index;
 import seedu.address.commons.util.StringUtil;
 import seedu.address.logic.parser.exceptions.ParseException;
-import seedu.address.model.budget.Budget;
-import seedu.address.model.expense.*;
+import seedu.address.model.expense.Amount;
+import seedu.address.model.expense.Date;
+import seedu.address.model.expense.Description;
+import seedu.address.model.expense.ExpenseCategory;
+import seedu.address.model.person.PersonAmount;
+import seedu.address.model.person.PersonName;
 
 /**
  * Contains utility methods used for parsing strings in the various *Parser classes.
@@ -70,32 +74,47 @@ public class ParserUtil {
     }
 
     /**
-     * Parses a {@code String budget} into an {@code Budget}.
-     * Leading and trailing whitespaces will be trimmed.
-     *
-     * @throws ParseException if the given {@code budget} is invalid.
-     */
-    public static Budget parseBudget(String budget) throws ParseException {
-        requireNonNull(budget);
-        String trimmedBudget = budget.trim();
-        if (!Budget.isValidBudget(trimmedBudget)) {
-            throw new ParseException(Budget.MESSAGE_CONSTRAINTS);
-        }
-        return new Budget(trimmedBudget);
-    }
-
-    /**
      * Parses the expense date for the expense.
      * @param expenseDate expense date given to parse.
      * @return Expense date with the input date.
      * @throws ParseException if the input given is wrong.
      */
-    public static ExpenseDate parseDate(String expenseDate) throws ParseException {
+    public static Date parseDate(String expenseDate) throws ParseException {
         requireNonNull(expenseDate);
         String trimmedDate = expenseDate.trim();
-        if (!ExpenseDate.isValidExpenseDate(trimmedDate)) {
-            throw new ParseException(ExpenseDate.MESSAGE_CONSTRAINTS);
+        if (!Date.isValidDate(trimmedDate)) {
+            throw new ParseException(Date.MESSAGE_CONSTRAINTS);
         }
-        return new ExpenseDate(trimmedDate);
+        return new Date(trimmedDate);
+    }
+
+    /**
+     * Parses the amount a person owes.
+     * @param personAmount the amount to be parsed.
+     * @return the parsed amount.
+     * @throws ParseException
+     */
+    public static PersonAmount parsePersonAmount(String personAmount) throws ParseException {
+        requireNonNull(personAmount);
+        String trimmedPersonAmount = personAmount.trim();
+        if (!PersonAmount.isValidPersonAmount(trimmedPersonAmount)) {
+            throw new ParseException(PersonAmount.MESSAGE_CONSTRAINTS);
+        }
+        return new PersonAmount(trimmedPersonAmount);
+    }
+
+    /**
+     * Parses the name of the person who owes money.
+     * @param personName the name to be parsed
+     * @return the parsed name
+     * @throws ParseException
+     */
+    public static PersonName parsePersonName(String personName) throws ParseException {
+        requireNonNull(personName);
+        String trimmedPersonName = personName.trim();
+        if (!PersonName.isValidPersonName(trimmedPersonName)) {
+            throw new ParseException(PersonName.MESSAGE_CONSTRAINTS);
+        }
+        return new PersonName(trimmedPersonName);
     }
 }

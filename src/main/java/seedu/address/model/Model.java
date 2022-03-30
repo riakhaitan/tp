@@ -5,9 +5,10 @@ import java.util.function.Predicate;
 
 import javafx.collections.ObservableList;
 import seedu.address.commons.core.GuiSettings;
-import seedu.address.model.budget.Budget;
+import seedu.address.model.expense.Budget;
 import seedu.address.model.expense.Expense;
 import seedu.address.model.expense.ExpenseCategory;
+import seedu.address.model.person.Person;
 
 /**
  * The API of the Model component.
@@ -18,6 +19,9 @@ public interface Model {
 
     /** {@code Predicate} that always evaluate to true */
     Predicate<Expense> PREDICATE_SHOW_ALL_CATEGORIES = unused -> true;
+
+    /** {@code Predicate} that always evaluate to true */
+    Predicate<Person> PREDICATE_SHOW_ALL_PERSONS = unused -> true;
 
     /**
      * Replaces user prefs data with the data in {@code userPrefs}.
@@ -63,16 +67,33 @@ public interface Model {
     boolean hasExpense(Expense expense);
 
     /**
+     * Returns true if a person with the same identity as {@code expense} exists in the expense expert.
+     */
+    boolean hasPerson(Person person);
+
+    /**
      * Deletes the given expense.
      * The expense must exist in the expense expert.
      */
-    void deleteExpense(Expense target);
+    void deleteExpense(Expense expense);
+
+    /**
+     * Deletes the given expense.
+     * The person must exist in the expense expert.
+     */
+    void deletePerson(Person person);
 
     /**
      * Adds the given expense.
      * {@code expenseCategory} must not already exist in the expense expert.
      */
     void addExpense(Expense expense);
+
+    /**
+     * Adds the given person.
+     * {@code person} must not already exist in the expense expert.
+     */
+    void addPerson(Person person);
 
     /**
      * Replaces the given expense {@code target} with {@code editedExpense}.
@@ -83,8 +104,16 @@ public interface Model {
     void setExpense(Expense target, Expense editedExpense);
 
     /**
+     * Replaces the given person {@code target} with {@code editedExpense}.
+     * {@code target} must exist in the expense expert.
+     * The expense identity of {@code editedPerson} must not be the same as another existing person in
+     * the expense expert.
+     */
+    void setPerson(Person target, Person editedPerson);
+
+    /**
      * Adds the given expense category.
-     * {@code expenseCatgeory} must not already exist in the expense expert.
+     * {@code expenseCategory} must not already exist in the expense expert.
      */
     void addExpenseCategory(ExpenseCategory expenseCategory);
 
@@ -107,11 +136,20 @@ public interface Model {
     /** Returns an unmodifiable view of the filtered expense list */
     ObservableList<Expense> getFilteredExpenseList();
 
+    /** Returns an unmodifiable view of the filtered person list */
+    ObservableList<Person> getFilteredPersonList();
+
     /**
      * Updates the filter of the filtered expense list to filter by the given {@code predicate}.
      * @throws NullPointerException if {@code predicate} is null.
      */
     void updateFilteredExpenseList(Predicate<Expense> predicate);
+
+    /**
+     * Updates the filter of the filtered Person list to filter by the given {@code predicate}.
+     * @throws NullPointerException if {@code predicate} is null.
+     */
+    void updateFilteredPersonList(Predicate<Person> predicate);
 
     /**
      * Replaces the current budget in {@code ExpenseExpert} to {@code budget}

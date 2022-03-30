@@ -5,20 +5,23 @@ import static seedu.address.commons.util.CollectionUtil.requireAllNonNull;
 import java.util.Objects;
 
 public class Expense {
-    // Identity fields
+    /**
+     * Attribute fields
+     */
     private final Description description;
     private final ExpenseCategory expenseCategory;
-    private final Amount amount;
-    private final ExpenseDate expenseDate;
+    private final Amount expenseAmount;
+    private final Date expenseDate;
 
     /**
+     * Constructs a (@code Expense).
      * Every field must be present and not null.
      */
-    public Expense(Description description, ExpenseCategory expenseCategory, Amount amount, ExpenseDate expenseDate) {
-        requireAllNonNull(description, expenseCategory, amount, expenseDate);
+    public Expense(Description description, ExpenseCategory expenseCategory, Amount expenseAmount, Date expenseDate) {
+        requireAllNonNull(description, expenseCategory, expenseAmount, expenseDate);
         this.description = description;
         this.expenseCategory = expenseCategory;
-        this.amount = amount;
+        this.expenseAmount = expenseAmount;
         this.expenseDate = expenseDate;
     }
 
@@ -31,29 +34,29 @@ public class Expense {
     }
 
     public Amount getAmount() {
-        return amount;
+        return expenseAmount;
     }
 
-    public ExpenseDate getExpenseDate() {
+    public Date getExpenseDate() {
         return expenseDate;
     }
 
-    /**
-     * Check if two Expense objects are the same or have the same content.
-     *
-     * @param otherExpense Expense object that is being compared to.
-     * @return true if they same or have the same content and false otherwise.
-     */
-    public boolean isSameExpense(Expense otherExpense) {
-        if (otherExpense == this) {
-            return true;
-        }
+    // /**
+    //  * Check if two Expense objects are the same or have the same content.
+    //  *
+    //  * @param otherExpense Expense object that is being compared to.
+    //  * @return true if they same or have the same content and false otherwise.
+    //  */
+    // public boolean isSameExpense(Expense otherExpense) {
+    //     if (otherExpense == this) {
+    //         return true;
+    //     }
 
-        return otherExpense != null
-                && otherExpense.getDescription().equals(getDescription())
-                && otherExpense.getAmount().equals(getAmount())
-                && otherExpense.getExpenseCategory().equals(getExpenseCategory());
-    }
+    //     return otherExpense != null
+    //             && otherExpense.getDescription().equals(getDescription())
+    //             && otherExpense.getAmount().equals(getAmount())
+    //             && otherExpense.getExpenseCategory().equals(getExpenseCategory());
+    // }
 
     @Override
     public boolean equals(Object other) {
@@ -68,13 +71,14 @@ public class Expense {
         Expense otherExpense = (Expense) other;
         return otherExpense.getDescription().equals(getDescription())
                 && otherExpense.getExpenseCategory().equals(getExpenseCategory())
-                && otherExpense.getAmount().equals(getAmount());
+                && otherExpense.getAmount().equals(getAmount())
+                && otherExpense.getExpenseDate().equals(getExpenseDate());
     }
 
     @Override
     public int hashCode() {
         // use this method for custom fields hashing instead of implementing your own
-        return Objects.hash(description, expenseCategory, amount);
+        return Objects.hash(description, expenseCategory, expenseAmount, expenseDate);
     }
 
     @Override

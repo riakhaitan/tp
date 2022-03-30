@@ -1,39 +1,55 @@
 package seedu.address.testutil;
 
-import seedu.address.model.budget.Budget;
+import seedu.address.model.expense.Amount;
+import seedu.address.model.expense.Budget;
+import seedu.address.model.expense.Date;
 
 /**
  * A utility class to help with building Budget objects.
  */
 public class BudgetBuilder {
 
-    public static final String DEFAULT_BUDGET = "525";
+    public static final String DEFAULT_BUDGET_AMOUNT = "700";
+    public static final String DEFAULT_BUDGET_DATE = "2022-01-01";
 
-    private String budget;
+    private Amount budgetAmount;
+    private Date budgetDate;
 
     /**
      * Creates a {@code BudgetBuilder} with the default details.
      */
     public BudgetBuilder() {
-        budget = DEFAULT_BUDGET;
+        budgetAmount = new Amount(DEFAULT_BUDGET_AMOUNT);
+        budgetDate = new Date(DEFAULT_BUDGET_DATE);
     }
 
     /**
      * Initializes the BudgetBuilder with the data of {@code budgetToCopy}.
      */
     public BudgetBuilder(Budget budgetToCopy) {
-        budget = budgetToCopy.toString();
+        budgetAmount = budgetToCopy.getBudgetAmount();
+        budgetDate = budgetToCopy.getBudgetDate();
     }
 
     /**
-     * Sets the value of the {@code Budget} that we are building.
+     * Sets the {@code Amount} of the {@code Budget} that we are building.
      */
-    public BudgetBuilder withBudget(String budget) {
-        this.budget = budget;
+    public BudgetBuilder withBudgetAmount(String budgetAmount) {
+        this.budgetAmount = new Amount(budgetAmount);
+        return this;
+    }
+
+    /**
+     * Sets the {@code Date} of the {@code Budget} that we are building
+     * @param budgetDate expense date to be set
+     * @return Budget Builder
+     */
+    public BudgetBuilder withBudgetDate(String budgetDate) {
+        this.budgetDate = new Date(budgetDate);
         return this;
     }
 
     public Budget build() {
-        return new Budget(budget);
+        return new Budget(budgetAmount, budgetDate);
     }
 }

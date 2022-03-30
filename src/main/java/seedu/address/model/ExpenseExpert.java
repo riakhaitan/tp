@@ -3,13 +3,18 @@ package seedu.address.model;
 import static java.util.Objects.requireNonNull;
 
 import java.util.List;
+import java.util.Objects;
 
 import javafx.collections.ObservableList;
-import seedu.address.model.budget.Budget;
+import seedu.address.model.expense.Amount;
+import seedu.address.model.expense.Budget;
+import seedu.address.model.expense.Date;
 import seedu.address.model.expense.Expense;
 import seedu.address.model.expense.ExpenseCategory;
 import seedu.address.model.expense.ExpenseCategoryList;
 import seedu.address.model.expense.UniqueExpenseList;
+import seedu.address.model.person.Person;
+import seedu.address.model.person.UniquePersonList;
 
 /**
  * Wraps all data at the address-book level
@@ -20,6 +25,7 @@ public class ExpenseExpert implements ReadOnlyExpenseExpert {
     private final UniqueExpenseList expenses;
     private final ExpenseCategoryList categories;
     private Budget budget;
+    private final UniquePersonList persons;
 
     /*
      * The 'unusual' code block below is a non-static initialization block, sometimes used to avoid duplication
@@ -30,8 +36,9 @@ public class ExpenseExpert implements ReadOnlyExpenseExpert {
      */
     {
         expenses = new UniqueExpenseList();
-        budget = new Budget("0");
         categories = new ExpenseCategoryList();
+        persons = new UniquePersonList();
+        budget = new Budget(new Amount("0"), new Date("1900-01-01"));
     }
 
     public ExpenseExpert() {}
@@ -53,6 +60,9 @@ public class ExpenseExpert implements ReadOnlyExpenseExpert {
     public void setExpenses(List<Expense> expenses) {
         this.expenses.setExpenses(expenses);
     }
+    public void setPersons(List<Person> persons) {
+        this.persons.setPersons(persons);
+    }
 
     /**
      * Resets the existing data of this {@code ExpenseExpert} with {@code newData}.
@@ -63,11 +73,7 @@ public class ExpenseExpert implements ReadOnlyExpenseExpert {
         setExpenses(newData.getExpenseList());
         setCategories(newData.getExpenseCategoryList());
         setBudget(newData.getBudget());
-
-        // Budget newBudget = newData.getBudget();
-        // if (!(newBudget == null)) {
-        //     setBudget(newData.getBudget());
-        // }
+        setPersons(newData.getPersonList());
     }
 
     //// expense-level operations
@@ -81,11 +87,29 @@ public class ExpenseExpert implements ReadOnlyExpenseExpert {
     }
 
     /**
+     * Checks the existence of a person.
+     * @param person the person whose existence is checked
+     * @return boolean for the result
+     */
+    public boolean hasPerson(Person person) {
+        requireNonNull(person);
+        return persons.contains(person);
+    }
+
+    /**
      * Adds a expense to the expense expert.
      * The expense must not already exist in the expense expert.
      */
     public void addExpense(Expense e) {
         expenses.add(e);
+    }
+
+    /**
+     * Adds a person to the list.
+     * @param p the person to be added to the list
+     */
+    public void addPerson(Person p) {
+        persons.add(p);
     }
 
     /**
@@ -101,6 +125,17 @@ public class ExpenseExpert implements ReadOnlyExpenseExpert {
     }
 
     /**
+     * Edits a person given another person
+     * @param target the person to be edited
+     * @param editedPerson the edited person
+     */
+    public void setPerson(Person target, Person editedPerson) {
+        requireNonNull(editedPerson);
+
+        persons.setPerson(target, editedPerson);
+    }
+
+    /**
      * Removes {@code key} from this {@code ExpenseExpert}.
      * {@code key} must exist in the expense expert.
      */
@@ -109,7 +144,6 @@ public class ExpenseExpert implements ReadOnlyExpenseExpert {
     }
 
     //// Category-level operations
-
     /**
      * Replaces the contents of the expense Category list with {@code expenseCategories}.
      * {@code expense categories} must not contain duplicate expense categories.
@@ -134,13 +168,20 @@ public class ExpenseExpert implements ReadOnlyExpenseExpert {
         categories.add(expenseCategory);
     }
 
-
     /**
-     * Removes {@code key} from this {@code ExpenseExpert}.
-     * {@code key} must exist in the expense expert.
+     * Removes {@code ExpenseCategory key} from this {@code ExpenseExpert}.
+     * {@code ExpenseCategory key} must exist in the expense expert.
      */
     public void removeExpenseCategory(ExpenseCategory key) {
         categories.remove(key);
+    }
+
+    /**
+     * Removes {@code Person key} from this {@code ExpenseExpert}.
+     * {@code Person key} must exist in the expense expert.
+     */
+    public void removePerson(Person key) {
+        persons.remove(key);
     }
 
     //// budget-level operations
@@ -172,6 +213,11 @@ public class ExpenseExpert implements ReadOnlyExpenseExpert {
     }
 
     @Override
+    public ObservableList<Person> getPersonList() {
+        return persons.asUnmodifiableObservableList();
+    }
+
+    @Override
     public Budget getBudget() {
         return this.budget;
     }
@@ -181,12 +227,14 @@ public class ExpenseExpert implements ReadOnlyExpenseExpert {
         return other == this // short circuit if same object
                 || (other instanceof ExpenseExpert // instanceof handles nulls
                 && expenses.equals(((ExpenseExpert) other).expenses)
-                && budget.equals(((ExpenseExpert) other).budget));
+                && budget.equals(((ExpenseExpert) other).budget))
+                && persons.equals((((ExpenseExpert) other).persons));
     }
 
     @Override
     public int hashCode() {
-        return expenses.hashCode();
+        // return expenses.hashCode();
+        return Objects.hash(expenses, budget);
     }
 
 

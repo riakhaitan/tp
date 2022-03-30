@@ -16,9 +16,10 @@ import seedu.address.commons.core.GuiSettings;
 import seedu.address.model.Model;
 import seedu.address.model.ReadOnlyExpenseExpert;
 import seedu.address.model.ReadOnlyUserPrefs;
-import seedu.address.model.budget.Budget;
+import seedu.address.model.expense.Budget;
 import seedu.address.model.expense.Expense;
 import seedu.address.model.expense.ExpenseCategory;
+import seedu.address.model.person.Person;
 import seedu.address.testutil.BudgetBuilder;
 
 public class SetBudgetCommandTest {
@@ -40,8 +41,8 @@ public class SetBudgetCommandTest {
 
     @Test
     public void equals() {
-        Budget budgetOf500 = new BudgetBuilder().withBudget("500").build();
-        Budget budgetOf300 = new BudgetBuilder().withBudget("300").build();
+        Budget budgetOf500 = new BudgetBuilder().withBudgetAmount("500").build();
+        Budget budgetOf300 = new BudgetBuilder().withBudgetAmount("300").build();
         SetBudgetCommand set500BudgetCommand = new SetBudgetCommand(budgetOf500);
         SetBudgetCommand set300BudgetCommand = new SetBudgetCommand(budgetOf300);
 
@@ -102,6 +103,11 @@ public class SetBudgetCommandTest {
         }
 
         @Override
+        public void addPerson(Person person) {
+            throw new AssertionError("This method should not be called.");
+        }
+
+        @Override
         public void setExpenseExpert(ReadOnlyExpenseExpert newData) {
             throw new AssertionError("This method should not be called.");
         }
@@ -137,7 +143,17 @@ public class SetBudgetCommandTest {
         }
 
         @Override
+        public boolean hasPerson(Person person) {
+            throw new AssertionError("This method should not be called.");
+        }
+
+        @Override
         public void deleteExpenseCategory(ExpenseCategory target) {
+            throw new AssertionError("This method should not be called.");
+        }
+
+        @Override
+        public void deletePerson(Person person) {
             throw new AssertionError("This method should not be called.");
         }
 
@@ -147,12 +163,27 @@ public class SetBudgetCommandTest {
         }
 
         @Override
+        public void setPerson(Person target, Person editedPerson) {
+            throw new AssertionError("This method should not be called.");
+        }
+
+        @Override
         public ObservableList<Expense> getFilteredExpenseList() {
             throw new AssertionError("This method should not be called.");
         }
 
         @Override
+        public ObservableList<Person> getFilteredPersonList() {
+            throw new AssertionError("This method should not be called.");
+        }
+
+        @Override
         public void updateFilteredExpenseList(Predicate<Expense> predicate) {
+            throw new AssertionError("This method should not be called.");
+        }
+
+        @Override
+        public void updateFilteredPersonList(Predicate<Person> predicate) {
             throw new AssertionError("This method should not be called.");
         }
 

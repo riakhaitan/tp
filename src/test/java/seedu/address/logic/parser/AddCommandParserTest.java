@@ -24,10 +24,10 @@ import org.junit.jupiter.api.Test;
 
 import seedu.address.logic.commands.AddCommand;
 import seedu.address.model.expense.Amount;
+import seedu.address.model.expense.Date;
 import seedu.address.model.expense.Description;
 import seedu.address.model.expense.Expense;
 import seedu.address.model.expense.ExpenseCategory;
-import seedu.address.model.expense.ExpenseDate;
 import seedu.address.testutil.ExpenseBuilder;
 
 public class AddCommandParserTest {
@@ -87,7 +87,7 @@ public class AddCommandParserTest {
 
         // invalid expenseDate
         assertParseFailure(parser, AMOUNT_DESC_BUILD_A_BEAR + DESCRIPTION_DESC_BUILD_A_BEAR
-                + EXPENSE_CATEGORY_DESC_ENTERTAINMENT + INVALID_EXPENSE_DATE_DESC, ExpenseDate.MESSAGE_CONSTRAINTS);
+                + EXPENSE_CATEGORY_DESC_ENTERTAINMENT + INVALID_EXPENSE_DATE_DESC, Date.MESSAGE_CONSTRAINTS);
 
         // invalid description
         assertParseFailure(parser, AMOUNT_DESC_BUILD_A_BEAR + INVALID_DESCRIPTION_DESC

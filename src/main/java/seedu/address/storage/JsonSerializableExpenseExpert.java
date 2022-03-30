@@ -12,7 +12,11 @@ import seedu.address.commons.exceptions.IllegalValueException;
 import seedu.address.model.ExpenseExpert;
 import seedu.address.model.ReadOnlyExpenseExpert;
 import seedu.address.model.expense.Expense;
+<<<<<<< HEAD
 import seedu.address.model.expense.ExpenseCategory;
+=======
+import seedu.address.model.person.Person;
+>>>>>>> master
 
 /**
  * An Immutable ExpenseExpert that is serializable to JSON format.
@@ -21,6 +25,7 @@ import seedu.address.model.expense.ExpenseCategory;
 class JsonSerializableExpenseExpert {
 
     public static final String MESSAGE_DUPLICATE_EXPENSE = "Expenses list contains duplicate expense(s).";
+<<<<<<< HEAD
     public static final String MESSAGE_DUPLICATE_EXPENSE_CATEGORY =
             "Expenses Category list contains duplicate expense category/categories.";
     public static final String MESSAGE_INVALID_EXPENSE_CATEGORY =
@@ -29,13 +34,22 @@ class JsonSerializableExpenseExpert {
     private final List<JsonAdaptedExpense> expenses = new ArrayList<>();
     private JsonAdaptedBudget budget;
     private final List<JsonAdaptedExpenseCategory> expenseCategories = new ArrayList<>();
+=======
+    public static final String MESSAGE_DUPLICATE_PERSON = "Persons list contains duplicate person(s).";
+
+    private final List<JsonAdaptedExpense> expenses = new ArrayList<>();
+    private JsonAdaptedBudget budget;
+    private final List<JsonAdaptedPerson> persons = new ArrayList<>();
+>>>>>>> master
 
     /**
      * Constructs a {@code JsonSerializableExpenseExpert} with the given expenses.
      */
     @JsonCreator
-    public JsonSerializableExpenseExpert(@JsonProperty("expenses") List<JsonAdaptedExpense> expenses) {
+    public JsonSerializableExpenseExpert(@JsonProperty("expenses") List<JsonAdaptedExpense> expenses,
+                                         @JsonProperty("persons") List <JsonAdaptedPerson> persons) {
         this.expenses.addAll(expenses);
+        this.persons.addAll(persons);
     }
 
     /**
@@ -46,6 +60,7 @@ class JsonSerializableExpenseExpert {
     public JsonSerializableExpenseExpert(ReadOnlyExpenseExpert source) {
         expenseCategories.addAll(source.getExpenseCategoryList().stream().map(JsonAdaptedExpenseCategory::new).collect(Collectors.toList()));
         expenses.addAll(source.getExpenseList().stream().map(JsonAdaptedExpense::new).collect(Collectors.toList()));
+        persons.addAll(source.getPersonList().stream().map(JsonAdaptedPerson::new).collect(Collectors.toList()));
         this.budget = new JsonAdaptedBudget(source.getBudget());
     }
 
@@ -74,6 +89,13 @@ class JsonSerializableExpenseExpert {
                 throw new IllegalValueException(MESSAGE_INVALID_EXPENSE_CATEGORY);
             }
             expenseExpert.addExpense(expense);
+        }
+        for (JsonAdaptedPerson jsonAdaptedPerson : persons) {
+            Person person = jsonAdaptedPerson.toModelType();
+            if (expenseExpert.hasPerson(person)) {
+                throw new IllegalValueException(MESSAGE_DUPLICATE_PERSON);
+            }
+            expenseExpert.addPerson(person);
         }
         expenseExpert.setBudget(this.budget.toModelType());
 
