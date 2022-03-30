@@ -45,6 +45,9 @@ public class EditCommand extends Command {
     public static final String MESSAGE_EDIT_EXPENSE_SUCCESS = "Edited Expense: %1$s";
     public static final String MESSAGE_NOT_EDITED = "At least one field to edit must be provided.";
     public static final String MESSAGE_DUPLICATE_EXPENSE = "This expense already exists in Expense Expert.";
+    public static final String MESSAGE_INVALID_EXPENSE_CATEGORY =
+            "This expense category does not exists in Expense Expert." +
+                    "\nUse the addCat Command to create a new category";
 
     private final Index index;
     private final EditExpenseDescriptor editExpenseDescriptor;
@@ -75,6 +78,10 @@ public class EditCommand extends Command {
 
         if (!expenseToEdit.isSameExpense(editedExpense) && model.hasExpense(editedExpense)) {
             throw new CommandException(MESSAGE_DUPLICATE_EXPENSE);
+        }
+
+        if (!model.hasExpenseCategory(editedExpense.getExpenseCategory())) {
+            throw new CommandException(MESSAGE_INVALID_EXPENSE_CATEGORY);
         }
 
         model.setExpense(expenseToEdit, editedExpense);

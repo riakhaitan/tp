@@ -23,6 +23,7 @@ import seedu.address.model.ReadOnlyUserPrefs;
 import seedu.address.model.budget.Budget;
 import seedu.address.model.expense.Expense;
 // import seedu.address.testutil.BudgetBuilder;
+import seedu.address.model.expense.ExpenseCategory;
 import seedu.address.testutil.ExpenseBuilder;
 
 public class AddCommandTest {
@@ -50,6 +51,16 @@ public class AddCommandTest {
         assertEquals(Arrays.asList(validExpense), modelStub.expensesAdded);
     }
 
+//    @Test
+//    public void execute_invalidCategoryExpense_throwsCommandException() {
+//        Expense invalidCategoryExpense = new ExpenseBuilder().withExpenseCategory("invalid").build();
+//        AddCommand addCommand = new AddCommand(invalidCategoryExpense);
+//        ModelStub modelStub = new ModelStubWithExpense(invalidCategoryExpense);
+//
+//        assertThrows(CommandException.class,
+//                AddCommand.MESSAGE_INVALID_EXPENSE_CATEGORY, () -> addCommand.execute(modelStub));
+//    }
+
     @Test
     public void execute_duplicateExpense_throwsCommandException() {
         Expense validExpense = new ExpenseBuilder().build();
@@ -58,6 +69,7 @@ public class AddCommandTest {
 
         assertThrows(CommandException.class, AddCommand.MESSAGE_DUPLICATE_EXPENSE, () -> addCommand.execute(modelStub));
     }
+
 
     @Test
     public void equals() {
@@ -144,6 +156,21 @@ public class AddCommandTest {
 
         @Override
         public void setExpense(Expense target, Expense editedExpense) {
+            throw new AssertionError("This method should not be called.");
+        }
+
+        @Override
+        public void addExpenseCategory(ExpenseCategory expenseCategory) {
+            throw new AssertionError("This method should not be called.");
+        }
+
+        @Override
+        public void deleteExpenseCategory(ExpenseCategory target) {
+            throw new AssertionError("This method should not be called.");
+        }
+
+        @Override
+        public boolean hasExpenseCategory(ExpenseCategory expenseCategory) {
             throw new AssertionError("This method should not be called.");
         }
 
