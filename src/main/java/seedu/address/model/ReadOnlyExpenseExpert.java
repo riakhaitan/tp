@@ -26,5 +26,4 @@ public interface ReadOnlyExpenseExpert {
 
     /** Returns the budget in ExpenseExpert */
     Budget getBudget();
-    
 }
