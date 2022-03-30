@@ -1,10 +1,12 @@
 package seedu.address.ui;
 
+import java.io.FileInputStream;
 import java.util.logging.Logger;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
 import javafx.scene.input.Clipboard;
 import javafx.scene.input.ClipboardContent;
 import javafx.stage.Stage;
@@ -29,6 +31,9 @@ public class HelpWindow extends UiPart<Stage> {
     @FXML
     private Label helpMessage;
 
+    // @FXML
+    // private Image helpImage;
+
     /**
      * Creates a new HelpWindow.
      *
@@ -37,6 +42,7 @@ public class HelpWindow extends UiPart<Stage> {
     public HelpWindow(Stage root) {
         super(FXML, root);
         helpMessage.setText(HelpCommand.helpCommandString());
+        // helpImage = new Image(new FileInputStream("/images/coin_sprite.png"));
     }
 
     /**

@@ -38,7 +38,7 @@ public class BudgetDisplay extends UiPart<Region> {
         String budgetAmount = budget.getBudgetAmount().toString();
         String budgetDate = budget.getBudgetDate().toString();
         if (!(budgetAmount == "0" || budgetDate == "1900-01-01")) {
-            budgetDisplay.setText(MONTHLY_BUDGET + budgetAmount + " set on " + budgetDate);
+            budgetDisplay.setText(MONTHLY_BUDGET + budgetAmount + ".");
         } else {
             budgetDisplay.setText("Budget for this month has not been set yet!");
         }

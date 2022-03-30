@@ -1,56 +1,70 @@
 {
   "expenses" : [ {
-    "description" : "took grab",
-    "expenseCategory" : "travel",
+    "description" : "Grab",
+    "expenseCategory" : "Travel",
     "amount" : "20",
     "expenseDate" : "2022-02-21"
   }, {
-    "description" : "mcdonalds",
-    "expenseCategory" : "food",
+    "description" : "McDonalds",
+    "expenseCategory" : "Food",
     "amount" : "10",
     "expenseDate" : "2022-03-22"
   }, {
-    "description" : "kayaking",
-    "expenseCategory" : "leisure",
+    "description" : "Kayaking",
+    "expenseCategory" : "Leisure",
     "amount" : "8",
     "expenseDate" : "2022-02-18"
   }, {
-    "description" : "zara",
-    "expenseCategory" : "clothes",
+    "description" : "Zara",
+    "expenseCategory" : "Clothes",
     "amount" : "100",
     "expenseDate" : "2022-03-16"
   }, {
     "description" : "MRT",
-    "expenseCategory" : "travel",
-    "amount" : "2.8",
+    "expenseCategory" : "Travel",
+    "amount" : "2.80",
     "expenseDate" : "2022-03-18"
   }, {
-    "description" : "bowling",
-    "expenseCategory" : "leisure",
+    "description" : "Bowling",
+    "expenseCategory" : "Leisure",
     "amount" : "15",
     "expenseDate" : "2022-03-10"
+  }, {
+    "description" : "Groceries",
+    "expenseCategory" : "Shopping",
+    "amount" : "1000",
+    "expenseDate" : "2020-02-22"
   } ],
   "persons" : [ {
-    "personName" : "alex",
+    "personName" : "Alex",
     "personAmount" : "50"
   }, {
-    "personName" : "neel",
+    "personName" : "Neel",
     "personAmount" : "70"
   }, {
-    "personName" : "bob",
+    "personName" : "Bob",
     "personAmount" : "200"
   }, {
-    "personName" : "craig",
+    "personName" : "Craig",
     "personAmount" : "1000"
   }, {
-    "personName" : "george",
+    "personName" : "George",
     "personAmount" : "220"
   }, {
-    "personName" : "jade",
+    "personName" : "Jade",
     "personAmount" : "50"
   }, {
-    "personName" : "chris",
+    "personName" : "Chris",
     "personAmount" : "75"
+  }, {
+    "personName" : "Anne",
+    "personAmount" : "30"
+  }, {
+    "personName" : "Mabel",
+    "personAmount" : "55"
+  }, {
+    "personName" : "Emme",
+    "personAmount" : "70"
   } ],
   "budget" : {
     "budgetAmount" : "1000",
