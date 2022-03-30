@@ -4,7 +4,7 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import seedu.address.commons.exceptions.IllegalValueException;
-import seedu.address.model.expense.ExpenseCategory;;
+import seedu.address.model.expense.ExpenseCategory;
 
 public class JsonAdaptedExpenseCategory {
 

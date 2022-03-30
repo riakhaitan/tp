@@ -50,6 +50,9 @@ public class ExpenseCategory {
         return expenseCategory.hashCode();
     }
 
+    /**
+     * Returns true if a the expenseCategories have the same String regardless of case.
+     */
     public boolean isSameExpenseCategory(ExpenseCategory otherExpenseCategory) {
         if (otherExpenseCategory == this) {
             return true;
