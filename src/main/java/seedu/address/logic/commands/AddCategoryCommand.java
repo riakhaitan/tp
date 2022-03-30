@@ -7,11 +7,11 @@ import seedu.address.model.expense.ExpenseCategory;
 import static java.util.Objects.requireNonNull;
 import static seedu.address.logic.parser.CliSyntax.*;
 
-public class AddCategoryCommand extends Command{
+public class AddCategoryCommand extends Command {
 
     public static final String COMMAND_WORD = "addCat";
 
-    public static final String MESSAGE_USAGE = COMMAND_WORD + ": Adds an expense to Expense Expert. "
+    public static final String MESSAGE_USAGE = COMMAND_WORD + ": Adds an expense Category to Expense Expert. "
             + "Parameters: "
             + PREFIX_EXPENSE_CATEGORY + "DESCRIPTION \n"
             + "Example: " + COMMAND_WORD + " "

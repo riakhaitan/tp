@@ -1,18 +1,21 @@
 package seedu.address.model.expense;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static seedu.address.testutil.Assert.assertThrows;
+import static seedu.address.testutil.TypicalExpenses.ENTERTAINMENT_CATEGORY;
+import static seedu.address.testutil.TypicalExpenses.TRANSPORT_CATEGORY;
 
-import org.junit.jupiter.api.Test;
-import seedu.address.model.expense.exceptions.DuplicateExpenseCategoryException;
-import seedu.address.model.expense.exceptions.ExpenseCategoryNotFoundException;
-import seedu.address.testutil.ExpenseCategoryBuilder;
 import java.util.Arrays;
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.*;
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static seedu.address.testutil.Assert.assertThrows;
-import static seedu.address.testutil.TypicalExpenses.TRANSPORT_CATEGORY;
-import static seedu.address.testutil.TypicalExpenses.ENTERTAINMENT_CATEGORY;
+import org.junit.jupiter.api.Test;
+
+import seedu.address.model.expense.exceptions.DuplicateExpenseCategoryException;
+import seedu.address.model.expense.exceptions.ExpenseCategoryNotFoundException;
+import seedu.address.testutil.ExpenseCategoryBuilder;
+
 
 class ExpenseCategoryListTest {
     private final ExpenseCategoryList expenseCategoryList = new ExpenseCategoryList();
@@ -47,7 +50,7 @@ class ExpenseCategoryListTest {
     }
 
     @Test
-    public void add_duplicateExpenseCategory__throwsDuplicateExpenseCategory_Exception() {
+    public void add_duplicateExpenseCategory_throwsDuplicateExpenseCategoryException() {
         expenseCategoryList.add(TRANSPORT_CATEGORY);
         assertThrows(DuplicateExpenseCategoryException.class, () -> expenseCategoryList.add(TRANSPORT_CATEGORY));
     }
@@ -74,8 +77,8 @@ class ExpenseCategoryListTest {
     // setExpense_nullUniqueExpenseList() -> throwsNullPointerException()
     @Test
     public void setExpense_nullUniqueExpenseList() {
-        assertThrows(NullPointerException.class, () -> expenseCategoryList.
-                setExpenseCategories((ExpenseCategoryList) null));
+        assertThrows(NullPointerException.class, () -> expenseCategoryList
+                .setExpenseCategories((ExpenseCategoryList) null));
     }
     // setExpense_UniqueExpenseList -> replacesOwnListWithProvidedUniqueExpenseList
     @Test

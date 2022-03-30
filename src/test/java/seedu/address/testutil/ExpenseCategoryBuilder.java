@@ -1,6 +1,6 @@
 package seedu.address.testutil;
 
-import seedu.address.model.expense.*;
+import seedu.address.model.expense.ExpenseCategory;
 
 public class ExpenseCategoryBuilder {
 

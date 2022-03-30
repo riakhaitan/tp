@@ -95,6 +95,11 @@ public interface Model {
     void deleteExpenseCategory(ExpenseCategory target);
 
     /**
+     * Returns true if a expense has a valid Expense Category {@code expense} exists in the expense expert.
+     */
+    boolean validExpenseCategory(Expense expense);
+
+    /**
      * Returns true if a expense category with the same identity as {@code expense} exists in the expense expert.
      */
     boolean hasExpenseCategory(ExpenseCategory expenseCategory);

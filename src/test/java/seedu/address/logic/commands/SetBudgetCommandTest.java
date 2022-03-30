@@ -112,6 +112,11 @@ public class SetBudgetCommandTest {
         }
 
         @Override
+        public boolean validExpenseCategory(Expense expense) {
+            throw new AssertionError("This method should not be called.");
+        }
+
+        @Override
         public boolean hasExpense(Expense expense) {
             throw new AssertionError("This method should not be called.");
         }

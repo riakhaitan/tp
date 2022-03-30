@@ -137,6 +137,13 @@ public class ModelManager implements Model {
     }
 
     @Override
+    public boolean validExpenseCategory(Expense expense) {
+        requireNonNull(expense);
+        return expenseExpert.hasExpenseCategory(expense.getExpenseCategory());
+    }
+
+
+    @Override
     public Budget getBudget() {
         return expenseExpert.getBudget();
     }
@@ -151,6 +158,7 @@ public class ModelManager implements Model {
     public ObservableList<Expense> getFilteredExpenseList() {
         return filteredExpenses;
     }
+
 
     @Override
     public void updateFilteredExpenseList(Predicate<Expense> predicate) {

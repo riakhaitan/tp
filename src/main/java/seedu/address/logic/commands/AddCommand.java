@@ -55,7 +55,7 @@ public class AddCommand extends Command {
             throw new CommandException(MESSAGE_DUPLICATE_EXPENSE);
         }
 
-        if (!model.hasExpenseCategory(toAdd.getExpenseCategory())) {
+        if (!model.validExpenseCategory(toAdd)) {
             throw new CommandException(MESSAGE_INVALID_EXPENSE_CATEGORY);
         }
 

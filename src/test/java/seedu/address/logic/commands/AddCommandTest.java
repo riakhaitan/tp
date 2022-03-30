@@ -22,7 +22,6 @@ import seedu.address.model.ReadOnlyExpenseExpert;
 import seedu.address.model.ReadOnlyUserPrefs;
 import seedu.address.model.budget.Budget;
 import seedu.address.model.expense.Expense;
-// import seedu.address.testutil.BudgetBuilder;
 import seedu.address.model.expense.ExpenseCategory;
 import seedu.address.testutil.ExpenseBuilder;
 
@@ -37,29 +36,12 @@ public class AddCommandTest {
     public void execute_expenseAcceptedByModel_addSuccessful() throws Exception {
         ModelStubAcceptingExpenseAdded modelStub = new ModelStubAcceptingExpenseAdded();
         Expense validExpense = new ExpenseBuilder().build();
-        // Budget validBudget = new BudgetBuilder().build();
-        // Budget newBudget = new Budget(validBudget.asInt() - validExpense.getAmount().asInt());
 
         CommandResult commandResult = new AddCommand(validExpense).execute(modelStub);
 
-        assertEquals(String.format(AddCommand.MESSAGE_SUCCESS, validExpense),
-                commandResult.getFeedbackToUser());
-        // assertEquals(String.format(AddCommand.MESSAGE_SUCCESS, validExpense)
-        //         + "\n\n"
-        //         + String.format(AddCommand.BUDGET_EDITED, newBudget),
-        //         commandResult.getFeedbackToUser());
+        assertEquals(String.format(AddCommand.MESSAGE_SUCCESS, validExpense), commandResult.getFeedbackToUser());
         assertEquals(Arrays.asList(validExpense), modelStub.expensesAdded);
     }
-
-//    @Test
-//    public void execute_invalidCategoryExpense_throwsCommandException() {
-//        Expense invalidCategoryExpense = new ExpenseBuilder().withExpenseCategory("invalid").build();
-//        AddCommand addCommand = new AddCommand(invalidCategoryExpense);
-//        ModelStub modelStub = new ModelStubWithExpense(invalidCategoryExpense);
-//
-//        assertThrows(CommandException.class,
-//                AddCommand.MESSAGE_INVALID_EXPENSE_CATEGORY, () -> addCommand.execute(modelStub));
-//    }
 
     @Test
     public void execute_duplicateExpense_throwsCommandException() {
@@ -69,7 +51,6 @@ public class AddCommandTest {
 
         assertThrows(CommandException.class, AddCommand.MESSAGE_DUPLICATE_EXPENSE, () -> addCommand.execute(modelStub));
     }
-
 
     @Test
     public void equals() {
@@ -180,6 +161,11 @@ public class AddCommandTest {
         }
 
         @Override
+        public boolean validExpenseCategory(Expense expense) {
+            throw new AssertionError("This method should not be called.");
+        }
+
+        @Override
         public void updateFilteredExpenseList(Predicate<Expense> predicate) {
             throw new AssertionError("This method should not be called.");
         }
@@ -193,7 +179,9 @@ public class AddCommandTest {
         public Budget getBudget() {
             throw new AssertionError("This method should not be called.");
         }
+
     }
+
 
     /**
      * A Model stub that contains a single expense.
@@ -209,8 +197,10 @@ public class AddCommandTest {
         @Override
         public boolean hasExpense(Expense expense) {
             requireNonNull(expense);
-            return this.expense.isSameExpense(expense);
+            return this.expense.equals(expense);
         }
+
+
     }
 
     /**
@@ -223,7 +213,7 @@ public class AddCommandTest {
         @Override
         public boolean hasExpense(Expense expense) {
             requireNonNull(expense);
-            return expensesAdded.stream().anyMatch(expense::isSameExpense);
+            return expensesAdded.stream().anyMatch(expense::equals);
         }
 
         @Override
@@ -233,19 +223,15 @@ public class AddCommandTest {
         }
 
         @Override
+        public boolean validExpenseCategory(Expense expense) {
+            requireNonNull(expense);
+            return true;
+        }
+
+        @Override
         public ReadOnlyExpenseExpert getExpenseExpert() {
             return new ExpenseExpert();
         }
-
-        // @Override
-        // public void setBudget(Budget budget) {
-        //     this.budget = budget;
-        // }
-
-        // @Override
-        // public Budget getBudget() {
-        //     return this.budget;
-        // }
     }
 
 }

@@ -9,7 +9,7 @@ import static seedu.address.logic.parser.CliSyntax.PREFIX_EXPENSE_CATEGORY;
 
 import java.util.stream.Stream;
 
-public class AddCategoryCommandParser {
+public class AddCategoryCommandParser implements Parser<AddCategoryCommand> {
     /**
      * Parses the given {@code String} of arguments in the context of the AddCommand
      * and returns an AddCommand object for execution.
