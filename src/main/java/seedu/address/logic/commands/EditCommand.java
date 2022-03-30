@@ -46,8 +46,8 @@ public class EditCommand extends Command {
     public static final String MESSAGE_NOT_EDITED = "At least one field to edit must be provided.";
     public static final String MESSAGE_DUPLICATE_EXPENSE = "This expense already exists in Expense Expert.";
     public static final String MESSAGE_INVALID_EXPENSE_CATEGORY =
-            "This expense category does not exists in Expense Expert." +
-                    "\nUse the addCat Command to create a new category";
+            "This expense category does not exists in Expense Expert."
+                    + "\nUse the addCat Command to create a new category";
 
     private final Index index;
     private final EditExpenseDescriptor editExpenseDescriptor;
