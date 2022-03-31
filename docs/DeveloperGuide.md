@@ -204,7 +204,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 | `* * *`  | user     | edit an expense along with its details              |                                                                         |
 | `* * *`  | user     | view all expense recorded                           | locate details of expenses without having to go through the entire list |
 | `* *`     | user     | find an expense base on keyword(s)                  |                                                                         |
-| `* *`    | user     | filter expenses based on date/month                 |                                                                         |
+| `* *`    | user     | filter expenses based on date/month and/or category |                                                                         |
 | `* *`    | user     | set a monthly budget                                | keep track of my savings and over-expenditure                           |
 
 *{More to be added}*
@@ -258,7 +258,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
         3a1. ExpenseExpert notifies the user that there exists no expense to delete
         Use case ends.
 
-**Use case: UC03 Edit an expenses**
+**Use case: UC03 Edit an expense**
 
 **MSS**
 1. User requests to edit an expense.
@@ -280,7 +280,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
         3a1. ExpenseExpert notify user that expense edited will duplicate of another expense in ExpenseExpert.
         Use case ends.
 
-**Use case: UC04 Find an expense**
+**Use case: UC04 Find expense(s)**
 
 **MSS**
 1. User requests to find a/some particular expense(s) through keywords.
@@ -302,7 +302,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
         3a1. ExpenseExpert returns an empty list to the user
         Use case ends.
 
-**Use case: UC04 Help the user**
+**Use case: UC05 Help the user**
 
 **MSS**
 1. User requests to know how to use the system.
@@ -316,7 +316,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
         1a1. ExpenseExpert requests to check the keyword and enter command again.
         Use case ends.
 
-**Use case: UC05 Clear ExpenseExpert**
+**Use case: UC06 Clear ExpenseExpert**
 
 **MSS**
 1. User requests to clear all the expenses added until then.
@@ -330,7 +330,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
         1a1. ExpenseExpert requests to check the keyword and enter command again.
         Use case ends.
 
-**Use case: UC06 Set Monthly Budget**
+**Use case: UC07 Set Monthly Budget**
 
 **MSS**
 1. User requests to set a monthly budget.
@@ -352,7 +352,15 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
         3a1. ExpenseExpert notifies the user of the invalidity of the empty budget.
         Use case ends.
 
-**Use case: UC07 Exit ExpenseExpert**
+**Use case: UC08 Filter expense(s)**
+
+**MSS**
+1. User requests to filter the expense list.
+2. Expense Expert sets a monthly budget for the user.
+
+   Use case ends.
+
+**Use case: UC09 Exit ExpenseExpert**
 
 **MSS**
 1. User requests to exit the app.

@@ -58,6 +58,9 @@ public class TypicalExpenses {
     public static final String MONTH_WITH_ONE_MATCH = "2022-01";
     public static final String MONTH_WITH_TWO_MATCHES = "2022-02";
 
+    public static final String CATEGORY_WITH_THREE_MATCHES = "Entertainment";
+    public static final String CATEGORY_WITH_NO_MATCH = "Food";
+
     public static final Expense ANNUAL_SPOTIFY = new ExpenseBuilder().withDescription(VALID_DESCRIPTION_ANNUAL_SPOTIFY)
             .withExpenseCategory(VALID_EXPENSE_CATEGORY_ENTERTAINMENT).withAmount(VALID_AMOUNT_ANNUAL_SPOTIFY)
             .withExpenseDate(VALID_EXPENSE_DATE_ANNUAL_SPOTIFY).build();
