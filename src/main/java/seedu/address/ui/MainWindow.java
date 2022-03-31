@@ -35,9 +35,13 @@ public class MainWindow extends UiPart<Stage> {
     private BudgetDisplay budgetResultDisplay;
     private ResultDisplay commandResultDisplay;
     private HelpWindow helpWindow;
+    private PersonListPanel personListPanel;
 
     @FXML
     private StackPane commandBoxPlaceholder;
+
+    @FXML
+    private StackPane personListPanelPlaceholder;
 
     @FXML
     private MenuItem helpMenuItem;
@@ -115,6 +119,9 @@ public class MainWindow extends UiPart<Stage> {
      * Fills up all the placeholders of this window.
      */
     void fillInnerParts() {
+
+        personListPanel = new PersonListPanel(logic.getFilteredPersonList());
+        personListPanelPlaceholder.getChildren().add(personListPanel.getRoot());
         expenseListPanel = new ExpenseListPanel(logic.getFilteredExpenseList());
         expenseListPanelPlaceholder.getChildren().add(expenseListPanel.getRoot());
 
@@ -170,6 +177,10 @@ public class MainWindow extends UiPart<Stage> {
         logic.setGuiSettings(guiSettings);
         helpWindow.hide();
         primaryStage.hide();
+    }
+
+    public PersonListPanel getPersonListPanel() {
+        return personListPanel;
     }
 
     public ExpenseListPanel getExpenseListPanel() {

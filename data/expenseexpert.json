@@ -33,7 +33,19 @@
     "personAmount" : "70"
   }, {
     "personName" : "bob",
-    "personAmount" : "10"
+    "personAmount" : "200"
+  }, {
+    "personName" : "craig",
+    "personAmount" : "1000"
+  }, {
+    "personName" : "george",
+    "personAmount" : "220"
+  }, {
+    "personName" : "jade",
+    "personAmount" : "50"
+  }, {
+    "personName" : "chris",
+    "personAmount" : "75"
   } ],
   "budget" : {
     "budgetAmount" : "2000",
