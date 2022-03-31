@@ -1,8 +1,0 @@
-diff a/src/main/resources/view/BudgetDisplay.fxml b/src/main/resources/view/BudgetDisplay.fxml	(rejected hunks)
-@@ -4,5 +4,5 @@
- <?import javafx.scene.layout.StackPane?>
- 
- <StackPane fx:id="placeHolder" styleClass="pane-with-border" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
--  <TextArea fx:id="budgetDisplay" editable="false" prefHeight="30" styleClass="budget-display" />
-+  <TextArea fx:id="budgetDisplay" editable="false" prefHeight="20" styleClass="budget-display" />
- </StackPane>

@@ -1,9 +1,0 @@
-diff a/src/main/resources/view/DarkTheme.css b/src/main/resources/view/DarkTheme.css	(rejected hunks)
-@@ -182,6 +182,7 @@
-   -fx-font-family: sans-serif;
-   -fx-font-size: 13pt;
-   -fx-text-fill: white;
-+  -fx-text-align: center;
- }
- 
- .budget-display .label {

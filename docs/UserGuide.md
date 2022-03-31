@@ -9,6 +9,7 @@ Expense Expert is a **desktop app for keeping track of your expenses, and managi
   {:toc}
 
 ---
+
 ## Quick start
 
 1. Ensure you have Java `11` or above installed in your Computer.
@@ -30,7 +31,6 @@ Expense Expert is a **desktop app for keeping track of your expenses, and managi
    - **`delete`** `3` : Deletes the 3rd expense shown in the current list.
 
    - **`exit`** : Exits the app for you.
-
 
 1. Refer to the [Features](#features) below for details of each command.
 
@@ -113,7 +113,7 @@ Format: `list`
 ### Filtering expense(s): `filter`
 
 Filter expenses with the date provided. At least one of the fields in brackets need to be present.
-Date format must be provided in yyyy-MM-dd format or in yyyy-MM format. If date provided is in  yyyy-MM format,
+Date format must be provided in yyyy-MM-dd format or in yyyy-MM format. If date provided is in yyyy-MM format,
 the displayed will include all the results of that month.
 
 Format: `filter (ft/DATE) (c/CATEGORY)`
@@ -162,7 +162,6 @@ Shows a list of all expenses recorded in Expense Expert.
 
 Format: `listCat`
 
-
 ### Adding a person who owes you money: `person`
 
 Add a person with a given name who owes you a specific amount.
@@ -183,9 +182,9 @@ Examples:
 
 - `paid 1`
 
-### Exiting the program : `clear`
+### Clearing the program data : `clear`
 
-Deletes all expenses from Expense Expert.
+Deletes all expenses and budget from Expense Expert.
 
 Format: `clear`
 
@@ -222,19 +221,19 @@ _Details coming soon ..._
 
 ## Command summary
 
-| Action     | Format, Examples                                                                                                                         |
-| ---------- |------------------------------------------------------------------------------------------------------------------------------------------|
-| **Help**   | `help`                                                                                                                                   | 
-| **Add**    | `add d/DESCRIPTION a/AMOUNT [c/EXPENSE_CATEGORY] t/EXPENSE_DATE ` <br> Example: `add d/Lunch at VivoCity a/12.95 c/Food t/2022-03-20`    |
-| **Delete** | `delete INDEX`<br> Example: `delete 3`                                                                                                   |
-| **Edit**   | `edit INDEX [d/DESCRIPTION] [a/AMOUNT] [c/EXPENSE_CATEGORY] [t/EXPENSE_DATE]`<br> Example:`edit 2 d/Lunch at Harbourfront Centre a/6.50` |
-| **List**   | `list`                                                                                                                                   |
-| **Filter** | `filter (ft/FILTER_DATE) (c/CATEGORY)` <br> Example: `filter ft/2022-03 c/Transport`                                                     |
-| **Find**   | `find KEYWORD [MORE_KEYWORDS]` <br> Example: `find Cafe Grab Basketball`                                                                 |
-| **Budget** | `budget b/BUDGET` <br> Example: `budget b/1000`                                                                                          |
-| **AddCat** | `addCat c/EXPENSE_CATEGORY` <br> Example: `addCat c/transport`                                                                           |
-| **ListCat**| `listCat`                                                                                                                                |
-| **Person** | `person n/PERSON_NAME a/PERSON_AMOUNT` <br> Example: `person n/Alex a/50`                                                                |
-| **Paid**   | `paid INDEX` <br> Example: `paid 1`                                                                                                      |
-| **Clear**  | `clear`                                                                                                                                  |
-| **Exit**   | `exit`                                                                                                                                   |
+| Action      | Format, Examples                                                                                                                         |
+| ----------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
+| **Help**    | `help`                                                                                                                                   |
+| **Add**     | `add d/DESCRIPTION a/AMOUNT c/EXPENSE_CATEGORY t/EXPENSE_DATE ` <br> Example: `add d/Lunch at VivoCity a/12.95 c/Food t/2022-03-20`      |
+| **Delete**  | `delete INDEX`<br> Example: `delete 3`                                                                                                   |
+| **Edit**    | `edit INDEX (d/DESCRIPTION) (a/AMOUNT) (c/EXPENSE_CATEGORY) (t/EXPENSE_DATE)`<br> Example:`edit 2 d/Lunch at Harbourfront Centre a/6.50` |
+| **List**    | `list`                                                                                                                                   |
+| **Filter**  | `filter (ft/FILTER_DATE) (c/CATEGORY)` <br> Example: `filter ft/2022-03 c/Transport`                                                     |
+| **Find**    | `find KEYWORD [MORE_KEYWORDS]` <br> Example: `find Cafe Grab Basketball`                                                                 |
+| **Budget**  | `budget b/BUDGET` <br> Example: `budget b/1000`                                                                                          |
+| **AddCat**  | `addCat c/EXPENSE_CATEGORY` <br> Example: `addCat c/transport`                                                                           |
+| **ListCat** | `listCat`                                                                                                                                |
+| **Person**  | `person n/PERSON_NAME a/PERSON_AMOUNT` <br> Example: `person n/Alex a/50`                                                                |
+| **Paid**    | `paid INDEX` <br> Example: `paid 1`                                                                                                      |
+| **Clear**   | `clear`                                                                                                                                  |
+| **Exit**    | `exit`                                                                                                                                   |

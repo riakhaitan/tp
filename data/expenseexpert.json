@@ -50,12 +50,6 @@
     "personAmount" : "200.00"
   } ],
   "budget" : {
-<<<<<<< HEAD
-    "budgetAmount" : "1000",
-    "budgetDate" : "2022-03-30"
-  }
-}
-=======
     "budgetAmount" : "2000.00",
     "budgetDate" : "2022-03-01"
   },
@@ -71,4 +65,3 @@
     "expenseCategory" : "Transport"
   } ]
 }
->>>>>>> upstream/master
