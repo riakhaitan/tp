@@ -1,6 +1,7 @@
 package seedu.address.logic.parser;
 
 import static seedu.address.commons.core.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_EXPENSE_CATEGORY;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_FILTER_DATE;
 
 import java.text.DateFormat;
@@ -13,6 +14,8 @@ import java.util.stream.Stream;
 
 import seedu.address.logic.commands.FilterCommand;
 import seedu.address.logic.parser.exceptions.ParseException;
+import seedu.address.model.expense.ExpenseCategory;
+import seedu.address.model.expense.ExpenseCategoryIsParsedCategoryPredicate;
 import seedu.address.model.expense.ExpenseDateIsParsedDatePredicate;
 
 /**
@@ -29,42 +32,89 @@ public class FilterCommandParser implements Parser<FilterCommand> {
      * @throws ParseException if the user input does not conform the expected format
      */
     public FilterCommand parse(String args) throws ParseException {
-        ArgumentMultimap argMultimap = ArgumentTokenizer.tokenize(args, PREFIX_FILTER_DATE);
-        if (!arePrefixesPresent(argMultimap, PREFIX_FILTER_DATE)
-                || !argMultimap.getPreamble().isEmpty()) {
+        ArgumentMultimap argMultimap = ArgumentTokenizer.tokenize(args, PREFIX_FILTER_DATE, PREFIX_EXPENSE_CATEGORY);
+
+        boolean checkFilterDatePresent = arePrefixesPresent(argMultimap, PREFIX_FILTER_DATE);
+        boolean checkExpenseCategoryPresent = arePrefixesPresent(argMultimap, PREFIX_EXPENSE_CATEGORY);
+
+        if (!(checkFilterDatePresent || checkExpenseCategoryPresent) || !argMultimap.getPreamble().isEmpty()) {
             throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, FilterCommand.MESSAGE_USAGE));
         }
-        String trimmedArgs = argMultimap.getValue(PREFIX_FILTER_DATE).get().trim();
 
+        ExpenseDateIsParsedDatePredicate datePredicate = null;
+        ExpenseCategoryIsParsedCategoryPredicate categoryPredicate = null;
 
-        if (trimmedArgs.length() != 10 && trimmedArgs.length() != 7) {
+        if (checkFilterDatePresent) {
+            String trimmedDate = argMultimap.getValue(PREFIX_FILTER_DATE).get().trim();
+
+            if (trimmedDate.length() != 10 && trimmedDate.length() != 7) {
+                throw new ParseException(
+                        String.format(MESSAGE_INVALID_COMMAND_FORMAT, FilterCommand.MESSAGE_USAGE));
+            }
+
+            datePredicate = processDate(trimmedDate);
+
+        }
+
+        if (checkExpenseCategoryPresent) {
+            String trimmedExpenseCategory = argMultimap.getValue(PREFIX_EXPENSE_CATEGORY).get().trim();
+
+            if (!ExpenseCategory.isValidExpenseCategory(trimmedExpenseCategory)) {
+                throw new ParseException(ExpenseCategory.MESSAGE_CONSTRAINTS);
+            }
+
+            if (trimmedExpenseCategory.length() == 0) {
+                throw new ParseException(ExpenseCategory.MESSAGE_CONSTRAINTS);
+            }
+
+            categoryPredicate = new ExpenseCategoryIsParsedCategoryPredicate(trimmedExpenseCategory);
+        }
+
+        if (datePredicate == null && categoryPredicate == null) {
             throw new ParseException(
                     String.format(MESSAGE_INVALID_COMMAND_FORMAT, FilterCommand.MESSAGE_USAGE));
         }
 
-        if (trimmedArgs.length() == 7) {
+        return new FilterCommand(datePredicate, categoryPredicate);
+
+    }
+
+
+    /**
+     * Return a Date Predicate based on the String passed in.
+     *
+     * @param trimmedDateString valid date string input
+     * @return Date Predicate of parsed string.
+     * @throws ParseException if date is invalid.
+     */
+    public static ExpenseDateIsParsedDatePredicate processDate(String trimmedDateString) throws ParseException {
+        if (trimmedDateString.length() == 7) {
             try {
                 DateTimeFormatter dtf = DateTimeFormatter.ofPattern(MONTH_FORMAT);
-                YearMonth ym = YearMonth.parse(trimmedArgs, dtf);
-                return new FilterCommand(new ExpenseDateIsParsedDatePredicate(trimmedArgs));
+                YearMonth ym = YearMonth.parse(trimmedDateString, dtf);
+                return new ExpenseDateIsParsedDatePredicate(trimmedDateString);
             } catch (DateTimeParseException e) {
                 throw new ParseException(
                         String.format(MESSAGE_INVALID_COMMAND_FORMAT, FilterCommand.MESSAGE_USAGE));
             }
         }
 
-        try {
-            DateFormat df = new SimpleDateFormat(DATE_FORMAT);
-            df.setLenient(false);
-            df.parse(trimmedArgs);
-            DateTimeFormatter dtf = DateTimeFormatter.ofPattern(DATE_FORMAT);
-            LocalDate ld = LocalDate.parse(trimmedArgs, dtf);
-        } catch (java.text.ParseException e) {
-            throw new ParseException(
-                    String.format(MESSAGE_INVALID_COMMAND_FORMAT, FilterCommand.MESSAGE_USAGE));
+        if (trimmedDateString.length() == 10) {
+            try {
+                DateFormat df = new SimpleDateFormat(DATE_FORMAT);
+                df.setLenient(false);
+                df.parse(trimmedDateString);
+                DateTimeFormatter dtf = DateTimeFormatter.ofPattern(DATE_FORMAT);
+                LocalDate ld = LocalDate.parse(trimmedDateString, dtf);
+                return new ExpenseDateIsParsedDatePredicate(trimmedDateString);
+            } catch (java.text.ParseException e) {
+                throw new ParseException(
+                        String.format(MESSAGE_INVALID_COMMAND_FORMAT, FilterCommand.MESSAGE_USAGE));
+            }
         }
 
-        return new FilterCommand(new ExpenseDateIsParsedDatePredicate(trimmedArgs));
+        throw new ParseException(
+                String.format(MESSAGE_INVALID_COMMAND_FORMAT, FilterCommand.MESSAGE_USAGE));
     }
 
     /**

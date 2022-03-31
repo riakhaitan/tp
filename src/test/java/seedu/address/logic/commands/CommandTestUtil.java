@@ -51,6 +51,8 @@ public class CommandTestUtil {
             " " + PREFIX_DESCRIPTION + VALID_DESCRIPTION_BUILD_A_BEAR;
     public static final String EXPENSE_CATEGORY_DESC_ENTERTAINMENT =
             " " + PREFIX_EXPENSE_CATEGORY + VALID_EXPENSE_CATEGORY_ENTERTAINMENT;
+    public static final String EXPENSE_CATEGORY_DESC_TRANSPORT =
+            " " + PREFIX_EXPENSE_CATEGORY + VALID_EXPENSE_CATEGORY_TRANSPORT;
     public static final String AMOUNT_DESC_ANNUAL_SPOTIFY = " " + PREFIX_AMOUNT + VALID_AMOUNT_ANNUAL_SPOTIFY;
     public static final String AMOUNT_DESC_BUILD_A_BEAR = " " + PREFIX_AMOUNT + VALID_AMOUNT_BUILD_A_BEAR;
     public static final String EXPENSE_DATE_DESC_ANNUAL_SPOTIFY = " " + PREFIX_DATE
@@ -75,7 +77,7 @@ public class CommandTestUtil {
 
     public static final String INVALID_AMOUNT_DESC = " " + PREFIX_AMOUNT + "2!";
     public static final String INVALID_DESCRIPTION_DESC = " " + PREFIX_DESCRIPTION + "B@sketb@ll";
-    public static final String INVALID_EXPENSE_CATEGORY_DESC = " " + PREFIX_EXPENSE_CATEGORY + "Tr@vel";
+    public static final String INVALID_EXPENSE_CATEGORY_DESC = " " + PREFIX_EXPENSE_CATEGORY + "Tr@nsport";
     public static final String INVALID_EXPENSE_DATE_DESC = " " + PREFIX_DATE + "2022/03/03";
     public static final String INVALID_FILTER_DATE_DESC = " " + PREFIX_FILTER_DATE + "2022";
     public static final String INVALID_ADD_EXPENSE_CATEGORY_DESC = " " + PREFIX_EXPENSE_CATEGORY + "Entert@inment";
