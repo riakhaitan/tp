@@ -67,6 +67,8 @@ public class CommandTestUtil {
     public static final String BUDGET_DATE_DESC_BETA =
             " " + PREFIX_DATE + VALID_BUDGET_DATE_BETA;
     public static final String FILTER_DATE_DESC = " " + PREFIX_FILTER_DATE + VALID_FILTER_DATE;
+    public static final String ADD_EXPENSE_CATEGORY_DESC = " "
+            + PREFIX_EXPENSE_CATEGORY + VALID_EXPENSE_CATEGORY_ENTERTAINMENT;
 
     public static final seedu.address.logic.commands.EditCommand.EditExpenseDescriptor DESC_ANNUAL_SPOTIFY_FEES;
     public static final seedu.address.logic.commands.EditCommand.EditExpenseDescriptor DESC_BUILD_A_BEAR;
@@ -76,6 +78,7 @@ public class CommandTestUtil {
     public static final String INVALID_EXPENSE_CATEGORY_DESC = " " + PREFIX_EXPENSE_CATEGORY + "Tr@vel";
     public static final String INVALID_EXPENSE_DATE_DESC = " " + PREFIX_DATE + "2022/03/03";
     public static final String INVALID_FILTER_DATE_DESC = " " + PREFIX_FILTER_DATE + "2022";
+    public static final String INVALID_ADD_EXPENSE_CATEGORY_DESC = " " + PREFIX_EXPENSE_CATEGORY + "Entert@inment";
 
 
     static {

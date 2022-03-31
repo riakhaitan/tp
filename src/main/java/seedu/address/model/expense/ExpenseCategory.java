@@ -5,7 +5,7 @@ import static seedu.address.commons.util.AppUtil.checkArgument;
 
 public class ExpenseCategory {
     /*
-     * The first character of the address must not be a whitespace,
+     * The first character of the ExpenseCategory must not be a whitespace,
      * otherwise " " (a blank string) becomes a valid input.
      */
     public static final String VALIDATION_REGEX = "[\\p{Alnum}][\\p{Alnum} ]*";
@@ -48,5 +48,17 @@ public class ExpenseCategory {
     @Override
     public int hashCode() {
         return expenseCategory.hashCode();
+    }
+
+    /**
+     * Returns true if a the expenseCategories have the same String regardless of case.
+     */
+    public boolean isSameExpenseCategory(ExpenseCategory otherExpenseCategory) {
+        if (otherExpenseCategory == this) {
+            return true;
+        }
+
+        return otherExpenseCategory != null
+                && otherExpenseCategory.toString().equalsIgnoreCase(toString());
     }
 }

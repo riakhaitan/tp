@@ -6,6 +6,7 @@ import static seedu.address.commons.core.Messages.MESSAGE_UNKNOWN_COMMAND;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import seedu.address.logic.commands.AddCategoryCommand;
 import seedu.address.logic.commands.AddCommand;
 import seedu.address.logic.commands.ClearCommand;
 import seedu.address.logic.commands.Command;
@@ -15,6 +16,7 @@ import seedu.address.logic.commands.ExitCommand;
 import seedu.address.logic.commands.FilterCommand;
 import seedu.address.logic.commands.FindCommand;
 import seedu.address.logic.commands.HelpCommand;
+import seedu.address.logic.commands.ListCatCommand;
 import seedu.address.logic.commands.ListCommand;
 import seedu.address.logic.commands.PaidPersonWhoOwedCommand;
 import seedu.address.logic.commands.PersonOwesCommand;
@@ -71,6 +73,12 @@ public class ExpenseExpertParser {
 
         case ExitCommand.COMMAND_WORD:
             return new ExitCommand();
+
+        case AddCategoryCommand.COMMAND_WORD:
+            return new AddCategoryCommandParser().parse(arguments);
+
+        case ListCatCommand.COMMAND_WORD:
+            return new ListCatCommand();
 
         case HelpCommand.COMMAND_WORD:
             return new HelpCommand(arguments);

@@ -1,9 +1,6 @@
 package seedu.address.logic.commands;
 
 import static java.util.Objects.requireNonNull;
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 import static seedu.address.testutil.Assert.assertThrows;
 
 import java.nio.file.Path;
@@ -13,6 +10,7 @@ import org.junit.jupiter.api.Test;
 
 import javafx.collections.ObservableList;
 import seedu.address.commons.core.GuiSettings;
+import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.Model;
 import seedu.address.model.ReadOnlyExpenseExpert;
 import seedu.address.model.ReadOnlyUserPrefs;
@@ -20,48 +18,26 @@ import seedu.address.model.expense.Budget;
 import seedu.address.model.expense.Expense;
 import seedu.address.model.expense.ExpenseCategory;
 import seedu.address.model.person.Person;
-import seedu.address.testutil.BudgetBuilder;
+import seedu.address.testutil.ExpenseCategoryBuilder;
 
-public class SetBudgetCommandTest {
+class AddCategoryCommandTest {
+
     @Test
-    public void constructor_nullBudget_throwsNullPointerException() {
-        assertThrows(NullPointerException.class, () -> new SetBudgetCommand(null));
+    public void constructor_nullExpense_throwsNullPointerException() {
+        assertThrows(NullPointerException.class, () -> new AddCategoryCommand(null));
     }
 
     @Test
-    public void execute_budgetAcceptedByModel_setSuccessful() throws Exception {
-        ModelStubAcceptingBudgetSet modelStub = new ModelStubAcceptingBudgetSet();
-        Budget validBudget = new BudgetBuilder().build();
+    public void execute_duplicateExpenseCategory_throwsCommandException() {
+        ExpenseCategory validExpenseCategory = new ExpenseCategoryBuilder().build();
+        AddCategoryCommand addCategoryCommand = new AddCategoryCommand(validExpenseCategory);
+        ModelStub modelStub = new ModelStubWithExpenseCategory(validExpenseCategory);
 
-        CommandResult commandResult = new SetBudgetCommand(validBudget).execute(modelStub);
-
-        assertEquals(String.format(SetBudgetCommand.MESSAGE_SUCCESS, validBudget), commandResult.getFeedbackToUser());
-        assertEquals(validBudget, modelStub.budget);
+        assertThrows(CommandException.class, AddCategoryCommand.MESSAGE_DUPLICATE_EXPENSE, () -> addCategoryCommand
+                .execute(modelStub));
     }
 
-    @Test
-    public void equals() {
-        Budget budgetOf500 = new BudgetBuilder().withBudgetAmount("500").build();
-        Budget budgetOf300 = new BudgetBuilder().withBudgetAmount("300").build();
-        SetBudgetCommand set500BudgetCommand = new SetBudgetCommand(budgetOf500);
-        SetBudgetCommand set300BudgetCommand = new SetBudgetCommand(budgetOf300);
 
-        // same object -> returns true
-        assertTrue(set500BudgetCommand.equals(set500BudgetCommand));
-
-        // same values -> returns true
-        SetBudgetCommand set500BudgetCommandCopy = new SetBudgetCommand(budgetOf500);
-        assertTrue(set500BudgetCommand.equals(set500BudgetCommandCopy));
-
-        // different types -> returns false
-        assertFalse(set500BudgetCommand.equals(1));
-
-        // null -> returns false
-        assertFalse(set500BudgetCommand.equals(null));
-
-        // different budget -> returns false
-        assertFalse(set500BudgetCommand.equals(set300BudgetCommand));
-    }
 
     /**
      * A default model stub that have all of the methods failing.
@@ -118,27 +94,7 @@ public class SetBudgetCommandTest {
         }
 
         @Override
-        public boolean validExpenseCategory(Expense expense) {
-            throw new AssertionError("This method should not be called.");
-        }
-
-        @Override
         public boolean hasExpense(Expense expense) {
-            throw new AssertionError("This method should not be called.");
-        }
-
-        @Override
-        public void deleteExpense(Expense target) {
-            throw new AssertionError("This method should not be called.");
-        }
-
-        @Override
-        public void setExpense(Expense target, Expense editedExpense) {
-            throw new AssertionError("This method should not be called.");
-        }
-
-        @Override
-        public void addExpenseCategory(ExpenseCategory expenseCategory) {
             throw new AssertionError("This method should not be called.");
         }
 
@@ -148,7 +104,7 @@ public class SetBudgetCommandTest {
         }
 
         @Override
-        public void deleteExpenseCategory(ExpenseCategory target) {
+        public void deleteExpense(Expense target) {
             throw new AssertionError("This method should not be called.");
         }
 
@@ -158,12 +114,32 @@ public class SetBudgetCommandTest {
         }
 
         @Override
-        public boolean hasExpenseCategory(ExpenseCategory expenseCategory) {
+        public void setExpense(Expense target, Expense editedExpense) {
             throw new AssertionError("This method should not be called.");
         }
 
         @Override
         public void setPerson(Person target, Person editedPerson) {
+            throw new AssertionError("This method should not be called.");
+        }
+
+        @Override
+        public void addExpenseCategory(ExpenseCategory expenseCategory) {
+            throw new AssertionError("This method should not be called.");
+        }
+
+        @Override
+        public void deleteExpenseCategory(ExpenseCategory target) {
+            throw new AssertionError("This method should not be called.");
+        }
+
+        @Override
+        public boolean validExpenseCategory(Expense expense) {
+            throw new AssertionError("This method should not be called.");
+        }
+
+        @Override
+        public boolean hasExpenseCategory(ExpenseCategory expenseCategory) {
             throw new AssertionError("This method should not be called.");
         }
 
@@ -198,21 +174,23 @@ public class SetBudgetCommandTest {
         }
     }
 
-    /**
-     * A Model stub that always accept the budget being set.
-     */
-    private class ModelStubAcceptingBudgetSet extends ModelStub {
-        private Budget budget;
 
-        @Override
-        public void setBudget(Budget budget) {
-            requireNonNull(budget);
-            this.budget = budget;
+    /**
+     * A Model stub that contains a single expense.
+     */
+    private class ModelStubWithExpenseCategory extends AddCategoryCommandTest.ModelStub {
+        private final ExpenseCategory expenseCategory;
+
+        ModelStubWithExpenseCategory(ExpenseCategory expenseCategory) {
+            requireNonNull(expenseCategory);
+            this.expenseCategory = expenseCategory;
         }
 
         @Override
-        public Budget getBudget() {
-            return this.budget;
+        public boolean hasExpenseCategory(ExpenseCategory expenseCategory) {
+            requireNonNull(expenseCategory);
+            return this.expenseCategory.equals(expenseCategory);
         }
     }
+
 }
