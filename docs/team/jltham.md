@@ -9,10 +9,17 @@ Expense Expert is a desktop expense trackign application used for tracking one's
 
 Given below are my contributions to the project.
 
-- **New Feature**: _(to be added soon)_
+- **New Feature**: Adding a monthly budget
 
-  - What it does: _(to be added soon)_
-  - Justification: _(to be added soon)_
+  - What it does: Allows users to add a monthly budget that will be saved locally to be loaded upon relaunch.
+  - Justification: Users may want to set a budget for themselves so they do not overspend.
+  - Highlights: _(to be added soon)_
+  - Credits: _(to be added soon)_
+
+- **New Feature**: Viewing the monthly budget previously set
+
+  - What it does: Allows users to view the budget they set previously on the GUI.
+  - Justification: Users may want to be reminded of the budget they set so that they do not overspend.
   - Highlights: _(to be added soon)_
   - Credits: _(to be added soon)_
 
@@ -20,7 +27,11 @@ Given below are my contributions to the project.
 
 - **Project management**: _(to be added soon)_
 
-- **Enhancements to existing features**: _(to be added soon)_
+- **Enhancements to existing features**:
+
+  - Changed ExpenseDate class to Date class and generalised the class to be used as a general Date attribute for both Expense and Budget.
+  - Change ExpenseAmount class to Amount class and generalised the class to be used as a general Amount attribute for both Expense and budget.
+  - Edited icon of GUI to better reflect the nature of Expense Expert.
 
 - **Documentation**:
 
