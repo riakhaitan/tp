@@ -32,7 +32,7 @@ class JsonAdaptedBudget {
      * Converts a given {@code Budget} into this class for Jackson use.
      */
     public JsonAdaptedBudget(Budget source) {
-        this.budgetAmount = source.getBudgetAmount().amount.toString();
+        this.budgetAmount = source.getBudgetAmount().toString();
         this.budgetDate = source.getBudgetDate().date.toString();
     }
 

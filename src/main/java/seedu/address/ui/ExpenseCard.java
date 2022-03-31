@@ -45,7 +45,7 @@ public class ExpenseCard extends UiPart<Region> {
         id.setText(displayedIndex + ". ");
         description.setText(expense.getDescription().description);
         expenseCategory.setText(expense.getExpenseCategory().expenseCategory);
-        amount.setText("$" + expense.getAmount().amount.toString());
+        amount.setText("$" + expense.getAmount().toString());
         expenseDate.setText(expense.getExpenseDate().date.toString());
     }
 

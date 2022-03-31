@@ -2,7 +2,7 @@
   "expenses" : [ {
     "description" : "took grab",
     "expenseCategory" : "transport",
-    "amount" : "20",
+    "amount" : "20.00",
     "expenseDate" : "2022-02-21"
   }, {
     "description" : "Lunch at Harbourfront Centre",
@@ -12,43 +12,48 @@
   }, {
     "description" : "Gym Membership",
     "expenseCategory" : "Food",
-    "amount" : "80",
+    "amount" : "80.00",
     "expenseDate" : "2022-02-02"
   }, {
     "description" : "Bao",
     "expenseCategory" : "Food",
-    "amount" : "1",
+    "amount" : "1.00",
     "expenseDate" : "2021-01-01"
   }, {
     "description" : "nike",
     "expenseCategory" : "Shoes",
-    "amount" : "100",
+    "amount" : "100.00",
     "expenseDate" : "2022-01-02"
+  }, {
+    "description" : "Groceries",
+    "expenseCategory" : "Food",
+    "amount" : "100.00",
+    "expenseDate" : "2020-01-01"
   } ],
   "persons" : [ {
     "personName" : "alex",
-    "personAmount" : "50"
+    "personAmount" : "50.00"
   }, {
     "personName" : "neel",
-    "personAmount" : "70"
+    "personAmount" : "70.00"
   }, {
     "personName" : "bob",
-    "personAmount" : "200"
+    "personAmount" : "200.00"
   }, {
     "personName" : "craig",
-    "personAmount" : "1000"
+    "personAmount" : "1000.00"
   }, {
     "personName" : "george",
-    "personAmount" : "220"
+    "personAmount" : "220.00"
   }, {
     "personName" : "jade",
-    "personAmount" : "50"
+    "personAmount" : "50.00"
   }, {
     "personName" : "chris",
-    "personAmount" : "75"
+    "personAmount" : "75.00"
   } ],
   "budget" : {
-    "budgetAmount" : "2000",
+    "budgetAmount" : "2000.00",
     "budgetDate" : "2022-03-01"
   },
   "expenseCategories" : [ {
