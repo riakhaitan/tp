@@ -110,8 +110,7 @@ Shows a list of all expenses recorded in Expense Expert.
 
 Format: `list`
 
-
-### Filtering expenses: `filter`
+### Filtering expense(s): `filter`
 
 Filter expenses with the date provided. At least one of the fields in brackets need to be present. 
 Date format must be provided in yyyy-MM-dd format or in yyyy-MM format. If date provided is in  yyyy-MM format, 

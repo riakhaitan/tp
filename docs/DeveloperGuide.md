@@ -258,7 +258,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
         3a1. ExpenseExpert notifies the user that there exists no expense to delete
         Use case ends.
 
-**Use case: UC03 Edit an expenses**
+**Use case: UC03 Edit an expense**
 
 **MSS**
 1. User requests to edit an expense.
