@@ -112,9 +112,9 @@ Format: `list`
 
 ### Filtering expense(s): `filter`
 
-Filter expenses with the date provided. At least one of the fields in brackets need to be present. 
-Date format must be provided in yyyy-MM-dd format or in yyyy-MM format. If date provided is in  yyyy-MM format, 
-the displayed will include all the results of that month. 
+Filter expenses with the date provided. At least one of the fields in brackets need to be present.
+Date format must be provided in yyyy-MM-dd format or in yyyy-MM format. If date provided is in  yyyy-MM format,
+the displayed will include all the results of that month.
 
 Format: `filter (ft/DATE) (c/CATEGORY)`
 
