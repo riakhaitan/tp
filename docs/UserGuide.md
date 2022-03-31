@@ -70,7 +70,7 @@ Format: `help`
 ### Adding an expense : `add`
 
 Adds an expense to the list. Description and expense category provided must be in alphanumerical format, amount can only be positive number up to 2 decimal places
-and expense date must be in yyyy-MM-dd format. Expense category must be from a list of user-defined categories. 
+and expense date must be in yyyy-MM-dd format. Expense category must be from a list of user-defined categories.
 
 Format: `add d/DESCRIPTION a/AMOUNT c/EXPENSE_CATEGORY t/EXPENSE_DATE`
 
@@ -216,19 +216,19 @@ _Details coming soon ..._
 
 ## Command summary
 
-| Action     | Format, Examples                                                                                                                  |
-| ---------- |-----------------------------------------------------------------------------------------------------------------------------------|
-| **Help**   | `help`                                                                                                                            | 
+| Action     | Format, Examples                                                                                                            |
+| ---------- |-----------------------------------------------------------------------------------------------------------------------------|
+| **Help**   | `help`                                                                                                                      | 
 | **Add**    | `add d/DESCRIPTION a/AMOUNT [c/EXPENSE_CATEGORY] t/EXPENSE_DATE ` <br> Example: `add d/Lunch at VivoCity a/12.95 c/Food t/2022-03-20` |
-| **Delete** | `delete INDEX`<br> Example: `delete 3`                                                                                            |
+| **Delete** | `delete INDEX`<br> Example: `delete 3`                                                                                      |
 | **Edit**   | `edit INDEX [d/DESCRIPTION] [a/AMOUNT] [c/EXPENSE_CATEGORY] [t/EXPENSE_DATE]`<br> Example:`edit 2 d/Lunch at Harbourfront Centre a/6.50` |
-| **List**   | `list`                                                                                                                            |
-| **Filter** | `filter ft/FILTER_DATE` <br> Example: `filter ft/2022-03`                                                                         |
-| **Find**   | `find KEYWORD [MORE_KEYWORDS]` <br> Example: `find Cafe Grab Basketball`                                                          |
-| **Budget** | `budget b/BUDGET` <br> Example: `budget b/1000`                                                                                   |
-| **AddCat** | `addCat c/EXPENSE_CATEGORY` <br> Example: `addCat c/transport`                                                                    |
-| **ListCat**| `listCat`                                                                                                                         |
-| **Person** | `person n/PERSON_NAME a/PERSON_AMOUNT` <br> Example: `person n/Alex a/50`                                                         |
-| **Paid**   | `paid INDEX` <br> Example: `paid 1`                                                                                               |
-| **Clear**  | `clear`                                                                                                                           |
-| **Exit**   | `exit`                                                                                                                            |
+| **List**   | `list`                                                                                                                      |
+| **Filter** | `filter ft/FILTER_DATE` <br> Example: `filter ft/2022-03`                                                                   |
+| **Find**   | `find KEYWORD [MORE_KEYWORDS]` <br> Example: `find Cafe Grab Basketball`                                                    |
+| **Budget** | `budget b/BUDGET` <br> Example: `budget b/1000`                                                                             |
+| **AddCat** | `addCat c/EXPENSE_CATEGORY` <br> Example: `addCat c/transport`                                                              |
+| **ListCat**| `listCat`                                                                                                                   |
+| **Person** | `person n/PERSON_NAME a/PERSON_AMOUNT` <br> Example: `person n/Alex a/50`                                                   |
+| **Paid**   | `paid INDEX` <br> Example: `paid 1`                                                                                         |
+| **Clear**  | `clear`                                                                                                                     |
+| **Exit**   | `exit`                                                                                                                      |

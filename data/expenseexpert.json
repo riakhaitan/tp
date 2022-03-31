@@ -2,7 +2,7 @@
   "expenses" : [ {
     "description" : "took grab",
     "expenseCategory" : "transport",
-    "amount" : "20.00",
+    "amount" : "22.00",
     "expenseDate" : "2022-02-21"
   }, {
     "description" : "Lunch at Harbourfront Centre",
@@ -20,7 +20,7 @@
     "amount" : "1.00",
     "expenseDate" : "2021-01-01"
   }, {
-    "description" : "nike",
+    "description" : "Nike",
     "expenseCategory" : "Shoes",
     "amount" : "100.00",
     "expenseDate" : "2022-01-02"
@@ -31,26 +31,23 @@
     "expenseDate" : "2020-01-01"
   } ],
   "persons" : [ {
-    "personName" : "alex",
-    "personAmount" : "50.00"
+    "personName" : "Oliver",
+    "personAmount" : "30.00"
   }, {
-    "personName" : "neel",
-    "personAmount" : "70.00"
+    "personName" : "Jessica",
+    "personAmount" : "20.00"
   }, {
-    "personName" : "bob",
+    "personName" : "Neel",
+    "personAmount" : "40.00"
+  }, {
+    "personName" : "Samantha",
+    "personAmount" : "12.00"
+  }, {
+    "personName" : "Rachel",
+    "personAmount" : "35.00"
+  }, {
+    "personName" : "Ralph",
     "personAmount" : "200.00"
-  }, {
-    "personName" : "craig",
-    "personAmount" : "1000.00"
-  }, {
-    "personName" : "george",
-    "personAmount" : "220.00"
-  }, {
-    "personName" : "jade",
-    "personAmount" : "50.00"
-  }, {
-    "personName" : "chris",
-    "personAmount" : "75.00"
   } ],
   "budget" : {
     "budgetAmount" : "2000.00",
