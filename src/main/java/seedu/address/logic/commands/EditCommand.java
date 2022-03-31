@@ -16,6 +16,7 @@ import seedu.address.commons.util.CollectionUtil;
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.Model;
 import seedu.address.model.expense.Amount;
+import seedu.address.model.expense.Budget;
 import seedu.address.model.expense.Date;
 import seedu.address.model.expense.Description;
 import seedu.address.model.expense.Expense;
@@ -86,6 +87,11 @@ public class EditCommand extends Command {
 
         model.setExpense(expenseToEdit, editedExpense);
         model.updateFilteredExpenseList(PREDICATE_SHOW_ALL_EXPENSES);
+        double difference = expenseToEdit.getAmount().amount - editedExpense.getAmount().amount;
+        String amt = String.valueOf((model.getBudget().getBudgetAmount().amount + difference));
+        Amount newAmount = new Amount(amt);
+        Budget budget = new Budget(newAmount);
+        model.setBudget(budget);
         return new CommandResult(String.format(MESSAGE_EDIT_EXPENSE_SUCCESS, editedExpense));
     }
 

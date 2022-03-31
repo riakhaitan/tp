@@ -2,8 +2,10 @@
   "expenses" : [ ],
   "persons" : [ ],
   "budget" : {
-    "budgetAmount" : "0.00",
+    "budgetAmount" : "3000.00",
     "budgetDate" : "2022-04-01"
   },
-  "expenseCategories" : [ ]
+  "expenseCategories" : [ {
+    "expenseCategory" : "Essentials"
+  } ]
 }
