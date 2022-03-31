@@ -73,7 +73,7 @@ Format: `help`
 ### Adding an expense : `add`
 
 Adds an expense to the list. Description and expense category provided must be in alphanumerical format, amount can only be positive number up to 2 decimal places
-and expense date must be in yyyy-MM-dd format. Expense category must be from a list of user-defined categories. 
+and expense date must be in yyyy-MM-dd format. Expense category must be from a list of user-defined categories.
 
 Format: `add d/DESCRIPTION a/AMOUNT c/EXPENSE_CATEGORY t/EXPENSE_DATE`
 
