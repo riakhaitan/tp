@@ -1,4 +1,4 @@
----
+git p---
 layout: page
 title: Andy's Project Portfolio Page
 ---
@@ -9,10 +9,10 @@ Expense Expert is a desktop expense tracking application used for tracking one's
 
 Given below are my contributions to the project.
 
-- **New Feature**: _(to be added soon)_
+- **Filtering expense(s)**:
 
-  - What it does: _(to be added soon)_
-  - Justification: _(to be added soon)_
+  - What it does: Allows users to filter expense(s) based on date (can be specific date or by month), category, or a combination of both.
+  - Justification: Users may want to know where they had spent money on specific date, specific month or even specific category.
   - Highlights: _(to be added soon)_
   - Credits: _(to be added soon)_
 
@@ -25,13 +25,22 @@ Given below are my contributions to the project.
 
 - **Enhancements to existing features**:
   - Change ExpenseDate class from keeping data as String to LocalDate (for future usage of dates for comparison)
+  - Added unit test code for ExpenseDate and its relevant classes.
 
 - **Documentation**:
 
   - User Guide:
-    - _(to be added soon)_
+    - Editing an expense
+    - Deleting an expense
+    - Filtering expense(s)
   - Developer Guide:
-    - _(to be added soon)_
+    - Use cases:
+      - UC01 Add an expense
+      - UC02 Delete an expense
+      - UC03 Edit an expense 
+      - UC04 Find expense(s)
+      - UC08 Filter expense(s)
+    - User stories
 
 - **Community**:
 
