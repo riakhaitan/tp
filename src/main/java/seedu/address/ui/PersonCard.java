@@ -37,7 +37,7 @@ public class PersonCard extends UiPart<Region> {
         this.person = person;
         id.setText(displayedIndex + ". ");
         name.setText(person.getPersonName().personName);
-        amount.setText("$" + person.getPersonAmount().personAmount);
+        amount.setText("$" + person.getPersonAmount().toString());
     }
 
     @Override

@@ -35,14 +35,12 @@ public class HelpCommand extends Command {
      */
     public static String helpCommandString() {
         HELP_STRING.append(HelpWindow.HELP_MESSAGE).append(Command.COMMAND).append(AddCommand.MESSAGE_USAGE)
-                .append(ClearCommand.HELP_COMMAND).append(DeleteCommand.MESSAGE_USAGE)
-                .append(EditCommand.MESSAGE_USAGE).append(ExitCommand.HELP_COMMAND)
-                .append(FindCommand.MESSAGE_USAGE).append(ListCommand.HELP_COMMAND)
+                .append(ClearCommand.MESSAGE_USAGE).append(DeleteCommand.MESSAGE_USAGE)
+                .append(EditCommand.MESSAGE_USAGE).append(ExitCommand.MESSAGE_USAGE)
+                .append(FindCommand.MESSAGE_USAGE).append(ListCommand.MESSAGE_USAGE)
                 .append((SetBudgetCommand.MESSAGE_USAGE));
         return HELP_STRING.toString();
     }
-
-
 
     @Override
     public CommandResult execute(Model model) throws CommandException {
@@ -60,20 +58,25 @@ public class HelpCommand extends Command {
                 return new CommandResult(DeleteCommand.MESSAGE_USAGE);
 
             case ClearCommand.COMMAND_WORD:
-                return new CommandResult(ClearCommand.HELP_COMMAND);
+                return new CommandResult(ClearCommand.MESSAGE_USAGE);
 
             case FindCommand.COMMAND_WORD:
                 return new CommandResult(FindCommand.MESSAGE_USAGE);
 
             case ListCommand.COMMAND_WORD:
-                return new CommandResult(ListCommand.HELP_COMMAND);
+                return new CommandResult(ListCommand.MESSAGE_USAGE);
 
             case ExitCommand.COMMAND_WORD:
-                return new CommandResult(ExitCommand.HELP_COMMAND);
-
+                return new CommandResult(ExitCommand.MESSAGE_USAGE);
 
             case HelpCommand.COMMAND_WORD:
                 return new CommandResult(HelpCommand.MESSAGE_USAGE);
+
+            case AddCategoryCommand.COMMAND_WORD:
+                return new CommandResult(AddCategoryCommand.MESSAGE_USAGE);
+
+            case ListCatCommand.COMMAND_WORD:
+                return new CommandResult(ListCatCommand.MESSAGE_USAGE);
 
             case SetBudgetCommand.COMMAND_WORD:
                 return new CommandResult(SetBudgetCommand.MESSAGE_USAGE);

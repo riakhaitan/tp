@@ -22,6 +22,7 @@ import seedu.address.model.ReadOnlyExpenseExpert;
 import seedu.address.model.ReadOnlyUserPrefs;
 import seedu.address.model.expense.Budget;
 import seedu.address.model.expense.Expense;
+import seedu.address.model.expense.ExpenseCategory;
 import seedu.address.model.person.Person;
 import seedu.address.testutil.ExpenseBuilder;
 
@@ -141,7 +142,27 @@ public class AddCommandTest {
         }
 
         @Override
+        public void addExpenseCategory(ExpenseCategory expenseCategory) {
+            throw new AssertionError("This method should not be called.");
+        }
+
+        @Override
+        public void deleteExpenseCategory(ExpenseCategory target) {
+            throw new AssertionError("This method should not be called.");
+        }
+
+        @Override
+        public boolean hasExpenseCategory(ExpenseCategory expenseCategory) {
+            throw new AssertionError("This method should not be called.");
+        }
+
+        @Override
         public ObservableList<Expense> getFilteredExpenseList() {
+            throw new AssertionError("This method should not be called.");
+        }
+
+        @Override
+        public boolean validExpenseCategory(Expense expense) {
             throw new AssertionError("This method should not be called.");
         }
 
@@ -208,6 +229,8 @@ public class AddCommandTest {
             requireNonNull(expense);
             return this.expense.equals(expense);
         }
+
+
     }
 
     /**
@@ -227,6 +250,12 @@ public class AddCommandTest {
         public void addExpense(Expense expense) {
             requireNonNull(expense);
             expensesAdded.add(expense);
+        }
+
+        @Override
+        public boolean validExpenseCategory(Expense expense) {
+            requireNonNull(expense);
+            return true;
         }
 
         @Override
