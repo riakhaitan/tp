@@ -16,7 +16,7 @@ public class PersonAmount {
             "Amount should only contain numerical characters and decimal, in valid number format, "
                     + "and should not be empty";
 
-    public final String personAmount;
+    public final Double personAmount;
 
     /**
      * Constructs a (@code Amount).
@@ -26,7 +26,7 @@ public class PersonAmount {
     public PersonAmount(String personAmount) {
         requireNonNull(personAmount);
         checkArgument(isValidPersonAmount(personAmount), MESSAGE_CONSTRAINTS);
-        this.personAmount = personAmount;
+        this.personAmount = Double.valueOf(personAmount);
     }
 
     /**
@@ -36,16 +36,9 @@ public class PersonAmount {
         return test.matches(VALIDATION_REGEX) && test != "";
     }
 
-    /**
-     * Returns the amount of the expense as an integer.
-     */
-    public int asInt() {
-        return Integer.valueOf(personAmount);
-    }
-
     @Override
     public String toString() {
-        return personAmount;
+        return String.format("%.2f", personAmount);
     }
 
     @Override
