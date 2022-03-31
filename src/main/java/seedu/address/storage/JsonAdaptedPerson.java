@@ -29,7 +29,7 @@ public class JsonAdaptedPerson {
      */
     public JsonAdaptedPerson(Person source) {
         personName = source.getPersonName().personName;
-        personAmount = source.getPersonAmount().personAmount;
+        personAmount = source.getPersonAmount().toString();
     }
 
     /**
