@@ -1,7 +1,7 @@
 {
   "expenses" : [ {
     "description" : "took grab",
-    "expenseCategory" : "transport",
+    "expenseCategory" : "Transport",
     "amount" : "22.00",
     "expenseDate" : "2022-02-21"
   }, {
