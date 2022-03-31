@@ -13,7 +13,7 @@ import seedu.address.model.expense.Budget;
 public class BudgetDisplay extends UiPart<Region> {
 
     private static final String FXML = "BudgetDisplay.fxml";
-    private static final String MONTHLY_BUDGET = "Budget for this month is $";
+    private static final String MONTHLY_BUDGET = "Remaining budget for this month is $";
 
     @FXML
     private TextArea budgetDisplay;

@@ -39,6 +39,8 @@ public class Amount {
         return test.matches(VALIDATION_REGEX) && test != "";
     }
 
+
+
     @Override
     public String toString() {
         return String.format("%.2f", amount);

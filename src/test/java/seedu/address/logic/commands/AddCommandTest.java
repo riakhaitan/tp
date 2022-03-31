@@ -20,7 +20,9 @@ import seedu.address.model.ExpenseExpert;
 import seedu.address.model.Model;
 import seedu.address.model.ReadOnlyExpenseExpert;
 import seedu.address.model.ReadOnlyUserPrefs;
+import seedu.address.model.expense.Amount;
 import seedu.address.model.expense.Budget;
+import seedu.address.model.expense.Date;
 import seedu.address.model.expense.Expense;
 import seedu.address.model.expense.ExpenseCategory;
 import seedu.address.model.person.Person;
@@ -173,12 +175,12 @@ public class AddCommandTest {
 
         @Override
         public void setBudget(Budget budget) {
-            throw new AssertionError("This method should not be called.");
         }
 
         @Override
         public Budget getBudget() {
-            throw new AssertionError("This method should not be called.");
+            //throw new AssertionError("This method should not be called.");
+            return new Budget(new Amount("89"), new Date("1900-01-01"));
         }
 
         @Override
@@ -228,6 +230,25 @@ public class AddCommandTest {
         public boolean hasExpense(Expense expense) {
             requireNonNull(expense);
             return this.expense.equals(expense);
+        }
+
+
+    }
+
+    /**
+     * A Model stub that contains a single expense.
+     */
+    private class ModelStubWithBudget extends ModelStub {
+        private final Budget budget;
+
+        ModelStubWithBudget(Budget budget) {
+            requireNonNull(budget);
+            this.budget = budget;
+        }
+
+        @Override
+        public Budget getBudget() {
+            return this.budget;
         }
 
 
