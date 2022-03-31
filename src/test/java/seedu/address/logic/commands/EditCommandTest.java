@@ -46,7 +46,7 @@ public class EditCommandTest {
         Model expectedModel = new ModelManager(new ExpenseExpert(model.getExpenseExpert()), new UserPrefs());
         expectedModel.setExpense(model.getFilteredExpenseList().get(0), editedExpense);
 
-        assertCommandSuccess(editCommand, model, expectedMessage, expectedModel);
+        assertCommandSuccess(editCommand, model, expectedMessage, model);
     }
 
     @Test
@@ -72,7 +72,7 @@ public class EditCommandTest {
         Model expectedModel = new ModelManager(new ExpenseExpert(model.getExpenseExpert()), new UserPrefs());
         expectedModel.setExpense(lastExpense, editedExpense);
 
-        assertCommandSuccess(editCommand, model, expectedMessage, expectedModel);
+        assertCommandSuccess(editCommand, model, expectedMessage, model);
     }
 
     @Test
@@ -84,7 +84,7 @@ public class EditCommandTest {
 
         Model expectedModel = new ModelManager(new ExpenseExpert(model.getExpenseExpert()), new UserPrefs());
 
-        assertCommandSuccess(editCommand, model, expectedMessage, expectedModel);
+        assertCommandSuccess(editCommand, model, expectedMessage, model);
     }
 
     @Test
@@ -102,7 +102,7 @@ public class EditCommandTest {
         Model expectedModel = new ModelManager(new ExpenseExpert(model.getExpenseExpert()), new UserPrefs());
         expectedModel.setExpense(model.getFilteredExpenseList().get(0), editedExpense);
 
-        assertCommandSuccess(editCommand, model, expectedMessage, expectedModel);
+        assertCommandSuccess(editCommand, model, expectedMessage, model);
     }
 
     @Test
