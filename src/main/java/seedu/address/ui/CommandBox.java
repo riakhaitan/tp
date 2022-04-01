@@ -101,14 +101,20 @@ public class CommandBox extends UiPart<Region> {
         }
     }
 
+    //Solution below adapted from https://stackoverflow.com/questions/22014950/javafx-moving-image-with-arrow-keys-and-spacebar
     @FXML
     private void handleUpDownArrowsPressed(KeyEvent event) {
-        if (event.getCode() == KeyCode.UP) {
-            event.consume();
-            commandTextField.setText(getPrevCommand(commandTextField.getText()));
-        } else if (event.getCode() == KeyCode.DOWN) {
-            event.consume();
-            commandTextField.setText(getNextCommand(commandTextField.getText()));
+        switch (event.getCode()) {
+            case UP:
+                event.consume();
+                commandTextField.setText(getPrevCommand(commandTextField.getText()));
+                break;
+            case DOWN:
+                event.consume();
+                commandTextField.setText(getNextCommand(commandTextField.getText()));
+                break;
+            default:
+                break;
         }
     }
 
