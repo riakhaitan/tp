@@ -5,7 +5,6 @@ import java.util.ArrayList;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
-import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.Region;
 import seedu.address.logic.commands.CommandResult;
@@ -101,20 +100,21 @@ public class CommandBox extends UiPart<Region> {
         }
     }
 
-    //Solution below adapted from https://stackoverflow.com/questions/22014950/javafx-moving-image-with-arrow-keys-and-spacebar
+    // Solution below adapted from 
+    // https://stackoverflow.com/questions/22014950/javafx-moving-image-with-arrow-keys-and-spacebar
     @FXML
     private void handleUpDownArrowsPressed(KeyEvent event) {
         switch (event.getCode()) {
-            case UP:
-                event.consume();
-                commandTextField.setText(getPrevCommand(commandTextField.getText()));
-                break;
-            case DOWN:
-                event.consume();
-                commandTextField.setText(getNextCommand(commandTextField.getText()));
-                break;
-            default:
-                break;
+        case UP:
+            event.consume();
+            commandTextField.setText(getPrevCommand(commandTextField.getText()));
+            break;
+        case DOWN:
+            event.consume();
+            commandTextField.setText(getNextCommand(commandTextField.getText()));
+            break;
+        default:
+            break;
         }
     }
 
