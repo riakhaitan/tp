@@ -6,31 +6,36 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
-<HBox id="cardPane" fx:id="cardPane" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<HBox id="cardPane" fx:id="cardPane" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
   <GridPane HBox.hgrow="ALWAYS">
     <columnConstraints>
       <ColumnConstraints hgrow="SOMETIMES" minWidth="10" prefWidth="150" />
     </columnConstraints>
-    <HBox alignment="BOTTOM_RIGHT">
-      <VBox alignment="CENTER_LEFT" minHeight="105" GridPane.columnIndex="0">
+    <HBox alignment="BOTTOM_RIGHT" minHeight="105" GridPane.columnIndex="0">
+      <VBox HBox.hgrow="ALWAYS" alignment="CENTER_LEFT">
         <padding>
-          <Insets top="5" right="5" bottom="5" left="15" />
+          <Insets bottom="5" left="15" right="5" top="5" />
         </padding>
-        <HBox spacing="5" alignment="CENTER_LEFT">
+        <HBox alignment="CENTER_LEFT" spacing="5">
           <Label fx:id="id" styleClass="cell_big_label">
             <minWidth>
               <!-- Ensures that the label text is never truncated -->
               <Region fx:constant="USE_PREF_SIZE" />
             </minWidth>
           </Label>
-          <Label fx:id="description" text="\$description" styleClass="cell_big_label" />
+          <Label fx:id="description" styleClass="cell_big_label" text="\$description" />
         </HBox>
         <Label fx:id="expenseCategory" styleClass="category_label" text="\$expenseCategory" />
+        <Region prefHeight="30.0" prefWidth="90.0" />
         <Label fx:id="expenseDate" styleClass="cell_small_label" text="\$expenseDate" />
       </VBox>
-      <Label fx:id="amount" styleClass="cell_small_label" text="\$amount" />
+      <Label fx:id="amount" styleClass="label-padded" text="\$amount" />
     </HBox>
+      <rowConstraints>
+         <RowConstraints />
+      </rowConstraints>
   </GridPane>
 </HBox>

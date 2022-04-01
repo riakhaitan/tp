@@ -33,9 +33,9 @@ public class ExpenseCard extends UiPart<Region> {
     private Label expenseCategory;
     @FXML
     private Label amount;
-
     @FXML
     private Label expenseDate;
+
     /**
      * Creates a {@code ExpenseCode} with the given {@code Expense} and index to display.
      */
