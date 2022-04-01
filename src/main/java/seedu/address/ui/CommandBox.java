@@ -100,7 +100,7 @@ public class CommandBox extends UiPart<Region> {
         }
     }
 
-    // Solution below adapted from 
+    // Solution below adapted from
     // https://stackoverflow.com/questions/22014950/javafx-moving-image-with-arrow-keys-and-spacebar
     @FXML
     private void handleUpDownArrowsPressed(KeyEvent event) {
