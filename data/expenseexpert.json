@@ -5,5 +5,9 @@
     "budgetAmount" : "0.00",
     "budgetDate" : "1900-01-01"
   },
-  "expenseCategories" : [ ]
+  "expenseCategories" : [ {
+    "expenseCategory" : "Food"
+  }, {
+    "expenseCategory" : "Entertainment"
+  } ]
 }

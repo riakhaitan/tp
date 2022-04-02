@@ -42,7 +42,8 @@ public class SampleDataUtil {
     public static ExpenseCategory[] getSampleCategories() {
         return new ExpenseCategory[] {
             new ExpenseCategory("Apparels"), new ExpenseCategory("Gift"),
-            new ExpenseCategory("Miscellaneous"), new ExpenseCategory("Groceries")
+            new ExpenseCategory("Miscellaneous"), new ExpenseCategory("Groceries"),
+            new ExpenseCategory("Sports Equipment")
         };
     }
 
