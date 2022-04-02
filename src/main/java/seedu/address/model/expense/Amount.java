@@ -29,7 +29,7 @@ public class Amount {
     public Amount(String amount) {
         requireNonNull(amount);
         checkArgument(isValidAmount(amount), MESSAGE_CONSTRAINTS);
-        this.amount = Double.valueOf(amount);
+        this.amount = Double.valueOf(amount.replace(",", ""));
     }
 
     /**
