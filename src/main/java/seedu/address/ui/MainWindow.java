@@ -36,6 +36,7 @@ public class MainWindow extends UiPart<Stage> {
     private ResultDisplay commandResultDisplay;
     private HelpWindow helpWindow;
     private PersonListPanel personListPanel;
+    private BudgetPrompt budgetPrompt;
 
     @FXML
     private StackPane commandBoxPlaceholder;
@@ -177,6 +178,7 @@ public class MainWindow extends UiPart<Stage> {
         logic.setGuiSettings(guiSettings);
         helpWindow.hide();
         primaryStage.hide();
+        UiManager.hideBudgetPrompt();
     }
 
     public PersonListPanel getPersonListPanel() {

@@ -112,9 +112,9 @@ Format: `list`
 
 ### Filtering expense(s): `filter`
 
-Filter expenses with the date provided. At least one of the fields in brackets need to be present. 
-Date format must be provided in yyyy-MM-dd format or in yyyy-MM format. If date provided is in  yyyy-MM format, 
-the displayed will include all the results of that month. 
+Filter expenses with the date provided. At least one of the fields in brackets need to be present.
+Date format must be provided in yyyy-MM-dd format or in yyyy-MM format. If date provided is in  yyyy-MM format,
+the displayed will include all the results of that month.
 
 Format: `filter (ft/DATE) (c/CATEGORY)`
 
@@ -183,6 +183,16 @@ Examples:
 
 - `paid 1`
 
+### Update the amount a person owes you: `update`
+
+Updates the person at a given index in the list. The amount that the person owes the user is edited according to the filled in parameter
+
+Format: `update INDEX a/AMOUNT`
+
+Examples:
+
+- `update 4 a/1000`
+
 ### Exiting the program : `clear`
 
 Deletes all expenses from Expense Expert.
@@ -222,19 +232,20 @@ _Details coming soon ..._
 
 ## Command summary
 
-| Action     | Format, Examples                                                                                                                         |
-| ---------- |------------------------------------------------------------------------------------------------------------------------------------------|
-| **Help**   | `help`                                                                                                                                   | 
-| **Add**    | `add d/DESCRIPTION a/AMOUNT [c/EXPENSE_CATEGORY] t/EXPENSE_DATE ` <br> Example: `add d/Lunch at VivoCity a/12.95 c/Food t/2022-03-20`    |
-| **Delete** | `delete INDEX`<br> Example: `delete 3`                                                                                                   |
-| **Edit**   | `edit INDEX [d/DESCRIPTION] [a/AMOUNT] [c/EXPENSE_CATEGORY] [t/EXPENSE_DATE]`<br> Example:`edit 2 d/Lunch at Harbourfront Centre a/6.50` |
-| **List**   | `list`                                                                                                                                   |
-| **Filter** | `filter (ft/FILTER_DATE) (c/CATEGORY)` <br> Example: `filter ft/2022-03 c/Transport`                                                     |
-| **Find**   | `find KEYWORD [MORE_KEYWORDS]` <br> Example: `find Cafe Grab Basketball`                                                                 |
-| **Budget** | `budget b/BUDGET` <br> Example: `budget b/1000`                                                                                          |
-| **AddCat** | `addCat c/EXPENSE_CATEGORY` <br> Example: `addCat c/transport`                                                                           |
-| **ListCat**| `listCat`                                                                                                                                |
-| **Person** | `person n/PERSON_NAME a/PERSON_AMOUNT` <br> Example: `person n/Alex a/50`                                                                |
-| **Paid**   | `paid INDEX` <br> Example: `paid 1`                                                                                                      |
-| **Clear**  | `clear`                                                                                                                                  |
-| **Exit**   | `exit`                                                                                                                                   |
+| Action      | Format, Examples                                                                                                                         |
+|-------------|------------------------------------------------------------------------------------------------------------------------------------------|
+| **Help**    | `help`                                                                                                                                   | 
+| **Add**     | `add d/DESCRIPTION a/AMOUNT [c/EXPENSE_CATEGORY] t/EXPENSE_DATE ` <br> Example: `add d/Lunch at VivoCity a/12.95 c/Food t/2022-03-20`    |
+| **Delete**  | `delete INDEX`<br> Example: `delete 3`                                                                                                   |
+| **Edit**    | `edit INDEX [d/DESCRIPTION] [a/AMOUNT] [c/EXPENSE_CATEGORY] [t/EXPENSE_DATE]`<br> Example:`edit 2 d/Lunch at Harbourfront Centre a/6.50` |
+| **List**    | `list`                                                                                                                                   |
+| **Filter**  | `filter (ft/FILTER_DATE) (c/CATEGORY)` <br> Example: `filter ft/2022-03 c/Transport`                                                     |
+| **Find**    | `find KEYWORD [MORE_KEYWORDS]` <br> Example: `find Cafe Grab Basketball`                                                                 |
+| **Budget**  | `budget b/BUDGET` <br> Example: `budget b/1000`                                                                                          |
+| **AddCat**  | `addCat c/EXPENSE_CATEGORY` <br> Example: `addCat c/transport`                                                                           |
+| **ListCat** | `listCat`                                                                                                                                |
+| **Person**  | `person n/PERSON_NAME a/PERSON_AMOUNT` <br> Example: `person n/Alex a/50`                                                                |
+| **Paid**    | `paid INDEX` <br> Example: `paid 1`<br/>                                                                                                 |
+| **Update**  | `update INDEX a/AMOUNT`<br/> Example: `update 4 a/200`                                                                                    |
+| **Clear**   | `clear`<br/>                                                                                                                             |
+| **Exit**    | `exit`                                                                                                                                   |
