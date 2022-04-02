@@ -21,7 +21,7 @@
     "expenseDate" : "2021-01-01"
   }, {
     "description" : "Nike",
-    "expenseCategory" : "Shoes",
+    "expenseCategory" : "Apparel",
     "amount" : "100.00",
     "expenseDate" : "2022-01-02"
   }, {
@@ -56,11 +56,9 @@
   "expenseCategories" : [ {
     "expenseCategory" : "Food"
   }, {
-    "expenseCategory" : "Miscellaneous"
-  }, {
     "expenseCategory" : "Entertainment"
   }, {
-    "expenseCategory" : "Shoes"
+    "expenseCategory" : "Apparel"
   }, {
     "expenseCategory" : "Transport"
   } ]
