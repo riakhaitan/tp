@@ -8,7 +8,10 @@ import static seedu.address.logic.parser.CliSyntax.PREFIX_EXPENSE_CATEGORY;
 
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.Model;
+import seedu.address.model.expense.Amount;
+import seedu.address.model.expense.Budget;
 import seedu.address.model.expense.Expense;
+
 
 /**
  * Adds an expense to the expense expert.
@@ -58,7 +61,10 @@ public class AddCommand extends Command {
         }
 
         model.addExpense(toAdd);
-
+        String difference = String.valueOf((model.getBudget().getBudgetAmount().amount - toAdd.getAmount().amount));
+        Amount newAmount = new Amount(difference);
+        Budget budget = new Budget(newAmount);
+        model.setBudget(budget);
         return new CommandResult(String.format(MESSAGE_SUCCESS, toAdd));
     }
 

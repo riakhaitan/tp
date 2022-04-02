@@ -21,9 +21,11 @@ public class UiManager implements Ui {
 
     private static final Logger logger = LogsCenter.getLogger(UiManager.class);
     private static final String ICON_APPLICATION = "/images/address_book_32.png";
+    private static BudgetPrompt budgetPrompt;
 
     private Logic logic;
     private MainWindow mainWindow;
+
 
     /**
      * Creates a {@code UiManager} with the given {@code Logic}.
@@ -41,13 +43,22 @@ public class UiManager implements Ui {
 
         try {
             mainWindow = new MainWindow(primaryStage, logic);
+            budgetPrompt = new BudgetPrompt();
             mainWindow.show(); //This should be called before creating other UI parts
             mainWindow.fillInnerParts();
+            System.out.println(logic.getBudget().getBudgetAmount().toString());
+            if (logic.getBudget().getBudgetAmount().toString().equals("0.00")) {
+                budgetPrompt.show();
+            }
 
         } catch (Throwable e) {
             logger.severe(StringUtil.getDetails(e));
             showFatalErrorDialogAndShutdown("Fatal error during initializing", e);
         }
+    }
+
+    public static void hideBudgetPrompt() {
+        budgetPrompt.hide();
     }
 
     private Image getImage(String imagePath) {
