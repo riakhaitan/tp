@@ -1,11 +1,11 @@
-#help {
+#budget {
     -fx-background-color: derive(#1d1d1d, 20%);
     background-color: #383838;
 }
 
-#copyButton, #helpMessage {
+#copyButton, #budgetPrompt {
     -fx-text-fill: white;
-    -fx-font-family: sans-serif;
+    -fx-font-family: "Open Sans";
 }
 
 #copyButton {
@@ -20,11 +20,11 @@
     -fx-background-color: darkgray;
 }
 
-#helpMessageContainer {
+#budgetPromptContainer {
     -fx-background-color: derive(#1d1d1d, 20%);
 }
 
-#helpMessage {
+#budgetPrompt {
     -fx-text-fill: white;
     -fx-opacity: 1;
 }
