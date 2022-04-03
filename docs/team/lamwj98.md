@@ -1,6 +1,7 @@
 git p---
 layout: page
 title: Andy's Project Portfolio Page
+
 ---
 
 ### Project: Expense Expert
@@ -17,6 +18,7 @@ Given below are my contributions to the project.
   - Credits: _(to be added soon)_
 
 - **New Feature**:
+
   - Filtering of Expense List by date or month
 
 - **Code contributed**: [RepoSense link](https://nus-cs2103-ay2122s2.github.io/tp-dashboard/?search=lamwj98&breakdown=true)
@@ -24,6 +26,7 @@ Given below are my contributions to the project.
 - **Project management**: _(to be added soon)_
 
 - **Enhancements to existing features**:
+
   - Change ExpenseDate class from keeping data as String to LocalDate (for future usage of dates for comparison)
   - Added unit test code for ExpenseDate and its relevant classes.
 
@@ -37,7 +40,7 @@ Given below are my contributions to the project.
     - Use cases:
       - UC01 Add an expense
       - UC02 Delete an expense
-      - UC03 Edit an expense 
+      - UC03 Edit an expense
       - UC04 Find expense(s)
       - UC08 Filter expense(s)
     - User stories

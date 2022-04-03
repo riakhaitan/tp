@@ -30,7 +30,7 @@ Given below are my contributions to the project.
 - **Documentation**:
 
   - User Guide:
-    - added Documentation for addCat, ListCat 
+    - added Documentation for addCat, ListCat
   - Developer Guide:
     - Coming Soon
 
