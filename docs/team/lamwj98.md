@@ -10,16 +10,12 @@ Expense Expert is a desktop expense tracking application used for tracking one's
 
 Given below are my contributions to the project.
 
-- **Filtering expense(s)**:
+- **New Feature**:
+- **Filtering expense(s) by date or month and/or category**:
 
   - What it does: Allows users to filter expense(s) based on date (can be specific date or by month), category, or a combination of both.
   - Justification: Users may want to know where they had spent money on specific date, specific month or even specific category.
-  - Highlights: _(to be added soon)_
-  - Credits: _(to be added soon)_
-
-- **New Feature**:
-
-  - Filtering of Expense List by date or month
+  - Highlights: The issue faced with implementing this issue is that when using predicate for filtered list, only one predicate can be taken, however, with the option of allowing user to use 2 predicate, date/month and category, there is a need to filter by 2 predicate. A way to overcome this issue is to create a new predicate that combines both the date/month predicate and the category predicate, and pass the new predicate as a single predicate to filtered list.
 
 - **Code contributed**: [RepoSense link](https://nus-cs2103-ay2122s2.github.io/tp-dashboard/?search=lamwj98&breakdown=true)
 
@@ -46,11 +42,9 @@ Given below are my contributions to the project.
     - User stories
 
 - **Community**:
-
+  - Refactor code base to fit project features.
+  - Adapted unit testing and sample data to fit the project requirements.
   - PRs reviewed (with non-trivial review comments): #68, #69, #84
-  - Contributed to forum discussions (examples: _(to be added soon)_
-  - Reported bugs and suggestions for other teams in the class _(to be added soon)_
-  - Some parts of the history feature I added was adopted by several other class mates _(to be added soon)_
 
 - **Tools**:
 
