@@ -196,6 +196,11 @@ public class SetBudgetCommandTest {
         public Budget getBudget() {
             throw new AssertionError("This method should not be called.");
         }
+
+        @Override
+        public boolean hasUndefinedBudget() {
+            throw new AssertionError("This method should not be called.");
+        }
     }
 
     /**

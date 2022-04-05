@@ -146,7 +146,6 @@ public class ModelManager implements Model {
         expenseExpert.setBudget(budget);
     }
 
-
     @Override
     public void addExpenseCategory(ExpenseCategory expenseCategory) {
         expenseExpert.addExpenseCategory(expenseCategory);
@@ -169,10 +168,14 @@ public class ModelManager implements Model {
         return expenseExpert.hasExpenseCategory(expense.getExpenseCategory());
     }
 
-
     @Override
     public Budget getBudget() {
         return expenseExpert.getBudget();
+    }
+
+    @Override
+    public boolean hasUndefinedBudget() {
+        return expenseExpert.hasUndefinedBudget();
     }
 
     //=========== Filtered Expense List Accessors =============================================================

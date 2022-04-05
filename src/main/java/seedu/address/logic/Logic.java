@@ -40,6 +40,9 @@ public interface Logic {
     /** Returns the budget */
     Budget getBudget();
 
+    /** Returns whether budget is defined */
+    boolean hasUndefinedBudget();
+
     /**
      * Returns the user prefs' expense expert file path.
      */

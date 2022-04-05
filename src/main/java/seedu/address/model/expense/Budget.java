@@ -50,6 +50,10 @@ public class Budget {
         return this.budgetDate;
     }
 
+    public boolean isUndefined() {
+        return this.budgetAmount.toString().equals("0.00");
+    }
+
     @Override
     public String toString() {
         final StringBuilder builder = new StringBuilder();
