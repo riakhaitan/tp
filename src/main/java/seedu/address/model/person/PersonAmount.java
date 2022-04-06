@@ -27,7 +27,7 @@ public class PersonAmount {
     public PersonAmount(String personAmount) {
         requireNonNull(personAmount);
         checkArgument(isValidPersonAmount(personAmount), MESSAGE_CONSTRAINTS);
-        this.personAmount = Double.valueOf(personAmount);
+        this.personAmount = Double.valueOf(personAmount.replace(",", ""));
     }
 
     /**

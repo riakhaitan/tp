@@ -22,10 +22,10 @@ public class AddCommand extends Command {
 
     public static final String MESSAGE_USAGE = COMMAND_WORD + ": Adds an expense to Expense Expert. "
             + "Parameters: "
-            + "[" + PREFIX_DESCRIPTION + "DESCRIPTION] "
+            + PREFIX_DESCRIPTION + "DESCRIPTION "
             + "[" + PREFIX_EXPENSE_CATEGORY + "CATEGORY] "
-            + "[" + PREFIX_AMOUNT + "AMOUNT]"
-            + "[" + PREFIX_DATE + "DATE] \n"
+            + PREFIX_AMOUNT + "AMOUNT "
+            + PREFIX_DATE + "DATE \n"
             + "Example: " + COMMAND_WORD + " "
             + PREFIX_DESCRIPTION + "Groceries from Fairprice "
             + PREFIX_EXPENSE_CATEGORY + "GROCERIES "
