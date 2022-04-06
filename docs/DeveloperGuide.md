@@ -249,7 +249,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
         Use case ends.
 
     3a. List of Expenses is empty
-        3a1. ExpenseExpert informs the user that there is no expenses in the list.
+        3a1. ExpenseExpert informs the user that there is no expense in the list.
         Use case ends.
 
 **Use case: UC03 Edit an expense**
@@ -318,7 +318,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 **Extensions**
 
     2a. Expense Expert detects errors in details of monthly budget.
-        2a1. ExpenseExpert informed the user about the error detected.
+        2a1. ExpenseExpert informs the user about the error detected.
         Use case ends.
 
 **Use case: UC08 Filter expense(s)**
