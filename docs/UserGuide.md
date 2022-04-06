@@ -188,7 +188,7 @@ Format: `listCat`
 
 ### Adding a person who owes you money: `person`
 
-Adds a person with a given name who owes you a specific amount.
+Adds a person with the name who owes you the specific amount.
 
 Format: `person n/PERSON_NAME a/PERSON_AMOUNT`
 
@@ -198,7 +198,7 @@ Examples:
 
 ### Removing a person who has paid the owed money: `paid`
 
-Removes a person at a given index who has paid the money they have owed.
+Removes a person at the index who has paid all the money they have owed.
 
 Format: `paid INDEX`
 
@@ -208,7 +208,7 @@ Examples:
 
 ### Updating the amount a person owes you: `update`
 
-Updates the amount of a person at a given index in the list. The amount that the person owes the user is updated according to the amount parsed.
+Updates the amount owed by a person at the index in the list to the amount parsed.
 
 Format: `update INDEX a/AMOUNT`
 

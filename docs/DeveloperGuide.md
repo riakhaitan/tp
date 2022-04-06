@@ -226,7 +226,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 **Extensions**
 
     2a. Expense Expert detects an error in details parsed.
-        2a1. ExpenseExpert requests to check the details of expense to be added and enter command again.
+        2a1. ExpenseExpert informs the user about the error detected.
         Use case ends.
 
     3a. Expense parsed is a duplicate of another expense that is already in ExpenseExpert.
@@ -245,7 +245,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 **Extensions**
 
     2a. Expense Expert detects an error in details parsed.
-        2a1. ExpenseExpert requests to check the details of expense to be deleted and enter command again.
+        2a1. ExpenseExpert informs the user about the error detected.
         Use case ends.
 
     3a. List of Expenses is empty
@@ -264,7 +264,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 **Extensions**
 
     2a. Expense Expert detects an error in details parsed.
-        2a1. ExpenseExpert request to check the details of expense to be edited and enter command again.
+        2a1. ExpenseExpert informs the user about the error detected.
         Use case ends.
 
     3a. Expense Expert detects that the details of the newly edited expense is a duplicate of another expense in the list.
@@ -283,7 +283,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 **Extensions**
 
     2a. Expense Expert detects errors in keyword(s) parsed.
-        2a1. ExpenseExpert requests to check the keyword(s) parsed and enter command again.
+        2a1. ExpenseExpert informs the user about the error detected.
         Use case ends.
 
     3a. ExpenseExpert can't find any matches.
@@ -318,7 +318,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 **Extensions**
 
     2a. Expense Expert detects errors in details of monthly budget.
-        2a1. ExpenseExpert requests to check details of monthly budget parsed and enter command again.
+        2a1. ExpenseExpert informed the user about the error detected.
         Use case ends.
 
 **Use case: UC08 Filter expense(s)**
@@ -326,14 +326,14 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 **MSS**
 1. User requests to filter the expense list.
 2. User supplies filter criteria.
-3. Expense Expert sets a monthly budget for the user.
+3. Expense Expert filters the expense(s) accordingly.
 
    Use case ends.
 
 **Extensions**
 
     2a. Expense Expert detects errors in filter criteria.
-        2a1. ExpenseExpert requests to check filter criteria parsed and enter command again.
+        2a1. ExpenseExpert informs the user about the error detected.
         Use case ends.
 
 **Use case: UC09 Exit ExpenseExpert**
