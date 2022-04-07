@@ -40,6 +40,10 @@ Given below are my contributions to the project.
       - UC04 Find expense(s)
       - UC08 Filter expense(s)
     - User stories
+    - Updated class diagrams
+      - Model
+      - UI
+  
 
 - **Community**:
   - Refactor code base to fit project features.

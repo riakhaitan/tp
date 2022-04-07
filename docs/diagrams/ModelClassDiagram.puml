@@ -18,6 +18,9 @@ Class PersonName
 Class PersonAmount
 
 Class UniqueExpenseList
+Class UniqueExpenseCategoryList
+Class UniquePersonList
+Class Budget
 Class Expense
 Class Description
 Class ExpenseCategory
