@@ -18,8 +18,10 @@ package "ExpenseExpert Storage" #F4F6F6{
 Class "<<interface>>\nExpenseExpertStorage" as ExpenseExpertStorage
 Class JsonExpenseExpertStorage
 Class JsonSerializableExpenseExpert
-Class JsonAdaptedUniqueExpenseList
-Class JsonAdaptedTag
+Class JsonAdaptedExpense
+Class JsonAdaptedPerson
+Class JsonAdaptedBudget
+Class JsonAdaptedExpenseCategory
 }
 
 }
@@ -37,7 +39,8 @@ Storage -right-|> ExpenseExpertStorage
 JsonUserPrefsStorage .up.|> UserPrefsStorage
 JsonExpenseExpertStorage .up.|> ExpenseExpertStorage
 JsonExpenseExpertStorage ..> JsonSerializableExpenseExpert
+JsonSerializableExpenseExpert --> "*" JsonAdaptedExpense
 JsonSerializableExpenseExpert --> "*" JsonAdaptedPerson
-JsonAdaptedPerson --> "*" JsonAdaptedTag
-
+JsonSerializableExpenseExpert --> "*" JsonAdaptedBudget
+JsonSerializableExpenseExpert --> "*" JsonAdaptedExpenseCategory
 @enduml

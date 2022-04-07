@@ -12,12 +12,20 @@ Class ExpenseExpert
 Class ModelManager
 Class UserPrefs
 
+Class UniquePersonList
+Class Person
+Class PersonName
+Class PersonAmount
+
 Class UniqueExpenseList
 Class Expense
 Class Description
 Class ExpenseCategory
 Class Amount
+Class Date
 
+Class ExpenseCategoryList
+Class Budget
 }
 
 Class HiddenOutside #FFFFFF
@@ -33,13 +41,18 @@ ModelManager -right-> "1" UserPrefs
 UserPrefs .up.|> ReadOnlyUserPrefs
 
 ExpenseExpert *--> "1" UniqueExpenseList
+ExpenseExpert *--> "1" UniquePersonList
+ExpenseExpert *-left-> "1" ExpenseCategoryList
+ExpenseExpert *-left-> "1" Budget
 UniqueExpenseList --> "~* all" Expense
+UniquePersonList --> "~* all" Person
+Person *--> PersonName
+Person *--> PersonAmount
 Expense *--> Description
 Expense *--> ExpenseCategory
 Expense *--> Amount
-
-Expense -[hidden]right-> Description
-ExpenseCategory -[hidden]right-> Amount
+Expense *--> Date
 
 ModelManager -->"~* filtered" Expense
+ModelManager -->"~* filtered" Person
 @enduml
