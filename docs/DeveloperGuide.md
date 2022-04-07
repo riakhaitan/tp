@@ -120,11 +120,8 @@ How the parsing works:
 
 The `Model` component,
 
-<<<<<<< HEAD
-* stores the expense expert data i.e., all `Expense` objects (which are contained in a `UniqueExpenseList` object) and all `Person` objects (which are contained in a `UniquePersonList` object).
-=======
+
 * stores the expense expert data. This includes `Expense` objects (which are contained in a `UniqueExpenseList` object), `Expense Category` objects (which are contained in a `UniqueExpenseCategoryList` object), `Persons` Objects (Which are contained in `UniquePersonList`) and a budget object.
->>>>>>> 61d0f34e8f81abf654f1b0788d13e3cbb85d67a6
 * stores the currently 'selected' `Expense` objects (e.g., results of a search query) as a separate _filtered_ list which is exposed to outsiders as an unmodifiable `ObservableList<Expense>` that can be 'observed' e.g. the UI can be bound to this list so that the UI automatically updates when the data in the list change.
 * stores all the `Person` objects as a separate _filtered_ list which is exposed to outsiders as an unmodifiable `ObservableList<Person>` that can be 'observed' e.g. the UI can be bound to this list so that the UI automatically updates when the data in the list change (Same implementation as `Expense` to allow future implementation of filtering of PersonList).
 * stores a `UserPref` object that represents the user’s preferences. This is exposed to the outside as a `ReadOnlyUserPref` objects.
@@ -137,12 +134,8 @@ The `Model` component,
 <img src="images/StorageClassDiagram.png" width="550" />
 
 The `Storage` component,
-<<<<<<< HEAD
-* can save both expense expert data and user preference data in json format, and read them back into corresponding objects.
-=======
 * can save both Expense Expert data and user preference data in json format, and read them back into corresponding objects.
-* Expense Expert Data consists of JSON-formatted Expenses, Persons, Budgets and Expense Categories. 
->>>>>>> 61d0f34e8f81abf654f1b0788d13e3cbb85d67a6
+* Expense Expert Data consists of JSON-formatted Expenses, Persons, Budgets and Expense Categories.
 * inherits from both `ExpenseExpertStorage` and `UserPrefStorage`, which means it can be treated as either one (if only the functionality of only one is needed).
 * depends on some classes in the `Model` component (because the `Storage` component's job is to save/retrieve objects that belong to the `Model`)
 
