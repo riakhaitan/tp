@@ -26,6 +26,7 @@ Class Date
 
 Class ExpenseCategoryList
 Class Budget
+Class BudgetAmount
 }
 
 Class HiddenOutside #FFFFFF
@@ -46,12 +47,16 @@ ExpenseExpert *-left-> "1" ExpenseCategoryList
 ExpenseExpert *-left-> "1" Budget
 UniqueExpenseList --> "~* all" Expense
 UniquePersonList --> "~* all" Person
+ExpenseCategoryList --> "~* all" ExpenseCategory
 Person *--> PersonName
 Person *--> PersonAmount
 Expense *--> Description
 Expense *--> ExpenseCategory
 Expense *--> Amount
 Expense *--> Date
+
+Budget *--> BudgetAmount
+Budget *--> Date
 
 ModelManager -->"~* filtered" Expense
 ModelManager -->"~* filtered" Person
