@@ -217,88 +217,76 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 **MSS**
 
-1.  User requests to add an expense.
-2.  ExpenseExpert adds the expense to the list.
+1. User requests to add an expense.
+2. User supplies the expense details.
+3. ExpenseExpert adds the expense to the list.
 
     Use case ends.
 
 **Extensions**
 
-    1a. Invalid syntax entered.
-        1a1. ExpenseExpert requests to check command parsed and enter command again.
+    2a. Expense Expert detects an error in details parsed.
+        2a1. ExpenseExpert informs the user about the error detected.
         Use case ends.
 
-    2a. Missing syntax or syntax field(s).
-        2a1. ExpenseExpert requests to check command parsed and enter command again.
-        Use case ends.
-
-    3a. Expense parsed is already in ExpenseExpert.
-        3a1. ExpenseExpert notifies user that expense already exist in ExpenseExpert.
+    3a. Expense parsed is a duplicate of another expense that is already in ExpenseExpert.
+        3a1. ExpenseExpert informs the user that the expense already exists in ExpenseExpert.
         Use case ends.
 
 **Use case: UC02 Delete an expense**
 
 **MSS**
 1. User requests to delete an expense.
-2. Expense Expert deletes the expense from the list.
+2. User supplies the expense detail.
+3. Expense Expert deletes the expense from the list.
 
     Use case ends.
 
 **Extensions**
 
-    1a. Invalid expense entered.
-        1a1. ExpenseExpert requests to check the expense to be deleted and enter command again.
-        Use case ends.
-
-    2a. Missing syntax or syntax field(s).
-        2a1. ExpenseExpert request to check command parsed and enter command again.
+    2a. Expense Expert detects an error in details parsed.
+        2a1. ExpenseExpert informs the user about the error detected.
         Use case ends.
 
     3a. List of Expenses is empty
-        3a1. ExpenseExpert notifies the user that there exists no expense to delete
+        3a1. ExpenseExpert informs the user that there is no expense in the list.
         Use case ends.
 
 **Use case: UC03 Edit an expense**
 
 **MSS**
 1. User requests to edit an expense.
-2. Expense Expert edits the expense in the list.
+2. User supplies the details of the expenses to be edited.
+3. Expense Expert edits the expense in the list.
 
    Use case ends.
 
 **Extensions**
 
-    1a. Invalid expense entered.
-        1a1. ExpenseExpert requests to check the expense parsed and enter command again.
+    2a. Expense Expert detects an error in details parsed.
+        2a1. ExpenseExpert informs the user about the error detected.
         Use case ends.
 
-    2a. Missing syntax or syntax field(s).
-        2a1. ExpenseExpert request to check command parsed and enter command again.
-        Use case ends.
-
-    3a. Edited expense is a duplicate of another expense in ExpenseExpert.
-        3a1. ExpenseExpert notify user that expense edited will duplicate of another expense in ExpenseExpert.
+    3a. Expense Expert detects that the details of the newly edited expense is a duplicate of another expense in the list.
+        3a1. ExpenseExpert informs the user that expense edited is a duplicate of another expense in ExpenseExpert.
         Use case ends.
 
 **Use case: UC04 Find expense(s)**
 
 **MSS**
-1. User requests to find a/some particular expense(s) through keywords.
-2. Expense Expert finds the expenses accordingly.
+1. User requests to find a/some particular expense(s) through keyword(s).
+2. User supplies the keyword(s).
+3. Expense Expert finds the expenses accordingly.
 
    Use case ends.
 
 **Extensions**
 
-    1a. Invalid expense/keyword entered.
-        1a1. ExpenseExpert requests to check the expense/keyword to be found and enter command again.
+    2a. Expense Expert detects errors in keyword(s) parsed.
+        2a1. ExpenseExpert informs the user about the error detected.
         Use case ends.
 
-    2a. Missing syntax or syntax field(s).
-        2a1. ExpenseExpert request to check command parsed and enter command again.
-        Use case ends.
-
-    3a. ExpenseExpert doesn't find any matches
+    3a. ExpenseExpert can't find any matches.
         3a1. ExpenseExpert returns an empty list to the user
         Use case ends.
 
@@ -310,12 +298,6 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
    Use case ends.
 
-**Extensions**
-
-    1a. Invalid keyword entered.
-        1a1. ExpenseExpert requests to check the keyword and enter command again.
-        Use case ends.
-
 **Use case: UC06 Clear ExpenseExpert**
 
 **MSS**
@@ -324,41 +306,35 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
    Use case ends.
 
-**Extensions**
-
-    1a. Invalid keyword entered.
-        1a1. ExpenseExpert requests to check the keyword and enter command again.
-        Use case ends.
-
 **Use case: UC07 Set Monthly Budget**
 
 **MSS**
 1. User requests to set a monthly budget.
-2. Expense Expert sets a monthly budget for the user.
+2. User supplies details of monthly budget.
+3. Expense Expert sets a monthly budget for the user.
 
    Use case ends.
 
 **Extensions**
 
-    1a. Invalid budget entered.
-        1a1. ExpenseExpert requests to check the budget amount parsed and enter command again.
-        Use case ends.
-
-    2a. Missing syntax or syntax field(s).
-        2a1. ExpenseExpert request to check command parsed and enter command again.
-        Use case ends.
-
-    3a. Entered budget is empty
-        3a1. ExpenseExpert notifies the user of the invalidity of the empty budget.
+    2a. Expense Expert detects errors in details of monthly budget.
+        2a1. ExpenseExpert informs the user about the error detected.
         Use case ends.
 
 **Use case: UC08 Filter expense(s)**
 
 **MSS**
 1. User requests to filter the expense list.
-2. Expense Expert sets a monthly budget for the user.
+2. User supplies filter criteria.
+3. Expense Expert filters the expense(s) accordingly.
 
    Use case ends.
+
+**Extensions**
+
+    2a. Expense Expert detects errors in filter criteria.
+        2a1. ExpenseExpert informs the user about the error detected.
+        Use case ends.
 
 **Use case: UC09 Exit ExpenseExpert**
 
@@ -367,12 +343,6 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 2. Expense Expert exits.
 
    Use case ends.
-
-**Extensions**
-
-    1a. Invalid keyword entered.
-        1a1. ExpenseExpert requests to check the keyword and enter command again.
-        Use case ends.
 
 
 ### Non-Functional Requirements
