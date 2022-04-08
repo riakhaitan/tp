@@ -195,20 +195,29 @@ public class MainWindow extends UiPart<Stage> {
      */
     private CommandResult executeCommand(String commandText) throws CommandException, ParseException {
         try {
-            CommandResult commandResult = logic.execute(commandText);
-            logger.info("Result: " + commandResult.getFeedbackToUser());
-            commandResultDisplay.setFeedbackToUser(commandResult.getFeedbackToUser());
-            budgetResultDisplay.showMonthlyBudget(logic.getBudget());
+            if (!(logic.hasUndefinedBudget()) || commandText.split(" ")[0].equals("budget")) {
+                CommandResult commandResult = logic.execute(commandText);
+                logger.info("Result: " + commandResult.getFeedbackToUser());
+                commandResultDisplay.setFeedbackToUser(commandResult.getFeedbackToUser());
+                budgetResultDisplay.showMonthlyBudget(logic.getBudget());
 
-            if (commandResult.isShowHelp()) {
-                handleHelp();
+                if (commandResult.isShowHelp()) {
+                    handleHelp();
+                }
+
+                if (commandResult.isExit()) {
+                    handleExit();
+                }
+                return commandResult;
+            } else {
+                CommandResult commandResult = new CommandResult("Please set your monthly budget "
+                    + "before executing other commands!");
+                logger.info("Please set your monthly budget before executing other commands!");
+                commandResultDisplay.setFeedbackToUser(commandResult.getFeedbackToUser());
+                budgetResultDisplay.showMonthlyBudget(logic.getBudget());
+
+                return commandResult;
             }
-
-            if (commandResult.isExit()) {
-                handleExit();
-            }
-
-            return commandResult;
         } catch (CommandException | ParseException e) {
             logger.info("Invalid command: " + commandText);
             commandResultDisplay.setFeedbackToUser(e.getMessage());

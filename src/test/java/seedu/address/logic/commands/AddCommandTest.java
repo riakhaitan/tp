@@ -212,6 +212,11 @@ public class AddCommandTest {
         public void updateFilteredPersonList(Predicate<Person> predicate) {
             throw new AssertionError("This method should not be called.");
         }
+
+        @Override
+        public boolean hasUndefinedBudget() {
+            throw new AssertionError("This method should not be called.");
+        }
     }
 
 
