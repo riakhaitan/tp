@@ -41,6 +41,7 @@ public class CommandTestUtil {
 
     public static final String VALID_BUDGET_AMOUNT_ALPHA = "900";
     public static final String VALID_BUDGET_AMOUNT_BETA = "600";
+    public static final String VALID_UNDEFINED_BUDGET_AMOUNT = "0";
     public static final String VALID_BUDGET_DATE_ALPHA = "2022-01-01";
     public static final String VALID_BUDGET_DATE_BETA = "2022-03-10";
     public static final String VALID_FILTER_DATE = "2022-03-03";
