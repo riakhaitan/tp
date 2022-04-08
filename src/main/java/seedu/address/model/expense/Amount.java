@@ -39,7 +39,9 @@ public class Amount {
         return test.matches(VALIDATION_REGEX) && test != "";
     }
 
-
+    public boolean isZero() {
+        return amount.equals(0.00);
+    }
 
     @Override
     public String toString() {

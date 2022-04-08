@@ -52,6 +52,10 @@ public class Date {
         }
     }
 
+    public String getMonth() {
+        return date.format(DateTimeFormatter.ofPattern("MMMM"));
+    }
+
     @Override
     public String toString() {
         return date.format(dtf);
