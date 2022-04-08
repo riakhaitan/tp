@@ -129,7 +129,7 @@ public class MainWindow extends UiPart<Stage> {
         budgetResultDisplay.showMonthlyBudget(logic.getBudget());
         budgetDisplayPlaceholder.getChildren().add(budgetResultDisplay.getRoot());
 
-        commandResultDisplay = new ResultDisplay();
+        commandResultDisplay = new ResultDisplay("Welcome to Expense Expert!");
         resultDisplayPlaceholder.getChildren().add(commandResultDisplay.getRoot());
 
         StatusBarFooter statusBarFooter = new StatusBarFooter(logic.getExpenseExpertFilePath());

@@ -26,11 +26,13 @@ public class ResultDisplay extends UiPart<Region> {
     public ResultDisplay(String string) {
         super(FXML);
         resultDisplay.setText(string);
+        resultDisplay.setWrapText(true);
     }
 
     public void setFeedbackToUser(String feedbackToUser) {
         requireNonNull(feedbackToUser);
         resultDisplay.setText(feedbackToUser);
+        resultDisplay.setWrapText(true);
     }
 
 }

@@ -23,7 +23,7 @@ public class EditPersonCommand extends Command {
             + "by the index number used in the displayed person list. \n"
             + "Existing amount will be overwritten by the input amount.\n"
             + "Parameters: INDEX (must be a positive integer) "
-            + "[" + PREFIX_AMOUNT + "AMOUNT] \n"
+            + PREFIX_AMOUNT + "AMOUNT \n"
             + "Example: " + COMMAND_WORD + " 1 "
             + PREFIX_AMOUNT + "120\n\n";
 

@@ -39,6 +39,13 @@ public class Amount {
         return test.matches(VALIDATION_REGEX) && test != "";
     }
 
+    /**
+     * Checks if amount is equal to zero.
+     */
+    public boolean isZero() {
+        return amount.equals(0.00);
+    }
+
     @Override
     public String toString() {
         return String.format("%.2f", amount);

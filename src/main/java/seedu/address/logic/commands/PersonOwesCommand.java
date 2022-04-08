@@ -18,7 +18,7 @@ public class PersonOwesCommand extends Command {
     public static final String MESSAGE_USAGE = COMMAND_WORD + ": adds the person who owes you money to Expense Expert "
             + "Parameters: "
             + PREFIX_PERSON_NAME + "NAME"
-            + PREFIX_AMOUNT + "AMOUNT "
+            + PREFIX_AMOUNT + "AMOUNT \n"
             + "Example: " + COMMAND_WORD + " "
             + PREFIX_PERSON_NAME + "ALEX "
             + PREFIX_AMOUNT + "100 \n\n";

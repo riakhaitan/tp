@@ -42,10 +42,24 @@ public class Budget {
         this.budgetDate = new Date(LocalDate.now().format(dtf));
     }
 
+    /**
+     * Returns the amount of budget left in Expense Expert.
+     * Returns 0 if the budget is undefined or depleted.
+     */
     public Amount getBudgetAmount() {
         return this.budgetAmount;
     }
 
+    /**
+     * Returns the month when budget is set in Expense Expert.
+     */
+    public String getBudgetMonth() {
+        return this.budgetDate.getMonth();
+    }
+
+    /**
+     * Returns the date when budget is set in Expense Expert.
+     */
     public Date getBudgetDate() {
         return this.budgetDate;
     }

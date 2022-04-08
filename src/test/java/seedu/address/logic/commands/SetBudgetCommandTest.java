@@ -35,7 +35,8 @@ public class SetBudgetCommandTest {
 
         CommandResult commandResult = new SetBudgetCommand(validBudget).execute(modelStub);
 
-        assertEquals(String.format(SetBudgetCommand.MESSAGE_SUCCESS, validBudget), commandResult.getFeedbackToUser());
+        assertEquals(String.format(SetBudgetCommand.MESSAGE_SUCCESS, validBudget.getBudgetMonth(),
+                validBudget.getBudgetAmount()), commandResult.getFeedbackToUser());
         assertEquals(validBudget, modelStub.budget);
     }
 
