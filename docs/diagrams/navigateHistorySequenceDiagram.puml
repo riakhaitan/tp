@@ -43,5 +43,5 @@ deactivate ":CommandBox"
 
 ":CommandBox" -> "commandTextField:TextField": //setText(previousCommand)//
 activate "commandTextField:TextField"
-"commandTextField:TextField" --> User: show previous command 
+"commandTextField:TextField" --> User: show previous command
 @enduml
