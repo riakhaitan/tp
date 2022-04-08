@@ -104,7 +104,7 @@ Format: `add d/DESCRIPTION a/AMOUNT c/EXPENSE_CATEGORY t/EXPENSE_DATE`
 Examples:
 
 - `add d/Dinner at Privé a/35 c/Extra expense t/2022-03-22`
-- `add d/Groceries a/50 c/Essentials t/2022-03-23`
+- `add d/Groceries c/Essentials t/2022-03-23 a/50`
 
 ### Deleting an expense : `delete`
 
@@ -151,7 +151,7 @@ Examples:
 
 ### Finding expenses: `find`
 
-Finds expenses with the stated keyword(s) in descriptors. If more than one keyword is provided, return list of expenses with expense description that matches any of the keywords provided.
+Finds expense(s) with the stated keyword(s) in descriptors. If more than one keyword is provided, return list of expenses with expense description that matches any of the keywords provided.
 
 Format: `find KEYWORD [MORE_KEYWORDS]`
 
@@ -188,7 +188,7 @@ Format: `listCat`
 
 ### Adding a person who owes you money: `person`
 
-Adds a person with a given name who owes you a specific amount.
+Adds a person with the name who owes you the specific amount.
 
 Format: `person n/PERSON_NAME a/PERSON_AMOUNT`
 
@@ -198,7 +198,7 @@ Examples:
 
 ### Removing a person who has paid the owed money: `paid`
 
-Removes a person at a given index who has paid the money they have owed.
+Removes a person at the index who has paid all the money they have owed.
 
 Format: `paid INDEX`
 
@@ -208,7 +208,7 @@ Examples:
 
 ### Updating the amount a person owes you: `update`
 
-Updates the person at a given index in the list. The amount that the person owes the user is edited according to the filled in parameter.
+Updates the amount owed by a person at the index in the list to the amount parsed.
 
 Format: `update INDEX a/AMOUNT`
 
