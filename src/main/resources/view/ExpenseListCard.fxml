@@ -12,21 +12,21 @@
 <HBox id="cardPane" fx:id="cardPane" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
   <GridPane HBox.hgrow="ALWAYS">
     <columnConstraints>
-      <ColumnConstraints hgrow="SOMETIMES" minWidth="10" prefWidth="150" />
+      <ColumnConstraints hgrow="SOMETIMES" minWidth="10"/>
     </columnConstraints>
-    <HBox alignment="BOTTOM_RIGHT" minHeight="105" GridPane.columnIndex="0">
+    <HBox alignment="BOTTOM_RIGHT" minHeight="80" prefHeight="80" GridPane.columnIndex="0">
       <VBox HBox.hgrow="ALWAYS" alignment="CENTER_LEFT">
         <padding>
           <Insets bottom="5" left="15" right="5" top="5" />
         </padding>
-        <HBox alignment="CENTER_LEFT" spacing="5">
+        <HBox alignment="CENTER_LEFT" spacing="5" prefWidth="150">
           <Label fx:id="id" styleClass="cell_big_label">
             <minWidth>
               <!-- Ensures that the label text is never truncated -->
               <Region fx:constant="USE_PREF_SIZE" />
             </minWidth>
           </Label>
-          <Label fx:id="description" styleClass="cell_big_label" text="\$description" />
+          <Label fx:id="description" styleClass="cell_big_label" text="\$description" maxWidth="180" wrapText="true"/>
         </HBox>
         <Label fx:id="expenseCategory" styleClass="category_label" text="\$expenseCategory" />
         <Region prefHeight="30.0" prefWidth="90.0" />
