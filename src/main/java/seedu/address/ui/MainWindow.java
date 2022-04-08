@@ -212,7 +212,7 @@ public class MainWindow extends UiPart<Stage> {
             } else {
                 CommandResult commandResult = new CommandResult("Please set your monthly budget "
                     + "before executing other commands!");
-                logger.info("Please set your monthly budget before other commands!");
+                logger.info("Please set your monthly budget before executing other commands!");
                 commandResultDisplay.setFeedbackToUser(commandResult.getFeedbackToUser());
                 budgetResultDisplay.showMonthlyBudget(logic.getBudget());
 
