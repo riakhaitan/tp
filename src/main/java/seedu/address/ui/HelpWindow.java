@@ -29,9 +29,6 @@ public class HelpWindow extends UiPart<Stage> {
     @FXML
     private Label helpMessage;
 
-    // @FXML
-    // private Image helpImage;
-
     /**
      * Creates a new HelpWindow.
      *
@@ -40,7 +37,6 @@ public class HelpWindow extends UiPart<Stage> {
     public HelpWindow(Stage root) {
         super(FXML, root);
         helpMessage.setText(HelpCommand.helpCommandString());
-        // helpImage = new Image(new FileInputStream("/images/coin_sprite.png"));
     }
 
     /**

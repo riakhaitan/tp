@@ -41,9 +41,9 @@ public class SetBudgetCommand extends Command {
         model.setBudget(budget);
 
         if (budget.getBudgetAmount().isZero()) {
-            return new CommandResult(String.format(BUDGET_SET_TO_UNDEFINED, budget.getBudgetDate().getMonth()));
+            return new CommandResult(String.format(BUDGET_SET_TO_UNDEFINED, budget.getBudgetMonth()));
         }
-        return new CommandResult(String.format(MESSAGE_SUCCESS, budget.getBudgetDate().getMonth(), budget.getBudgetAmount()));
+        return new CommandResult(String.format(MESSAGE_SUCCESS, budget.getBudgetMonth(), budget.getBudgetAmount()));
     }
 
     @Override
