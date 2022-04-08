@@ -14,7 +14,8 @@ public class SetBudgetCommand extends Command {
 
     public static final String COMMAND_WORD = "budget";
 
-    public static final String MESSAGE_USAGE = COMMAND_WORD + ": Sets the monthly budget (max. $99999.99) for Expense Expert. "
+    public static final String MESSAGE_USAGE = COMMAND_WORD + ": Sets the monthly budget (max. $99999.99) "
+            + "for Expense Expert. "
             + "Parameters: "
             + PREFIX_AMOUNT + "BUDGET AMOUNT \n"
             + "Example: " + COMMAND_WORD + " "
