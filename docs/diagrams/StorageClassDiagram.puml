@@ -4,6 +4,7 @@ skinparam arrowThickness 1.1
 skinparam arrowColor STORAGE_COLOR
 skinparam classBackgroundColor STORAGE_COLOR
 
+
 package Storage{
 
 package "UserPrefs Storage" #F4F6F6{
@@ -18,8 +19,10 @@ package "ExpenseExpert Storage" #F4F6F6{
 Class "<<interface>>\nExpenseExpertStorage" as ExpenseExpertStorage
 Class JsonExpenseExpertStorage
 Class JsonSerializableExpenseExpert
-Class JsonAdaptedUniqueExpenseList
-Class JsonAdaptedTag
+Class JsonAdaptedExpense
+Class JsonAdaptedBudget
+Class JsonAdaptedExpenseCategory
+Class JsonAdaptedPerson
 }
 
 }
@@ -37,7 +40,12 @@ Storage -right-|> ExpenseExpertStorage
 JsonUserPrefsStorage .up.|> UserPrefsStorage
 JsonExpenseExpertStorage .up.|> ExpenseExpertStorage
 JsonExpenseExpertStorage ..> JsonSerializableExpenseExpert
+JsonSerializableExpenseExpert --> "*" JsonAdaptedExpense
 JsonSerializableExpenseExpert --> "*" JsonAdaptedPerson
-JsonAdaptedPerson --> "*" JsonAdaptedTag
+JsonSerializableExpenseExpert --> "*" JsonAdaptedBudget
+JsonSerializableExpenseExpert --> "*" JsonAdaptedExpenseCategory
+
+JsonAdaptedExpense -[hidden]right- JsonAdaptedPerson
+JsonAdaptedBudget -[hidden]left- JsonAdaptedPerson
 
 @enduml

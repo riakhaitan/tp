@@ -120,17 +120,12 @@ How the parsing works:
 
 The `Model` component,
 
-* stores the expense expert data i.e., all `Expense` objects (which are contained in a `UniqueExpenseList` object).
+
+* stores the expense expert data. This includes `Expense` objects (which are contained in a `UniqueExpenseList` object), `Expense Category` objects (which are contained in a `UniqueExpenseCategoryList` object), `Persons` Objects (Which are contained in `UniquePersonList`) and a budget object.
 * stores the currently 'selected' `Expense` objects (e.g., results of a search query) as a separate _filtered_ list which is exposed to outsiders as an unmodifiable `ObservableList<Expense>` that can be 'observed' e.g. the UI can be bound to this list so that the UI automatically updates when the data in the list change.
+* stores all the `Person` objects as a separate _filtered_ list which is exposed to outsiders as an unmodifiable `ObservableList<Person>` that can be 'observed' e.g. the UI can be bound to this list so that the UI automatically updates when the data in the list change (Same implementation as `Expense` to allow future implementation of filtering of PersonList).
 * stores a `UserPref` object that represents the user’s preferences. This is exposed to the outside as a `ReadOnlyUserPref` objects.
 * does not depend on any of the other three components (as the `Model` represents data entities of the domain, they should make sense on their own without depending on other components)
-
-<div markdown="span" class="alert alert-info">:information_source: **Note:** An alternative (arguably, a more OOP) model is given below. It has a `Tag` list in the `ExpenseExpert`, which `Expense` references. This allows `ExpenseExpert` to only require one `Tag` object per unique tag, instead of each `Expense` needing their own `Tag` objects.<br>
-
-<img src="images/BetterModelClassDiagram.png" width="450" />
-
-</div>
-
 
 ### Storage component
 
@@ -139,7 +134,8 @@ The `Model` component,
 <img src="images/StorageClassDiagram.png" width="550" />
 
 The `Storage` component,
-* can save both address book data and user preference data in json format, and read them back into corresponding objects.
+* can save both Expense Expert data and user preference data in json format, and read them back into corresponding objects.
+* Expense Expert Data consists of JSON-formatted Expenses, Persons, Budgets and Expense Categories.
 * inherits from both `ExpenseExpertStorage` and `UserPrefStorage`, which means it can be treated as either one (if only the functionality of only one is needed).
 * depends on some classes in the `Model` component (because the `Storage` component's job is to save/retrieve objects that belong to the `Model`)
 
@@ -153,6 +149,37 @@ Classes used by multiple components are in the `seedu.address.commons` package.
 
 This section describes some noteworthy details on how certain features are implemented.
 
+### **Filter**
+Filter function allows user to filter the expense list based on date/month and/or category.
+
+#### *How is the feature implemented?*
+When user calls the filter command i.e. passing the text as command, the text will be parsed to `LogicManager` instance's `execute` method. `LogicManager` instance's execute method will 
+then call `ExpenseExpertParser` instance's `parseCommand` method. `ExpenseExpert` instance's pass command method will match the text parsed to find that it is a filter method and will then create a 
+`FilterCommandParser` object and call its instance's `parse` method with the argument(s) passed for the command i.e. the original text passed by user with the command word removed. `FilterCommandParser`
+instance will then check and format the argument(s) passed. If the argument(s) parsed is invalid i.e. wrong format or missing fields, a `ParseException` with the error encountered will be thrown. If 
+the argument(s) is valid, `FilterCommandParser` will return control to `ExpenseExpertParser` with a new instance of `FilterCommand` (created with the properly formatted argument(s)). The `ExpenseExpertParser`
+will also return control to `LogicManager` with the `FilterCommand` instance returned from `FilterCommandParser`. Upon receiving control from `ExpenseExpertParser` with `FilterCommand` instance, 
+`LogicManager` will proceed to call `FilterCommand` instance's execute method with `Model` of `ExpenseExpert` passed as argument.
+
+By calling the `FilterCommand` instance's execute method, the control is passed to `FilterCommand`. `FilterCommand` instance will check its field for `ExpenseDateIsParsedDatePredicate` and 
+`ExpenseCategoryIsParsedCategoryPredicate` presence. If both fields are present, `FilterCommand` will create a new instance of `PredicateChain` with both fields parsed as argument. `PredicateChain`
+functions like a predicate, but incorporates all the predicates in question.
+
+If only one field is present, `FilterCommand` will proceed to filter `Model` instance's `updateFilteredExpenseList` method with that field to update the list to be shown to the user. If both fields
+are present, `PredicateChain` created using both fields are used instead. Upon successfully execution, a `CommandResult` with the details to display to user after execution is returned to `LogicManager`.
+`LogicManager` will then save the state of the `Model` and return the `CommandResult` to the UI side to display the result after execution.
+
+The sequence diagram below illustrates the process of calling `filter ft/2022-03-3` successfully:
+
+<img src="images/FilterSequenceDiagram.png"/>
+
+#### *Why is it implemented this way*
+It is implemented using the Object-Oriented Programming approach so that it allows for easy future scaling. Such is done by grouping similar functionalities into different classes. 
+
+#### *Alternatives considered*
+- `PredicateChain` to be specially created for combining only `ExpenseDateIsParsedDatePredicate` and `ExpenseCategoryIsParsedCategoryPredicate`.
+  - This consideration is dropped as current implementation allows for future scaling, in the case where more filtering options are provided to users.
+  
 
 
 #### Design considerations:
@@ -204,7 +231,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 | `* * *`  | user     | edit an expense along with its details              |                                                                         |
 | `* * *`  | user     | view all expense recorded                           | locate details of expenses without having to go through the entire list |
 | `* *`     | user     | find an expense base on keyword(s)                  |                                                                         |
-| `* *`    | user     | filter expenses based on date/month                 |                                                                         |
+| `* *`    | user     | filter expenses based on date/month and/or category |                                                                         |
 | `* *`    | user     | set a monthly budget                                | keep track of my savings and over-expenditure                           |
 
 *{More to be added}*
@@ -217,92 +244,80 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 **MSS**
 
-1.  User requests to add an expense.
-2.  ExpenseExpert adds the expense to the list.
+1. User requests to add an expense.
+2. User supplies the expense details.
+3. ExpenseExpert adds the expense to the list.
 
     Use case ends.
 
 **Extensions**
 
-    1a. Invalid syntax entered.
-        1a1. ExpenseExpert requests to check command parsed and enter command again.
+    2a. Expense Expert detects an error in details parsed.
+        2a1. ExpenseExpert informs the user about the error detected.
         Use case ends.
 
-    2a. Missing syntax or syntax field(s).
-        2a1. ExpenseExpert requests to check command parsed and enter command again.
-        Use case ends.
-
-    3a. Expense parsed is already in ExpenseExpert.
-        3a1. ExpenseExpert notifies user that expense already exist in ExpenseExpert.
+    3a. Expense parsed is a duplicate of another expense that is already in ExpenseExpert.
+        3a1. ExpenseExpert informs the user that the expense already exists in ExpenseExpert.
         Use case ends.
 
 **Use case: UC02 Delete an expense**
 
 **MSS**
 1. User requests to delete an expense.
-2. Expense Expert deletes the expense from the list.
+2. User supplies the expense detail.
+3. Expense Expert deletes the expense from the list.
 
     Use case ends.
 
 **Extensions**
 
-    1a. Invalid expense entered.
-        1a1. ExpenseExpert requests to check the expense to be deleted and enter command again.
-        Use case ends.
-
-    2a. Missing syntax or syntax field(s).
-        2a1. ExpenseExpert request to check command parsed and enter command again.
+    2a. Expense Expert detects an error in details parsed.
+        2a1. ExpenseExpert informs the user about the error detected.
         Use case ends.
 
     3a. List of Expenses is empty
-        3a1. ExpenseExpert notifies the user that there exists no expense to delete
+        3a1. ExpenseExpert informs the user that there is no expense in the list.
         Use case ends.
 
-**Use case: UC03 Edit an expenses**
+**Use case: UC03 Edit an expense**
 
 **MSS**
 1. User requests to edit an expense.
-2. Expense Expert edits the expense in the list.
+2. User supplies the details of the expenses to be edited.
+3. Expense Expert edits the expense in the list.
 
    Use case ends.
 
 **Extensions**
 
-    1a. Invalid expense entered.
-        1a1. ExpenseExpert requests to check the expense parsed and enter command again.
+    2a. Expense Expert detects an error in details parsed.
+        2a1. ExpenseExpert informs the user about the error detected.
         Use case ends.
 
-    2a. Missing syntax or syntax field(s).
-        2a1. ExpenseExpert request to check command parsed and enter command again.
+    3a. Expense Expert detects that the details of the newly edited expense is a duplicate of another expense in the list.
+        3a1. ExpenseExpert informs the user that expense edited is a duplicate of another expense in ExpenseExpert.
         Use case ends.
 
-    3a. Edited expense is a duplicate of another expense in ExpenseExpert.
-        3a1. ExpenseExpert notify user that expense edited will duplicate of another expense in ExpenseExpert.
-        Use case ends.
-
-**Use case: UC04 Find an expense**
+**Use case: UC04 Find expense(s)**
 
 **MSS**
-1. User requests to find a/some particular expense(s) through keywords.
-2. Expense Expert finds the expenses accordingly.
+1. User requests to find a/some particular expense(s) through keyword(s).
+2. User supplies the keyword(s).
+3. Expense Expert finds the expenses accordingly.
 
    Use case ends.
 
 **Extensions**
 
-    1a. Invalid expense/keyword entered.
-        1a1. ExpenseExpert requests to check the expense/keyword to be found and enter command again.
+    2a. Expense Expert detects errors in keyword(s) parsed.
+        2a1. ExpenseExpert informs the user about the error detected.
         Use case ends.
 
-    2a. Missing syntax or syntax field(s).
-        2a1. ExpenseExpert request to check command parsed and enter command again.
-        Use case ends.
-
-    3a. ExpenseExpert doesn't find any matches
+    3a. ExpenseExpert can't find any matches.
         3a1. ExpenseExpert returns an empty list to the user
         Use case ends.
 
-**Use case: UC04 Help the user**
+**Use case: UC05 Help the user**
 
 **MSS**
 1. User requests to know how to use the system.
@@ -310,13 +325,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
    Use case ends.
 
-**Extensions**
-
-    1a. Invalid keyword entered.
-        1a1. ExpenseExpert requests to check the keyword and enter command again.
-        Use case ends.
-
-**Use case: UC05 Clear ExpenseExpert**
+**Use case: UC06 Clear ExpenseExpert**
 
 **MSS**
 1. User requests to clear all the expenses added until then.
@@ -324,47 +333,43 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
    Use case ends.
 
-**Extensions**
-
-    1a. Invalid keyword entered.
-        1a1. ExpenseExpert requests to check the keyword and enter command again.
-        Use case ends.
-
-**Use case: UC06 Set Monthly Budget**
+**Use case: UC07 Set Monthly Budget**
 
 **MSS**
 1. User requests to set a monthly budget.
-2. Expense Expert sets a monthly budget for the user.
+2. User supplies details of monthly budget.
+3. Expense Expert sets a monthly budget for the user.
 
    Use case ends.
 
 **Extensions**
 
-    1a. Invalid budget entered.
-        1a1. ExpenseExpert requests to check the budget amount parsed and enter command again.
+    2a. Expense Expert detects errors in details of monthly budget.
+        2a1. ExpenseExpert informs the user about the error detected.
         Use case ends.
 
-    2a. Missing syntax or syntax field(s).
-        2a1. ExpenseExpert request to check command parsed and enter command again.
+**Use case: UC08 Filter expense(s)**
+
+**MSS**
+1. User requests to filter the expense list.
+2. User supplies filter criteria.
+3. Expense Expert filters the expense(s) accordingly.
+
+   Use case ends.
+
+**Extensions**
+
+    2a. Expense Expert detects errors in filter criteria.
+        2a1. ExpenseExpert informs the user about the error detected.
         Use case ends.
 
-    3a. Entered budget is empty
-        3a1. ExpenseExpert notifies the user of the invalidity of the empty budget.
-        Use case ends.
-
-**Use case: UC07 Exit ExpenseExpert**
+**Use case: UC09 Exit ExpenseExpert**
 
 **MSS**
 1. User requests to exit the app.
 2. Expense Expert exits.
 
    Use case ends.
-
-**Extensions**
-
-    1a. Invalid keyword entered.
-        1a1. ExpenseExpert requests to check the keyword and enter command again.
-        Use case ends.
 
 
 ### Non-Functional Requirements

@@ -1,73 +1,65 @@
 {
   "expenses" : [ {
-    "description" : "Grab",
-    "expenseCategory" : "Travel",
-    "amount" : "20",
+    "description" : "took grab",
+    "expenseCategory" : "Transport",
+    "amount" : "10.00",
     "expenseDate" : "2022-02-21"
   }, {
-    "description" : "McDonalds",
+    "description" : "Lunch at Harbourfront Centre",
     "expenseCategory" : "Food",
-    "amount" : "10",
-    "expenseDate" : "2022-03-22"
+    "amount" : "6.50",
+    "expenseDate" : "2022-03-20"
   }, {
-    "description" : "Kayaking",
-    "expenseCategory" : "Leisure",
-    "amount" : "8",
-    "expenseDate" : "2022-02-18"
+    "description" : "Gym Membership",
+    "expenseCategory" : "Food",
+    "amount" : "80.00",
+    "expenseDate" : "2022-02-02"
   }, {
-    "description" : "Zara",
-    "expenseCategory" : "Clothes",
-    "amount" : "100",
-    "expenseDate" : "2022-03-16"
+    "description" : "Bao",
+    "expenseCategory" : "Food",
+    "amount" : "1.00",
+    "expenseDate" : "2021-01-01"
   }, {
-    "description" : "MRT",
-    "expenseCategory" : "Travel",
-    "amount" : "2.80",
-    "expenseDate" : "2022-03-18"
-  }, {
-    "description" : "Bowling",
-    "expenseCategory" : "Leisure",
-    "amount" : "15",
-    "expenseDate" : "2022-03-10"
+    "description" : "Nike",
+    "expenseCategory" : "Apparel",
+    "amount" : "100.00",
+    "expenseDate" : "2022-01-02"
   }, {
     "description" : "Groceries",
-    "expenseCategory" : "Shopping",
-    "amount" : "1000",
-    "expenseDate" : "2020-02-22"
+    "expenseCategory" : "Food",
+    "amount" : "100.00",
+    "expenseDate" : "2020-01-01"
   } ],
   "persons" : [ {
-    "personName" : "Alex",
-    "personAmount" : "50"
+    "personName" : "Oliver",
+    "personAmount" : "30.00"
+  }, {
+    "personName" : "Jessica",
+    "personAmount" : "20.00"
   }, {
     "personName" : "Neel",
-    "personAmount" : "70"
+    "personAmount" : "40.00"
   }, {
-    "personName" : "Bob",
-    "personAmount" : "200"
+    "personName" : "Samantha",
+    "personAmount" : "20.00"
   }, {
-    "personName" : "Craig",
-    "personAmount" : "1000"
+    "personName" : "Rachel",
+    "personAmount" : "35.00"
   }, {
-    "personName" : "George",
-    "personAmount" : "220"
-  }, {
-    "personName" : "Jade",
-    "personAmount" : "50"
-  }, {
-    "personName" : "Chris",
-    "personAmount" : "75"
-  }, {
-    "personName" : "Anne",
-    "personAmount" : "30"
-  }, {
-    "personName" : "Mabel",
-    "personAmount" : "55"
-  }, {
-    "personName" : "Emme",
-    "personAmount" : "70"
+    "personName" : "Ralph",
+    "personAmount" : "200.00"
   } ],
   "budget" : {
-    "budgetAmount" : "1000",
-    "budgetDate" : "2022-03-30"
-  }
+    "budgetAmount" : "2012.00",
+    "budgetDate" : "2022-04-01"
+  },
+  "expenseCategories" : [ {
+    "expenseCategory" : "Food"
+  }, {
+    "expenseCategory" : "Entertainment"
+  }, {
+    "expenseCategory" : "Apparel"
+  }, {
+    "expenseCategory" : "Transport"
+  } ]
 }

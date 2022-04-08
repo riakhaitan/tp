@@ -19,7 +19,7 @@ public class Amount {
     public static final String MESSAGE_CONSTRAINTS =
             "Amount should only contain numerical characters and decimal, in valid number format.";
 
-    public final String amount;
+    public final Double amount;
 
     /**
      * Constructs a (@code Amount).
@@ -29,7 +29,7 @@ public class Amount {
     public Amount(String amount) {
         requireNonNull(amount);
         checkArgument(isValidAmount(amount), MESSAGE_CONSTRAINTS);
-        this.amount = String.format("%.2f", Double.valueOf(amount));
+        this.amount = Double.valueOf(amount.replace(",", ""));
     }
 
     /**
@@ -39,9 +39,11 @@ public class Amount {
         return test.matches(VALIDATION_REGEX) && test != "";
     }
 
+
+
     @Override
     public String toString() {
-        return amount;
+        return String.format("%.2f", amount);
     }
 
     @Override

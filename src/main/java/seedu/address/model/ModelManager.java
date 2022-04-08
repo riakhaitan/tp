@@ -13,6 +13,7 @@ import seedu.address.commons.core.GuiSettings;
 import seedu.address.commons.core.LogsCenter;
 import seedu.address.model.expense.Budget;
 import seedu.address.model.expense.Expense;
+import seedu.address.model.expense.ExpenseCategory;
 import seedu.address.model.person.Person;
 
 /**
@@ -145,6 +146,30 @@ public class ModelManager implements Model {
         expenseExpert.setBudget(budget);
     }
 
+
+    @Override
+    public void addExpenseCategory(ExpenseCategory expenseCategory) {
+        expenseExpert.addExpenseCategory(expenseCategory);
+    }
+
+    @Override
+    public void deleteExpenseCategory(ExpenseCategory target) {
+        expenseExpert.removeExpenseCategory(target);
+    }
+
+    @Override
+    public boolean hasExpenseCategory(ExpenseCategory expenseCategory) {
+        requireNonNull(expenseCategory);
+        return expenseExpert.hasExpenseCategory(expenseCategory);
+    }
+
+    @Override
+    public boolean validExpenseCategory(Expense expense) {
+        requireNonNull(expense);
+        return expenseExpert.hasExpenseCategory(expense.getExpenseCategory());
+    }
+
+
     @Override
     public Budget getBudget() {
         return expenseExpert.getBudget();
@@ -160,6 +185,7 @@ public class ModelManager implements Model {
     public ObservableList<Expense> getFilteredExpenseList() {
         return filteredExpenses;
     }
+
 
     @Override
     public ObservableList<Person> getFilteredPersonList() {

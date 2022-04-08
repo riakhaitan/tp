@@ -20,8 +20,11 @@ import seedu.address.model.ExpenseExpert;
 import seedu.address.model.Model;
 import seedu.address.model.ReadOnlyExpenseExpert;
 import seedu.address.model.ReadOnlyUserPrefs;
+import seedu.address.model.expense.Amount;
 import seedu.address.model.expense.Budget;
+import seedu.address.model.expense.Date;
 import seedu.address.model.expense.Expense;
+import seedu.address.model.expense.ExpenseCategory;
 import seedu.address.model.person.Person;
 import seedu.address.testutil.ExpenseBuilder;
 
@@ -141,7 +144,27 @@ public class AddCommandTest {
         }
 
         @Override
+        public void addExpenseCategory(ExpenseCategory expenseCategory) {
+            throw new AssertionError("This method should not be called.");
+        }
+
+        @Override
+        public void deleteExpenseCategory(ExpenseCategory target) {
+            throw new AssertionError("This method should not be called.");
+        }
+
+        @Override
+        public boolean hasExpenseCategory(ExpenseCategory expenseCategory) {
+            throw new AssertionError("This method should not be called.");
+        }
+
+        @Override
         public ObservableList<Expense> getFilteredExpenseList() {
+            throw new AssertionError("This method should not be called.");
+        }
+
+        @Override
+        public boolean validExpenseCategory(Expense expense) {
             throw new AssertionError("This method should not be called.");
         }
 
@@ -152,12 +175,12 @@ public class AddCommandTest {
 
         @Override
         public void setBudget(Budget budget) {
-            throw new AssertionError("This method should not be called.");
         }
 
         @Override
         public Budget getBudget() {
-            throw new AssertionError("This method should not be called.");
+            //throw new AssertionError("This method should not be called.");
+            return new Budget(new Amount("89"), new Date("1900-01-01"));
         }
 
         @Override
@@ -208,6 +231,27 @@ public class AddCommandTest {
             requireNonNull(expense);
             return this.expense.equals(expense);
         }
+
+
+    }
+
+    /**
+     * A Model stub that contains a single expense.
+     */
+    private class ModelStubWithBudget extends ModelStub {
+        private final Budget budget;
+
+        ModelStubWithBudget(Budget budget) {
+            requireNonNull(budget);
+            this.budget = budget;
+        }
+
+        @Override
+        public Budget getBudget() {
+            return this.budget;
+        }
+
+
     }
 
     /**
@@ -227,6 +271,12 @@ public class AddCommandTest {
         public void addExpense(Expense expense) {
             requireNonNull(expense);
             expensesAdded.add(expense);
+        }
+
+        @Override
+        public boolean validExpenseCategory(Expense expense) {
+            requireNonNull(expense);
+            return true;
         }
 
         @Override

@@ -16,6 +16,7 @@ import seedu.address.commons.util.CollectionUtil;
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.Model;
 import seedu.address.model.expense.Amount;
+import seedu.address.model.expense.Budget;
 import seedu.address.model.expense.Date;
 import seedu.address.model.expense.Description;
 import seedu.address.model.expense.Expense;
@@ -45,6 +46,9 @@ public class EditCommand extends Command {
     public static final String MESSAGE_EDIT_EXPENSE_SUCCESS = "Edited Expense: %1$s";
     public static final String MESSAGE_NOT_EDITED = "At least one field to edit must be provided.";
     public static final String MESSAGE_DUPLICATE_EXPENSE = "This expense already exists in Expense Expert.";
+    public static final String MESSAGE_INVALID_EXPENSE_CATEGORY =
+            "This expense category does not exists in Expense Expert."
+                    + "\nUse the addCat Command to create a new category";
 
     private final Index index;
     private final EditExpenseDescriptor editExpenseDescriptor;
@@ -77,8 +81,17 @@ public class EditCommand extends Command {
             throw new CommandException(MESSAGE_DUPLICATE_EXPENSE);
         }
 
+        if (!model.hasExpenseCategory(editedExpense.getExpenseCategory())) {
+            throw new CommandException(MESSAGE_INVALID_EXPENSE_CATEGORY);
+        }
+
         model.setExpense(expenseToEdit, editedExpense);
         model.updateFilteredExpenseList(PREDICATE_SHOW_ALL_EXPENSES);
+        double difference = expenseToEdit.getAmount().amount - editedExpense.getAmount().amount;
+        String amt = String.valueOf((model.getBudget().getBudgetAmount().amount + difference));
+        Amount newAmount = new Amount(amt);
+        Budget budget = new Budget(newAmount);
+        model.setBudget(budget);
         return new CommandResult(String.format(MESSAGE_EDIT_EXPENSE_SUCCESS, editedExpense));
     }
 
