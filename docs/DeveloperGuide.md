@@ -2,64 +2,66 @@
 layout: page
 title: Developer Guide
 ---
-* Table of Contents
-{:toc}
 
---------------------------------------------------------------------------------------------------------------------
+- Table of Contents
+  {:toc}
+
+---
 
 ## **Acknowledgements**
 
-* This project is based on the AddressBook-Level3 project created by the [SE-EDU initiative](https://se-education.org).
+- This project is based on the AddressBook-Level3 project created by the [SE-EDU initiative](https://se-education.org).
 
---------------------------------------------------------------------------------------------------------------------
+---
 
 ## **Setting up, getting started**
 
 Refer to the guide [_Setting up and getting started_](SettingUp.md).
 
---------------------------------------------------------------------------------------------------------------------
+---
 
 ## **Design**
 
 <div markdown="span" class="alert alert-primary">
 
 :bulb: **Tip:** The `.puml` files used to create diagrams in this document can be found in the [diagrams](https://github.com/se-edu/addressbook-level3/tree/master/docs/diagrams/) folder. Refer to the [_PlantUML Tutorial_ at se-edu/guides](https://se-education.org/guides/tutorials/plantUml.html) to learn how to create and edit diagrams.
+
 </div>
 
 ### Architecture
 
 <img src="images/ArchitectureDiagram.png" width="280" />
 
-The ***Architecture Diagram*** given above explains the high-level design of the App.
+The **_Architecture Diagram_** given above explains the high-level design of the App.
 
 Given below is a quick overview of main components and how they interact with each other.
 
 **Main components of the architecture**
 
 **`Main`** has two classes called [`Main`](https://github.com/AY2122S2-CS2103T-W09-3/tp/blob/master/src/main/java/seedu/address/Main.java) and [`MainApp`](https://github.com/AY2122S2-CS2103T-W09-3/tp/blob/master/src/main/java/seedu/address/MainApp.java). It is responsible for,
-* At app launch: Initializes the components in the correct sequence, and connects them up with each other.
-* At shut down: Shuts down the components and invokes cleanup methods where necessary.
+
+- At app launch: Initializes the components in the correct sequence, and connects them up with each other.
+- At shut down: Shuts down the components and invokes cleanup methods where necessary.
 
 [**`Commons`**](#common-classes) represents a collection of classes used by multiple other components.
 
 The rest of the App consists of four components.
 
-* [**`UI`**](#ui-component): The UI of the App.
-* [**`Logic`**](#logic-component): The command executor.
-* [**`Model`**](#model-component): Holds the data of the App in memory.
-* [**`Storage`**](#storage-component): Reads data from, and writes data to, the hard disk.
-
+- [**`UI`**](#ui-component): The UI of the App.
+- [**`Logic`**](#logic-component): The command executor.
+- [**`Model`**](#model-component): Holds the data of the App in memory.
+- [**`Storage`**](#storage-component): Reads data from, and writes data to, the hard disk.
 
 **How the architecture components interact with each other**
 
-The *Sequence Diagram* below shows how the components interact with each other for the scenario where the user issues the command `delete 1`.
+The _Sequence Diagram_ below shows how the components interact with each other for the scenario where the user issues the command `delete 1`.
 
 <img src="images/ArchitectureSequenceDiagram.png" width="574" />
 
 Each of the four main components (also shown in the diagram above),
 
-* defines its *API* in an `interface` with the same name as the Component.
-* implements its functionality using a concrete `{Component Name}Manager` class (which follows the corresponding API `interface` mentioned in the previous point.
+- defines its _API_ in an `interface` with the same name as the Component.
+- implements its functionality using a concrete `{Component Name}Manager` class (which follows the corresponding API `interface` mentioned in the previous point.
 
 For example, the `Logic` component defines its API in the `Logic.java` interface and implements its functionality using the `LogicManager.java` class which follows the `Logic` interface. Other components interact with a given component through its interface rather than the concrete class (reason: to prevent outside component's being coupled to the implementation of a component), as illustrated in the (partial) class diagram below.
 
@@ -79,10 +81,10 @@ The `UI` component uses the JavaFx UI framework. The layout of these UI parts ar
 
 The `UI` component,
 
-* executes user commands using the `Logic` component.
-* listens for changes to `Model` data so that the UI can be updated with the modified data.
-* keeps a reference to the `Logic` component, because the `UI` relies on the `Logic` to execute commands.
-* depends on some classes in the `Model` component, as it displays `Person` object residing in the `Model`.
+- executes user commands using the `Logic` component.
+- listens for changes to `Model` data so that the UI can be updated with the modified data.
+- keeps a reference to the `Logic` component, because the `UI` relies on the `Logic` to execute commands.
+- depends on some classes in the `Model` component, as it displays `Person` object residing in the `Model`.
 
 ### Logic component
 
@@ -93,6 +95,7 @@ Here's a (partial) class diagram of the `Logic` component:
 <img src="images/LogicClassDiagram.png" width="550"/>
 
 How the `Logic` component works:
+
 1. When `Logic` is called upon to execute a command, it uses the `ExpenseExpertParser` class to parse the user command.
 1. This results in a `Command` object (more precisely, an object of one of its subclasses e.g., `AddCommand`) which is executed by the `LogicManager`.
 1. The command can communicate with the `Model` when it is executed (e.g. to add a expense).
@@ -110,22 +113,23 @@ Here are the other classes in `Logic` (omitted from the class diagram above) tha
 <img src="images/ParserClasses.png" width="600"/>
 
 How the parsing works:
-* When called upon to parse a user command, the `ExpenseExpertParser` class creates an `XYZCommandParser` (`XYZ` is a placeholder for the specific command name e.g., `AddCommandParser`) which uses the other classes shown above to parse the user command and create a `XYZCommand` object (e.g., `AddCommand`) which the `ExpenseExpertParser` returns back as a `Command` object.
-* All `XYZCommandParser` classes (e.g., `AddCommandParser`, `DeleteCommandParser`, ...) inherit from the `Parser` interface so that they can be treated similarly where possible e.g, during testing.
+
+- When called upon to parse a user command, the `ExpenseExpertParser` class creates an `XYZCommandParser` (`XYZ` is a placeholder for the specific command name e.g., `AddCommandParser`) which uses the other classes shown above to parse the user command and create a `XYZCommand` object (e.g., `AddCommand`) which the `ExpenseExpertParser` returns back as a `Command` object.
+- All `XYZCommandParser` classes (e.g., `AddCommandParser`, `DeleteCommandParser`, ...) inherit from the `Parser` interface so that they can be treated similarly where possible e.g, during testing.
 
 ### Model component
+
 **API** : [`Model.java`](https://github.com/AY2122S2-CS2103T-W09-3/tp/blob/master/src/main/java/seedu/address/model/Model.java)
 
 <img src="images/ModelClassDiagram.png" width="450" />
 
 The `Model` component,
 
-
-* stores the expense expert data. This includes `Expense` objects (which are contained in a `UniqueExpenseList` object), `Expense Category` objects (which are contained in a `UniqueExpenseCategoryList` object), `Persons` Objects (Which are contained in `UniquePersonList`) and a budget object.
-* stores the currently 'selected' `Expense` objects (e.g., results of a search query) as a separate _filtered_ list which is exposed to outsiders as an unmodifiable `ObservableList<Expense>` that can be 'observed' e.g. the UI can be bound to this list so that the UI automatically updates when the data in the list change.
-* stores all the `Person` objects as a separate _filtered_ list which is exposed to outsiders as an unmodifiable `ObservableList<Person>` that can be 'observed' e.g. the UI can be bound to this list so that the UI automatically updates when the data in the list change (Same implementation as `Expense` to allow future implementation of filtering of PersonList).
-* stores a `UserPref` object that represents the user’s preferences. This is exposed to the outside as a `ReadOnlyUserPref` objects.
-* does not depend on any of the other three components (as the `Model` represents data entities of the domain, they should make sense on their own without depending on other components)
+- stores the expense expert data. This includes `Expense` objects (which are contained in a `UniqueExpenseList` object), `Expense Category` objects (which are contained in a `UniqueExpenseCategoryList` object), `Persons` Objects (Which are contained in `UniquePersonList`) and a budget object.
+- stores the currently 'selected' `Expense` objects (e.g., results of a search query) as a separate _filtered_ list which is exposed to outsiders as an unmodifiable `ObservableList<Expense>` that can be 'observed' e.g. the UI can be bound to this list so that the UI automatically updates when the data in the list change.
+- stores all the `Person` objects as a separate _filtered_ list which is exposed to outsiders as an unmodifiable `ObservableList<Person>` that can be 'observed' e.g. the UI can be bound to this list so that the UI automatically updates when the data in the list change (Same implementation as `Expense` to allow future implementation of filtering of PersonList).
+- stores a `UserPref` object that represents the user’s preferences. This is exposed to the outside as a `ReadOnlyUserPref` objects.
+- does not depend on any of the other three components (as the `Model` represents data entities of the domain, they should make sense on their own without depending on other components)
 
 ### Storage component
 
@@ -134,34 +138,37 @@ The `Model` component,
 <img src="images/StorageClassDiagram.png" width="550" />
 
 The `Storage` component,
-* can save both Expense Expert data and user preference data in json format, and read them back into corresponding objects.
-* Expense Expert Data consists of JSON-formatted Expenses, Persons, Budgets and Expense Categories.
-* inherits from both `ExpenseExpertStorage` and `UserPrefStorage`, which means it can be treated as either one (if only the functionality of only one is needed).
-* depends on some classes in the `Model` component (because the `Storage` component's job is to save/retrieve objects that belong to the `Model`)
+
+- can save both Expense Expert data and user preference data in json format, and read them back into corresponding objects.
+- Expense Expert Data consists of JSON-formatted Expenses, Persons, Budgets and Expense Categories.
+- inherits from both `ExpenseExpertStorage` and `UserPrefStorage`, which means it can be treated as either one (if only the functionality of only one is needed).
+- depends on some classes in the `Model` component (because the `Storage` component's job is to save/retrieve objects that belong to the `Model`)
 
 ### Common classes
 
 Classes used by multiple components are in the `seedu.address.commons` package.
 
---------------------------------------------------------------------------------------------------------------------
+---
 
 ## **Implementation**
 
 This section describes some noteworthy details on how certain features are implemented.
 
 ### **Filter**
+
 Filter function allows user to filter the expense list based on date/month and/or category.
 
-#### *How is the feature implemented?*
-When user calls the filter command i.e. passing the text as command, the text will be parsed to `LogicManager` instance's `execute` method. `LogicManager` instance's execute method will 
-then call `ExpenseExpertParser` instance's `parseCommand` method. `ExpenseExpert` instance's pass command method will match the text parsed to find that it is a filter method and will then create a 
+#### _How is the feature implemented?_
+
+When user calls the filter command i.e. passing the text as command, the text will be parsed to `LogicManager` instance's `execute` method. `LogicManager` instance's execute method will
+then call `ExpenseExpertParser` instance's `parseCommand` method. `ExpenseExpert` instance's pass command method will match the text parsed to find that it is a filter method and will then create a
 `FilterCommandParser` object and call its instance's `parse` method with the argument(s) passed for the command i.e. the original text passed by user with the command word removed. `FilterCommandParser`
-instance will then check and format the argument(s) passed. If the argument(s) parsed is invalid i.e. wrong format or missing fields, a `ParseException` with the error encountered will be thrown. If 
+instance will then check and format the argument(s) passed. If the argument(s) parsed is invalid i.e. wrong format or missing fields, a `ParseException` with the error encountered will be thrown. If
 the argument(s) is valid, `FilterCommandParser` will return control to `ExpenseExpertParser` with a new instance of `FilterCommand` (created with the properly formatted argument(s)). The `ExpenseExpertParser`
-will also return control to `LogicManager` with the `FilterCommand` instance returned from `FilterCommandParser`. Upon receiving control from `ExpenseExpertParser` with `FilterCommand` instance, 
+will also return control to `LogicManager` with the `FilterCommand` instance returned from `FilterCommandParser`. Upon receiving control from `ExpenseExpertParser` with `FilterCommand` instance,
 `LogicManager` will proceed to call `FilterCommand` instance's execute method with `Model` of `ExpenseExpert` passed as argument.
 
-By calling the `FilterCommand` instance's execute method, the control is passed to `FilterCommand`. `FilterCommand` instance will check its field for `ExpenseDateIsParsedDatePredicate` and 
+By calling the `FilterCommand` instance's execute method, the control is passed to `FilterCommand`. `FilterCommand` instance will check its field for `ExpenseDateIsParsedDatePredicate` and
 `ExpenseCategoryIsParsedCategoryPredicate` presence. If both fields are present, `FilterCommand` will create a new instance of `PredicateChain` with both fields parsed as argument. `PredicateChain`
 functions like a predicate, but incorporates all the predicates in question.
 
@@ -173,17 +180,43 @@ The sequence diagram below illustrates the process of calling `filter ft/2022-03
 
 <img src="images/FilterSequenceDiagram.png"/>
 
-#### *Why is it implemented this way*
-It is implemented using the Object-Oriented Programming approach so that it allows for easy future scaling. Such is done by grouping similar functionalities into different classes. 
+#### _Why is it implemented this way_
 
-#### *Alternatives considered*
+It is implemented using the Object-Oriented Programming approach so that it allows for easy future scaling. Such is done by grouping similar functionalities into different classes.
+
+#### _Alternatives considered_
+
 - `PredicateChain` to be specially created for combining only `ExpenseDateIsParsedDatePredicate` and `ExpenseCategoryIsParsedCategoryPredicate`.
   - This consideration is dropped as current implementation allows for future scaling, in the case where more filtering options are provided to users.
-  
 
+### **Navigating through command history**
+
+In Expense Expert GUI, when the user presses up (or down) arrow key in the input text box, the user will be able to see the previous (or next) command if it exists. If not, the user will just see an empty text box.
+
+<img src="images/navigateHistorySequenceDiagram.png"/>
+Above is the sequence diagram when a user presses up arrow in the input text box.
+
+#### _How is the feature implemented?_
+
+`CommandBox` keeps two ArrayLists of Strings, one to store the commands inputted before the current command, and one to store the commands inputted after the current command.
+
+When the user presses the up or down arrow keys when the `CommandBox` is in focus, Expense Expert will recognise a KeyEvent where a key is pressed and call the private `handleUpDownArrowsPressed` method in `CommandBox`.
+
+When the `handleUpDownArrowsPressed` method is called, the key code associated with the key pressed in the KeyEvent passed into the method is obtained through the instance method `getCode` of the KeyEvent passed in.
+
+If the key code obtained is the same as that associated with a KeyEvent of an Up arrow key being pressed, another private method `getPrevCommand` in `CommandBox` will be called. In `getPrevCommand`, the ArrayList containing all past commands will be checked, and if it is not empty, the current command will be added to the ArrayList containing all future commands, and the most recent past command will be returned to the user in the `CommandBox`. If the former ArrayList is empty, then an empty String will be returned to the user.
+
+If the key code obtained is the same as that associated with a KeyEvent of a Down arrow key being pressed, another private method `getNextCommand` in `CommandBox` will be called. `getNextCommand` is implemented very similarly to `getPrevCommand`, with the ArrayList involved swapping roles.
+
+#### _Why is it implemented this way_
+
+Separate ArrayLists were used to very distinctly keep the past commands separate from the future commands, hence it is very simple and intuitive. If the user needs a past command and pressed the Up arrow key, Expense Expert will get the most recent past command from the ArrayList containing past commands and vice versa.
+
+#### _Alternatives considered_
+
+Using of a combined ArrayList for all commands and navigating through the ArrayList by an index - This alternative, although making use of only one ArrayList, may be complicated to implement and makes debugging process very tedious. To avoid making this implementation complex, separate ArrayLists for keeping past commands and future commands were used.
 
 #### Design considerations:
-
 
 _{more aspects and alternatives to be added}_
 
@@ -191,18 +224,17 @@ _{more aspects and alternatives to be added}_
 
 _{Explain here how the data archiving feature will be implemented}_
 
-
---------------------------------------------------------------------------------------------------------------------
+---
 
 ## **Documentation, logging, testing, configuration, dev-ops**
 
-* [Documentation guide](Documentation.md)
-* [Testing guide](Testing.md)
-* [Logging guide](Logging.md)
-* [Configuration guide](Configuration.md)
-* [DevOps guide](DevOps.md)
+- [Documentation guide](Documentation.md)
+- [Testing guide](Testing.md)
+- [Logging guide](Logging.md)
+- [Configuration guide](Configuration.md)
+- [DevOps guide](DevOps.md)
 
---------------------------------------------------------------------------------------------------------------------
+---
 
 ## **Appendix: Requirements**
 
@@ -210,35 +242,34 @@ _{Explain here how the data archiving feature will be implemented}_
 
 **Target user profile**:
 
-* wants to manage and track expenses
-* prefer desktop apps over other types
-* can type fast
-* prefers typing to mouse interactions
-* is reasonably comfortable using CLI apps
+- wants to manage and track expenses
+- prefer desktop apps over other types
+- can type fast
+- prefers typing to mouse interactions
+- is reasonably comfortable using CLI apps
 
 **Value proposition**: manage expenses faster than a typical mouse/GUI driven app
-
 
 ### User stories
 
 Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unlikely to have) - `*`
 
 | Priority | As a …​  | I want to …​                                        | So that I can…​                                                         |
-|----------|----------|-----------------------------------------------------|-------------------------------------------------------------------------|
+| -------- | -------- | --------------------------------------------------- | ----------------------------------------------------------------------- |
 | `* * *`  | new user | see usage instructions                              | try features suitable for new users                                     |
 | `* * *`  | user     | add an expense with details such as type of expense |                                                                         |
 | `* * *`  | user     | delete an expense                                   | remove entries that I keyed wrongly                                     |
 | `* * *`  | user     | edit an expense along with its details              |                                                                         |
 | `* * *`  | user     | view all expense recorded                           | locate details of expenses without having to go through the entire list |
-| `* *`     | user     | find an expense base on keyword(s)                  |                                                                         |
+| `* *`    | user     | find an expense base on keyword(s)                  |                                                                         |
 | `* *`    | user     | filter expenses based on date/month and/or category |                                                                         |
 | `* *`    | user     | set a monthly budget                                | keep track of my savings and over-expenditure                           |
 
-*{More to be added}*
+_{More to be added}_
 
 ### Use cases
 
-(For all use cases below, the **System** is the `ExpenseExpert` and the **Actor** is the `user`, unless specified otherwise)
+(For all use cases below, the **System** is the `Expense Expert` and the **Actor** is the `user`, unless specified otherwise)
 
 **Use case: UC01 Add an expense**
 
@@ -246,42 +277,52 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 1. User requests to add an expense.
 2. User supplies the expense details.
-3. ExpenseExpert adds the expense to the list.
+3. Expense Expert adds the expense to the list.
 
-    Use case ends.
+   Use case ends.
 
 **Extensions**
 
     2a. Expense Expert detects an error in details parsed.
-        2a1. ExpenseExpert informs the user about the error detected.
+        2a1. Expense Expert informs the user about the error detected.
         Use case ends.
 
-    3a. Expense parsed is a duplicate of another expense that is already in ExpenseExpert.
-        3a1. ExpenseExpert informs the user that the expense already exists in ExpenseExpert.
+    3a. Expense parsed is a duplicate of another expense that is already in Expense Expert.
+        3a1. Expense Expert informs the user that the expense already exists in Expense Expert.
+        Use case ends.
+
+    3b. Expense Expert detects that budget has not been set.
+        3b1. Expense Expert informs the user to set a budget before executing other commands.
         Use case ends.
 
 **Use case: UC02 Delete an expense**
 
 **MSS**
+
 1. User requests to delete an expense.
 2. User supplies the expense detail.
 3. Expense Expert deletes the expense from the list.
 
-    Use case ends.
+   Use case ends.
 
 **Extensions**
 
     2a. Expense Expert detects an error in details parsed.
-        2a1. ExpenseExpert informs the user about the error detected.
+        2a1. Expense Expert informs the user about the error detected.
         Use case ends.
 
     3a. List of Expenses is empty
-        3a1. ExpenseExpert informs the user that there is no expense in the list.
+        3a1. Expense Expert informs the user that there is no expense in the list.
+        Use case ends.
+
+    3b. Expense Expert detects that budget has not been set.
+        3b1. Expense Expert informs the user to set a budget before executing other commands.
         Use case ends.
 
 **Use case: UC03 Edit an expense**
 
 **MSS**
+
 1. User requests to edit an expense.
 2. User supplies the details of the expenses to be edited.
 3. Expense Expert edits the expense in the list.
@@ -291,16 +332,21 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 **Extensions**
 
     2a. Expense Expert detects an error in details parsed.
-        2a1. ExpenseExpert informs the user about the error detected.
+        2a1. Expense Expert informs the user about the error detected.
         Use case ends.
 
     3a. Expense Expert detects that the details of the newly edited expense is a duplicate of another expense in the list.
-        3a1. ExpenseExpert informs the user that expense edited is a duplicate of another expense in ExpenseExpert.
+        3a1. Expense Expert informs the user that expense edited is a duplicate of another expense in Expense Expert.
+        Use case ends.
+
+    3b. Expense Expert detects that budget has not been set.
+        3b1. Expense Expert informs the user to set a budget before executing other commands.
         Use case ends.
 
 **Use case: UC04 Find expense(s)**
 
 **MSS**
+
 1. User requests to find a/some particular expense(s) through keyword(s).
 2. User supplies the keyword(s).
 3. Expense Expert finds the expenses accordingly.
@@ -310,24 +356,30 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 **Extensions**
 
     2a. Expense Expert detects errors in keyword(s) parsed.
-        2a1. ExpenseExpert informs the user about the error detected.
+        2a1. Expense Expert informs the user about the error detected.
         Use case ends.
 
-    3a. ExpenseExpert can't find any matches.
-        3a1. ExpenseExpert returns an empty list to the user
+    3a. Expense Expert can't find any matches.
+        3a1. Expense Expert returns an empty list to the user
+        Use case ends.
+
+    3b. Expense Expert detects that budget has not been set.
+        3b1. Expense Expert informs the user to set a budget before executing other commands.
         Use case ends.
 
 **Use case: UC05 Help the user**
 
 **MSS**
+
 1. User requests to know how to use the system.
 2. Expense Expert helps the user accordingly.
 
    Use case ends.
 
-**Use case: UC06 Clear ExpenseExpert**
+**Use case: UC06 Clear Expense Expert**
 
 **MSS**
+
 1. User requests to clear all the expenses added until then.
 2. Expense Expert is cleared and is then empty.
 
@@ -336,6 +388,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 **Use case: UC07 Set Monthly Budget**
 
 **MSS**
+
 1. User requests to set a monthly budget.
 2. User supplies details of monthly budget.
 3. Expense Expert sets a monthly budget for the user.
@@ -345,12 +398,13 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 **Extensions**
 
     2a. Expense Expert detects errors in details of monthly budget.
-        2a1. ExpenseExpert informs the user about the error detected.
+        2a1. Expense Expert informs the user about the error detected.
         Use case ends.
 
 **Use case: UC08 Filter expense(s)**
 
 **MSS**
+
 1. User requests to filter the expense list.
 2. User supplies filter criteria.
 3. Expense Expert filters the expense(s) accordingly.
@@ -360,17 +414,21 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 **Extensions**
 
     2a. Expense Expert detects errors in filter criteria.
-        2a1. ExpenseExpert informs the user about the error detected.
+        2a1. Expense Expert informs the user about the error detected.
         Use case ends.
 
-**Use case: UC09 Exit ExpenseExpert**
+    3b. Expense Expert detects that budget has not been set.
+        3b1. Expense Expert informs the user to set a budget before executing other commands.
+        Use case ends.
+
+**Use case: UC09 Exit Expense Expert**
 
 **MSS**
+
 1. User requests to exit the app.
 2. Expense Expert exits.
 
    Use case ends.
-
 
 ### Non-Functional Requirements
 
@@ -379,15 +437,18 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 3.  A user with above average typing speed for regular English text (i.e. not code, not system admin commands) should be able to accomplish most of the tasks faster using commands than using the mouse.
 4.  Should not require an internet connection.
 
-*{More to be added}*
+_{More to be added}_
 
 ### Glossary
 
-* **Mainstream OS**: Windows, Linux, Unix, OS-X
-* **Private contact detail**: A contact detail that is not meant to be shared with others
-* **Expense**:the action of spending funds.
+- **API**: Application Programming Interface, which is a set of definitions and protocols for building and integrating application software.
+- **Expense**: The action of spending funds.
+- **GUI**: Graphical User Interface, a form of user interface that allows users to interact with programs through graphical icons and audio indicators.
+- **Mainstream OS**: Windows, Linux, Unix, OS-X.
+- **Private contact detail**: A contact detail that is not meant to be shared with others.
+- **Sequence Diagram**: A diagram that describes how, and in what order, a group of objects work together.
 
---------------------------------------------------------------------------------------------------------------------
+---
 
 ## **Appendix: Instructions for manual testing**
 
@@ -411,7 +472,7 @@ testers are expected to do more *exploratory* testing.
    1. Resize the window to an optimum size. Move the window to a different location. Close the window.
 
    1. Re-launch the app by double-clicking the jar file.<br>
-       Expected: The most recent window size and location is retained.
+      Expected: The most recent window size and location is retained.
 
 1. _{ more test cases …​ }_
 
