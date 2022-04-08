@@ -52,6 +52,9 @@ public class Date {
         }
     }
 
+    /**
+     * Returns the month of a LocalDate instance.
+     */
     public String getMonth() {
         return date.format(DateTimeFormatter.ofPattern("MMMM"));
     }
