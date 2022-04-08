@@ -70,7 +70,7 @@ dependencies {
 }
 
 shadowJar {
-    archiveName = 'ExpenseExpert.jar'
+    archiveName = 'expenseexpert.jar'
 }
 
 run {

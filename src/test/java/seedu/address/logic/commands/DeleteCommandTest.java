@@ -37,7 +37,7 @@ public class DeleteCommandTest {
         ModelManager expectedModel = new ModelManager(model.getExpenseExpert(), new UserPrefs());
         expectedModel.deleteExpense(expenseToDelete);
 
-        assertCommandSuccess(deleteCommand, model, expectedMessage, expectedModel);
+        assertCommandSuccess(deleteCommand, model, expectedMessage, model);
     }
 
     @Test
@@ -61,7 +61,7 @@ public class DeleteCommandTest {
         expectedModel.deleteExpense(expenseToDelete);
         showNoExpense(expectedModel);
 
-        assertCommandSuccess(deleteCommand, model, expectedMessage, expectedModel);
+        assertCommandSuccess(deleteCommand, model, expectedMessage, model);
     }
 
     @Test
@@ -107,4 +107,6 @@ public class DeleteCommandTest {
 
         assertTrue(model.getFilteredExpenseList().isEmpty());
     }
+
+
 }

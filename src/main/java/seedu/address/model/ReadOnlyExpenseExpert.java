@@ -3,6 +3,7 @@ package seedu.address.model;
 import javafx.collections.ObservableList;
 import seedu.address.model.expense.Budget;
 import seedu.address.model.expense.Expense;
+import seedu.address.model.expense.ExpenseCategory;
 import seedu.address.model.person.Person;
 
 /**
@@ -17,7 +18,12 @@ public interface ReadOnlyExpenseExpert {
     ObservableList<Expense> getExpenseList();
     ObservableList<Person> getPersonList();
 
+    /**
+     * Returns an unmodifiable view of the expenses list.
+     * This list will not contain any duplicate expenses.
+     */
+    ObservableList<ExpenseCategory> getExpenseCategoryList();
+
     /** Returns the budget in ExpenseExpert */
     Budget getBudget();
-
 }

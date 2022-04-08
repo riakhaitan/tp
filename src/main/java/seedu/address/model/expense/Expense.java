@@ -41,23 +41,6 @@ public class Expense {
         return expenseDate;
     }
 
-    // /**
-    //  * Check if two Expense objects are the same or have the same content.
-    //  *
-    //  * @param otherExpense Expense object that is being compared to.
-    //  * @return true if they same or have the same content and false otherwise.
-    //  */
-    // public boolean isSameExpense(Expense otherExpense) {
-    //     if (otherExpense == this) {
-    //         return true;
-    //     }
-
-    //     return otherExpense != null
-    //             && otherExpense.getDescription().equals(getDescription())
-    //             && otherExpense.getAmount().equals(getAmount())
-    //             && otherExpense.getExpenseCategory().equals(getExpenseCategory());
-    // }
-
     @Override
     public boolean equals(Object other) {
         if (other == this) {

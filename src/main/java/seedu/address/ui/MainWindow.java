@@ -177,6 +177,7 @@ public class MainWindow extends UiPart<Stage> {
         logic.setGuiSettings(guiSettings);
         helpWindow.hide();
         primaryStage.hide();
+        UiManager.hideBudgetPrompt();
     }
 
     public PersonListPanel getPersonListPanel() {

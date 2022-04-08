@@ -18,6 +18,7 @@ import seedu.address.model.ReadOnlyExpenseExpert;
 import seedu.address.model.ReadOnlyUserPrefs;
 import seedu.address.model.expense.Budget;
 import seedu.address.model.expense.Expense;
+import seedu.address.model.expense.ExpenseCategory;
 import seedu.address.model.person.Person;
 import seedu.address.testutil.BudgetBuilder;
 
@@ -117,6 +118,11 @@ public class SetBudgetCommandTest {
         }
 
         @Override
+        public boolean validExpenseCategory(Expense expense) {
+            throw new AssertionError("This method should not be called.");
+        }
+
+        @Override
         public boolean hasExpense(Expense expense) {
             throw new AssertionError("This method should not be called.");
         }
@@ -132,12 +138,27 @@ public class SetBudgetCommandTest {
         }
 
         @Override
+        public void addExpenseCategory(ExpenseCategory expenseCategory) {
+            throw new AssertionError("This method should not be called.");
+        }
+
+        @Override
         public boolean hasPerson(Person person) {
             throw new AssertionError("This method should not be called.");
         }
 
         @Override
+        public void deleteExpenseCategory(ExpenseCategory target) {
+            throw new AssertionError("This method should not be called.");
+        }
+
+        @Override
         public void deletePerson(Person person) {
+            throw new AssertionError("This method should not be called.");
+        }
+
+        @Override
+        public boolean hasExpenseCategory(ExpenseCategory expenseCategory) {
             throw new AssertionError("This method should not be called.");
         }
 
