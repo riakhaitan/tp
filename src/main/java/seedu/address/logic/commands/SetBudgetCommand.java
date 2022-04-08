@@ -14,7 +14,7 @@ public class SetBudgetCommand extends Command {
 
     public static final String COMMAND_WORD = "budget";
 
-    public static final String MESSAGE_USAGE = COMMAND_WORD + ": Sets the monthly budget for Expense Expert. "
+    public static final String MESSAGE_USAGE = COMMAND_WORD + ": Sets the monthly budget (max. $99999.99) for Expense Expert. "
             + "Parameters: "
             + PREFIX_AMOUNT + "BUDGET AMOUNT \n"
             + "Example: " + COMMAND_WORD + " "
@@ -40,7 +40,7 @@ public class SetBudgetCommand extends Command {
         requireNonNull(model);
         model.setBudget(budget);
 
-        if (budget.getBudgetAmount().isZero()) {
+        if (budget.isUndefined()) {
             return new CommandResult(String.format(BUDGET_SET_TO_UNDEFINED, budget.getBudgetMonth()));
         }
         return new CommandResult(String.format(MESSAGE_SUCCESS, budget.getBudgetMonth(), budget.getBudgetAmount()));

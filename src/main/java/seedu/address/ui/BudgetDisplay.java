@@ -13,7 +13,7 @@ import seedu.address.model.expense.Budget;
 public class BudgetDisplay extends UiPart<Region> {
 
     private static final String FXML = "BudgetDisplay.fxml";
-    private static final String MONTHLY_BUDGET = "Remaining budget for this month is $";
+    private static final String MONTHLY_BUDGET = "Budget remaining for %1$s is $%2$s";
 
     @FXML
     private TextArea budgetDisplay;
@@ -36,9 +36,9 @@ public class BudgetDisplay extends UiPart<Region> {
     public void showMonthlyBudget(Budget budget) {
         requireNonNull(budget);
         String budgetAmount = budget.getBudgetAmount().toString();
-        String budgetDate = budget.getBudgetDate().toString();
+        String budgetMonth = budget.getBudgetMonth();
         if (!(budgetAmount.equals("0.00"))) {
-            budgetDisplay.setText(MONTHLY_BUDGET + budgetAmount + " set on " + budgetDate);
+            budgetDisplay.setText(String.format(MONTHLY_BUDGET, budgetMonth, budgetAmount));
         } else {
             budgetDisplay.setText("Budget for this month has not been set yet!");
         }

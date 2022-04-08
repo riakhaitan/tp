@@ -64,8 +64,12 @@ public class Budget {
         return this.budgetDate;
     }
 
+    /**
+     * Returns whether the budget is defined. The same method can be
+     * used to check whether the budget has been depleted.
+     */
     public boolean isUndefined() {
-        return this.budgetAmount.toString().equals("0.00");
+        return this.budgetAmount.isZero();
     }
 
     @Override
