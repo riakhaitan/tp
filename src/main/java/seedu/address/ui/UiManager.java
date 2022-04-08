@@ -45,11 +45,14 @@ public class UiManager implements Ui {
             mainWindow = new MainWindow(primaryStage, logic);
             budgetPrompt = new BudgetPrompt();
             mainWindow.show(); //This should be called before creating other UI parts
-            mainWindow.fillInnerParts();
-            System.out.println(logic.getBudget().getBudgetAmount().toString());
-            if (logic.getBudget().getBudgetAmount().toString().equals("0.00")) {
-                budgetPrompt.show();
+            if (logic.hasUndefinedBudget()) {
+                if (budgetPrompt.isShowing()) {
+                    budgetPrompt.focus();
+                } else {
+                    budgetPrompt.show();
+                }
             }
+            mainWindow.fillInnerParts();
 
         } catch (Throwable e) {
             logger.severe(StringUtil.getDetails(e));
