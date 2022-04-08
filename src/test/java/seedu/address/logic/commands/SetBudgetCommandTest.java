@@ -35,7 +35,8 @@ public class SetBudgetCommandTest {
 
         CommandResult commandResult = new SetBudgetCommand(validBudget).execute(modelStub);
 
-        assertEquals(String.format(SetBudgetCommand.MESSAGE_SUCCESS, validBudget), commandResult.getFeedbackToUser());
+        assertEquals(String.format(SetBudgetCommand.MESSAGE_SUCCESS, validBudget.getBudgetMonth(),
+                validBudget.getBudgetAmount()), commandResult.getFeedbackToUser());
         assertEquals(validBudget, modelStub.budget);
     }
 
@@ -205,6 +206,11 @@ public class SetBudgetCommandTest {
 
         @Override
         public Budget getBudget() {
+            throw new AssertionError("This method should not be called.");
+        }
+
+        @Override
+        public boolean hasUndefinedBudget() {
             throw new AssertionError("This method should not be called.");
         }
     }

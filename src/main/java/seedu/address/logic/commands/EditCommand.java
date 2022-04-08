@@ -34,12 +34,12 @@ public class EditCommand extends Command {
             + "by the index number used in the displayed expense list. \n"
             + "Existing values will be overwritten by the input values.\n"
             + "Parameters: INDEX (must be a positive integer) "
-            + "[" + PREFIX_DESCRIPTION + "DESCRIPTION] "
-            + "[" + PREFIX_EXPENSE_CATEGORY + "CATEGORY] "
-            + "[" + PREFIX_AMOUNT + "AMOUNT]"
-            + "[" + PREFIX_DATE + "DATE] \n"
+            + "(" + PREFIX_DESCRIPTION + "DESCRIPTION) "
+            + "(" + PREFIX_EXPENSE_CATEGORY + "CATEGORY) "
+            + "(" + PREFIX_AMOUNT + "AMOUNT)"
+            + "(" + PREFIX_DATE + "DATE) \n"
             + "Example: " + COMMAND_WORD + " 1 "
-            + PREFIX_DESCRIPTION + "Grocies from ShengShiong "
+            + PREFIX_DESCRIPTION + "Groceries from ShengShiong "
             + PREFIX_AMOUNT + "120 "
             + PREFIX_DATE + "2022-02-02\n\n";
 

@@ -4,6 +4,7 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_AMOUNT_BUILD_A_BEAR;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_DESCRIPTION_BUILD_A_BEAR;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_EXPENSE_CATEGORY_ENTERTAINMENT;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_EXPENSE_CATEGORY_TRANSPORT;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_EXPENSE_DATE_BUILD_A_BEAR;
 import static seedu.address.testutil.TypicalExpenses.ANNUAL_SPOTIFY;
@@ -14,6 +15,41 @@ import org.junit.jupiter.api.Test;
 import seedu.address.testutil.ExpenseBuilder;
 
 public class ExpenseTest {
+    @Test
+    public void getDescription() {
+        Expense aliceCopy = new ExpenseBuilder(ANNUAL_SPOTIFY).build();
+        Expense betaCopy = new ExpenseBuilder(BUILD_A_BEAR).build();
+
+        assertTrue(betaCopy.getDescription().equals(new Description(VALID_DESCRIPTION_BUILD_A_BEAR)));
+        assertFalse(aliceCopy.getDescription().equals(new Description(VALID_DESCRIPTION_BUILD_A_BEAR)));
+    }
+
+    @Test
+    public void getExpenseCategory() {
+        Expense aliceCopy = new ExpenseBuilder(ANNUAL_SPOTIFY).build();
+        Expense betaCopy = new ExpenseBuilder(BUILD_A_BEAR).build();
+
+        assertTrue(betaCopy.getExpenseCategory().equals(new ExpenseCategory(VALID_EXPENSE_CATEGORY_ENTERTAINMENT)));
+        assertFalse(aliceCopy.getExpenseCategory().equals(new ExpenseCategory(VALID_EXPENSE_CATEGORY_TRANSPORT)));
+    }
+
+    @Test
+    public void getAmount() {
+        Expense aliceCopy = new ExpenseBuilder(ANNUAL_SPOTIFY).build();
+        Expense betaCopy = new ExpenseBuilder(BUILD_A_BEAR).build();
+
+        assertTrue(betaCopy.getAmount().equals(new Amount(VALID_AMOUNT_BUILD_A_BEAR)));
+        assertFalse(aliceCopy.getAmount().equals(new Amount(VALID_AMOUNT_BUILD_A_BEAR)));
+    }
+
+    @Test
+    public void getExpenseDate() {
+        Expense aliceCopy = new ExpenseBuilder(ANNUAL_SPOTIFY).build();
+        Expense betaCopy = new ExpenseBuilder(BUILD_A_BEAR).build();
+
+        assertTrue(betaCopy.getExpenseDate().equals(new Date(VALID_EXPENSE_DATE_BUILD_A_BEAR)));
+        assertFalse(aliceCopy.getExpenseDate().equals(new Date(VALID_EXPENSE_DATE_BUILD_A_BEAR)));
+    }
 
     @Test
     public void equals() {
