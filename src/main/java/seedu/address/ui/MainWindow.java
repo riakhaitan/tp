@@ -36,7 +36,6 @@ public class MainWindow extends UiPart<Stage> {
     private ResultDisplay commandResultDisplay;
     private HelpWindow helpWindow;
     private PersonListPanel personListPanel;
-    private BudgetPrompt budgetPrompt;
 
     @FXML
     private StackPane commandBoxPlaceholder;

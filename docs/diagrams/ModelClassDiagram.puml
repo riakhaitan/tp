@@ -12,6 +12,11 @@ Class ExpenseExpert
 Class ModelManager
 Class UserPrefs
 
+Class UniquePersonList
+Class Person
+Class PersonName
+Class PersonAmount
+
 Class UniqueExpenseList
 Class UniqueExpenseCategoryList
 Class UniquePersonList
@@ -20,11 +25,11 @@ Class Expense
 Class Description
 Class ExpenseCategory
 Class Amount
-Class.Person
-Class PersonName
-Class PersonAmount
-Class.BudgetAmount
-Class.DDate
+Class Date
+
+Class ExpenseCategoryList
+Class Budget
+Class BudgetAmount
 }
 
 Class HiddenOutside #FFFFFF
@@ -40,25 +45,22 @@ ModelManager -right-> "1" UserPrefs
 UserPrefs .up.|> ReadOnlyUserPrefs
 
 ExpenseExpert *--> "1" UniqueExpenseList
-ExpenseExpert *--> "1" UniqueExpenseCategoryList
 ExpenseExpert *--> "1" UniquePersonList
-ExpenseExpert *--> "1" Budget
+ExpenseExpert *-left-> "1" ExpenseCategoryList
+ExpenseExpert *-left-> "1" Budget
 UniqueExpenseList --> "~* all" Expense
 UniquePersonList --> "~* all" Person
-UniqueExpenseCategoryList *--> ExpenseCategory
+ExpenseCategoryList --> "~* all" ExpenseCategory
+Person *--> PersonName
+Person *--> PersonAmount
 Expense *--> Description
 Expense *--> ExpenseCategory
 Expense *--> Amount
 Expense *--> Date
 
-Expense -[hidden]right-> Description
-ExpenseCategory -[hidden]right-> Amount
 Budget *--> BudgetAmount
 Budget *--> Date
-Person *--> PersonAmount
-Person *--> PersonName
-
-
 
 ModelManager -->"~* filtered" Expense
+ModelManager -->"~* filtered" Person
 @enduml

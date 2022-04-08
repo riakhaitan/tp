@@ -120,17 +120,12 @@ How the parsing works:
 
 The `Model` component,
 
+
 * stores the expense expert data. This includes `Expense` objects (which are contained in a `UniqueExpenseList` object), `Expense Category` objects (which are contained in a `UniqueExpenseCategoryList` object), `Persons` Objects (Which are contained in `UniquePersonList`) and a budget object.
 * stores the currently 'selected' `Expense` objects (e.g., results of a search query) as a separate _filtered_ list which is exposed to outsiders as an unmodifiable `ObservableList<Expense>` that can be 'observed' e.g. the UI can be bound to this list so that the UI automatically updates when the data in the list change.
+* stores all the `Person` objects as a separate _filtered_ list which is exposed to outsiders as an unmodifiable `ObservableList<Person>` that can be 'observed' e.g. the UI can be bound to this list so that the UI automatically updates when the data in the list change (Same implementation as `Expense` to allow future implementation of filtering of PersonList).
 * stores a `UserPref` object that represents the user’s preferences. This is exposed to the outside as a `ReadOnlyUserPref` objects.
 * does not depend on any of the other three components (as the `Model` represents data entities of the domain, they should make sense on their own without depending on other components)
-
-<div markdown="span" class="alert alert-info">:information_source: **Note:** An alternative (arguably, a more OOP) model is given below. It has a `Tag` list in the `ExpenseExpert`, which `Expense` references. This allows `ExpenseExpert` to only require one `Tag` object per unique tag, instead of each `Expense` needing their own `Tag` objects.<br>
-
-<img src="images/BetterModelClassDiagram.png" width="450" />
-
-</div>
-
 
 ### Storage component
 
@@ -140,7 +135,7 @@ The `Model` component,
 
 The `Storage` component,
 * can save both Expense Expert data and user preference data in json format, and read them back into corresponding objects.
-* Expense Expert Data consists of JSON-formatted Expenses, Persons, Budgets and Expense Categories. 
+* Expense Expert Data consists of JSON-formatted Expenses, Persons, Budgets and Expense Categories.
 * inherits from both `ExpenseExpertStorage` and `UserPrefStorage`, which means it can be treated as either one (if only the functionality of only one is needed).
 * depends on some classes in the `Model` component (because the `Storage` component's job is to save/retrieve objects that belong to the `Model`)
 
@@ -154,6 +149,37 @@ Classes used by multiple components are in the `seedu.address.commons` package.
 
 This section describes some noteworthy details on how certain features are implemented.
 
+### **Filter**
+Filter function allows user to filter the expense list based on date/month and/or category.
+
+#### *How is the feature implemented?*
+When user calls the filter command i.e. passing the text as command, the text will be parsed to `LogicManager` instance's `execute` method. `LogicManager` instance's execute method will 
+then call `ExpenseExpertParser` instance's `parseCommand` method. `ExpenseExpert` instance's pass command method will match the text parsed to find that it is a filter method and will then create a 
+`FilterCommandParser` object and call its instance's `parse` method with the argument(s) passed for the command i.e. the original text passed by user with the command word removed. `FilterCommandParser`
+instance will then check and format the argument(s) passed. If the argument(s) parsed is invalid i.e. wrong format or missing fields, a `ParseException` with the error encountered will be thrown. If 
+the argument(s) is valid, `FilterCommandParser` will return control to `ExpenseExpertParser` with a new instance of `FilterCommand` (created with the properly formatted argument(s)). The `ExpenseExpertParser`
+will also return control to `LogicManager` with the `FilterCommand` instance returned from `FilterCommandParser`. Upon receiving control from `ExpenseExpertParser` with `FilterCommand` instance, 
+`LogicManager` will proceed to call `FilterCommand` instance's execute method with `Model` of `ExpenseExpert` passed as argument.
+
+By calling the `FilterCommand` instance's execute method, the control is passed to `FilterCommand`. `FilterCommand` instance will check its field for `ExpenseDateIsParsedDatePredicate` and 
+`ExpenseCategoryIsParsedCategoryPredicate` presence. If both fields are present, `FilterCommand` will create a new instance of `PredicateChain` with both fields parsed as argument. `PredicateChain`
+functions like a predicate, but incorporates all the predicates in question.
+
+If only one field is present, `FilterCommand` will proceed to filter `Model` instance's `updateFilteredExpenseList` method with that field to update the list to be shown to the user. If both fields
+are present, `PredicateChain` created using both fields are used instead. Upon successfully execution, a `CommandResult` with the details to display to user after execution is returned to `LogicManager`.
+`LogicManager` will then save the state of the `Model` and return the `CommandResult` to the UI side to display the result after execution.
+
+The sequence diagram below illustrates the process of calling `filter ft/2022-03-3` successfully:
+
+<img src="images/FilterSequenceDiagram.png"/>
+
+#### *Why is it implemented this way*
+It is implemented using the Object-Oriented Programming approach so that it allows for easy future scaling. Such is done by grouping similar functionalities into different classes. 
+
+#### *Alternatives considered*
+- `PredicateChain` to be specially created for combining only `ExpenseDateIsParsedDatePredicate` and `ExpenseCategoryIsParsedCategoryPredicate`.
+  - This consideration is dropped as current implementation allows for future scaling, in the case where more filtering options are provided to users.
+  
 
 
 #### Design considerations:

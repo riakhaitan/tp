@@ -20,9 +20,9 @@ Class "<<interface>>\nExpenseExpertStorage" as ExpenseExpertStorage
 Class JsonExpenseExpertStorage
 Class JsonSerializableExpenseExpert
 Class JsonAdaptedExpense
+Class JsonAdaptedBudget
 Class JsonAdaptedExpenseCategory
 Class JsonAdaptedPerson
-
 }
 
 }
@@ -40,8 +40,12 @@ Storage -right-|> ExpenseExpertStorage
 JsonUserPrefsStorage .up.|> UserPrefsStorage
 JsonExpenseExpertStorage .up.|> ExpenseExpertStorage
 JsonExpenseExpertStorage ..> JsonSerializableExpenseExpert
-JsonSerializableExpenseExpert --> "*" JsonAdaptedPerson
-JsonSerializableExpenseExpert --> "*" JsonAdaptedExpenseCategory
 JsonSerializableExpenseExpert --> "*" JsonAdaptedExpense
+JsonSerializableExpenseExpert --> "*" JsonAdaptedPerson
+JsonSerializableExpenseExpert --> "*" JsonAdaptedBudget
+JsonSerializableExpenseExpert --> "*" JsonAdaptedExpenseCategory
+
+JsonAdaptedExpense -[hidden]right- JsonAdaptedPerson
+JsonAdaptedBudget -[hidden]left- JsonAdaptedPerson
 
 @enduml
