@@ -46,6 +46,8 @@ public class CommandTestUtil {
     public static final String VALID_BUDGET_DATE_BETA = "2022-03-10";
     public static final String VALID_FILTER_DATE = "2022-03-03";
 
+
+
     public static final String DESCRIPTION_DESC_ANNUAL_SPOTIFY =
             " " + PREFIX_DESCRIPTION + VALID_DESCRIPTION_ANNUAL_SPOTIFY;
     public static final String DESCRIPTION_DESC_BUILD_A_BEAR =
@@ -72,6 +74,7 @@ public class CommandTestUtil {
     public static final String FILTER_DATE_DESC = " " + PREFIX_FILTER_DATE + VALID_FILTER_DATE;
     public static final String ADD_EXPENSE_CATEGORY_DESC = " "
             + PREFIX_EXPENSE_CATEGORY + VALID_EXPENSE_CATEGORY_ENTERTAINMENT;
+
 
     public static final seedu.address.logic.commands.EditCommand.EditExpenseDescriptor DESC_ANNUAL_SPOTIFY_FEES;
     public static final seedu.address.logic.commands.EditCommand.EditExpenseDescriptor DESC_BUILD_A_BEAR;
@@ -153,5 +156,15 @@ public class CommandTestUtil {
 
         assertEquals(1, model.getFilteredExpenseList().size());
     }
+
+    //    public static void showPersonAtIndex(Model model, Index targetIndex) {
+    //        assertTrue(targetIndex.getZeroBased() < model.getFilteredPersonList().size());
+    //
+    //        Person person = model.getFilteredPersonList().get(targetIndex.getZeroBased());
+    //        final String[] splitName = person.getPersonName().personName.split("\\s+");
+    //        model.updateFilteredPersonList(new DescriptionContainsKeywordsPredicate(Arrays.asList(splitName[0])));
+    //
+    //        assertEquals(1, model.getFilteredExpenseList().size());
+    //    }
 
 }

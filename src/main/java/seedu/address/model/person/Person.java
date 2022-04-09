@@ -72,7 +72,7 @@ public class Person {
     public String toString() {
         final StringBuilder builder = new StringBuilder();
         builder.append(getPersonName())
-                .append("; Person Amount: ")
+                .append(" Amount: $")
                 .append(getPersonAmount());
 
         return builder.toString();
