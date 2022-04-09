@@ -38,7 +38,11 @@ public class HelpCommand extends Command {
                 .append(ClearCommand.MESSAGE_USAGE).append(DeleteCommand.MESSAGE_USAGE)
                 .append(EditCommand.MESSAGE_USAGE).append(ExitCommand.MESSAGE_USAGE)
                 .append(FindCommand.MESSAGE_USAGE).append(ListCommand.MESSAGE_USAGE)
-                .append((SetBudgetCommand.MESSAGE_USAGE));
+                .append((SetBudgetCommand.MESSAGE_USAGE))
+                .append(PersonOwesCommand.MESSAGE_USAGE)
+                .append(PaidPersonWhoOwedCommand.MESSAGE_USAGE)
+                .append(EditPersonCommand.MESSAGE_USAGE)
+                .append(ListCatCommand.MESSAGE_USAGE);
         return HELP_STRING.toString();
     }
 

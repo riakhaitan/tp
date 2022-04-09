@@ -186,6 +186,12 @@ Shows a list of all expense categories recorded in Expense Expert.
 
 Format: `listCat`
 
+
+**The Following three commands facilitate the feature of managing the list of persons who owe you money.**
+
+_This sections of commands does not make a difference to the budget set by the user, since the budget is only
+meant to keep track of the expenses, and the amount of money lent out does not have any role to play in it._
+
 ### Adding a person who owes you money: `person`
 
 Adds a person with the name who owes you the specific amount.

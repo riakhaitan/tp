@@ -7,6 +7,7 @@ import static seedu.address.logic.parser.CliSyntax.PREFIX_DATE;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_DESCRIPTION;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_EXPENSE_CATEGORY;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_FILTER_DATE;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_PERSON_NAME;
 import static seedu.address.testutil.Assert.assertThrows;
 
 import java.util.ArrayList;
@@ -46,6 +47,11 @@ public class CommandTestUtil {
     public static final String VALID_BUDGET_DATE_BETA = "2022-03-10";
     public static final String VALID_FILTER_DATE = "2022-03-03";
 
+    public static final String VALID_PERSON_1_NAME = "Bob";
+    public static final String VALID_PERSON_2_NAME = "Alex";
+    public static final String VALID_PERSON_1_AMOUNT = "40";
+    public static final String VALID_PERSON_2_AMOUNT = "200";
+
 
 
     public static final String DESCRIPTION_DESC_ANNUAL_SPOTIFY =
@@ -63,6 +69,7 @@ public class CommandTestUtil {
     public static final String EXPENSE_DATE_DESC_BUILD_A_BEAR = " " + PREFIX_DATE
             + VALID_EXPENSE_DATE_BUILD_A_BEAR;
 
+
     public static final String BUDGET_AMOUNT_DESC_ALPHA =
             " " + PREFIX_AMOUNT + VALID_BUDGET_AMOUNT_ALPHA;
     public static final String BUDGET_AMOUNT_DESC_BETA =
@@ -75,6 +82,15 @@ public class CommandTestUtil {
     public static final String ADD_EXPENSE_CATEGORY_DESC = " "
             + PREFIX_EXPENSE_CATEGORY + VALID_EXPENSE_CATEGORY_ENTERTAINMENT;
 
+    public static final String PERSON_NAME_1 =
+            " " + PREFIX_PERSON_NAME + VALID_PERSON_1_NAME;
+    public static final String PERSON_NAME_2 =
+            " " + PREFIX_PERSON_NAME + VALID_PERSON_2_NAME;
+    public static final String PERSON_AMOUNT_1 =
+            " " + PREFIX_AMOUNT + VALID_PERSON_1_AMOUNT;
+    public static final String PERSON_AMOUNT_2 =
+            " " + PREFIX_AMOUNT + VALID_PERSON_2_AMOUNT;
+
 
     public static final seedu.address.logic.commands.EditCommand.EditExpenseDescriptor DESC_ANNUAL_SPOTIFY_FEES;
     public static final seedu.address.logic.commands.EditCommand.EditExpenseDescriptor DESC_BUILD_A_BEAR;
@@ -85,7 +101,8 @@ public class CommandTestUtil {
     public static final String INVALID_EXPENSE_DATE_DESC = " " + PREFIX_DATE + "2022/03/03";
     public static final String INVALID_FILTER_DATE_DESC = " " + PREFIX_FILTER_DATE + "2022";
     public static final String INVALID_ADD_EXPENSE_CATEGORY_DESC = " " + PREFIX_EXPENSE_CATEGORY + "Entert@inment";
-
+    public static final String INVALID_PERSON_NAME = " " + PREFIX_PERSON_NAME + "123";
+    public static final String INVALID_PERSON_AMOUNT = " " + PREFIX_AMOUNT + "abc";
 
     static {
         DESC_ANNUAL_SPOTIFY_FEES = new EditExpenseDescriptorBuilder()
