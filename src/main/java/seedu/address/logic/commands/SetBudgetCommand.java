@@ -19,7 +19,7 @@ public class SetBudgetCommand extends Command {
             + "Parameters: "
             + PREFIX_AMOUNT + "BUDGET AMOUNT \n"
             + "Example: " + COMMAND_WORD + " "
-            + PREFIX_AMOUNT + "100 ";
+            + PREFIX_AMOUNT + "100 \n\n";
 
     public static final String MESSAGE_SUCCESS = "Budget for %1$s is now $%2$s.";
 
