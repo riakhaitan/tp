@@ -59,7 +59,7 @@ public class PersonOwesCommand extends Command {
         String name = string.split(";")[0];
         String amount = string.split(":")[1].split(" ")[1];
         String personAdded = sb.append(name).append(" Amount: $").append(amount).toString();
-        return new CommandResult(String.format(MESSAGE_SUCCESS, personAdded));
+        return new CommandResult(String.format(MESSAGE_SUCCESS, toAdd));
 
     }
 

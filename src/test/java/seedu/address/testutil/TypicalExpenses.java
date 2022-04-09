@@ -15,6 +15,7 @@ import java.util.List;
 import seedu.address.model.ExpenseExpert;
 import seedu.address.model.expense.Expense;
 import seedu.address.model.expense.ExpenseCategory;
+import seedu.address.model.person.Person;
 
 /**
  * A utility class containing a list of {@code Expense} objects to be used in tests.
@@ -69,6 +70,8 @@ public class TypicalExpenses {
             .withAmount(VALID_AMOUNT_BUILD_A_BEAR)
             .withExpenseDate(VALID_EXPENSE_DATE_BUILD_A_BEAR).build();
 
+    public static final Person BOB = new PersonBuilder().withPersonName("BOB").withPersonAmount("40").build();
+    public static final Person ALEX = new PersonBuilder().withPersonName("ALEX").withPersonAmount("50").build();
     public static final String KEYWORD_MATCHING_RENT = "Rent"; // A keyword that matches Rent
 
     private TypicalExpenses() {} // prevents instantiation
@@ -84,6 +87,9 @@ public class TypicalExpenses {
         for (Expense expense : getTypicalExpenses()) {
             ee.addExpense(expense);
         }
+        for (Person person : getTypicalPersons()) {
+            ee.addPerson(person);
+        }
 
         ee.setBudget(new BudgetBuilder().withBudgetAmount("100").withBudgetDate("2020-01-03").build());
         return ee;
@@ -92,6 +98,10 @@ public class TypicalExpenses {
     public static List<Expense> getTypicalExpenses() {
         return new ArrayList<>(Arrays.asList(ANNUAL_NETFLIX_FEES, BASEBALL_LESSON_FEES, CAR_WASH, DENTAL,
                 ELECTRICAL_APPLIANCES, FISHING_APPARATUS, GROCERIES));
+    }
+
+    public static List<Person> getTypicalPersons() {
+        return new ArrayList<>(Arrays.asList(BOB, ALEX));
     }
 
     public static List<ExpenseCategory> getTypicalExpenseCategories() {
