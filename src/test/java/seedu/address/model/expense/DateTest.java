@@ -1,6 +1,8 @@
 package seedu.address.model.expense;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static seedu.address.testutil.Assert.assertThrows;
 
@@ -38,5 +40,14 @@ class DateTest {
         // valid addresses
         assertTrue(Date.isValidDate("2022-03-03"));
         assertTrue(Date.isValidDate("2022-02-28"));
+    }
+
+    @Test
+    public void getMonth() {
+        assertEquals("April", new Date("2020-04-01").getMonth());
+        assertEquals("December", new Date("2020-12-01").getMonth());
+
+        assertNotEquals("January", new Date("2020-02-01").getMonth());
+        assertNotEquals("february", new Date("2020-02-01").getMonth());
     }
 }

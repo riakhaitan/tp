@@ -24,6 +24,13 @@ public class BudgetTest {
     }
 
     @Test
+    public void getBudgetMonth() {
+        Budget betaCopy = new BudgetBuilder(BETA_BUDGET).build();
+        assertTrue(betaCopy.getBudgetMonth().equals(new Date(VALID_BUDGET_DATE_BETA).getMonth()));
+        assertFalse(betaCopy.getBudgetMonth().equals(new Date(VALID_BUDGET_DATE_ALPHA).getMonth()));
+    }
+
+    @Test
     public void getBudgetDate() {
         Budget betaCopy = new BudgetBuilder(BETA_BUDGET).build();
         assertTrue(betaCopy.getBudgetDate().equals(new Date(VALID_BUDGET_DATE_BETA)));

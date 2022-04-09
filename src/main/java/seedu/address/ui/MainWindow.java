@@ -195,7 +195,10 @@ public class MainWindow extends UiPart<Stage> {
      */
     private CommandResult executeCommand(String commandText) throws CommandException, ParseException {
         try {
-            if (!(logic.hasUndefinedBudget()) || commandText.split(" ")[0].equals("budget")) {
+            if (!(logic.hasUndefinedBudget()) || commandText.split(" ")[0].equals("budget")
+                    || commandText.split(" ")[0].equals("help")
+                    || commandText.split(" ")[0].equals("clear")
+                    || commandText.split(" ")[0].equals("exit")) {
                 CommandResult commandResult = logic.execute(commandText);
                 logger.info("Result: " + commandResult.getFeedbackToUser());
                 commandResultDisplay.setFeedbackToUser(commandResult.getFeedbackToUser());

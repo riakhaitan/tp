@@ -28,6 +28,9 @@ public class SetBudgetCommandParser implements Parser<SetBudgetCommand> {
         }
 
         Amount budgetAmount = ParserUtil.parseAmount(argMultimap.getValue(PREFIX_AMOUNT).get());
+        if (Double.valueOf(budgetAmount.toString()) >= 100000.00) {
+            throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, SetBudgetCommand.MESSAGE_USAGE));
+        }
 
         Budget budget = new Budget(budgetAmount);
 
