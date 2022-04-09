@@ -70,8 +70,8 @@ public class TypicalExpenses {
             .withAmount(VALID_AMOUNT_BUILD_A_BEAR)
             .withExpenseDate(VALID_EXPENSE_DATE_BUILD_A_BEAR).build();
 
-    public static final Person BOB = new PersonBuilder().withPersonName("BOB").withPersonAmount("40").build();
-    public static final Person ALEX = new PersonBuilder().withPersonName("ALEX").withPersonAmount("50").build();
+    public static final Person BOB = new PersonBuilder().withPersonName("Bob").withPersonAmount("40").build();
+    public static final Person ALEX = new PersonBuilder().withPersonName("Alex").withPersonAmount("50").build();
     public static final String KEYWORD_MATCHING_RENT = "Rent"; // A keyword that matches Rent
 
     private TypicalExpenses() {} // prevents instantiation
