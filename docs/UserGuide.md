@@ -97,14 +97,14 @@ Format: `help`
 ### Adding an expense : `add`
 
 Adds an expense to the list. Description and expense category provided must be in alphanumerical format, amount can only be positive number up to 2 decimal places
-and expense date must be in yyyy-MM-dd format. Expense category must be from a list of user-defined categories.
+and expense date must be in yyyy-MM-dd format. Expense category must be from a list of user-defined categories. If Expense category is undefined, it will default to the `General` Expense Category
 
-Format: `add d/DESCRIPTION a/AMOUNT c/EXPENSE_CATEGORY t/EXPENSE_DATE`
+Format: `add d/DESCRIPTION a/AMOUNT [c/EXPENSE_CATEGORY] t/EXPENSE_DATE`
 
 Examples:
 
-- `add d/Dinner at Privé a/35 c/Extra expense t/2022-03-22`
-- `add d/Groceries c/Essentials t/2022-03-23 a/50`
+- `add d/Dinner at Astons a/35 c/Food t/2022-03-22`
+- `add d/Groceries t/2022-03-23 a/50`
 
 ### Deleting an expense : `delete`
 
@@ -186,7 +186,7 @@ Shows a list of all expense categories recorded in Expense Expert.
 
 Format: `listCat`
 
-
+<br/>
 **The Following three commands facilitate the feature of managing the list of persons who owe you money.**
 
 _This sections of commands does not make a difference to the budget set by the user, since the budget is only
@@ -245,10 +245,6 @@ Expense Expert data are saved as a JSON file `[JAR file location]/data/expenseex
 <div markdown="span" class="alert alert-warning">:exclamation: **Caution:**
 If your changes to the data file makes its format invalid, Expense Expert will discard all data and start with an empty data file at the next run.
 </div>
-
-### Archiving data files `[coming in v2.0]`
-
-_Details coming soon ..._
 
 ---
 

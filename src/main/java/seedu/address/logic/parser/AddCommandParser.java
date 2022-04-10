@@ -31,15 +31,21 @@ public class AddCommandParser implements Parser<AddCommand> {
                 ArgumentTokenizer.tokenize(args, PREFIX_DESCRIPTION, PREFIX_EXPENSE_CATEGORY,
                         PREFIX_AMOUNT, PREFIX_DATE);
 
-        if (!arePrefixesPresent(argMultimap, PREFIX_DESCRIPTION, PREFIX_EXPENSE_CATEGORY,
+        ExpenseCategory expenseCategory = ParserUtil
+                .parseExpenseCategory("General");
+
+        if (!arePrefixesPresent(argMultimap, PREFIX_DESCRIPTION,
                 PREFIX_AMOUNT, PREFIX_DATE)
                 || !argMultimap.getPreamble().isEmpty()) {
             throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, AddCommand.MESSAGE_USAGE));
         }
 
+        if (argMultimap.getValue(PREFIX_EXPENSE_CATEGORY).isPresent()) {
+            expenseCategory = ParserUtil
+                    .parseExpenseCategory(argMultimap.getValue(PREFIX_EXPENSE_CATEGORY).get());
+        }
+
         Description description = ParserUtil.parseDescription(argMultimap.getValue(PREFIX_DESCRIPTION).get());
-        ExpenseCategory expenseCategory = ParserUtil
-                .parseExpenseCategory(argMultimap.getValue(PREFIX_EXPENSE_CATEGORY).get());
         Amount amount = ParserUtil.parseAmount(argMultimap.getValue(PREFIX_AMOUNT).get());
         Date expenseDate = ParserUtil.parseDate(argMultimap.getValue(PREFIX_DATE).get());
 
