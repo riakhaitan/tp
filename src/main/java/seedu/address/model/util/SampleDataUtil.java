@@ -18,32 +18,21 @@ import seedu.address.model.person.PersonName;
 public class SampleDataUtil {
     public static Expense[] getSampleExpenses() {
         return new Expense[] {
-            new Expense(new Description("Allstar Baseball Shoes"),
-                    new ExpenseCategory("Apparels"), new Amount("89"), new Date("2002-02-02")),
-            new Expense(new Description("Basketball"),
-                    new ExpenseCategory("Sports Equipment"), new Amount("25"), new Date("2002-02-02")),
-            new Expense(new Description("Cake for Andrew Birthday"),
-                    new ExpenseCategory("Gift"), new Amount("60"), new Date("2002-02-02")),
-            new Expense(new Description("Driving Classes"), new
-                    ExpenseCategory("Miscellaneous"), new Amount("80"), new Date("2002-02-02")),
-            new Expense(new Description("Ice cream"), new
-                    ExpenseCategory("Groceries"), new Amount("20"), new Date("2002-02-02")),
-            new Expense(new Description("Ribbons for Crafting"), new
-                    ExpenseCategory("Miscellaneous"), new Amount("5"), new Date("2002-02-02"))
+            new Expense(new Description("Lunch"),
+                    new ExpenseCategory("General"), new Amount("89"), new Date("2002-02-02")),
+            new Expense(new Description("Bought clothes"),
+                    new ExpenseCategory("General"), new Amount("25"), new Date("2002-02-02")),
         };
     }
 
     public static Person[] getSamplePersons() {
         return new Person[] {
-            new Person(new PersonName("Alex"), new PersonAmount("20")),
-            new Person(new PersonName("Bob"), new PersonAmount("100"))};
+            new Person(new PersonName("Alex"), new PersonAmount("20"))};
     }
 
     public static ExpenseCategory[] getSampleCategories() {
         return new ExpenseCategory[] {
-            new ExpenseCategory("Apparels"), new ExpenseCategory("Gift"),
-            new ExpenseCategory("Miscellaneous"), new ExpenseCategory("Groceries"),
-            new ExpenseCategory("Sports Equipment")
+            new ExpenseCategory("General"),
         };
     }
 

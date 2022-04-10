@@ -71,7 +71,6 @@ class JsonSerializableExpenseExpert {
             }
             expenseExpert.addExpenseCategory(expenseCategory);
         }
-        System.out.println(expenseExpert.getExpenseCategoryList());
         for (JsonAdaptedExpense jsonAdaptedExpense : expenses) {
             Expense expense = jsonAdaptedExpense.toModelType();
             if (expenseExpert.hasExpense(expense)) {
