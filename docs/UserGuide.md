@@ -114,10 +114,17 @@ and expense date must be in yyyy-MM-dd format. Expense category must be from a l
 
 Format: `add d/DESCRIPTION a/AMOUNT [c/EXPENSE_CATEGORY] t/EXPENSE_DATE`
 
-Examples:
+**Examples:**
 
 - `add d/Dinner at Astons a/35 c/Food t/2022-03-22`
 - `add d/Groceries t/2022-03-23 a/50`
+
+_This is the result of executing the command(s) above:_
+
+![Add](images/AddCommandExample2.png)
+
+![Add](images/AddCommandExample1.png)
+
 
 ### Deleting an expense : `delete`
 
@@ -128,6 +135,12 @@ Format: `delete INDEX`
 Examples:
 
 - `delete 1`
+
+_This is the result of executing the command(s) above:_
+
+
+![Delete](images/DeleteCommandExample.png)
+
 
 ### Editing an expense : `edit`
 
@@ -141,11 +154,23 @@ Examples:
 - `edit 1 a/40`
 - `edit 2 d/Groceries from Fairprice a/80`
 
+_This is the result of executing the command(s) above:_
+
+
+![Edit](images/EditCommandExample.png)
+
+
 ### Listing all expenses : `list`
 
 Shows a list of all expenses recorded in Expense Expert.
 
 Format: `list`
+
+_This is the result of executing the command(s) above:_
+
+
+![List](images/ListCommandExample.png)
+
 
 ### Filtering expenses: `filter`
 
@@ -162,6 +187,12 @@ Examples:
 - `filter c/Transport`
 - `filter ft/2022-03 c/Transport`
 
+_This is the result of executing the command(s) above:_
+
+
+![Filter](images/FilterCommandExample.png)
+
+
 ### Finding expenses: `find`
 
 Finds expense(s) with the stated keyword(s) in descriptors. If more than one keyword is provided, returns list of expenses with expense description that matches any of the keywords provided.
@@ -172,6 +203,12 @@ Examples:
 
 - `find Cafe`
 - `find Cafe Grab`
+
+_This is the result of executing the command(s) above:_
+
+
+![Find](images/FindCommandExample.png)
+
 
 ### Setting a monthly Budget: `budget`
 
@@ -188,6 +225,12 @@ Examples:
 
 - `budget a/500`
 
+_This is the result of executing the command(s) above:_
+
+
+![Budget](images/BudgetCommandExample.png)
+
+
 ### Adding an Expense Category: `addCat`
 
 Adds a user-defined expense category which can be used to categorise expenses.
@@ -198,11 +241,23 @@ Examples:
 
 - `addCat c/transport`
 
+_This is the result of executing the command(s) above:_
+
+
+![AddCategory](images/AddCategoryCommandExample.png)
+
+
 ### Listing all Expense Categories: `listCat`
 
 Shows a list of all expense categories recorded in Expense Expert.
 
 Format: `listCat`
+
+_This is the result of executing the command(s) above:_
+
+
+![ListCategory](images/ListCategoryCommandExample.png)
+
 
 ---
 
@@ -221,6 +276,12 @@ Examples:
 
 - `person n/Alex a/100`
 
+_This is the result of executing the command(s) above:_
+
+
+![Person](images/PersonCommandExample.png)
+
+
 ### Removing a person who has paid the owed money: `paid`
 
 Removes a person at the index who has paid all the money they have owed.
@@ -230,6 +291,12 @@ Format: `paid INDEX`
 Examples:
 
 - `paid 1`
+
+_This is the result of executing the command(s) above:_
+
+
+![Paid](images/PaidCommandExample.png)
+
 
 ### Updating the amount a person owes you: `update`
 
@@ -241,6 +308,12 @@ Examples:
 
 - `update 4 a/1000`
 
+_This is the result of executing the command(s) above:_
+
+
+![Update](images/UpdateCommandExample.png)
+
+
 ---
 
 ### Clearing the program data : `clear`
@@ -248,6 +321,12 @@ Examples:
 Deletes all data from Expense Expert.
 
 Format: `clear`
+
+_This is the result of executing the command(s) above:_
+
+
+![Clear](images/ClearCommandExample.png)
+
 
 ### Exiting the program : `exit`
 
