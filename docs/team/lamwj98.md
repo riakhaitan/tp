@@ -1,4 +1,4 @@
-git p---
+---
 layout: page
 title: Andy's Project Portfolio Page
 
@@ -22,8 +22,8 @@ Given below are my contributions to the project.
 
 - **Enhancements to existing features**:
 
-  - Change ExpenseDate class from keeping data as String to LocalDate (for future usage of dates for comparison) ([#88]([#39](https://github.com/AY2122S2-CS2103T-W09-3/tp/pull/88))).
-  - Added unit test code for ExpenseDate and its relevant classes and fixed relevant bugs ([#79]([#39](https://github.com/AY2122S2-CS2103T-W09-3/tp/pull/79))).
+  - Change ExpenseDate class from keeping data as String to LocalDate (for future usage of dates for comparison) ([#88](https://github.com/AY2122S2-CS2103T-W09-3/tp/pull/88)).
+  - Added unit test code for ExpenseDate and its relevant classes and fixed relevant bugs ([#79](https://github.com/AY2122S2-CS2103T-W09-3/tp/pull/79)).
 
 - **Documentation**:
 
@@ -44,11 +44,13 @@ Given below are my contributions to the project.
       - UC04 Find expense(s)
       - UC08 Filter expense(s) 
     - User stories ([#39](https://github.com/AY2122S2-CS2103T-W09-3/tp/pull/39))
-  
+    
+- **Contribution to team-based tasks:**
+  - Refactor code base to fit project features including adapting naming of variables, adding new classes and its relevant test cases as well as adapting old test cases and datas ([#53](https://github.com/AY2122S2-CS2103T-W09-3/tp/pull/53), [#64](https://github.com/AY2122S2-CS2103T-W09-3/tp/pull/64), [#65](https://github.com/AY2122S2-CS2103T-W09-3/tp/pull/65)).
+  - Created the JAR release for [v1.3.trial](https://github.com/AY2122S2-CS2103T-W09-3/tp/releases/tag/v1.3.trial).
+  - Coordinated team efforts and get updates from team members regarding progress.
 
 - **Community**:
-  - Refactor code base to fit project features ([#53](https://github.com/AY2122S2-CS2103T-W09-3/tp/pull/53), [#64](https://github.com/AY2122S2-CS2103T-W09-3/tp/pull/64), [#65](https://github.com/AY2122S2-CS2103T-W09-3/tp/pull/65)).
-  - Adapted unit testing and sample data to fit the project requirements.
-  - PRs reviewed (with non-trivial review comments): [#68](https://github.com/AY2122S2-CS2103T-W09-3/tp/pull/68), [#69](https://github.com/AY2122S2-CS2103T-W09-3/tp/pull/69), [#84](https://github.com/AY2122S2-CS2103T-W09-3/tp/pull/84).
+  - PRs reviewed (with non-trivial review comments): [#68](https://github.com/AY2122S2-CS2103T-W09-3/tp/pull/68), [#69](https://github.com/AY2122S2-CS2103T-W09-3/tp/pull/69), [#84](https://github.com/AY2122S2-CS2103T-W09-3/tp/pull/84), [#109](https://github.com/AY2122S2-CS2103T-W09-3/tp/pull/109), [#154](https://github.com/AY2122S2-CS2103T-W09-3/tp/pull/154), [#168](https://github.com/AY2122S2-CS2103T-W09-3/tp/pull/168), [#169](https://github.com/AY2122S2-CS2103T-W09-3/tp/pull/169).
   - Reported a total of 13 bugs and suggestions for other teams during PE-D (see [here](https://github.com/lamwj98/ped/issues)).
   
