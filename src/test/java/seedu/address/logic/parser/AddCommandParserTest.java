@@ -34,13 +34,15 @@ public class AddCommandParserTest {
         Expense expectedExpense = new ExpenseBuilder(BUILD_A_BEAR).build();
 
         assertParseSuccess(parser, DESCRIPTION_DESC_BUILD_A_BEAR
-                        + EXPENSE_CATEGORY_DESC_ENTERTAINMENT + AMOUNT_DESC_BUILD_A_BEAR + EXPENSE_DATE_DESC_BUILD_A_BEAR,
+                        + EXPENSE_CATEGORY_DESC_ENTERTAINMENT + AMOUNT_DESC_BUILD_A_BEAR
+                        + EXPENSE_DATE_DESC_BUILD_A_BEAR,
                 new AddCommand(expectedExpense));
 
 
         // multiple descriptions - last description accepted
         assertParseSuccess(parser, DESCRIPTION_DESC_ANNUAL_SPOTIFY + DESCRIPTION_DESC_BUILD_A_BEAR
-                        + EXPENSE_CATEGORY_DESC_ENTERTAINMENT + AMOUNT_DESC_BUILD_A_BEAR + EXPENSE_DATE_DESC_BUILD_A_BEAR,
+                        + EXPENSE_CATEGORY_DESC_ENTERTAINMENT + AMOUNT_DESC_BUILD_A_BEAR
+                        + EXPENSE_DATE_DESC_BUILD_A_BEAR,
                 new AddCommand(expectedExpense));
 
         // multiple amounts - last amount accepted
@@ -50,7 +52,7 @@ public class AddCommandParserTest {
     }
 
     @Test
-    public void parse_OptionalFieldMissing_success() {
+    public void parse_optionalFieldMissing_success() {
         Expense expectedExpense = new ExpenseBuilder(BUILD_A_BEAR).withExpenseCategory("General").build();
         // missing expenseCategory prefix
         assertParseSuccess(parser, DESCRIPTION_DESC_BUILD_A_BEAR + AMOUNT_DESC_BUILD_A_BEAR
@@ -63,7 +65,7 @@ public class AddCommandParserTest {
         String expectedMessage = String.format(MESSAGE_INVALID_COMMAND_FORMAT, AddCommand.MESSAGE_USAGE);
 
         // missing amount prefix
-        assertParseFailure(parser,  DESCRIPTION_DESC_BUILD_A_BEAR
+        assertParseFailure(parser, DESCRIPTION_DESC_BUILD_A_BEAR
                         + EXPENSE_CATEGORY_DESC_ENTERTAINMENT + EXPENSE_DATE_DESC_BUILD_A_BEAR,
                 expectedMessage);
 
