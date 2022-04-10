@@ -1,0 +1,65 @@
+{
+  "expenses" : [ {
+    "description" : "Lunch at Harbourfront Centre",
+    "expenseCategory" : "Food",
+    "amount" : "6.50",
+    "expenseDate" : "2022-03-20"
+  }, {
+    "description" : "Gym Membership",
+    "expenseCategory" : "Food",
+    "amount" : "80.00",
+    "expenseDate" : "2022-02-02"
+  }, {
+    "description" : "Bao",
+    "expenseCategory" : "Food",
+    "amount" : "1.00",
+    "expenseDate" : "2021-01-01"
+  }, {
+    "description" : "Nike",
+    "expenseCategory" : "Apparel",
+    "amount" : "100.00",
+    "expenseDate" : "2022-01-02"
+  }, {
+    "description" : "Groceries",
+    "expenseCategory" : "Food",
+    "amount" : "100.00",
+    "expenseDate" : "2020-01-01"
+  }, {
+    "description" : "food",
+    "expenseCategory" : "food",
+    "amount" : "1.00",
+    "expenseDate" : "2022-02-02"
+  } ],
+  "persons" : [ {
+    "personName" : "Oliver",
+    "personAmount" : "30.00"
+  }, {
+    "personName" : "Jessica",
+    "personAmount" : "20.00"
+  }, {
+    "personName" : "Neel",
+    "personAmount" : "40.00"
+  }, {
+    "personName" : "Samantha",
+    "personAmount" : "20.00"
+  }, {
+    "personName" : "Rachel",
+    "personAmount" : "35.00"
+  }, {
+    "personName" : "Ralph",
+    "personAmount" : "200.00"
+  } ],
+  "budget" : {
+    "budgetAmount" : "2022.00",
+    "budgetDate" : "2022-04-09"
+  },
+  "expenseCategories" : [ {
+    "expenseCategory" : "Food"
+  }, {
+    "expenseCategory" : "Entertainment"
+  }, {
+    "expenseCategory" : "Apparel"
+  }, {
+    "expenseCategory" : "Transport"
+  } ]
+}
