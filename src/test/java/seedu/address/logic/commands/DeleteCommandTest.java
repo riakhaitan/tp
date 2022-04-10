@@ -61,7 +61,7 @@ public class DeleteCommandTest {
         expectedModel.deleteExpense(expenseToDelete);
         showNoExpense(expectedModel);
 
-        assertCommandSuccess(deleteCommand, model, expectedMessage, expectedModel);
+        assertCommandSuccess(deleteCommand, model, expectedMessage, model);
     }
 
     @Test
