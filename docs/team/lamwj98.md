@@ -49,6 +49,6 @@ Given below are my contributions to the project.
 - **Community**:
   - Refactor code base to fit project features ([#53](https://github.com/AY2122S2-CS2103T-W09-3/tp/pull/53), [#64](https://github.com/AY2122S2-CS2103T-W09-3/tp/pull/64), [#65](https://github.com/AY2122S2-CS2103T-W09-3/tp/pull/65)).
   - Adapted unit testing and sample data to fit the project requirements.
-  - PRs reviewed (with non-trivial review comments): [#68](https://github.com/AY2122S2-CS2103T-W09-3/tp/pull/68), [#69](https://github.com/AY2122S2-CS2103T-W09-3/tp/pull/69), [#84](https://github.com/AY2122S2-CS2103T-W09-3/tp/pull/84), [#109](https://github.com/AY2122S2-CS2103T-W09-3/tp/pull/109), [#154](https://github.com/AY2122S2-CS2103T-W09-3/tp/pull/154).
+  - PRs reviewed (with non-trivial review comments): [#68](https://github.com/AY2122S2-CS2103T-W09-3/tp/pull/68), [#69](https://github.com/AY2122S2-CS2103T-W09-3/tp/pull/69), [#84](https://github.com/AY2122S2-CS2103T-W09-3/tp/pull/84), [#109](https://github.com/AY2122S2-CS2103T-W09-3/tp/pull/109), [#154](https://github.com/AY2122S2-CS2103T-W09-3/tp/pull/154), [#169](https://github.com/AY2122S2-CS2103T-W09-3/tp/pull/169).
   - Reported a total of 13 bugs and suggestions for other teams during PE-D (see [here](https://github.com/lamwj98/ped/issues)).
   
