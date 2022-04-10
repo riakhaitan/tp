@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.stage.Stage?>
 
-<fx:root minHeight="500" minWidth="1000" onCloseRequest="#handleExit" title="Expense Expert" maxHeight="700" maxWidth="1200" type="javafx.stage.Stage" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+<fx:root minHeight="500" minWidth="1000" onCloseRequest="#handleExit" title="Expense Expert" maxHeight="700" maxWidth="1000" type="javafx.stage.Stage" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
   <icons>
     <Image url="@/images/coin_sprite.png" />
   </icons>
@@ -32,38 +32,36 @@
             <MenuItem fx:id="helpMenuItem" mnemonicParsing="false" onAction="#handleHelp" text="Help" />
           </Menu>
         </MenuBar>
-        <HBox maxHeight="700" minWidth="500.0" prefHeight="300.0" prefWidth="700.0" styleClass="pane-with-border" VBox.vgrow="ALWAYS">
+
+        <StackPane VBox.vgrow="NEVER" fx:id="commandBoxPlaceholder" styleClass="pane-with-border">
+          <padding>
+            <Insets top="5" right="10" bottom="5" left="10" />
+          </padding>
+        </StackPane>
+
+        <StackPane VBox.vgrow="NEVER" fx:id="budgetDisplayPlaceholder" styleClass="pane-with-border"
+                   minHeight="50" prefHeight="50" maxHeight="50">
+          <padding>
+            <Insets top="5" right="10" bottom="5" left="10" />
+          </padding>
+        </StackPane>
+
+        <StackPane VBox.vgrow="NEVER" fx:id="resultDisplayPlaceholder" styleClass="pane-with-border"
+                   minHeight="80" prefHeight="80" maxHeight="100">
+          <padding>
+            <Insets top="5" right="10" bottom="5" left="10" />
+          </padding>
+        </StackPane>
+        <HBox minWidth="500.0" prefWidth="700.0"  prefHeight="300.0" styleClass="pane-with-border" VBox.vgrow="ALWAYS">
           <children>
-            <VBox minWidth="300" prefHeight="200.0" prefWidth="511.0" HBox.hgrow="ALWAYS">
-              <children>
-                <StackPane fx:id="commandBoxPlaceholder" styleClass="pane-with-border" VBox.vgrow="NEVER">
-                  <padding>
-                    <Insets bottom="5" left="10" right="10" top="5" />
-                  </padding>
-                </StackPane>
 
-                <StackPane fx:id="resultDisplayPlaceholder" minHeight="100" prefHeight="200" prefWidth="267.0" styleClass="pane-with-border" VBox.vgrow="ALWAYS">
-                  <padding>
-                    <Insets bottom="5" left="10" right="10" top="5" />
-                  </padding>
-                </StackPane>
-
-                <StackPane fx:id="budgetDisplayPlaceholder" minHeight="50" prefHeight="100" maxHeight="100" styleClass="pane-with-border" VBox.vgrow="NEVER">
-                  <padding>
-                    <Insets bottom="5" left="10" right="10" top="5" />
-                  </padding>
-                </StackPane>
-              </children>
-            </VBox>
-
-            <VBox fx:id="expenseList" maxHeight="800" minWidth="250" prefHeight="500" prefWidth="400" styleClass="pane-with-border" VBox.vgrow="ALWAYS">
+            <VBox fx:id="expenseList" styleClass="pane-with-border" minWidth="550" prefWidth="550" VBox.vgrow="ALWAYS">
               <padding>
-                <Insets bottom="10" left="10" right="10" top="10" />
+                <Insets top="10" right="10" bottom="10" left="10" />
               </padding>
-              <StackPane fx:id="expenseListPanelPlaceholder" prefHeight="300.0" prefWidth="400.0" VBox.vgrow="ALWAYS" />
+              <StackPane fx:id="expenseListPanelPlaceholder" VBox.vgrow="ALWAYS"/>
             </VBox>
-
-            <VBox fx:id="personList" maxHeight="800" minWidth="250" prefHeight="500" prefWidth="400" styleClass="pane-with-border">
+            <VBox fx:id="personList" minWidth="450" prefWidth="450" styleClass="pane-with-border">
               <padding>
                 <Insets bottom="10" left="10" right="10" top="10" />
               </padding>
