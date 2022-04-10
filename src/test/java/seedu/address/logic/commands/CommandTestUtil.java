@@ -10,6 +10,8 @@ import static seedu.address.logic.parser.CliSyntax.PREFIX_FILTER_DATE;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_PERSON_NAME;
 import static seedu.address.testutil.Assert.assertThrows;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -42,10 +44,11 @@ public class CommandTestUtil {
 
     public static final String VALID_BUDGET_AMOUNT_ALPHA = "900";
     public static final String VALID_BUDGET_AMOUNT_BETA = "600";
-    public static final String VALID_UNDEFINED_BUDGET_AMOUNT = "0";
     public static final String VALID_BUDGET_DATE_ALPHA = "2022-01-01";
     public static final String VALID_BUDGET_DATE_BETA = "2022-03-10";
+    public static final String VALID_OUTDATED_DATE = "1900-12-12";
     public static final String VALID_FILTER_DATE = "2022-03-03";
+    public static final String VALID_UPDATED_DATE = LocalDate.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
 
     public static final String VALID_PERSON_1_NAME = "Bob";
     public static final String VALID_PERSON_2_NAME = "Alex";

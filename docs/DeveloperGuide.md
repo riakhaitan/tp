@@ -4,37 +4,39 @@ title: Developer Guide
 ---
 
 ## Table of Contents
+
 - [**Acknowledgements**](#acknowledgements)
 - [**Setting up, getting started**](#setting-up-getting-started)
 - [**Design**](#design)
-   - [Architecture](#architecture)
-   - [UI component](#ui-component)
-   - [Logic component](#logic-component)
-   - [Model component](#model-component)
-   - [Storage component](#storage-component)
-   - [Common classes](#common-classes)
+  - [Architecture](#architecture)
+  - [UI component](#ui-component)
+  - [Logic component](#logic-component)
+  - [Model component](#model-component)
+  - [Storage component](#storage-component)
+  - [Common classes](#common-classes)
 - [**Implementation**](#implementation)
-   - [**Filter**](#filter)
-      - [_How is the feature implemented?_](#how-is-the-feature-implemented)
-      - [_Why is it implemented this way_](#why-is-it-implemented-this-way)
-      - [_Alternatives considered_](#alternatives-considered)
-   - [**Navigating through command history**](#navigating-through-command-history)
-      - [_How is the feature implemented?_](#how-is-the-feature-implemented-1)
-      - [_Why is it implemented this way_](#why-is-it-implemented-this-way-1)
-      - [_Alternatives considered_](#alternatives-considered-1)
-      - [Design considerations:](#design-considerations)
-   - [\[Proposed\] Data archiving](#proposed-data-archiving)
+  - [**Filter**](#filter)
+    - [_How is the feature implemented?_](#how-is-the-feature-implemented)
+    - [_Why is it implemented this way_](#why-is-it-implemented-this-way)
+    - [_Alternatives considered_](#alternatives-considered)
+  - [**Navigating through command history**](#navigating-through-command-history)
+    - [_How is the feature implemented?_](#how-is-the-feature-implemented-1)
+    - [_Why is it implemented this way_](#why-is-it-implemented-this-way-1)
+    - [_Alternatives considered_](#alternatives-considered-1)
+    - [Design considerations:](#design-considerations)
+  - [\[Proposed\] Data archiving](#proposed-data-archiving)
 - [**Documentation, logging, testing, configuration, dev-ops**](#documentation-logging-testing-configuration-dev-ops)
 - [**Appendix: Requirements**](#appendix-requirements)
-   - [Product scope](#product-scope)
-   - [User stories](#user-stories)
-   - [Use cases](#use-cases)
-   - [Non-Functional Requirements](#non-functional-requirements)
-   - [Glossary](#glossary)
+  - [Product scope](#product-scope)
+  - [User stories](#user-stories)
+  - [Use cases](#use-cases)
+  - [Non-Functional Requirements](#non-functional-requirements)
+  - [Glossary](#glossary)
 - [**Appendix: Instructions for manual testing**](#appendix-instructions-for-manual-testing)
-   - [Launch and shutdown](#launch-and-shutdown)
-   - [Deleting an expense](#deleting-an-expense)
-   - [Saving data](#saving-data)
+  - [Launch and shutdown](#launch-and-shutdown)
+  - [Deleting an expense](#deleting-an-expense)
+  - [Saving data](#saving-data)
+
 ---
 
 ## **Acknowledgements**
@@ -283,24 +285,23 @@ _{Explain here how the data archiving feature will be implemented}_
 
 Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unlikely to have) - `*`
 
-| Priority | As a …​  | I want to …​                                        | So that I can…​                                                         |
-| -------- | -------- | --------------------------------------------------- | ----------------------------------------------------------------------- |
-| `* * *`  | new user | see usage instructions                              | try features suitable for new users                                     |
-| `* * *`  | user     | add an expense with details such as type of expense |                                                                         |
-| `* * *`  | user     | delete an expense                                   | remove entries that I keyed wrongly                                     |
-| `* * *`  | user     | edit an expense along with its details              |                                                                         |
-| `* * *`  | user     | view all expense recorded                           | locate details of expenses without having to go through the entire list |
-| `* *`    | user     | set expense categories                              | track my spending habits                                                |
-| `* *`    | user     | view all expense categories set                     | know which categories i can put expenses under                          |
-| `* *`    | user     | find an expense base on keyword(s)                  |                                                                         |
-| `* *`    | user     | filter expenses based on date/month and/or category |                                                                         |
-| `* *`    | user     | set a monthly budget                                | keep track of my savings and over-expenditure                           |
-| `* *`    | user     | see what commands I have issued expense expert      |                                                                         |
-| `* *`    | user     | add people who owe me money along with the amount   |                                                                         |
-| `* *`    | user     | remove people who owe me money along with the amount| track when they have paid me back                                       |
-| `* *`    | user     | see which people owe me money                       |                                                                         |
-
-
+| Priority | As a …​  | I want to …​                                                  | So that I can…​                                                         |
+| -------- | -------- | ------------------------------------------------------------- | ----------------------------------------------------------------------- |
+| `* * *`  | new user | see usage instructions                                        | try features suitable for new users                                     |
+| `* * *`  | user     | add an expense with details such as type of expense           |                                                                         |
+| `* * *`  | user     | delete an expense                                             | remove entries that I keyed wrongly                                     |
+| `* * *`  | user     | edit an expense along with its details                        |                                                                         |
+| `* * *`  | user     | view all expense recorded                                     | locate details of expenses without having to go through the entire list |
+| `* *`    | user     | set expense categories                                        | track my spending habits                                                |
+| `* *`    | user     | view all expense categories set                               | know which categories i can put expenses under                          |
+| `* *`    | user     | find an expense base on keyword(s)                            |                                                                         |
+| `* *`    | user     | filter expenses based on date/month and/or category           |                                                                         |
+| `* *`    | user     | set a monthly budget                                          | keep track of my savings and over-expenditure                           |
+| `* *`    | user     | be reminded to set a monthly budget when it is not set yet    | keep track of my expenses for the month relative to my budget           |
+| `* *`    | user     | scroll through the commands I have issued Expense Expert      | quickly reenter a new command by editing a past command                 |
+| `* *`    | user     | add people who owe me money along with the amount owed        |                                                                         |
+| `* *`    | user     | remove people who owe me money along with the amount returned | track when they have paid me back                                       |
+| `* *`    | user     | see which people owe me money                                 |                                                                         |
 
 ### Use cases
 
@@ -322,12 +323,12 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
         2a1. Expense Expert informs the user about the error detected.
         Use case ends.
 
-    3a. Expense parsed is a duplicate of another expense that is already in Expense Expert.
-        3a1. Expense Expert informs the user that the expense already exists in Expense Expert.
+    3a. Expense Expert detects that budget has not been set.
+        3a1. Expense Expert informs the user to set a budget before executing other commands.
         Use case ends.
 
-    3b. Expense Expert detects that budget has not been set.
-        3b1. Expense Expert informs the user to set a budget before executing other commands.
+    3b. Expense parsed is a duplicate of another expense that is already in Expense Expert.
+        3b1. Expense Expert informs the user that the expense already exists in Expense Expert.
         Use case ends.
 
 **Use case: UC02 Delete an expense**
@@ -346,12 +347,12 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
         2a1. Expense Expert informs the user about the error detected.
         Use case ends.
 
-    3a. List of Expenses is empty
-        3a1. Expense Expert informs the user that there is no expense in the list.
+    3a. Expense Expert detects that budget has not been set.
+        3a1. Expense Expert informs the user to set a budget before executing other commands.
         Use case ends.
 
-    3b. Expense Expert detects that budget has not been set.
-        3b1. Expense Expert informs the user to set a budget before executing other commands.
+    3b. List of Expenses is empty
+        3b1. Expense Expert informs the user that there is no expense in the list.
         Use case ends.
 
 **Use case: UC03 Edit an expense**
@@ -370,12 +371,12 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
         2a1. Expense Expert informs the user about the error detected.
         Use case ends.
 
-    3a. Expense Expert detects that the details of the newly edited expense is a duplicate of another expense in the list.
-        3a1. Expense Expert informs the user that expense edited is a duplicate of another expense in Expense Expert.
+    3a. Expense Expert detects that budget has not been set.
+        3a1. Expense Expert informs the user to set a budget before executing other commands.
         Use case ends.
 
-    3b. Expense Expert detects that budget has not been set.
-        3b1. Expense Expert informs the user to set a budget before executing other commands.
+    3b. Expense Expert detects that the details of the newly edited expense is a duplicate of another expense in the list.
+        3b1. Expense Expert informs the user that expense edited is a duplicate of another expense in Expense Expert.
         Use case ends.
 
 **Use case: UC04 Find expense(s)**
@@ -510,23 +511,23 @@ testers are expected to do more *exploratory* testing.
       Expected: The most recent window size and location is retained.
 
 1. Shutdown
-   
-    1. Enter the command `exit`. 
+
+   1. Enter the command `exit`.
 
 ### Adding an expense
 
 1. Deleting a expense while all expenses are being shown
 
-    1. Prerequisites: List all expenses using the `list` command. Multiple expenses in the list.
+   1. Prerequisites: List all expenses using the `list` command. Multiple expenses in the list.
 
-    1. Test case: `delete 1`<br>
-       Expected: First contact is deleted from the list. Details of the deleted contact shown in the status message. Timestamp in the status bar is updated.
+   1. Test case: `delete 1`<br>
+      Expected: First contact is deleted from the list. Details of the deleted contact shown in the status message. Timestamp in the status bar is updated.
 
-    1. Test case: `delete 0`<br>
-       Expected: No expense is deleted. Error details shown in the status message. Status bar remains the same.
+   1. Test case: `delete 0`<br>
+      Expected: No expense is deleted. Error details shown in the status message. Status bar remains the same.
 
-    1. Other incorrect delete commands to try: `delete`, `delete x`, `...` (where x is larger than the list size)<br>
-       Expected: Similar to previous.
+   1. Other incorrect delete commands to try: `delete`, `delete x`, `...` (where x is larger than the list size)<br>
+      Expected: Similar to previous.
 
 ### Deleting an expense
 

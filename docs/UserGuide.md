@@ -110,7 +110,7 @@ Format: `help [COMMAND_NAME]`
 ### Adding an expense : `add`
 
 Adds an expense to the list. Description and expense category provided must be in alphanumerical format, amount can only be positive number up to 2 decimal places
-and expense date must be in yyyy-MM-dd format. Expense category must be from a list of user-defined categories. If Expense category is undefined, it will default to the `General` Expense Category
+and expense date must be in yyyy-MM-dd format. Description must be unique and different from all other expenses in Expense Expert. Expense category must be from a list of user-defined categories. If Expense category is undefined, it will default to the `General` Expense Category.
 
 Format: `add d/DESCRIPTION a/AMOUNT [c/EXPENSE_CATEGORY] t/EXPENSE_DATE`
 
@@ -125,7 +125,6 @@ _This is the result of executing the command(s) above:_
 
 ![Add](images/AddCommandExample1.png)
 
-
 ### Deleting an expense : `delete`
 
 Deletes the expense specified by the index from the list. Run `list` before executing the command to identify the index of the expense.
@@ -138,9 +137,7 @@ Examples:
 
 _This is the result of executing the command(s) above:_
 
-
 ![Delete](images/DeleteCommandExample.png)
-
 
 ### Editing an expense : `edit`
 
@@ -156,9 +153,7 @@ Examples:
 
 _This is the result of executing the command(s) above:_
 
-
 ![Edit](images/EditCommandExample.png)
-
 
 ### Listing all expenses : `list`
 
@@ -168,9 +163,7 @@ Format: `list`
 
 _This is the result of executing the command(s) above:_
 
-
 ![List](images/ListCommandExample.png)
-
 
 ### Filtering expenses: `filter`
 
@@ -189,9 +182,7 @@ Examples:
 
 _This is the result of executing the command(s) above:_
 
-
 ![Filter](images/FilterCommandExample.png)
-
 
 ### Finding expenses: `find`
 
@@ -206,18 +197,15 @@ Examples:
 
 _This is the result of executing the command(s) above:_
 
-
 ![Find](images/FindCommandExample.png)
-
 
 ### Setting a monthly Budget: `budget`
 
 Sets a budget for the month.
 
-_The `add`, `delete` and `edit` command affect the monthly budget to reflect the remaining budget. 
+_The `add`, `delete` and `edit` command affect the monthly budget to reflect the remaining budget.
 However, due to an incomplete implementation of the budget, transaction for every month are reflected in the current month's budget.
 This is going to be rectified in the future iterations._
-
 
 Format: `budget a/AMOUNT`
 
@@ -227,9 +215,7 @@ Examples:
 
 _This is the result of executing the command(s) above:_
 
-
 ![Budget](images/BudgetCommandExample.png)
-
 
 ### Adding an Expense Category: `addCat`
 
@@ -243,9 +229,7 @@ Examples:
 
 _This is the result of executing the command(s) above:_
 
-
 ![AddCategory](images/AddCategoryCommandExample.png)
-
 
 ### Listing all Expense Categories: `listCat`
 
@@ -255,9 +239,7 @@ Format: `listCat`
 
 _This is the result of executing the command(s) above:_
 
-
 ![ListCategory](images/ListCategoryCommandExample.png)
-
 
 ---
 
@@ -278,9 +260,7 @@ Examples:
 
 _This is the result of executing the command(s) above:_
 
-
 ![Person](images/PersonCommandExample.png)
-
 
 ### Removing a person who has paid the owed money: `paid`
 
@@ -294,9 +274,7 @@ Examples:
 
 _This is the result of executing the command(s) above:_
 
-
 ![Paid](images/PaidCommandExample.png)
-
 
 ### Updating the amount a person owes you: `update`
 
@@ -310,9 +288,7 @@ Examples:
 
 _This is the result of executing the command(s) above:_
 
-
 ![Update](images/UpdateCommandExample.png)
-
 
 ---
 
@@ -324,9 +300,7 @@ Format: `clear`
 
 _This is the result of executing the command(s) above:_
 
-
 ![Clear](images/ClearCommandExample.png)
-
 
 ### Exiting the program : `exit`
 
