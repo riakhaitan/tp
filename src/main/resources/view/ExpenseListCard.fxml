@@ -26,7 +26,7 @@
               <Region fx:constant="USE_PREF_SIZE" />
             </minWidth>
           </Label>
-          <Label fx:id="description" styleClass="cell_big_label" text="\$description" maxWidth="180" wrapText="true"/>
+          <Label fx:id="description" styleClass="cell_big_label" text="\$description" maxWidth="300" wrapText="true"/>
         </HBox>
         <Label fx:id="expenseCategory" styleClass="category_label" text="\$expenseCategory" />
         <Region prefHeight="30.0" prefWidth="90.0" />
