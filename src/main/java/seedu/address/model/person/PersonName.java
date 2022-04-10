@@ -9,6 +9,7 @@ public class PersonName {
             "Person name must consist of alphabets"
                     + "and it should not be blank";
 
+
     public static final String VALIDATION_REGEX = "^([a-zA-Z])+[a-zA-Z_ ]*";
 
     public final String personName;
