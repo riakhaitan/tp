@@ -3,9 +3,38 @@ layout: page
 title: Developer Guide
 ---
 
-- Table of Contents
-  {:toc}
-
+## Table of Contents
+- [**Acknowledgements**](#acknowledgements)
+- [**Setting up, getting started**](#setting-up-getting-started)
+- [**Design**](#design)
+   - [Architecture](#architecture)
+   - [UI component](#ui-component)
+   - [Logic component](#logic-component)
+   - [Model component](#model-component)
+   - [Storage component](#storage-component)
+   - [Common classes](#common-classes)
+- [**Implementation**](#implementation)
+   - [**Filter**](#filter)
+      - [_How is the feature implemented?_](#how-is-the-feature-implemented)
+      - [_Why is it implemented this way_](#why-is-it-implemented-this-way)
+      - [_Alternatives considered_](#alternatives-considered)
+   - [**Navigating through command history**](#navigating-through-command-history)
+      - [_How is the feature implemented?_](#how-is-the-feature-implemented-1)
+      - [_Why is it implemented this way_](#why-is-it-implemented-this-way-1)
+      - [_Alternatives considered_](#alternatives-considered-1)
+      - [Design considerations:](#design-considerations)
+   - [\[Proposed\] Data archiving](#proposed-data-archiving)
+- [**Documentation, logging, testing, configuration, dev-ops**](#documentation-logging-testing-configuration-dev-ops)
+- [**Appendix: Requirements**](#appendix-requirements)
+   - [Product scope](#product-scope)
+   - [User stories](#user-stories)
+   - [Use cases](#use-cases)
+   - [Non-Functional Requirements](#non-functional-requirements)
+   - [Glossary](#glossary)
+- [**Appendix: Instructions for manual testing**](#appendix-instructions-for-manual-testing)
+   - [Launch and shutdown](#launch-and-shutdown)
+   - [Deleting an expense](#deleting-an-expense)
+   - [Saving data](#saving-data)
 ---
 
 ## **Acknowledgements**
@@ -261,11 +290,17 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 | `* * *`  | user     | delete an expense                                   | remove entries that I keyed wrongly                                     |
 | `* * *`  | user     | edit an expense along with its details              |                                                                         |
 | `* * *`  | user     | view all expense recorded                           | locate details of expenses without having to go through the entire list |
+| `* *`    | user     | set expense categories                              | track my spending habits                                                |
+| `* *`    | user     | view all expense categories set                     | know which categories i can put expenses under                          |
 | `* *`    | user     | find an expense base on keyword(s)                  |                                                                         |
 | `* *`    | user     | filter expenses based on date/month and/or category |                                                                         |
 | `* *`    | user     | set a monthly budget                                | keep track of my savings and over-expenditure                           |
+| `* *`    | user     | see what commands I have issued expense expert      |                                                                         |
+| `* *`    | user     | add people who owe me money along with the amount   |                                                                         |
+| `* *`    | user     | remove people who owe me money along with the amount| track when they have paid me back                                       |
+| `* *`    | user     | see which people owe me money                       |                                                                         |
 
-_{More to be added}_
+
 
 ### Use cases
 

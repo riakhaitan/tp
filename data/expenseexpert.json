@@ -1,10 +1,5 @@
 {
   "expenses" : [ {
-    "description" : "took grab",
-    "expenseCategory" : "Transport",
-    "amount" : "10.00",
-    "expenseDate" : "2022-02-21"
-  }, {
     "description" : "Lunch at Harbourfront Centre",
     "expenseCategory" : "Food",
     "amount" : "6.50",
@@ -50,8 +45,8 @@
     "personAmount" : "200.00"
   } ],
   "budget" : {
-    "budgetAmount" : "2012.00",
-    "budgetDate" : "2022-04-01"
+    "budgetAmount" : "2022.00",
+    "budgetDate" : "2022-04-09"
   },
   "expenseCategories" : [ {
     "expenseCategory" : "Food"
