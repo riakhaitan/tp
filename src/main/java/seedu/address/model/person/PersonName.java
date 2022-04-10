@@ -6,7 +6,7 @@ import static seedu.address.commons.util.AppUtil.checkArgument;
 public class PersonName {
 
     public static final String MESSAGE_CONSTRAINTS =
-            "Person name must consist of alphabets (may contain digits as well) "
+            "Person name must consist of alphabets"
                     + "and it should not be blank";
 
     public static final String VALIDATION_REGEX = "^([a-zA-Z])+[a-zA-Z_ ]*";
