@@ -53,7 +53,6 @@ public class PaidPersonWhoOwedCommand extends Command {
 
         String string = personToRemove.toString();
 
-
         return new CommandResult(String.format(MESSAGE_DELETE_PERSON_SUCCESS, string));
 
     }
