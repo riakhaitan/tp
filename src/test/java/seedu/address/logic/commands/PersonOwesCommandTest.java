@@ -39,7 +39,6 @@ public class PersonOwesCommandTest {
         Person validPerson = new PersonBuilder().build();
 
         CommandResult commandResult = new PersonOwesCommand(validPerson).execute(modelStub);
-        System.out.println(commandResult);
 
         assertEquals(String.format(PersonOwesCommand.MESSAGE_SUCCESS, validPerson), commandResult.getFeedbackToUser());
         assertEquals(Arrays.asList(validPerson), modelStub.personsAdded);
