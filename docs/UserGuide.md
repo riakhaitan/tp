@@ -60,6 +60,19 @@ Expense Expert is a **desktop app for keeping track of your expenses, and managi
 
 ---
 
+# Breakdown of the UI
+
+![Ui](images/Ui_Breakdown.png)
+
+1. **Menu Bar** : To facilitate quick access to the help window. Also allows you to quit the application through the file button.
+2. **Command Box**: To allow the user to enter the desired commands.
+3. **Budget Display Box**: This allows the user to see their remaining budget.
+4. **Result Box**: The result and action of the user entered command is displayed here.
+5. **Expense List**: This is the list of the expenses entered by the user.
+6. **Person List**: This is the list of the people who owe the user the said money.
+
+---
+
 ## Features
 
 <div markdown="block" class="alert alert-info">
@@ -88,11 +101,11 @@ Expense Expert is a **desktop app for keeping track of your expenses, and managi
 
 ### Viewing help : `help`
 
-Shows a message explaining how to access the help page.
+Shows a message explaining how to access the help page, can also show the usage of a particular command.
 
 ![Help](images/Help_Ui.png)
 
-Format: `help`
+Format: `help [COMMAND_NAME]`
 
 ### Adding an expense : `add`
 
@@ -136,7 +149,7 @@ Format: `list`
 
 ### Filtering expenses: `filter`
 
-Filters expenses with the date provided. At least one of the fields in brackets need to be present.
+Filters expenses with the date or category provided. At least one of the fields in brackets need to be present.
 Date format must be provided in yyyy-MM-dd format or in yyyy-MM format. If date provided is in yyyy-MM format,
 the displayed will include all the results of that month.
 
@@ -151,7 +164,7 @@ Examples:
 
 ### Finding expenses: `find`
 
-Finds expense(s) with the stated keyword(s) in descriptors. If more than one keyword is provided, return list of expenses with expense description that matches any of the keywords provided.
+Finds expense(s) with the stated keyword(s) in descriptors. If more than one keyword is provided, returns list of expenses with expense description that matches any of the keywords provided.
 
 Format: `find KEYWORD [MORE_KEYWORDS]`
 
@@ -163,6 +176,11 @@ Examples:
 ### Setting a monthly Budget: `budget`
 
 Sets a budget for the month.
+
+_The `add`, `delete` and `edit` command affect the monthly budget to reflect the remaining budget. 
+However, due to an incomplete implementation of the budget, transaction for every month are reflected in the current month's budget.
+This is going to be rectified in the future iterations._
+
 
 Format: `budget a/AMOUNT`
 
@@ -186,7 +204,8 @@ Shows a list of all expense categories recorded in Expense Expert.
 
 Format: `listCat`
 
-<br/>
+---
+
 **The Following three commands facilitate the feature of managing the list of persons who owe you money.**
 
 _This sections of commands does not make a difference to the budget set by the user, since the budget is only
@@ -221,6 +240,8 @@ Format: `update INDEX a/AMOUNT`
 Examples:
 
 - `update 4 a/1000`
+
+---
 
 ### Clearing the program data : `clear`
 
