@@ -35,7 +35,6 @@ public class EditCommandParser implements Parser<EditCommand> {
         } catch (ParseException pe) {
             throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, EditCommand.MESSAGE_USAGE), pe);
         }
-
         EditExpenseDescriptor editExpenseDescriptor = new EditExpenseDescriptor();
         if (argMultimap.getValue(PREFIX_DESCRIPTION).isPresent()) {
             editExpenseDescriptor.setDescription(ParserUtil.parseDescription(
@@ -49,12 +48,10 @@ public class EditCommandParser implements Parser<EditCommand> {
             editExpenseDescriptor.setAmount(ParserUtil.parseAmount(
                     argMultimap.getValue(PREFIX_AMOUNT).get()));
         }
-
         if (argMultimap.getValue(PREFIX_DATE).isPresent()) {
             editExpenseDescriptor.setExpenseDate(ParserUtil.parseDate(
                     argMultimap.getValue(PREFIX_DATE).get()));
         }
-
         if (!editExpenseDescriptor.isAnyFieldEdited()) {
             throw new ParseException(EditCommand.MESSAGE_NOT_EDITED);
         }

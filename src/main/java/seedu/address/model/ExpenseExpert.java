@@ -60,6 +60,11 @@ public class ExpenseExpert implements ReadOnlyExpenseExpert {
     public void setExpenses(List<Expense> expenses) {
         this.expenses.setExpenses(expenses);
     }
+
+    /**
+     * Replaces the contents of the Persons list with {@code persons}.
+     * {@code persons} must not contain duplicate persons.
+     */
     public void setPersons(List<Person> persons) {
         this.persons.setPersons(persons);
     }
@@ -71,7 +76,7 @@ public class ExpenseExpert implements ReadOnlyExpenseExpert {
         requireNonNull(newData);
 
         setExpenses(newData.getExpenseList());
-        setCategories(newData.getExpenseCategoryList());
+        setExpenseCategories(newData.getExpenseCategoryList());
         setBudget(newData.getBudget());
         setPersons(newData.getPersonList());
     }
@@ -104,6 +109,7 @@ public class ExpenseExpert implements ReadOnlyExpenseExpert {
         expenses.add(e);
     }
 
+    //// Person-level operations
     /**
      * Adds a person to the list.
      * @param p the person to be added to the list
@@ -148,8 +154,12 @@ public class ExpenseExpert implements ReadOnlyExpenseExpert {
      * Replaces the contents of the expense Category list with {@code expenseCategories}.
      * {@code expense categories} must not contain duplicate expense categories.
      */
-    public void setCategories(List<ExpenseCategory> categories) {
+    public void setExpenseCategories(List<ExpenseCategory> categories) {
         this.categories.setExpenseCategories(categories);
+        ExpenseCategory defaultCategory = new ExpenseCategory("General");
+        if (!categories.contains(defaultCategory)) {
+            this.categories.add(defaultCategory);
+        }
     }
 
     /**
