@@ -158,4 +158,7 @@ public interface Model {
 
     /** Returns the current budget in {@code ExpenseExpert} */
     Budget getBudget();
+
+    /** Returns whether the budget in {@code ExpenseExpert} is defined */
+    boolean hasUndefinedBudget();
 }

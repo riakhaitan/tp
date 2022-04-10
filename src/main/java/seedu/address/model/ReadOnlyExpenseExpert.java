@@ -24,6 +24,9 @@ public interface ReadOnlyExpenseExpert {
      */
     ObservableList<ExpenseCategory> getExpenseCategoryList();
 
-    /** Returns the budget in ExpenseExpert */
+    /** Returns the budget in Expense Expert */
     Budget getBudget();
+
+    /** Returns whether budget in Expense Expert has been defined */
+    boolean hasUndefinedBudget();
 }

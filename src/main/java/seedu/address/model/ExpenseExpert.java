@@ -223,6 +223,11 @@ public class ExpenseExpert implements ReadOnlyExpenseExpert {
     }
 
     @Override
+    public boolean hasUndefinedBudget() {
+        return this.budget.isUndefined();
+    }
+
+    @Override
     public boolean equals(Object other) {
         return other == this // short circuit if same object
                 || (other instanceof ExpenseExpert // instanceof handles nulls

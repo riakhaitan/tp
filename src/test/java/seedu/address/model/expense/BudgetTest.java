@@ -2,8 +2,11 @@ package seedu.address.model.expense;
 
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_BUDGET_AMOUNT_ALPHA;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_BUDGET_AMOUNT_BETA;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_BUDGET_DATE_ALPHA;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_BUDGET_DATE_BETA;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_UNDEFINED_BUDGET_AMOUNT;
 import static seedu.address.testutil.TypicalBudgets.ALPHA_BUDGET;
 import static seedu.address.testutil.TypicalBudgets.BETA_BUDGET;
 
@@ -12,6 +15,36 @@ import org.junit.jupiter.api.Test;
 import seedu.address.testutil.BudgetBuilder;
 
 public class BudgetTest {
+
+    @Test
+    public void getBudgetAmount() {
+        Budget betaCopy = new BudgetBuilder(BETA_BUDGET).build();
+        assertTrue(betaCopy.getBudgetAmount().equals(new Amount(VALID_BUDGET_AMOUNT_BETA)));
+        assertFalse(betaCopy.getBudgetAmount().equals(new Amount(VALID_BUDGET_AMOUNT_ALPHA)));
+    }
+
+    @Test
+    public void getBudgetMonth() {
+        Budget betaCopy = new BudgetBuilder(BETA_BUDGET).build();
+        assertTrue(betaCopy.getBudgetMonth().equals(new Date(VALID_BUDGET_DATE_BETA).getMonth()));
+        assertFalse(betaCopy.getBudgetMonth().equals(new Date(VALID_BUDGET_DATE_ALPHA).getMonth()));
+    }
+
+    @Test
+    public void getBudgetDate() {
+        Budget betaCopy = new BudgetBuilder(BETA_BUDGET).build();
+        assertTrue(betaCopy.getBudgetDate().equals(new Date(VALID_BUDGET_DATE_BETA)));
+        assertFalse(betaCopy.getBudgetDate().equals(new Date(VALID_BUDGET_DATE_ALPHA)));
+    }
+
+    @Test
+    public void isUndefined() {
+        Budget alphaCopy = new BudgetBuilder(ALPHA_BUDGET).build();
+        Budget betaCopy = new BudgetBuilder(BETA_BUDGET).withBudgetAmount(VALID_UNDEFINED_BUDGET_AMOUNT).build();
+
+        assertFalse(alphaCopy.isUndefined());
+        assertTrue(betaCopy.isUndefined());
+    }
 
     @Test
     public void equals() {

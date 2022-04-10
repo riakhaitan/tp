@@ -51,4 +51,13 @@ public class AmountTest {
         assertTrue(Amount.isValidAmount("1,111,111")); // comma spacing
         assertTrue(Amount.isValidAmount("1,111,111.11")); // comma spacing with decimals
     }
+
+    @Test
+    public void isZero() {
+        assertTrue(new Amount("0.00").isZero());
+        assertTrue(new Amount("0").isZero());
+
+        assertFalse(new Amount("0.01").isZero());
+        assertFalse(new Amount("1").isZero());
+    }
 }

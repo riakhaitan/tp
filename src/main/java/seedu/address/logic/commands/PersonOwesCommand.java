@@ -18,7 +18,7 @@ public class PersonOwesCommand extends Command {
     public static final String MESSAGE_USAGE = COMMAND_WORD + ": adds the person who owes you money to Expense Expert "
             + "Parameters: "
             + PREFIX_PERSON_NAME + "NAME"
-            + PREFIX_AMOUNT + "AMOUNT "
+            + PREFIX_AMOUNT + "AMOUNT \n"
             + "Example: " + COMMAND_WORD + " "
             + PREFIX_PERSON_NAME + "ALEX "
             + PREFIX_AMOUNT + "100 \n\n";
@@ -59,7 +59,7 @@ public class PersonOwesCommand extends Command {
         String name = string.split(";")[0];
         String amount = string.split(":")[1].split(" ")[1];
         String personAdded = sb.append(name).append(" Amount: $").append(amount).toString();
-        return new CommandResult(String.format(MESSAGE_SUCCESS, personAdded));
+        return new CommandResult(String.format(MESSAGE_SUCCESS, toAdd));
 
     }
 

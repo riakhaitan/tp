@@ -129,7 +129,7 @@ public class MainWindow extends UiPart<Stage> {
         budgetResultDisplay.showMonthlyBudget(logic.getBudget());
         budgetDisplayPlaceholder.getChildren().add(budgetResultDisplay.getRoot());
 
-        commandResultDisplay = new ResultDisplay();
+        commandResultDisplay = new ResultDisplay("Welcome to Expense Expert!");
         resultDisplayPlaceholder.getChildren().add(commandResultDisplay.getRoot());
 
         StatusBarFooter statusBarFooter = new StatusBarFooter(logic.getExpenseExpertFilePath());
@@ -195,20 +195,32 @@ public class MainWindow extends UiPart<Stage> {
      */
     private CommandResult executeCommand(String commandText) throws CommandException, ParseException {
         try {
-            CommandResult commandResult = logic.execute(commandText);
-            logger.info("Result: " + commandResult.getFeedbackToUser());
-            commandResultDisplay.setFeedbackToUser(commandResult.getFeedbackToUser());
-            budgetResultDisplay.showMonthlyBudget(logic.getBudget());
+            if (!(logic.hasUndefinedBudget()) || commandText.split(" ")[0].equals("budget")
+                    || commandText.split(" ")[0].equals("help")
+                    || commandText.split(" ")[0].equals("clear")
+                    || commandText.split(" ")[0].equals("exit")) {
+                CommandResult commandResult = logic.execute(commandText);
+                logger.info("Result: " + commandResult.getFeedbackToUser());
+                commandResultDisplay.setFeedbackToUser(commandResult.getFeedbackToUser());
+                budgetResultDisplay.showMonthlyBudget(logic.getBudget());
 
-            if (commandResult.isShowHelp()) {
-                handleHelp();
+                if (commandResult.isShowHelp()) {
+                    handleHelp();
+                }
+
+                if (commandResult.isExit()) {
+                    handleExit();
+                }
+                return commandResult;
+            } else {
+                CommandResult commandResult = new CommandResult("Please set your monthly budget "
+                    + "before executing other commands!");
+                logger.info("Please set your monthly budget before executing other commands!");
+                commandResultDisplay.setFeedbackToUser(commandResult.getFeedbackToUser());
+                budgetResultDisplay.showMonthlyBudget(logic.getBudget());
+
+                return commandResult;
             }
-
-            if (commandResult.isExit()) {
-                handleExit();
-            }
-
-            return commandResult;
         } catch (CommandException | ParseException e) {
             logger.info("Invalid command: " + commandText);
             commandResultDisplay.setFeedbackToUser(e.getMessage());

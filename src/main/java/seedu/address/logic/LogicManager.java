@@ -90,4 +90,9 @@ public class LogicManager implements Logic {
     public Budget getBudget() {
         return model.getBudget();
     }
+
+    @Override
+    public boolean hasUndefinedBudget() {
+        return model.hasUndefinedBudget();
+    }
 }

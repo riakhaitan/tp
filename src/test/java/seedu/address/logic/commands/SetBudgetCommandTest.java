@@ -29,13 +29,26 @@ public class SetBudgetCommandTest {
     }
 
     @Test
-    public void execute_budgetAcceptedByModel_setSuccessful() throws Exception {
+    public void execute_nonZeroBudgetAcceptedByModel_setSuccessful() throws Exception {
         ModelStubAcceptingBudgetSet modelStub = new ModelStubAcceptingBudgetSet();
         Budget validBudget = new BudgetBuilder().build();
 
         CommandResult commandResult = new SetBudgetCommand(validBudget).execute(modelStub);
 
-        assertEquals(String.format(SetBudgetCommand.MESSAGE_SUCCESS, validBudget), commandResult.getFeedbackToUser());
+        assertEquals(String.format(SetBudgetCommand.MESSAGE_SUCCESS, validBudget.getBudgetMonth(),
+                validBudget.getBudgetAmount()), commandResult.getFeedbackToUser());
+        assertEquals(validBudget, modelStub.budget);
+    }
+
+    @Test
+    public void execute_zeroBudgetAcceptedByModel_setSuccessful() throws Exception {
+        ModelStubAcceptingBudgetSet modelStub = new ModelStubAcceptingBudgetSet();
+        Budget validBudget = new BudgetBuilder().withBudgetAmount("0.00").build();
+
+        CommandResult commandResult = new SetBudgetCommand(validBudget).execute(modelStub);
+
+        assertEquals(String.format(SetBudgetCommand.BUDGET_SET_TO_UNDEFINED, validBudget.getBudgetMonth()),
+                commandResult.getFeedbackToUser());
         assertEquals(validBudget, modelStub.budget);
     }
 
@@ -194,6 +207,11 @@ public class SetBudgetCommandTest {
 
         @Override
         public Budget getBudget() {
+            throw new AssertionError("This method should not be called.");
+        }
+
+        @Override
+        public boolean hasUndefinedBudget() {
             throw new AssertionError("This method should not be called.");
         }
     }
