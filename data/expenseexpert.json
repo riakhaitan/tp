@@ -24,6 +24,11 @@
     "expenseCategory" : "Food",
     "amount" : "100.00",
     "expenseDate" : "2020-01-01"
+  }, {
+    "description" : "food",
+    "expenseCategory" : "food",
+    "amount" : "1.00",
+    "expenseDate" : "2022-02-02"
   } ],
   "persons" : [ {
     "personName" : "Oliver",
