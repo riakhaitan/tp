@@ -21,7 +21,7 @@ public class HelpCommand extends Command {
     public static final String MESSAGE_USAGE = COMMAND_WORD + ": Shows program usage instructions.\n"
             + "Example: " + COMMAND_WORD + "\n\n";
 
-    private static final String INVALID_COMMAND_USAGE = "Invalid command usage";
+    public static final String INVALID_COMMAND_USAGE = "Invalid command usage";
 
     private final String commandWordArg;
 
@@ -42,7 +42,10 @@ public class HelpCommand extends Command {
                 .append(PersonOwesCommand.MESSAGE_USAGE)
                 .append(PaidPersonWhoOwedCommand.MESSAGE_USAGE)
                 .append(EditPersonCommand.MESSAGE_USAGE)
-                .append(ListCatCommand.MESSAGE_USAGE);
+                .append(ListCatCommand.MESSAGE_USAGE)
+                .append(FilterCommand.MESSAGE_USAGE)
+                .append(HelpCommand.MESSAGE_USAGE)
+                .append(AddCategoryCommand.MESSAGE_USAGE);
         return HELP_STRING.toString();
     }
 
@@ -84,6 +87,18 @@ public class HelpCommand extends Command {
 
             case SetBudgetCommand.COMMAND_WORD:
                 return new CommandResult(SetBudgetCommand.MESSAGE_USAGE);
+
+            case FilterCommand.COMMAND_WORD:
+                return new CommandResult(FilterCommand.MESSAGE_USAGE);
+
+            case PaidPersonWhoOwedCommand.COMMAND_WORD:
+                return new CommandResult(PaidPersonWhoOwedCommand.MESSAGE_USAGE);
+
+            case PersonOwesCommand.COMMAND_WORD:
+                return new CommandResult(PersonOwesCommand.MESSAGE_USAGE);
+
+            case EditPersonCommand.COMMAND_WORD:
+                return new CommandResult(EditPersonCommand.MESSAGE_USAGE);
 
             default:
                 throw new CommandException(INVALID_COMMAND_USAGE);
