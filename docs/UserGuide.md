@@ -46,8 +46,10 @@ Expense Expert is a **desktop app for keeping track of your expenses, and managi
 4. Double-click the file to start the app. The GUI similar to the below should appear in a few seconds. 
 5. The data is just for demonstration purposes. When you launch ExpenseExpert for the first time, it is not preloaded with any data.<br>
    ![Ui](images/Ui.png)
+   
+6. Set up your intended budget using the [`budget`](#setting-a-monthly-budget-budget) Command. 
 
-6. Type the command in the command box and press Enter to execute it. e.g. typing **`help`** and pressing Enter will open the help window.<br>
+7. Type the command in the command box and press Enter to execute it. e.g. typing **`help`** and pressing Enter will open the help window.<br>
    Some example commands you can try:
 
    - **`list`** : Lists all the expenses you have recorded.
@@ -58,7 +60,7 @@ Expense Expert is a **desktop app for keeping track of your expenses, and managi
 
    - **`exit`** : Exits the app for you.
 
-7. Refer to the [Features](#features) below for details of each command.
+8. Refer to the [Features](#features) below for details of each command.
 
 ---
 
