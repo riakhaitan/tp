@@ -330,6 +330,8 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
         3b1. Expense Expert informs the user to set a budget before executing other commands.
         Use case ends.
 
+
+
 **Use case: UC02 Delete an expense**
 
 **MSS**
@@ -378,7 +380,30 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
         3b1. Expense Expert informs the user to set a budget before executing other commands.
         Use case ends.
 
-**Use case: UC04 Find expense(s)**
+**Use case: UC04 Categorise Expense(s)**
+
+**MSS**
+
+1. User defines expense categories.
+2. User tags expenses with expense categories.
+
+   Use case ends.
+
+**Extensions**
+
+    1a. Expense Expert detects that expense category attempted to be defined already exists.
+        3a1. Expense Expert informs the user about the error detected.
+        Use case ends.
+
+    2a. Expense Expert detects when a user inputs an undefined category.
+        2a1. Expense Expert informs the user about the error detected.
+        Use case ends.
+
+    2b. Expense Expert detects that expense category has not been set.
+        2b1. Expense Expert defaults the expense category to 'General'.
+
+
+**Use case: UC05 Find expense(s)**
 
 **MSS**
 
@@ -402,7 +427,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
         3b1. Expense Expert informs the user to set a budget before executing other commands.
         Use case ends.
 
-**Use case: UC05 Help the user**
+**Use case: UC06 Help the user**
 
 **MSS**
 
@@ -411,7 +436,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
    Use case ends.
 
-**Use case: UC06 Clear Expense Expert**
+**Use case: UC07 Clear Expense Expert**
 
 **MSS**
 
@@ -420,7 +445,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
    Use case ends.
 
-**Use case: UC07 Set Monthly Budget**
+**Use case: UC08 Set Monthly Budget**
 
 **MSS**
 
@@ -436,7 +461,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
         2a1. Expense Expert informs the user about the error detected.
         Use case ends.
 
-**Use case: UC08 Filter expense(s)**
+**Use case: UC09 Filter expense(s)**
 
 **MSS**
 
@@ -456,7 +481,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
         3b1. Expense Expert informs the user to set a budget before executing other commands.
         Use case ends.
 
-**Use case: UC09 Exit Expense Expert**
+**Use case: UC10 Exit Expense Expert**
 
 **MSS**
 
