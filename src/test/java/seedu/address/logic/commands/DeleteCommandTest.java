@@ -17,6 +17,8 @@ import seedu.address.model.Model;
 import seedu.address.model.ModelManager;
 import seedu.address.model.UserPrefs;
 // import seedu.address.model.budget.Budget;
+import seedu.address.model.expense.Amount;
+import seedu.address.model.expense.Budget;
 import seedu.address.model.expense.Expense;
 
 /**
@@ -36,8 +38,9 @@ public class DeleteCommandTest {
 
         ModelManager expectedModel = new ModelManager(model.getExpenseExpert(), new UserPrefs());
         expectedModel.deleteExpense(expenseToDelete);
+        setNewBudget(expectedModel, expenseToDelete);
 
-        assertCommandSuccess(deleteCommand, model, expectedMessage, model);
+        assertCommandSuccess(deleteCommand, model, expectedMessage, expectedModel);
     }
 
     @Test
@@ -60,8 +63,9 @@ public class DeleteCommandTest {
         Model expectedModel = new ModelManager(model.getExpenseExpert(), new UserPrefs());
         expectedModel.deleteExpense(expenseToDelete);
         showNoExpense(expectedModel);
+        setNewBudget(expectedModel, expenseToDelete);
 
-        assertCommandSuccess(deleteCommand, model, expectedMessage, model);
+        assertCommandSuccess(deleteCommand, model, expectedMessage, expectedModel);
     }
 
     @Test
@@ -106,6 +110,14 @@ public class DeleteCommandTest {
         model.updateFilteredExpenseList(p -> false);
 
         assertTrue(model.getFilteredExpenseList().isEmpty());
+    }
+
+    private void setNewBudget(Model model, Expense expenseToDelete) {
+        String difference = String.valueOf((model.getBudget().getBudgetAmount().amount + expenseToDelete
+                .getAmount().amount));
+        Amount newAmount = new Amount(difference);
+        Budget budget = new Budget(newAmount);
+        model.setBudget(budget);
     }
 
 
