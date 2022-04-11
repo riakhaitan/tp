@@ -50,7 +50,7 @@ Given below are my contributions to the project.
     
 - **Contribution to team-based tasks:**
   - Refactor code base to fit project features including adapting naming of variables, adding new classes and its relevant test cases as well as adapting old test cases and datas ([#53](https://github.com/AY2122S2-CS2103T-W09-3/tp/pull/53), [#64](https://github.com/AY2122S2-CS2103T-W09-3/tp/pull/64), [#65](https://github.com/AY2122S2-CS2103T-W09-3/tp/pull/65)).
-  - Created the JAR release for [v1.3.trial](https://github.com/AY2122S2-CS2103T-W09-3/tp/releases/tag/v1.3.trial).
+  - Created the JAR release for [v1.3.trial](https://github.com/AY2122S2-CS2103T-W09-3/tp/releases/tag/v1.3.trial) and [v1.4](https://github.com/AY2122S2-CS2103T-W09-3/tp/releases/tag/v1.4).
   - Coordinated team efforts and get updates from team members regarding progress.
 
 - **Community**:
