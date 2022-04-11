@@ -8,8 +8,9 @@ Expense Expert is a **desktop app for keeping track of your expenses, and managi
 ## Table of Contents
 
 - [Quick Start](#quick-start)
+- [Breakdown of the UI](#breakdown-of-the-ui)
 - [Features](#features)
-  - [Commands](#adding-an-expense--add)
+  - [Commands](#commands)
     - [Viewing help: ](#viewing-help--help) `help`
     - [Adding an expense: ](#adding-an-expense--add) `add`
     - [Deleting an expense: ](#deleting-an-expense--delete) `delete`
@@ -25,10 +26,9 @@ Expense Expert is a **desktop app for keeping track of your expenses, and managi
     - [Updating the amount a person owes you: ](#updating-the-amount-a-person-owes-you-update) `update`
     - [Clearing the program data: ](#clearing-the-program-data--clear) `clear`
     - [Exiting the program: ](#exiting-the-program--exit) `exit`
-  - [Storage](#saving-the-data)
+  - [Storage](#storage)
     - [Saving the data](#saving-the-data)
     - [Editing the data file](#editing-the-data-file)
-    - [Archiving data files](#archiving-data-files-coming-in-v20)
 - [FAQ](#faq)
 - [Command summary](#command-summary)
 
@@ -61,7 +61,7 @@ Expense Expert is a **desktop app for keeping track of your expenses, and managi
 
 ---
 
-# Breakdown of the UI
+## Breakdown of the UI
 
 ![Ui](images/Ui_Breakdown.png)
 
@@ -99,6 +99,8 @@ Expense Expert is a **desktop app for keeping track of your expenses, and managi
   e.g. if the command specifies `help 123`, it will be interpreted as `help`.
 
 </div>
+
+## Commands
 
 ### Viewing help : `help`
 
@@ -321,6 +323,8 @@ Exits the program.
 
 Format: `exit`
 
+## Storage
+
 ### Saving the data
 
 Expense Expert data are saved in the hard disk automatically after any command that changes the data. There is no need to save manually.
@@ -339,6 +343,9 @@ If your changes to the data file makes its format invalid, Expense Expert will d
 
 **Q**: How can I transfer my data to another Computer?<br>
 **A**: Install the app in the other computer and overwrite the empty data file it creates with the file that contains the data of your previous Expense Expert home folder.
+
+**Q**: Can I archive the data files?
+**A**: At the moment, the application doesn't support archiving. It will be available in v2.0.
 
 ---
 
