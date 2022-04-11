@@ -32,13 +32,13 @@ title: Developer Guide
     - [_How is the feature implemented?_](#how-is-the-feature-implemented-3)
     - [_Why is it implemented this way_](#why-is-it-implemented-this-way-3)
     - [_Alternatives considered_](#alternatives-considered-3)
-  - [Getting Help](#getting-help)
+  - [**Getting Help**](#getting-help)
     - [Implementation](#implementation-1)
     - [Design considerations:](#design-considerations)
-  - [**AddCat**](#addcat)
+  - [**AddCat Command**](#addcat)
     - [_How is the feature implemented?_](#how-is-the-feature-implemented-4)
     - [_Why is it implemented this way_](#why-is-it-implemented-this-way-4)
-  - [**ListCat**](#listcat)
+  - [**ListCat Command**](#listcat)
     - [_How is the feature implemented?_](#how-is-the-feature-implemented-5)
 - [**Documentation, logging, testing, configuration, dev-ops**](#documentation-logging-testing-configuration-dev-ops)
 - [**Appendix: Requirements**](#appendix-requirements)
@@ -330,7 +330,7 @@ It is implemented using the Object-Oriented Programming approach so that it allo
 - `Predicate_show_all_persons` to be specially created for combining only `Amount`.
     - This consideration is dropped as current implementation allows for future scaling, in the case where more filtering options are provided to users.
 
-### Getting Help
+### **Getting Help**
 
 #### Implementation
 
@@ -373,9 +373,9 @@ Hence, it is extremely easy to maintain.
 Intense checking has been done to ensure than the `help` command can handle invalid inputs. Proper error handling has 
 been done to avoid mishandling of the command.
 
-### **AddCat**
+### **AddCat Command**
 
-AddCat function allows user to define a new expense category which can be used to tag to an expense.
+AddCat command allows user to define a new expense category which can be used to tag to an expense.
 
 #### _How is the feature implemented?_
 
@@ -402,9 +402,9 @@ The sequence diagram below illustrates the process of calling `addCat c/Food` su
 
 It is implemented using the Object-Oriented Programming approach so that it allows for easy future scaling. Such is done by grouping similar functionalities into different classes. This ensures that users only use categories which are predefined to allow for future manipulation of expenses by expense categories to be faster and simpler.
 
-### **ListCat**
+### **ListCat Command**
 
-ListCat function allows user to define a see all predefined expense categories.
+ListCat command allows user to define a see all predefined expense categories.
 
 #### _How is the feature implemented?_
 
@@ -421,7 +421,7 @@ The UI will then display the `CommandResult` after execution.
 
 The sequence diagram below illustrates the process of calling `listCat` successfully:
 
-<img src="images/ListCategorySequenceDiagram.png"/>
+<img src="images/ListCatSequenceDiagram.png"/>
 
 
 ---
