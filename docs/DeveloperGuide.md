@@ -24,10 +24,20 @@ title: Developer Guide
     - [_Why is it implemented this way_](#why-is-it-implemented-this-way-1)
     - [_Alternatives considered_](#alternatives-considered-1)
     - [Design considerations:](#design-considerations)
-  - [\[Proposed\] Data archiving](#proposed-data-archiving)
-- [**Documentation, logging, testing, configuration, dev-ops**](#documentation-logging-testing-configuration-dev-ops)
-- [**Appendix: Requirements**](#appendix-requirements)
-  - [Product scope](#product-scope)
+  - [**Updating the amount of a person**](#updating-the-amount-of-a-person)
+      - [_How is the feature implemented?_](#_how-is-the-feature-implemented-2)
+      - [_Why is it implemented this way_](#why-is-it-implemented-this-way-2)
+      - [_Alternatives considered_](#alternatives-considered-2)
+  - [**Getting Help with the `help` Command**](#getting-help)
+      - [_How is the feature implemented?_](#how-is-the-feature-implemented-3)
+      - [_Why is it implemented this way_](#why-is-it-implemented-this-way-3)
+      - [_Alternatives considered_](#alternatives-considered-3)
+      - [Design considerations:](#design-considerations)
+  - [**Adding a person to the Person List**](#adding-a-person-to-the-person-list)                 
+      - [_How is the feature implemented?_](#how-is-the-feature-implemented-4)  - [\[Proposed\] Data archiving](#proposed-data-archiving)
+      - [_Why is it implemented this way_](#why-is-it-implemented-this-way-4) - [**Documentation, logging, testing, configuration, dev-ops**](#documentation-logging-testing-configuration-dev-ops)
+      - [_Alternatives considered_](#alternatives-considered-4)               - [**Appendix: Requirements**](#appendix-requirements)
+      - [Design considerations:](#design-considerations)                        - [Product scope](#product-scope)
   - [User stories](#user-stories)
   - [Use cases](#use-cases)
   - [Non-Functional Requirements](#non-functional-requirements)
@@ -248,9 +258,115 @@ Separate ArrayLists were used to very distinctly keep the past commands separate
 
 Using of a combined ArrayList for all commands and navigating through the ArrayList by an index - This alternative, although making use of only one ArrayList, may be complicated to implement and makes debugging process very tedious. To avoid making this implementation complex, separate ArrayLists for keeping past commands and future commands were used.
 
+### **Adding a person to the person list**
+
+This feature is to allow the user to add a person to the list of people who owe them money. This is facilitated by the use
+of the `person` command.
+
+#### _How is the feature implemented?_
+
+PersonOwedCommand class
+
+The PersonOwedCommand class extends the Command class. It facilitates the addition of a `Person` object into the Person list, with the amount that the particular person
+owes to the user. The command word to be parsed by the parser is a `String` and `String`s for successful execution of the command, 
+for checks on the input by the user, and other parameters of the command.
+
+The execute method in Command is overridden here in PersonOwesCommand. We represent a type of defensive programming here, by keeping a check that the model input in non-null. It also keeps a check for duplication of users to ensure that there are no duplicate users in the person list.
+It only adds a person to the list if the person is unique. Relevant exceptions are thrown at relevant places in the cases of an invalid input by the user.
+
+PersonOwedCommandParser class
+
+The PersonOwedCommandParser class is an implementation of the Parser<PersonOwedCommand> interface. It is used to manage the parsing of the inputs provided by the user. 
+The parse method in this class parses the `PersonName` and `PersonAmount` accordingly to convert these into attributes of a `Person` object and thus, create a new `Person` object. 
+It then returns a `PersonOwedCommand` to`ExpenseExpertParser`, initialized with a new `Person`.
+
+<img src="images/PersonOwes_SD.png"/>
+
+#### _Why is it implemented this way_
+
+It allows for easy future scaling since it is implemented using Object-Oriented Programming. Similar functionalities are grouped together into similar classes.
+
+#### _Alternatives considered_
+ 
+This feature was built upon the existing functionalities of the app with the aim to make the app better. 
+The implementation was straight forward and hence, no alternatives were considered.
+  
+### **Updating the amount of a person**
+
+Update function allows user to update the amount associated with an existing person on the person list. 
+
+#### _How is the feature implemented?_
+
+When user calls the update command i.e. passing the text as command, the text will be parsed to `LogicManager` instance's `execute` method. `LogicManager` instance's execute method will
+then call `ExpenseExpertParser` instance's `parseCommand` method. `ExpenseExpert` instance's pass command method will match the text parsed to find that it is an update method and will then create a
+`EditPersonCommandParser` object and call its instance's `parse` method with the argument(s) passed for the command i.e. the original text passed by user with the command word removed.
+
+`EditPersonCommandParser` instance will then check and format the argument(s) passed. If the argument(s) parsed is invalid i.e. wrong format or missing fields, a `ParseException` with the error encountered will be thrown.
+If the argument(s) is valid, `EditPersonCommandParser` will return control to `ExpenseExpertParser` with a new instance of `EditPersonCommand` (created with the properly formatted argument(s)). The `ExpenseExpertParser`
+will also return control to `LogicManager` with the `EditPersonCommand` instance returned from `EditPersonCommandParser`.
+
+Upon receiving control from `ExpenseExpertParser` with `EditPersonCommand` instance, `LogicManager` will proceed to call `EditPersonCommand` instance's execute method with `Model` of `ExpenseExpert` passed as argument.
+By calling the `EditPersonCommand` instance's execute method, the control is passed to `EditPersonCommand`. `EditPersonCommand` instance will check its field for `Amount` presence. If the field are present, `EditPersonCommand` will create a new instance of `Predicate_show_all_persons` with the field parsed as argument. `PredicateChain`
+functions like a predicate, but incorporates all the predicates in question.
+
+If both the field is present, `Predicate_show_all_persons` created using the field is used. Upon successfully execution, a `CommandResult` with the details to display to user after execution is returned to `LogicManager`.
+`LogicManager` will then save the state of the `Model` and return the `CommandResult` to the UI side to display the result after execution.
+
+The sequence diagram below illustrates the process of calling `update 1 a/100` successfully:
+
+<img src="images/UpdateSequenceDiagram.png"/>
+
+#### _Why is it implemented this way_
+
+It is implemented using the Object-Oriented Programming approach so that it allows for easy future scaling. Such is done by grouping similar functionalities into different classes.
+
+#### _Alternatives considered_
+
+- `Predicate_show_all_persons` to be specially created for combining only `Amount`.
+    - This consideration is dropped as current implementation allows for future scaling, in the case where more filtering options are provided to users.
+
+### Getting Help
+
+#### Implementation
+
+While implementing the help command, the following classes were created/modified :
+
+| Logic             | Ui         |
+|-------------------|------------|
+| HelpCommand       | HelpWindow |
+| HelpCommandParser |            |
+
+The main idea behind the implementation of this command is that, while using the app, the user may
+request for help on how to use a particular command, what are the arguments expected by a particular commands and/or 
+what is the expected syntax for the command.
+
+It is implemented to be used in any of the following two ways:
+1. The user can just enter the help command in the command box. This will pop up a help window which has all the necessary
+details regarding the existing commands in the app.
+2. Secondly, if the user wishes to know the usage of a particular command, they can enter the `help` command, followed by the `COMMAND_WORD`
+for which they request the usage. This will result in the command usage for that said command being displayed.
+
+The following diagram will give a better understanding of the execution of the help command:
+
+<img src="images/Help_Command_Execution.png"/>
+
 #### Design considerations:
 
-_{more aspects and alternatives to be added}_
+**Aspect: Motivation**
+
+There had been many cases in our initial user survey where the users were finding it hard to remember all the commands.
+Hence, the team came up with a solution of the `help` command. This command allows the user to check the usage of all commands or
+one particular command easily and makes the usage of the app easier and more user-friendly.
+
+**Aspect: Maintainability**
+
+The `help` command is implemented in such a manner that whenever a new command is added to the application, it can easily be incorporated to the `help` command's functionality.
+Hence, it is extremely easy to maintain.
+
+**Aspect: Robustness**
+
+Intense checking has been done to ensure than the `help` command can handle invalid inputs. Proper error handling has 
+been done to avoid mishandling of the command.
 
 ### \[Proposed\] Data archiving
 

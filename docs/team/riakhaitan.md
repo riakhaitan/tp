@@ -17,33 +17,43 @@ Given below are my contributions to the project.
     - This feature was facilitated by the 'update' command.
     - The command's parsing and testing was handled as well.
   
-  - **New Feature**: _(to be added soon)_
+**Testing**:
+  - **Added/refined testing for the following classes:**
+    - PaidPersonWhoOweCommand
+    - PaidPersonWhoOwedCommandParser
+    - EditPersonCommand
+    - EditPersonCommandDescriptor
+    - EditPersonCommandParser
+    - EditCommand
+    - DeleteCommand
+    - AddCommand
+    
 
-  - **Code contributed**: [RepoSense link](https://nus-cs2103-ay2122s2.github.io/tp-dashboard/?search=riakhaitan&breakdown=true)
+**Code contributed**: [RepoSense link](https://nus-cs2103-ay2122s2.github.io/tp-dashboard/?search=riakhaitan&breakdown=true)
+  
 
-  - **Project management**: _(to be added soon)_
+**Enhancements to existing features**: 
+- **Added the date field to the expenses**
+  - This enhancement enabled the user to keep a better track of the expenses with 
+  the help of the date field, through which they will know the details of a particular expense better.
 
-  - **Enhancements to existing features**: 
-    - **Added the date field to the expenses**
-      - This enhancement enabled the user to keep a better track of the expenses with 
-        the help of the date field, through which they will know the details of a particular expense
-        better.
 
-  - **Documentation**:
+**Documentation**:
 
-    - User Guide:
-      - _(to be added soon)_
-    - Developer Guide:
-      - _(to be added soon)_
+- User Guide:
+  - Added pictures of UI
+  - Editing an Expense
+  - Deleting an Expense
+  - Adding an Expense
+- Developer Guide:
+  - Implementation details (with sequence diagram)
+    - `Update Person`
+  - Added multiple use cases
+  - Added user stories
 
-  - **Community**:
 
-    - PRs reviewed (with non-trivial review comments): _(to be added soon)_
-    - Contributed to forum discussions (examples: _(to be added soon)_
-    - Reported bugs and suggestions for other teams in the class _(to be added soon)_
-    - Some parts of the history feature I added was adopted by several other class mates _(to be added soon)_
+**Community**:
 
-  - **Tools**:
-
-    - Integrated a third party library _(to be added soon)_
-    - Integrated a new Github plugin _(to be added soon)_
+  - PRs reviewed (with non-trivial review comments): [#94](https://github.com/AY2122S2-CS2103T-W09-3/tp/pull/94), [#97](https://github.com/AY2122S2-CS2103T-W09-3/tp/pull/97), [#101](https://github.com/AY2122S2-CS2103T-W09-3/tp/pull/101), [#104](https://github.com/AY2122S2-CS2103T-W09-3/tp/pull/104), [#110](https://github.com/AY2122S2-CS2103T-W09-3/tp/pull/110), [#159](https://github.com/AY2122S2-CS2103T-W09-3/tp/pull/159), [#163](https://github.com/AY2122S2-CS2103T-W09-3/tp/pull/163), [#165](https://github.com/AY2122S2-CS2103T-W09-3/tp/pull/165), [#166](https://github.com/AY2122S2-CS2103T-W09-3/tp/pull/166), [#173](https://github.com/AY2122S2-CS2103T-W09-3/tp/pull/173), [#183](https://github.com/AY2122S2-CS2103T-W09-3/tp/pull/183), [#187](https://github.com/AY2122S2-CS2103T-W09-3/tp/pull/187)
+  - Reported 8 bugs for other teams in the class (see [here](https://github.com/riakhaitan/ped/tree/main/files))
+    
