@@ -18,16 +18,11 @@ activate LogicManager
 LogicManager -> ExpenseExpertParser : parseCommand("ListCat ")
 activate ExpenseExpertParser
 
-
-
 ExpenseExpertParser -> ListCategoryCommand
 activate ListCategoryCommand
 
 ListCategoryCommand --> ExpenseExpertParser : d
 deactivate ListCategoryCommand
-
-'Hidden arrow to position the destroy marker below the end of the activation bar.
-ListCategoryCommandParser -[hidden]-> ExpenseExpertParser
 
 ExpenseExpertParser --> LogicManager : d
 deactivate ExpenseExpertParser
