@@ -22,7 +22,7 @@ Given below are my contributions to the project.
 
 - **Enhancements to existing features**:
 
-  - Change ExpenseDate class from keeping data as String to LocalDate (for future usage of dates for comparison) ([#88](https://github.com/AY2122S2-CS2103T-W09-3/tp/pull/88)).
+  - Change `ExpenseDate` class from keeping data as `String` to `LocalDate` (for future usage of dates for comparison) ([#88](https://github.com/AY2122S2-CS2103T-W09-3/tp/pull/88)).
   - Added unit test code for ExpenseDate and its relevant classes and fixed relevant bugs ([#79](https://github.com/AY2122S2-CS2103T-W09-3/tp/pull/79)).
 
 - **Documentation**:
