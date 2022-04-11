@@ -17,7 +17,7 @@ public class ListCatCommand extends Command {
     @Override
     public CommandResult execute(Model model) {
         requireNonNull(model);
-        ObservableList<ExpenseCategory> expenseCategoryList = model.getExpenseExpert().getExpenseCategoryList();
+        ObservableList<ExpenseCategory> expenseCategoryList = model.getFilteredExpenseCategoryList();
         return new CommandResult(String.format(MESSAGE_SUCCESS, formatCategoryList(expenseCategoryList)));
     }
 

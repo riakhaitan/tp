@@ -18,9 +18,6 @@ public interface Model {
     Predicate<Expense> PREDICATE_SHOW_ALL_EXPENSES = unused -> true;
 
     /** {@code Predicate} that always evaluate to true */
-    Predicate<Expense> PREDICATE_SHOW_ALL_CATEGORIES = unused -> true;
-
-    /** {@code Predicate} that always evaluate to true */
     Predicate<Person> PREDICATE_SHOW_ALL_PERSONS = unused -> true;
 
     /**
@@ -117,11 +114,6 @@ public interface Model {
      */
     void addExpenseCategory(ExpenseCategory expenseCategory);
 
-    /**
-     * Deletes the given expense category.
-     * The expense must exist in the expense expert.
-     */
-    void deleteExpenseCategory(ExpenseCategory target);
 
     /**
      * Returns true if a expense has a valid Expense Category {@code expense} exists in the expense expert.
@@ -138,6 +130,9 @@ public interface Model {
 
     /** Returns an unmodifiable view of the filtered person list */
     ObservableList<Person> getFilteredPersonList();
+
+    /** Returns an unmodifiable view of the filtered Expense Category list */
+    ObservableList<ExpenseCategory> getFilteredExpenseCategoryList();
 
     /**
      * Updates the filter of the filtered expense list to filter by the given {@code predicate}.

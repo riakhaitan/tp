@@ -27,10 +27,11 @@ We are a team based in the [School of Computing, National University of Singapor
 [[portfolio](team/talkintomato.md)]
 
 - Role:
-  - Team Lead
-  - In charge of `UI`
+  - Documentation
   - Developer
-
+  - Deliverables
+  - In charge of `Expense Categories`
+  
 ### Tham Jin Lin
 
 <img src="images/jltham.png" width="200px">

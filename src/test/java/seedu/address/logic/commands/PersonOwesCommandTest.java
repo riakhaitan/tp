@@ -148,7 +148,7 @@ public class PersonOwesCommandTest {
         }
 
         @Override
-        public void deleteExpenseCategory(ExpenseCategory target) {
+        public ObservableList<ExpenseCategory> getFilteredExpenseCategoryList() {
             throw new AssertionError("This method should not be called.");
         }
 

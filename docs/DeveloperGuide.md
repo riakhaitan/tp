@@ -5,6 +5,7 @@ title: Developer Guide
 
 ## Table of Contents
 
+- [Table of Contents](#table-of-contents)
 - [**Acknowledgements**](#acknowledgements)
 - [**Setting up, getting started**](#setting-up-getting-started)
 - [**Design**](#design)
@@ -23,29 +24,33 @@ title: Developer Guide
     - [_How is the feature implemented?_](#how-is-the-feature-implemented-1)
     - [_Why is it implemented this way_](#why-is-it-implemented-this-way-1)
     - [_Alternatives considered_](#alternatives-considered-1)
-    - [Design considerations:](#design-considerations)
+  - [**Adding a person to the person list**](#adding-a-person-to-the-person-list)
+    - [_How is the feature implemented?_](#how-is-the-feature-implemented-2)
+    - [_Why is it implemented this way_](#why-is-it-implemented-this-way-2)
+    - [_Alternatives considered_](#alternatives-considered-2)
   - [**Updating the amount of a person**](#updating-the-amount-of-a-person)
-      - [_How is the feature implemented?_](#_how-is-the-feature-implemented-2)
-      - [_Why is it implemented this way_](#why-is-it-implemented-this-way-2)
-      - [_Alternatives considered_](#alternatives-considered-2)
-  - [**Getting Help with the `help` Command**](#getting-help)
-      - [_How is the feature implemented?_](#how-is-the-feature-implemented-3)
-      - [_Why is it implemented this way_](#why-is-it-implemented-this-way-3)
-      - [_Alternatives considered_](#alternatives-considered-3)
-      - [Design considerations:](#design-considerations)
-  - [**Adding a person to the Person List**](#adding-a-person-to-the-person-list)                 
-      - [_How is the feature implemented?_](#how-is-the-feature-implemented-4)  - [\[Proposed\] Data archiving](#proposed-data-archiving)
-      - [_Why is it implemented this way_](#why-is-it-implemented-this-way-4) - [**Documentation, logging, testing, configuration, dev-ops**](#documentation-logging-testing-configuration-dev-ops)
-      - [_Alternatives considered_](#alternatives-considered-4)               - [**Appendix: Requirements**](#appendix-requirements)
-      - [Design considerations:](#design-considerations)                        - [Product scope](#product-scope)
+    - [_How is the feature implemented?_](#how-is-the-feature-implemented-3)
+    - [_Why is it implemented this way_](#why-is-it-implemented-this-way-3)
+    - [_Alternatives considered_](#alternatives-considered-3)
+  - [Getting Help](#getting-help)
+    - [Implementation](#implementation-1)
+    - [Design considerations:](#design-considerations)
+  - [**AddCat**](#addcat)
+    - [_How is the feature implemented?_](#how-is-the-feature-implemented-4)
+    - [_Why is it implemented this way_](#why-is-it-implemented-this-way-4)
+  - [**ListCat**](#listcat)
+    - [_How is the feature implemented?_](#how-is-the-feature-implemented-5)
+- [**Documentation, logging, testing, configuration, dev-ops**](#documentation-logging-testing-configuration-dev-ops)
+- [**Appendix: Requirements**](#appendix-requirements)
+  - [Product scope](#product-scope)
   - [User stories](#user-stories)
   - [Use cases](#use-cases)
   - [Non-Functional Requirements](#non-functional-requirements)
   - [Glossary](#glossary)
 - [**Appendix: Instructions for manual testing**](#appendix-instructions-for-manual-testing)
   - [Launch and shutdown](#launch-and-shutdown)
+  - [Adding an expense](#adding-an-expense)
   - [Deleting an expense](#deleting-an-expense)
-  - [Saving data](#saving-data)
 
 ---
 
@@ -368,9 +373,56 @@ Hence, it is extremely easy to maintain.
 Intense checking has been done to ensure than the `help` command can handle invalid inputs. Proper error handling has 
 been done to avoid mishandling of the command.
 
-### \[Proposed\] Data archiving
+### **AddCat**
 
-_{Explain here how the data archiving feature will be implemented}_
+AddCat function allows user to define a new expense category which can be used to tag to an expense.
+
+#### _How is the feature implemented?_
+
+When user calls the AddCat command i.e. passing the text as command, the text will be parsed to `LogicManager` instance's `execute` method. `LogicManager` instance's execute method will
+then call `ExpenseExpertParser` instance's `parseCommand` method. `ExpenseExpert` instance's pass command method will match the text parsed to find that it is a filter method and will then create a
+`AddCategoryCommandParser` object and call its instance's `parse` method with the argument(s) passed for the command i.e. the original text passed by user with the command word removed.
+
+`AddCategoryCommandParser` instance will then check and format the argument(s) passed. If the argument(s) parsed is invalid i.e. wrong format or missing fields, a `ParseException` with the error encountered will be thrown.
+If the argument(s) is valid, `FilterCommandParser` will return control to `ExpenseExpertParser` with a new instance of `AddCategoryCommand` (created with the properly formatted argument(s)). The `ExpenseExpertParser`
+will also return control to `LogicManager` with the `AddCategoryCommand` instance returned from `AddCategoryCommandParser`.
+
+Upon receiving control from `ExpenseExpertParser` with `AddCategoryCommand` instance, `LogicManager` will proceed to call `AddCategoryCommand` instance's execute method with `Model` of `ExpenseExpert` passed as argument.
+By calling the `AddCategoryCommand` instance's execute method, the control is passed to `AddCategoryCommand`. `AddCategoryCommand` instance will check its field for `ExpenseCategoryIsParsedCategoryPredicate` presence. 
+
+`AddCategoryCommand` will proceed to invoke `Model` instance's `hasExpenseCategory` method with that field to check if a similar expense category exists. If `hasExpenseCategory` returns true, a `CommandException` with a duplicate expense message is thrown. 
+Upon successfully execution of `AddCategoryCommand`, a `CommandResult` with the details to display to user after execution is returned to `LogicManager`.
+The UI will then display the `CommandResult` after execution.
+
+The sequence diagram below illustrates the process of calling `addCat c/Food` successfully:
+
+<img src="images/AddCategorySequenceDiagram.png"/>
+
+#### _Why is it implemented this way_
+
+It is implemented using the Object-Oriented Programming approach so that it allows for easy future scaling. Such is done by grouping similar functionalities into different classes. This ensures that users only use categories which are predefined to allow for future manipulation of expenses by expense categories to be faster and simpler.
+
+### **ListCat**
+
+ListCat function allows user to define a see all predefined expense categories.
+
+#### _How is the feature implemented?_
+
+When user calls the ListCat command i.e. passing the text as command, the text will be parsed to `LogicManager` instance's `execute` method. `LogicManager` instance's execute method will
+then call `ExpenseExpertParser` instance's `parseCommand` method. `ExpenseExpert` instance's pass command method will match the text parsed to find that it is a filter method and will then create a
+`ListCatCommand` object.
+
+Upon receiving control from `ExpenseExpertParser` with `ListCatCommand` instance, `LogicManager` will proceed to call `ListCatCommand` instance's execute method with `Model` of `ExpenseExpert` passed as argument.
+By calling the `ListCatCommand` instance's execute method, the control is passed to `ListCatCommand`. 
+
+`ListCatCommand` will proceed to invoke `Model` instance's `getFilteredExpenseCategoryList` method. The returned `expenseCategoryList` is then formatted and returned. 
+Upon successfully execution of `ListCatCommand`, a `CommandResult` with the list of defined expense Categories are displayed to user after execution is returned to `LogicManager`.
+The UI will then display the `CommandResult` after execution.
+
+The sequence diagram below illustrates the process of calling `listCat` successfully:
+
+<img src="images/ListCategorySequenceDiagram.png"/>
+
 
 ---
 
@@ -615,8 +667,6 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 3.  A user with above average typing speed for regular English text (i.e. not code, not system admin commands) should be able to accomplish most of the tasks faster using commands than using the mouse.
 4.  Should not require an internet connection.
 
-_{More to be added}_
-
 ### Glossary
 
 - **API**: Application Programming Interface, which is a set of definitions and protocols for building and integrating application software.
@@ -686,10 +736,4 @@ testers are expected to do more *exploratory* testing.
    1. Other incorrect delete commands to try: `delete`, `delete x`, `...` (where x is larger than the list size)<br>
       Expected: Similar to previous.
 
-### Saving data
 
-1. Dealing with missing/corrupted data files
-
-   1. _{explain how to simulate a missing/corrupted file, and the expected behavior}_
-
-1. _{ more test cases …​ }_
