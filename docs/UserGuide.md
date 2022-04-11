@@ -216,7 +216,7 @@ _This is the result of executing the command `find Cafe`:_
 
 Sets a budget for the month.
 
-_The `add`, `delete` and `edit` command affect the monthly budget to reflect the remaining budget.
+_The `add`, `delete` and `edit` command affect the monthly budget to reflect the user's remaining budget.
 However, due to an incomplete implementation of the budget, transaction for every month are reflected in the current month's budget.
 This is going to be rectified in the future iterations._
 
