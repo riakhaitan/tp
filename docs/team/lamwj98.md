@@ -31,6 +31,7 @@ Given below are my contributions to the project.
     - Editing an expense
     - Deleting an expense
     - Filtering expense(s)
+    - Fix bugs ([#153](https://github.com/AY2122S2-CS2103T-W09-3/tp/pull/153))
     - Command summary ([#182](https://github.com/AY2122S2-CS2103T-W09-3/tp/pull/182))
   - Developer Guide ([#158](https://github.com/AY2122S2-CS2103T-W09-3/tp/pull/158)):
     - Updated class diagrams 
@@ -44,6 +45,7 @@ Given below are my contributions to the project.
       - UC03 Edit an expense
       - UC04 Find expense(s)
       - UC08 Filter expense(s) 
+      - Fix bugs ([#153](https://github.com/AY2122S2-CS2103T-W09-3/tp/pull/153))
     - User stories ([#39](https://github.com/AY2122S2-CS2103T-W09-3/tp/pull/39))
     
 - **Contribution to team-based tasks:**
