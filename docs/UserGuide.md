@@ -43,7 +43,7 @@ Expense Expert is a **desktop app for keeping track of your expenses, and managi
 3. Copy the file to the folder you want to use as the _home folder_ for your Expense Expert.
 
 4. Double-click the file to start the app. The GUI similar to the below should appear in a few seconds. 
-5. The data is just for demonstration purposes. When you launch ExpenseExpert for the first time, it is not preloaded with any data.<br>
+5. The data used here is for demonstration purposes. When you launch ExpenseExpert for the first time, it is not preloaded with any data.<br>
    ![Ui](images/Ui.png)
 
 6. Type the command in the command box and press Enter to execute it. e.g. typing **`help`** and pressing Enter will open the help window.<br>
@@ -53,9 +53,9 @@ Expense Expert is a **desktop app for keeping track of your expenses, and managi
 
    - **`add`** `d/Lunch at VivoCity a/12.95 c/Food t/2022-03-12` : Adds a new expense of a/12.95 for Lunch at Vivocity to your list of expenses
 
-   - **`delete`** `3` : Deletes the 3rd expense shown in the current list.
+   - **`delete`** `3` : Deletes the 3rd expense shown in the expense list.
 
-   - **`exit`** : Exits the app for you.
+   - **`exit`** : Exits the app.
 
 7. Refer to the [Features](#features) below for details of each command.
 
@@ -65,7 +65,7 @@ Expense Expert is a **desktop app for keeping track of your expenses, and managi
 
 ![Ui](images/Ui_Breakdown.png)
 
-1. **Menu Bar** : Facilitate quick access to the help window. Quiting of the application can also be done through the file drop-down option.
+1. **Menu Bar**: Facilitate quick access to the help window. Quiting of the application can also be done through the file drop-down option.
 2. **Command Box**: Allows the user to input commands.
 3. **Budget Display Box**: Displays the remaining budget.
 4. **Result Box**: Displays the results of the command that the user parsed.
@@ -103,7 +103,7 @@ Expense Expert is a **desktop app for keeping track of your expenses, and managi
 ## Commands
 ### Viewing help : `help`
 
-Shows a help window explaining how to use each command, with an added link to the user guide. 
+Shows a help window explaining how to use each command, with a link to the user guide. 
 It can also show the usage of a particular command.
 
 ![Help](images/Help_Ui.png)
