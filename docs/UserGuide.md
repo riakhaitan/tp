@@ -342,7 +342,7 @@ If your changes to the data file makes its format invalid, Expense Expert will d
 **Q**: How can I transfer my data to another Computer?<br>
 **A**: Install the app in the other computer and overwrite the empty data file it creates with the file that contains the data of your previous Expense Expert home folder.
 
-**Q**: Can I archive the data files?
+**Q**: Can I archive the data files?<br>
 **A**: At the moment, the application doesn't support archiving. It will be available in v2.0.
 
 ---
