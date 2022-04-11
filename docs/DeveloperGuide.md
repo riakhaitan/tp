@@ -355,7 +355,7 @@ The following diagram will give a better understanding of the execution of the h
 **Aspect: Motivation**
 
 There had been many cases in our initial user survey where the users were finding it hard to remember all the commands.
-Hence, the team came up with the solution of the `help` command. This command allows the user to check the usage of all commands or
+Hence, the team came up with a solution of the `help` command. This command allows the user to check the usage of all commands or
 one particular command easily and makes the usage of the app easier and more user-friendly.
 
 **Aspect: Maintainability**
