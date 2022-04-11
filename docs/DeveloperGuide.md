@@ -299,14 +299,14 @@ Update function allows user to update the amount associated with an existing per
 
 When user calls the update command i.e. passing the text as command, the text will be parsed to `LogicManager` instance's `execute` method. `LogicManager` instance's execute method will
 then call `ExpenseExpertParser` instance's `parseCommand` method. `ExpenseExpert` instance's pass command method will match the text parsed to find that it is an update method and will then create a
-`UpdateCommandParser` object and call its instance's `parse` method with the argument(s) passed for the command i.e. the original text passed by user with the command word removed.
+`EditPersonCommandParser` object and call its instance's `parse` method with the argument(s) passed for the command i.e. the original text passed by user with the command word removed.
 
-`UpdateCommandParser` instance will then check and format the argument(s) passed. If the argument(s) parsed is invalid i.e. wrong format or missing fields, a `ParseException` with the error encountered will be thrown.
-If the argument(s) is valid, `UpdateCommandParser` will return control to `ExpenseExpertParser` with a new instance of `UpdateCommand` (created with the properly formatted argument(s)). The `ExpenseExpertParser`
-will also return control to `LogicManager` with the `UpdateCommand` instance returned from `UpdateCommandParser`.
+`EditPersonCommandParser` instance will then check and format the argument(s) passed. If the argument(s) parsed is invalid i.e. wrong format or missing fields, a `ParseException` with the error encountered will be thrown.
+If the argument(s) is valid, `EditPersonCommandParser` will return control to `ExpenseExpertParser` with a new instance of `EditPersonCommand` (created with the properly formatted argument(s)). The `ExpenseExpertParser`
+will also return control to `LogicManager` with the `EditPersonCommand` instance returned from `EditPersonCommandParser`.
 
-Upon receiving control from `ExpenseExpertParser` with `UpdateCommand` instance, `LogicManager` will proceed to call `UpdateCommand` instance's execute method with `Model` of `ExpenseExpert` passed as argument.
-By calling the `UpdateCommand` instance's execute method, the control is passed to `UpdateCommand`. `UpdateCommand` instance will check its field for `Amount` presence. If the field are present, `UpdateCommand` will create a new instance of `Predicate_show_all_persons` with the field parsed as argument. `PredicateChain`
+Upon receiving control from `ExpenseExpertParser` with `EditPersonCommand` instance, `LogicManager` will proceed to call `EditPersonCommand` instance's execute method with `Model` of `ExpenseExpert` passed as argument.
+By calling the `EditPersonCommand` instance's execute method, the control is passed to `EditPersonCommand`. `EditPersonCommand` instance will check its field for `Amount` presence. If the field are present, `EditPersonCommand` will create a new instance of `Predicate_show_all_persons` with the field parsed as argument. `PredicateChain`
 functions like a predicate, but incorporates all the predicates in question.
 
 If both the field is present, `Predicate_show_all_persons` created using the field is used. Upon successfully execution, a `CommandResult` with the details to display to user after execution is returned to `LogicManager`.
