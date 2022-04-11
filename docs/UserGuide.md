@@ -359,5 +359,5 @@ If your changes to the data file makes its format invalid, Expense Expert will d
 | **Adding a person who owes you money**        | `person n/PERSON_NAME a/PERSON_AMOUNT` <br> Example: `person n/Alex a/50`                                                                 |
 | **Removing a person who paid the owed money** | `paid INDEX` <br> Example: `paid 1`<br/>                                                                                                  |
 | **Updating the amount a person owes you**     | `update INDEX a/AMOUNT`<br/> Example: `update 4 a/200`                                                                                    |
-| **Clearing all data (expense and person)**    | `clear`<br/>                                                                                                                              |
-| **Exiting the application**                   | `exit`                                                                                                                                    |
+| **Clearing the program data**                 | `clear`<br/>                                                                                                                              |
+| **Exiting the program**                       | `exit`                                                                                                                                    |
