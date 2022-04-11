@@ -24,6 +24,10 @@ title: Developer Guide
     - [_Why is it implemented this way_](#why-is-it-implemented-this-way-1)
     - [_Alternatives considered_](#alternatives-considered-1)
     - [Design considerations:](#design-considerations)
+  - [**Updating the amount of a person**](#updating-the-amount-of-a-person)
+      - [_How is the feature implemented?_](#_how-is-the-feature-implemented-2)
+      - [_Why is it implemented this way_](#why-is-it-implemented-this-way-2)
+      - [_Alternatives considered_](#alternatives-considered-2)
   - [**Getting Help with the `help` Command**](#getting-help)
       - [_How is the feature implemented?_](#how-is-the-feature-implemented-3)
       - [_Why is it implemented this way_](#why-is-it-implemented-this-way-3)
@@ -286,6 +290,40 @@ It allows for easy future scaling since it is implemented using Object-Oriented 
  
 This feature was built upon the existing functionalities of the app with the aim to make the app better. 
 The implementation was straight forward and hence, no alternatives were considered.
+  
+### **Updating the amount of a person**
+
+Update function allows user to update the amount associated with an existing person on the person list. 
+
+#### _How is the feature implemented?_
+
+When user calls the update command i.e. passing the text as command, the text will be parsed to `LogicManager` instance's `execute` method. `LogicManager` instance's execute method will
+then call `ExpenseExpertParser` instance's `parseCommand` method. `ExpenseExpert` instance's pass command method will match the text parsed to find that it is an update method and will then create a
+`UpdateCommandParser` object and call its instance's `parse` method with the argument(s) passed for the command i.e. the original text passed by user with the command word removed.
+
+`UpdateCommandParser` instance will then check and format the argument(s) passed. If the argument(s) parsed is invalid i.e. wrong format or missing fields, a `ParseException` with the error encountered will be thrown.
+If the argument(s) is valid, `UpdateCommandParser` will return control to `ExpenseExpertParser` with a new instance of `UpdateCommand` (created with the properly formatted argument(s)). The `ExpenseExpertParser`
+will also return control to `LogicManager` with the `UpdateCommand` instance returned from `UpdateCommandParser`.
+
+Upon receiving control from `ExpenseExpertParser` with `UpdateCommand` instance, `LogicManager` will proceed to call `UpdateCommand` instance's execute method with `Model` of `ExpenseExpert` passed as argument.
+By calling the `UpdateCommand` instance's execute method, the control is passed to `UpdateCommand`. `UpdateCommand` instance will check its field for `Amount` presence. If the field are present, `UpdateCommand` will create a new instance of `Predicate_show_all_persons` with the field parsed as argument. `PredicateChain`
+functions like a predicate, but incorporates all the predicates in question.
+
+If both the field is present, `Predicate_show_all_persons` created using the field is used. Upon successfully execution, a `CommandResult` with the details to display to user after execution is returned to `LogicManager`.
+`LogicManager` will then save the state of the `Model` and return the `CommandResult` to the UI side to display the result after execution.
+
+The sequence diagram below illustrates the process of calling `update 1 a/100` successfully:
+
+<img src="images/UpdateSequenceDiagram.png"/>
+
+#### _Why is it implemented this way_
+
+It is implemented using the Object-Oriented Programming approach so that it allows for easy future scaling. Such is done by grouping similar functionalities into different classes.
+
+#### _Alternatives considered_
+
+- `Predicate_show_all_persons` to be specially created for combining only `Amount`.
+    - This consideration is dropped as current implementation allows for future scaling, in the case where more filtering options are provided to users.
 
 ### Getting Help
 
