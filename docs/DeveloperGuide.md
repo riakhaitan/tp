@@ -436,6 +436,7 @@ The sequence diagram below illustrates the process of calling `listCat` successf
 
 ---
 
+
 ## **Appendix: Requirements**
 
 ### Product scope
