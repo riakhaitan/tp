@@ -245,15 +245,7 @@ Separate ArrayLists were used to very distinctly keep the past commands separate
 
 Using of a combined ArrayList for all commands and navigating through the ArrayList by an index - This alternative, although making use of only one ArrayList, may be complicated to implement and makes debugging process very tedious. To avoid making this implementation complex, separate ArrayLists for keeping past commands and future commands were used.
 
-#### Design considerations:
 
-_{more aspects and alternatives to be added}_
-
-### \[Proposed\] Data archiving
-
-_{Explain here how the data archiving feature will be implemented}_
-
----
 
 ## **Documentation, logging, testing, configuration, dev-ops**
 
@@ -496,8 +488,6 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 2.  Should be able to hold up to 1000 expenses without a noticeable sluggishness in performance for typical usage.
 3.  A user with above average typing speed for regular English text (i.e. not code, not system admin commands) should be able to accomplish most of the tasks faster using commands than using the mouse.
 4.  Should not require an internet connection.
-
-_{More to be added}_
 
 ### Glossary
 
