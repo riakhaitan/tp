@@ -38,14 +38,15 @@ Expense Expert is a **desktop app for keeping track of your expenses, and managi
 
 1. Ensure you have Java `11` or above installed in your Computer.
 
-1. Download the latest `ExpenseExpert.jar` from [here](https://github.com/AY2122S2-CS2103T-W09-3/tp/releases).
+2. Download the latest `ExpenseExpert.jar` from [here](https://github.com/AY2122S2-CS2103T-W09-3/tp/releases).
 
-1. Copy the file to the folder you want to use as the _home folder_ for your Expense Expert.
+3. Copy the file to the folder you want to use as the _home folder_ for your Expense Expert.
 
-1. Double-click the file to start the app. The GUI similar to the below should appear in a few seconds. Note how the app contains some sample data.<br>
+4. Double-click the file to start the app. The GUI similar to the below should appear in a few seconds. 
+5. The data is just for show, in reality the application will be blank in the beginning.<br>
    ![Ui](images/Ui.png)
 
-1. Type the command in the command box and press Enter to execute it. e.g. typing **`help`** and pressing Enter will open the help window.<br>
+6. Type the command in the command box and press Enter to execute it. e.g. typing **`help`** and pressing Enter will open the help window.<br>
    Some example commands you can try:
 
    - **`list`** : Lists all the expenses you have recorded.
@@ -56,7 +57,7 @@ Expense Expert is a **desktop app for keeping track of your expenses, and managi
 
    - **`exit`** : Exits the app for you.
 
-1. Refer to the [Features](#features) below for details of each command.
+7. Refer to the [Features](#features) below for details of each command.
 
 ---
 
@@ -77,7 +78,7 @@ Expense Expert is a **desktop app for keeping track of your expenses, and managi
 
 <div markdown="block" class="alert alert-info">
 
-**:information_source: Notes about the command format:**<br>
+**information_source: Notes about the command format:**<br>
 
 - Words in `UPPER_CASE` are the parameters to be supplied by the user.<br>
   e.g. in `d/DESCRIPTION`, `DESCRIPTION` is a parameter which can be used as `d/Dinner at ECP`.
@@ -101,7 +102,8 @@ Expense Expert is a **desktop app for keeping track of your expenses, and managi
 
 ### Viewing help : `help`
 
-Shows a message explaining how to access the help page, can also show the usage of a particular command.
+Shows a help window explaining how to use each command, with an added link to the user guide. 
+It can also show the usage of a particular command.
 
 ![Help](images/Help_Ui.png)
 
@@ -180,7 +182,7 @@ Examples:
 - `filter c/Transport`
 - `filter ft/2022-03 c/Transport`
 
-_This is the result of executing the command(s) above:_
+_This is the result of executing the command `filter ft/2022-03`:_
 
 ![Filter](images/FilterCommandExample.png)
 
@@ -195,7 +197,7 @@ Examples:
 - `find Cafe`
 - `find Cafe Grab`
 
-_This is the result of executing the command(s) above:_
+_This is the result of executing the command `find Cafe`:_
 
 ![Find](images/FindCommandExample.png)
 
