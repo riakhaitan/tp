@@ -5,6 +5,7 @@ title: Developer Guide
 
 ## Table of Contents
 
+- [Table of Contents](#table-of-contents)
 - [**Acknowledgements**](#acknowledgements)
 - [**Setting up, getting started**](#setting-up-getting-started)
 - [**Design**](#design)
@@ -23,29 +24,33 @@ title: Developer Guide
     - [_How is the feature implemented?_](#how-is-the-feature-implemented-1)
     - [_Why is it implemented this way_](#why-is-it-implemented-this-way-1)
     - [_Alternatives considered_](#alternatives-considered-1)
-    - [Design considerations:](#design-considerations)
+  - [**Adding a person to the person list**](#adding-a-person-to-the-person-list)
+    - [_How is the feature implemented?_](#how-is-the-feature-implemented-2)
+    - [_Why is it implemented this way_](#why-is-it-implemented-this-way-2)
+    - [_Alternatives considered_](#alternatives-considered-2)
   - [**Updating the amount of a person**](#updating-the-amount-of-a-person)
-      - [_How is the feature implemented?_](#_how-is-the-feature-implemented-2)
-      - [_Why is it implemented this way_](#why-is-it-implemented-this-way-2)
-      - [_Alternatives considered_](#alternatives-considered-2)
-  - [**Getting Help with the `help` Command**](#getting-help)
-      - [_How is the feature implemented?_](#how-is-the-feature-implemented-3)
-      - [_Why is it implemented this way_](#why-is-it-implemented-this-way-3)
-      - [_Alternatives considered_](#alternatives-considered-3)
-      - [Design considerations:](#design-considerations)
-  - [**Adding a person to the Person List**](#adding-a-person-to-the-person-list)                 
-      - [_How is the feature implemented?_](#how-is-the-feature-implemented-4)  - [\[Proposed\] Data archiving](#proposed-data-archiving)
-      - [_Why is it implemented this way_](#why-is-it-implemented-this-way-4) - [**Documentation, logging, testing, configuration, dev-ops**](#documentation-logging-testing-configuration-dev-ops)
-      - [_Alternatives considered_](#alternatives-considered-4)               - [**Appendix: Requirements**](#appendix-requirements)
-      - [Design considerations:](#design-considerations)                        - [Product scope](#product-scope)
+    - [_How is the feature implemented?_](#how-is-the-feature-implemented-3)
+    - [_Why is it implemented this way_](#why-is-it-implemented-this-way-3)
+    - [_Alternatives considered_](#alternatives-considered-3)
+  - [Getting Help](#getting-help)
+    - [Implementation](#implementation-1)
+    - [Design considerations:](#design-considerations)
+  - [**AddCat**](#addcat)
+    - [_How is the feature implemented?_](#how-is-the-feature-implemented-4)
+    - [_Why is it implemented this way_](#why-is-it-implemented-this-way-4)
+  - [**ListCat**](#listcat)
+    - [_How is the feature implemented?_](#how-is-the-feature-implemented-5)
+- [**Documentation, logging, testing, configuration, dev-ops**](#documentation-logging-testing-configuration-dev-ops)
+- [**Appendix: Requirements**](#appendix-requirements)
+  - [Product scope](#product-scope)
   - [User stories](#user-stories)
   - [Use cases](#use-cases)
   - [Non-Functional Requirements](#non-functional-requirements)
   - [Glossary](#glossary)
 - [**Appendix: Instructions for manual testing**](#appendix-instructions-for-manual-testing)
   - [Launch and shutdown](#launch-and-shutdown)
+  - [Adding an expense](#adding-an-expense)
   - [Deleting an expense](#deleting-an-expense)
-  - [Saving data](#saving-data)
 
 ---
 
@@ -399,11 +404,11 @@ It is implemented using the Object-Oriented Programming approach so that it allo
 
 ### **ListCat**
 
-AddCat function allows user to define a new expense category which can be used to tag to an expense.
+ListCat function allows user to define a see all predefined expense categories.
 
 #### _How is the feature implemented?_
 
-When user calls the AddCat command i.e. passing the text as command, the text will be parsed to `LogicManager` instance's `execute` method. `LogicManager` instance's execute method will
+When user calls the ListCat command i.e. passing the text as command, the text will be parsed to `LogicManager` instance's `execute` method. `LogicManager` instance's execute method will
 then call `ExpenseExpertParser` instance's `parseCommand` method. `ExpenseExpert` instance's pass command method will match the text parsed to find that it is a filter method and will then create a
 `ListCatCommand` object.
 
@@ -411,7 +416,7 @@ Upon receiving control from `ExpenseExpertParser` with `ListCatCommand` instance
 By calling the `ListCatCommand` instance's execute method, the control is passed to `ListCatCommand`. 
 
 `ListCatCommand` will proceed to invoke `Model` instance's `getFilteredExpenseCategoryList` method. The returned `expenseCategoryList` is then formatted and returned. 
-Upon successfully execution of `AddCategoryCommand`, a `CommandResult` with the list of defined expense Categories are displayed to user after execution is returned to `LogicManager`.
+Upon successfully execution of `ListCatCommand`, a `CommandResult` with the list of defined expense Categories are displayed to user after execution is returned to `LogicManager`.
 The UI will then display the `CommandResult` after execution.
 
 The sequence diagram below illustrates the process of calling `listCat` successfully:

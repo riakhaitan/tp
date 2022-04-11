@@ -148,7 +148,6 @@ public class AddCommandTest {
             throw new AssertionError("This method should not be called.");
         }
 
-
         @Override
         public boolean hasExpenseCategory(ExpenseCategory expenseCategory) {
             throw new AssertionError("This method should not be called.");
@@ -180,7 +179,7 @@ public class AddCommandTest {
 
         @Override
         public Budget getBudget() {
-            //throw new AssertionError("This method should not be called.");
+            // throw new AssertionError("This method should not be called.");
             return new Budget(new Amount("89"), new Date("1900-01-01"));
         }
 
@@ -220,7 +219,6 @@ public class AddCommandTest {
         }
     }
 
-
     /**
      * A Model stub that contains a single expense.
      */
@@ -237,7 +235,6 @@ public class AddCommandTest {
             requireNonNull(expense);
             return this.expense.equals(expense);
         }
-
 
     }
 
@@ -256,7 +253,6 @@ public class AddCommandTest {
         public Budget getBudget() {
             return this.budget;
         }
-
 
     }
 
