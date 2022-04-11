@@ -17,6 +17,9 @@ Given below are my contributions to the project.
 
 - **Code contributed**: [RepoSense link](https://nus-cs2103-ay2122s2.github.io/tp-dashboard/?search=talkintomato&breakdown=true)
 
+- **Enhancements to existing features**:
+  - changed the implementation of add expense to accommodate expense categories being optional. 
+
 - **Project management**:
 
   - Set up Tp Organization and handled getting the project off the ground.
@@ -24,18 +27,22 @@ Given below are my contributions to the project.
 
 - **Documentation**:
 
-  - User Guide:
-    - added Documentation for addCat, ListCat
-  - Developer Guide:
-    - updated model and storage 
-    - set table of contents 
-    - updated user stories 
-
+  - User Guide ([#97](https://github.com/AY2122S2-CS2103T-W09-3/tp/pull/97)):
+    - adding an expense Category
+    - Deleting an expense
+    - Filtering expense(s)
+  - Developer Guide ([#157](https://github.com/AY2122S2-CS2103T-W09-3/tp/pull/157)):
+    - Updated class diagrams
+      - Model
+      - UI
+    - Use cases ([#177](https://github.com/AY2122S2-CS2103T-W09-3/tp/pull/177)):
+      - UC04 Expense Categories
+    - User stories ([#177](https://github.com/AY2122S2-CS2103T-W09-3/tp/pull/177))
+  
 - **Community**:
 
   - PRs reviewed (with non-trivial review comments): [\#21](https://github.com/AY2122S2-CS2103T-W09-3/tp/pull/21), [\#23](https://github.com/AY2122S2-CS2103T-W09-3/tp/pull/23), [\#67](https://github.com/AY2122S2-CS2103T-W09-3/tp/pull/67), [\#79](https://github.com/AY2122S2-CS2103T-W09-3/tp/pull/79), [\#89](https://github.com/AY2122S2-CS2103T-W09-3/tp/pull/89), [\#95](https://github.com/AY2122S2-CS2103T-W09-3/tp/pull/95), [\#96](https://github.com/AY2122S2-CS2103T-W09-3/tp/pull/96), [\#103](https://github.com/AY2122S2-CS2103T-W09-3/tp/pull/103), [\#111](https://github.com/AY2122S2-CS2103T-W09-3/tp/pull/111), [\#140](https://github.com/AY2122S2-CS2103T-W09-3/tp/pull/140), [\#161](https://github.com/AY2122S2-CS2103T-W09-3/tp/pull/161)
   - Reported 11 bugs and suggestions for other teams during PE dry run
 
 - **Tools**:
-  - Integrated a third party library (Natty) to the project ([\#42]())
-  - Integrated a new Github plugin (CircleCI) to the team repo
+  - Integrated JavaCI and Codecov to team repo
