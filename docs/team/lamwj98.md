@@ -31,6 +31,7 @@ Given below are my contributions to the project.
     - Editing an expense
     - Deleting an expense
     - Filtering expense(s)
+    - Command summary ([#182](https://github.com/AY2122S2-CS2103T-W09-3/tp/pull/182))
   - Developer Guide ([#158](https://github.com/AY2122S2-CS2103T-W09-3/tp/pull/158)):
     - Updated class diagrams 
       - Model
