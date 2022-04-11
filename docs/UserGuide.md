@@ -7,29 +7,28 @@ Expense Expert is a **desktop app for keeping track of your expenses, and managi
 
 ## Table of Contents
 
-- [Table of Contents](#table-of-contents)
-- [Quick start](#quick-start)
+- [Quick Start](#quick-start)
 - [Breakdown of the UI](#breakdown-of-the-ui)
 - [Features](#features)
-- [Commands](#commands)
-  - [Viewing help : `help`](#viewing-help--help)
-  - [Adding an expense : `add`](#adding-an-expense--add)
-  - [Deleting an expense : `delete`](#deleting-an-expense--delete)
-  - [Editing an expense : `edit`](#editing-an-expense--edit)
-  - [Listing all expenses : `list`](#listing-all-expenses--list)
-  - [Filtering expense(s): `filter`](#filtering-expenses-filter)
-  - [Finding expense(s): `find`](#finding-expenses-find)
-  - [Setting a monthly Budget: `budget`](#setting-a-monthly-budget-budget)
-  - [Adding an Expense Category: `addCat`](#adding-an-expense-category-addcat)
-  - [Listing all Expense Categories: `listCat`](#listing-all-expense-categories-listcat)
-  - [Adding a person who owes you money: `person`](#adding-a-person-who-owes-you-money-person)
-  - [Removing a person who has paid the owed money: `paid`](#removing-a-person-who-has-paid-the-owed-money-paid)
-  - [Updating the amount a person owes you: `update`](#updating-the-amount-a-person-owes-you-update)
-  - [Clearing the program data : `clear`](#clearing-the-program-data--clear)
-  - [Exiting the program : `exit`](#exiting-the-program--exit)
-- [Storage](#storage)
-  - [Saving the data](#saving-the-data)
-  - [Editing the data file](#editing-the-data-file)
+    - [Commands](#commands)
+        - [Viewing help: ](#viewing-help--help) `help`
+        - [Adding an expense: ](#adding-an-expense--add) `add`
+        - [Deleting an expense: ](#deleting-an-expense--delete) `delete`
+        - [Editing an expense: ](#editing-an-expense--edit) `edit`
+        - [Listing all expenses: ](#listing-all-expenses--list) `list`
+        - [Filtering expense(s): ](#filtering-expenses-filter) `filter`
+        - [Finding expense(s): ](#finding-expenses-find) `find`
+        - [Setting a monthly budget: ](#setting-a-monthly-budget-budget) `budget`
+        - [Adding an Expense Category: ](#adding-an-expense-category-addcat) `addCat`
+        - [Listing all Expense Categories: ](#listing-all-expense-categories-listcat) `listCat`
+        - [Adding a person who owes you money: ](#adding-a-person-who-owes-you-money-person) `person`
+        - [Removing a person who has paid the owed money: ](#removing-a-person-who-has-paid-the-owed-money-paid) `paid`
+        - [Updating the amount a person owes you: ](#updating-the-amount-a-person-owes-you-update) `update`
+        - [Clearing the program data: ](#clearing-the-program-data--clear) `clear`
+        - [Exiting the program: ](#exiting-the-program--exit) `exit`
+    - [Storage](#storage)
+        - [Saving the data](#saving-the-data)
+        - [Editing the data file](#editing-the-data-file)
 - [FAQ](#faq)
 - [Command summary](#command-summary)
 
@@ -47,10 +46,12 @@ Expense Expert is a **desktop app for keeping track of your expenses, and managi
 5. The data is just for demonstration purposes. When you launch ExpenseExpert for the first time, it is not preloaded with any data.<br>
    ![Ui](images/Ui.png)
    
-6. Set up your intended budget using the [`budget`](#setting-a-monthly-budget-budget) Command. 
+6. Set up your intended budget by using the [`budget`](#setting-a-monthly-budget-budget) command. 
 
 7. Type the command in the command box and press Enter to execute it. e.g. typing **`help`** and pressing Enter will open the help window.<br>
    Some example commands you can try:
+    
+    - **`budget`** `a/100`: Sets a budget of $100 for the month.
 
    - **`list`** : Lists all the expenses you have recorded.
 
