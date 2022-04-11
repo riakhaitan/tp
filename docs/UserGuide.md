@@ -38,7 +38,7 @@ Expense Expert is a **desktop app for keeping track of your expenses, and managi
 
 1. Ensure you have Java `11` or above installed in your Computer.
 
-2. Download the latest `ExpenseExpert.jar` from [here](https://github.com/AY2122S2-CS2103T-W09-3/tp/releases).
+2. Download the latest `expenseexpert.jar` from [here](https://github.com/AY2122S2-CS2103T-W09-3/tp/releases).
 
 3. Copy the file to the folder you want to use as the _home folder_ for your Expense Expert.
 
@@ -182,9 +182,14 @@ Examples:
 - `filter c/Transport`
 - `filter ft/2022-03 c/Transport`
 
+The expense list before executing the `filter` command looked as follows:
+![Filter](images/Sample_Data_For_Filter.png)
+
 _This is the result of executing the command `filter ft/2022-03`:_
 
 ![Filter](images/FilterCommandExample.png)
+
+**Disclaimer** : result may vary depending upon the user input.
 
 ### Finding expenses: `find`
 
@@ -197,9 +202,15 @@ Examples:
 - `find Cafe`
 - `find Cafe Grab`
 
+The expense list before executing the `find` command looked as follows:
+![Filter](images/Sample_Data_For_Find.png)
+
+
 _This is the result of executing the command `find Cafe`:_
 
 ![Find](images/FindCommandExample.png)
+
+**Disclaimer** : result may vary depending upon the user input.
 
 ### Setting a monthly Budget: `budget`
 
