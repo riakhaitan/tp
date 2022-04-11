@@ -36,7 +36,7 @@ import seedu.address.ui.UiManager;
  */
 public class MainApp extends Application {
 
-    public static final Version VERSION = new Version(1, 2, 0, true);
+    public static final Version VERSION = new Version(1, 4, 0, true);
 
     private static final Logger logger = LogsCenter.getLogger(MainApp.class);
 
@@ -56,8 +56,7 @@ public class MainApp extends Application {
 
         UserPrefsStorage userPrefsStorage = new JsonUserPrefsStorage(config.getUserPrefsFilePath());
         UserPrefs userPrefs = initPrefs(userPrefsStorage);
-        ExpenseExpertStorage expenseExpertStorage =
-                new JsonExpenseExpertStorage(userPrefs.getExpenseExpertFilePath());
+        ExpenseExpertStorage expenseExpertStorage = new JsonExpenseExpertStorage(userPrefs.getExpenseExpertFilePath());
         storage = new StorageManager(expenseExpertStorage, userPrefsStorage);
 
         initLogging(config);
@@ -70,9 +69,12 @@ public class MainApp extends Application {
     }
 
     /**
-     * Returns a {@code ModelManager} with the data from {@code storage}'s expense expert
-     * and {@code userPrefs}. <br> The data from the sample expense expert will be used instead
-     * if {@code storage}'s expense expert is not found, or an empty expense expert will be used instead
+     * Returns a {@code ModelManager} with the data from {@code storage}'s expense
+     * expert
+     * and {@code userPrefs}. <br>
+     * The data from the sample expense expert will be used instead
+     * if {@code storage}'s expense expert is not found, or an empty expense expert
+     * will be used instead
      * if errors occur when reading {@code storage}'s expense expert.
      */
     private Model initModelManager(Storage storage, ReadOnlyUserPrefs userPrefs) {
@@ -126,7 +128,8 @@ public class MainApp extends Application {
             initializedConfig = new Config();
         }
 
-        //Update config file in case it was missing to begin with or there are new/unused fields
+        // Update config file in case it was missing to begin with or there are
+        // new/unused fields
         try {
             ConfigUtil.saveConfig(initializedConfig, configFilePathUsed);
         } catch (IOException e) {
@@ -136,7 +139,8 @@ public class MainApp extends Application {
     }
 
     /**
-     * Returns a {@code UserPrefs} using the file at {@code storage}'s user prefs file path,
+     * Returns a {@code UserPrefs} using the file at {@code storage}'s user prefs
+     * file path,
      * or a new {@code UserPrefs} with default configuration if errors occur when
      * reading from the file.
      */
@@ -157,7 +161,8 @@ public class MainApp extends Application {
             initializedPrefs = new UserPrefs();
         }
 
-        //Update prefs file in case it was missing to begin with or there are new/unused fields
+        // Update prefs file in case it was missing to begin with or there are
+        // new/unused fields
         try {
             storage.saveUserPrefs(initializedPrefs);
         } catch (IOException e) {
