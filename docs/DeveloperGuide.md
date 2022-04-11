@@ -28,6 +28,11 @@ title: Developer Guide
       - [_How is the feature implemented?_](#_how-is-the-feature-implemented-2)
       - [_Why is it implemented this way_](#why-is-it-implemented-this-way-2)
       - [_Alternatives considered_](#alternatives-considered-2)
+  - [**Getting Help with the `help` Command**](#getting-help)
+      - [_How is the feature implemented?_](#how-is-the-feature-implemented-3)
+      - [_Why is it implemented this way_](#why-is-it-implemented-this-way-3)
+      - [_Alternatives considered_](#alternatives-considered-3)
+      - [Design considerations:](#design-considerations)
   - [\[Proposed\] Data archiving](#proposed-data-archiving)
 - [**Documentation, logging, testing, configuration, dev-ops**](#documentation-logging-testing-configuration-dev-ops)
 - [**Appendix: Requirements**](#appendix-requirements)
@@ -252,10 +257,6 @@ Separate ArrayLists were used to very distinctly keep the past commands separate
 
 Using of a combined ArrayList for all commands and navigating through the ArrayList by an index - This alternative, although making use of only one ArrayList, may be complicated to implement and makes debugging process very tedious. To avoid making this implementation complex, separate ArrayLists for keeping past commands and future commands were used.
 
-#### Design considerations:
-
-_{more aspects and alternatives to be added}_
-
 ### **Updating the amount of a person**
 
 Update function allows user to update the amount associated with an existing person on the person list. 
@@ -289,6 +290,49 @@ It is implemented using the Object-Oriented Programming approach so that it allo
 
 - `Predicate_show_all_persons` to be specially created for combining only `Amount`.
     - This consideration is dropped as current implementation allows for future scaling, in the case where more filtering options are provided to users.
+
+### Getting Help
+
+#### Implementation
+
+While implementing the help command, the following classes were created/modified :
+
+| Logic             | Ui         |
+|-------------------|------------|
+| HelpCommand       | HelpWindow |
+| HelpCommandParser |            |
+
+The main idea behind the implementation of this command is that, while using the app, the user may
+request for help on how to use a particular command, what are the arguments expected by a particular commands and/or 
+what is the expected syntax for the command.
+
+It is implemented to be used in any of the following two ways:
+1. The user can just enter the help command in the command box. This will pop up a help window which has all the necessary
+details regarding the existing commands in the app.
+2. Secondly, if the user wishes to know the usage of a particular command, they can enter the `help` command, followed by the `COMMAND_WORD`
+for which they request the usage. This will result in the command usage for that said command being displayed.
+
+The following diagram will give a better understanding of the execution of the help command:
+
+<img src="images/Help_Command_Execution.png"/>
+
+#### Design considerations:
+
+**Aspect: Motivation**
+
+There had been many cases in our initial user survey where the users were finding it hard to remember all the commands.
+Hence, the team came up with the solution of the `help` command. This command allows the user to check the usage of all commands or
+one particular command easily and makes the usage of the app easier and more user-friendly.
+
+**Aspect: Maintainability**
+
+The `help` command is implemented in such a manner that whenever a new command is added to the application, it can easily be incorporated to the `help` command's functionality.
+Hence, it is extremely easy to maintain.
+
+**Aspect: Robustness**
+
+Intense checking has been done to ensure than the `help` command can handle invalid inputs. Proper error handling has 
+been done to avoid mishandling of the command.
 
 ### \[Proposed\] Data archiving
 
