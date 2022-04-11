@@ -33,8 +33,6 @@ public class AddCommand extends Command {
             + PREFIX_DATE + "2022-02-02 \n\n";
 
     public static final String MESSAGE_SUCCESS = "New expense added: %1$s";
-    public static final String MESSAGE_SUCCESS_ZERO_BUDGET = "New expense added: %1$s, your expenses "
-            + "have exceeded/equalled your" + "set budget amount";
     public static final String MESSAGE_DUPLICATE_EXPENSE = "This expense already exists in Expense Expert";
     public static final String MESSAGE_INVALID_EXPENSE_CATEGORY =
             "This expense category does not exists in Expense Expert."

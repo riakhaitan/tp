@@ -148,10 +148,6 @@ public class AddCommandTest {
             throw new AssertionError("This method should not be called.");
         }
 
-        @Override
-        public void deleteExpenseCategory(ExpenseCategory target) {
-            throw new AssertionError("This method should not be called.");
-        }
 
         @Override
         public boolean hasExpenseCategory(ExpenseCategory expenseCategory) {
@@ -160,6 +156,11 @@ public class AddCommandTest {
 
         @Override
         public ObservableList<Expense> getFilteredExpenseList() {
+            throw new AssertionError("This method should not be called.");
+        }
+
+        @Override
+        public ObservableList<ExpenseCategory> getFilteredExpenseCategoryList() {
             throw new AssertionError("This method should not be called.");
         }
 

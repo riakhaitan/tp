@@ -26,6 +26,7 @@ public class ModelManager implements Model {
     private final UserPrefs userPrefs;
     private final FilteredList<Expense> filteredExpenses;
     private final FilteredList<Person> filteredPersons;
+    private final FilteredList<ExpenseCategory> expenseCategories;
 
     /**
      * Initializes a ModelManager with the given expenseExpert and userPrefs.
@@ -39,6 +40,7 @@ public class ModelManager implements Model {
         this.userPrefs = new UserPrefs(userPrefs);
         filteredExpenses = new FilteredList<>(this.expenseExpert.getExpenseList());
         filteredPersons = new FilteredList<>(this.expenseExpert.getPersonList());
+        expenseCategories = new FilteredList<>(this.expenseExpert.getExpenseCategoryList());
     }
 
     public ModelManager() {
@@ -152,11 +154,6 @@ public class ModelManager implements Model {
     }
 
     @Override
-    public void deleteExpenseCategory(ExpenseCategory target) {
-        expenseExpert.removeExpenseCategory(target);
-    }
-
-    @Override
     public boolean hasExpenseCategory(ExpenseCategory expenseCategory) {
         requireNonNull(expenseCategory);
         return expenseExpert.hasExpenseCategory(expenseCategory);
@@ -193,6 +190,11 @@ public class ModelManager implements Model {
     @Override
     public ObservableList<Person> getFilteredPersonList() {
         return filteredPersons;
+    }
+
+    @Override
+    public ObservableList<ExpenseCategory> getFilteredExpenseCategoryList() {
+        return expenseCategories;
     }
 
     @Override

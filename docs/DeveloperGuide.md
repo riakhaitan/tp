@@ -376,7 +376,7 @@ AddCat function allows user to define a new expense category which can be used t
 
 When user calls the AddCat command i.e. passing the text as command, the text will be parsed to `LogicManager` instance's `execute` method. `LogicManager` instance's execute method will
 then call `ExpenseExpertParser` instance's `parseCommand` method. `ExpenseExpert` instance's pass command method will match the text parsed to find that it is a filter method and will then create a
-`AddCategoryCommand` object and call its instance's `parse` method with the argument(s) passed for the command i.e. the original text passed by user with the command word removed.
+`AddCategoryCommandParser` object and call its instance's `parse` method with the argument(s) passed for the command i.e. the original text passed by user with the command word removed.
 
 `AddCategoryCommandParser` instance will then check and format the argument(s) passed. If the argument(s) parsed is invalid i.e. wrong format or missing fields, a `ParseException` with the error encountered will be thrown.
 If the argument(s) is valid, `FilterCommandParser` will return control to `ExpenseExpertParser` with a new instance of `AddCategoryCommand` (created with the properly formatted argument(s)). The `ExpenseExpertParser`
@@ -395,7 +395,29 @@ The sequence diagram below illustrates the process of calling `addCat c/Food` su
 
 #### _Why is it implemented this way_
 
-It is implemented using the Object-Oriented Programming approach so that it allows for easy future scaling. Such is done by grouping similar functionalities into different classes.
+It is implemented using the Object-Oriented Programming approach so that it allows for easy future scaling. Such is done by grouping similar functionalities into different classes. This ensures that users only use categories which are predefined to allow for future manipulation of expenses by expense categories to be faster and simpler.
+
+### **ListCat**
+
+AddCat function allows user to define a new expense category which can be used to tag to an expense.
+
+#### _How is the feature implemented?_
+
+When user calls the AddCat command i.e. passing the text as command, the text will be parsed to `LogicManager` instance's `execute` method. `LogicManager` instance's execute method will
+then call `ExpenseExpertParser` instance's `parseCommand` method. `ExpenseExpert` instance's pass command method will match the text parsed to find that it is a filter method and will then create a
+`ListCatCommand` object.
+
+Upon receiving control from `ExpenseExpertParser` with `ListCatCommand` instance, `LogicManager` will proceed to call `ListCatCommand` instance's execute method with `Model` of `ExpenseExpert` passed as argument.
+By calling the `ListCatCommand` instance's execute method, the control is passed to `ListCatCommand`. 
+
+`ListCatCommand` will proceed to invoke `Model` instance's `getFilteredExpenseCategoryList` method. The returned `expenseCategoryList` is then formatted and returned. 
+Upon successfully execution of `AddCategoryCommand`, a `CommandResult` with the list of defined expense Categories are displayed to user after execution is returned to `LogicManager`.
+The UI will then display the `CommandResult` after execution.
+
+The sequence diagram below illustrates the process of calling `listCat` successfully:
+
+<img src="images/ListCategorySequenceDiagram.png"/>
+
 
 ---
 
@@ -709,10 +731,4 @@ testers are expected to do more *exploratory* testing.
    1. Other incorrect delete commands to try: `delete`, `delete x`, `...` (where x is larger than the list size)<br>
       Expected: Similar to previous.
 
-### Saving data
 
-1. Dealing with missing/corrupted data files
-
-   1. _{explain how to simulate a missing/corrupted file, and the expected behavior}_
-
-1. _{ more test cases …​ }_
