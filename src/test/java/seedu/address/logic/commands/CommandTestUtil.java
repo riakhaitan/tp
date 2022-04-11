@@ -20,7 +20,10 @@ import seedu.address.model.ExpenseExpert;
 import seedu.address.model.Model;
 import seedu.address.model.expense.DescriptionContainsKeywordsPredicate;
 import seedu.address.model.expense.Expense;
+import seedu.address.model.person.Person;
+import seedu.address.model.person.PersonNameContainsKeywordsPredicate;
 import seedu.address.testutil.EditExpenseDescriptorBuilder;
+import seedu.address.testutil.EditPersonDescriptorBuilder;
 
 /**
  * Contains helper methods for testing commands.
@@ -94,6 +97,8 @@ public class CommandTestUtil {
 
     public static final seedu.address.logic.commands.EditCommand.EditExpenseDescriptor DESC_ANNUAL_SPOTIFY_FEES;
     public static final seedu.address.logic.commands.EditCommand.EditExpenseDescriptor DESC_BUILD_A_BEAR;
+    public static final seedu.address.logic.commands.EditPersonCommand.EditPersonDescriptor ALEX;
+    public static final seedu.address.logic.commands.EditPersonCommand.EditPersonDescriptor BOB;
 
     public static final String INVALID_AMOUNT_DESC = " " + PREFIX_AMOUNT + "2!";
     public static final String INVALID_DESCRIPTION_DESC = " " + PREFIX_DESCRIPTION + "B@sketb@ll";
@@ -116,6 +121,9 @@ public class CommandTestUtil {
                 .withExpenseCategory(VALID_EXPENSE_CATEGORY_ENTERTAINMENT)
                 .withAmount(VALID_AMOUNT_BUILD_A_BEAR)
                 .withExpenseDate(VALID_EXPENSE_DATE_BUILD_A_BEAR).build();
+
+        ALEX = new EditPersonDescriptorBuilder().withPersonAmount(VALID_PERSON_1_AMOUNT).build();
+        BOB = new EditPersonDescriptorBuilder().withPersonAmount(VALID_PERSON_2_AMOUNT).build();
     }
 
     /**
@@ -174,14 +182,18 @@ public class CommandTestUtil {
         assertEquals(1, model.getFilteredExpenseList().size());
     }
 
-    //    public static void showPersonAtIndex(Model model, Index targetIndex) {
-    //        assertTrue(targetIndex.getZeroBased() < model.getFilteredPersonList().size());
-    //
-    //        Person person = model.getFilteredPersonList().get(targetIndex.getZeroBased());
-    //        final String[] splitName = person.getPersonName().personName.split("\\s+");
-    //        model.updateFilteredPersonList(new DescriptionContainsKeywordsPredicate(Arrays.asList(splitName[0])));
-    //
-    //        assertEquals(1, model.getFilteredExpenseList().size());
-    //    }
+    /**
+     * Updates {@code model}'s filtered list to show only the person at the given {@code targetIndex} in the
+     * {@code model}'s ExpenseExpert.
+     */
+    public static void showPersonAtIndex(Model model, Index targetIndex) {
+        assertTrue(targetIndex.getZeroBased() < model.getFilteredPersonList().size());
+
+        Person person = model.getFilteredPersonList().get(targetIndex.getZeroBased());
+        final String[] splitName = person.getPersonName().personName.split("\\s+");
+        model.updateFilteredPersonList(new PersonNameContainsKeywordsPredicate(Arrays.asList(splitName[0])));
+
+        assertEquals(1, model.getFilteredPersonList().size());
+    }
 
 }
