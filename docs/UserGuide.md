@@ -15,8 +15,8 @@ Expense Expert is a **desktop app for keeping track of your expenses, and managi
     - [Deleting an expense: ](#deleting-an-expense--delete) `delete`
     - [Editing an expense: ](#editing-an-expense--edit) `edit`
     - [Listing all expenses: ](#listing-all-expenses--list) `list`
-    - [Filtering expenses: ](#filtering-expenses-filter) `filter`
-    - [Finding expenses: ](#finding-expenses-find) `find`
+    - [Filtering expense(s): ](#filtering-expenses-filter) `filter`
+    - [Finding expense(s): ](#finding-expenses-find) `find`
     - [Setting a monthly budget: ](#setting-a-monthly-budget-budget) `budget`
     - [Adding an Expense Category: ](#adding-an-expense-category-addcat) `addCat`
     - [Listing all Expense Categories: ](#listing-all-expense-categories-listcat) `listCat`
@@ -167,7 +167,7 @@ _This is the result of executing the command(s) above:_
 
 ![List](images/ListCommandExample.png)
 
-### Filtering expenses: `filter`
+### Filtering expense(s): `filter`
 
 Filters the expenses with the date or category provided. At least one of the fields in brackets need to be present.
 Date format must be provided in yyyy-MM-dd format or in yyyy-MM format. If date provided is in yyyy-MM format,
@@ -191,7 +191,7 @@ _Result of executing`filter ft/2022-03` is shown below:_
 
 **Disclaimer** : result may vary depending upon the existing data in ExpenseExpert.
 
-### Finding expenses: `find`
+### Finding expense(s): `find`
 
 Finds expense(s) with the stated keyword(s) in descriptors. If more than one keyword is provided, returns list of expenses with expense description that matches any of the keywords provided.
 
@@ -344,20 +344,20 @@ If your changes to the data file makes its format invalid, Expense Expert will d
 
 ## Command summary
 
-| Action                                                     | Format, Examples                                                                                                                          |
-|------------------------------------------------------------| ----------------------------------------------------------------------------------------------------------------------------------------- |
-| **Getting help**                                           | `help`                                                                                                                                    |
-| **Adding an expense**                                      | `add d/DESCRIPTION a/AMOUNT [c/EXPENSE_CATEGORY] t/EXPENSE_DATE ` <br> Example: `add d/Lunch at VivoCity a/12.95 c/Food t/2022-03-20`     |
-| **Deleting an expense**                                    | `delete INDEX`<br> Example: `delete 3`                                                                                                    |
-| **Editing an expense**                                     | `edit INDEX (d/DESCRIPTION) (a/AMOUNT) (c/EXPENSE_CATEGORY) (t/EXPENSE_DATE)`<br> Example: `edit 2 d/Lunch at Harbourfront Centre a/6.50` |
-| **Listing all expenses**                                   | `list`                                                                                                                                    |
-| **Filtering expense(s)**                                   | `filter (ft/FILTER_DATE) (c/CATEGORY)` <br> Example: `filter ft/2022-03 c/Transport`                                                      |
-| **Finding expense(s)**                                     | `find KEYWORD [MORE_KEYWORDS]` <br> Example: `find Cafe Grab Basketball`                                                                  |
-| **Setting a budget**                                       | `budget a/AMOUNT` <br> Example: `budget a/1000`                                                                                           |
-| **Adding an expense category**                             | `addCat c/EXPENSE_CATEGORY` <br> Example: `addCat c/transport`                                                                            |
-| **Listing all expense category**                           | `listCat`                                                                                                                                 |
-| **Adding a person who owes a said amount of money**        | `person n/PERSON_NAME a/PERSON_AMOUNT` <br> Example: `person n/Alex a/50`                                                                 |
-| **Marking off a person who paid the said amount of money** | `paid INDEX` <br> Example: `paid 1`<br/>                                                                                                  |
-| **Updating the amount of money a person owes**             | `update INDEX a/AMOUNT`<br/> Example: `update 4 a/200`                                                                                    |
-| **Clearing all data (expense and person)**                 | `clear`<br/>                                                                                                                              |
-| **Exiting the application**                                | `exit`                                                                                                                                    |
+| Action                                        | Format, Examples                                                                                                                          |
+|-----------------------------------------------| ----------------------------------------------------------------------------------------------------------------------------------------- |
+| **Getting help**                              | `help`                                                                                                                                    |
+| **Adding an expense**                         | `add d/DESCRIPTION a/AMOUNT [c/EXPENSE_CATEGORY] t/EXPENSE_DATE ` <br> Example: `add d/Lunch at VivoCity a/12.95 c/Food t/2022-03-20`     |
+| **Deleting an expense**                       | `delete INDEX`<br> Example: `delete 3`                                                                                                    |
+| **Editing an expense**                        | `edit INDEX (d/DESCRIPTION) (a/AMOUNT) (c/EXPENSE_CATEGORY) (t/EXPENSE_DATE)`<br> Example: `edit 2 d/Lunch at Harbourfront Centre a/6.50` |
+| **Listing all expenses**                      | `list`                                                                                                                                    |
+| **Filtering expense(s)**                      | `filter (ft/FILTER_DATE) (c/CATEGORY)` <br> Example: `filter ft/2022-03 c/Transport`                                                      |
+| **Finding expense(s)**                        | `find KEYWORD [MORE_KEYWORDS]` <br> Example: `find Cafe Grab Basketball`                                                                  |
+| **Setting a monthly budget**                  | `budget a/AMOUNT` <br> Example: `budget a/1000`                                                                                           |
+| **Adding an expense category**                | `addCat c/EXPENSE_CATEGORY` <br> Example: `addCat c/transport`                                                                            |
+| **Listing all expense category**              | `listCat`                                                                                                                                 |
+| **Adding a person who owes you money**        | `person n/PERSON_NAME a/PERSON_AMOUNT` <br> Example: `person n/Alex a/50`                                                                 |
+| **Removing a person who paid the owed money** | `paid INDEX` <br> Example: `paid 1`<br/>                                                                                                  |
+| **Updating the amount a person owes you**     | `update INDEX a/AMOUNT`<br/> Example: `update 4 a/200`                                                                                    |
+| **Clearing all data (expense and person)**    | `clear`<br/>                                                                                                                              |
+| **Exiting the application**                   | `exit`                                                                                                                                    |
