@@ -17,6 +17,7 @@ activate LogicManager
 
 LogicManager -> ExpenseExpertParser : parseCommand("ListCat ")
 activate ExpenseExpertParser
+create ListCategoryCommand
 
 ExpenseExpertParser -> ListCategoryCommand
 activate ListCategoryCommand
