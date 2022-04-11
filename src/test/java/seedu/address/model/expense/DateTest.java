@@ -6,6 +6,9 @@ import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static seedu.address.testutil.Assert.assertThrows;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+
 import org.junit.jupiter.api.Test;
 
 class DateTest {
@@ -49,5 +52,19 @@ class DateTest {
 
         assertNotEquals("January", new Date("2020-02-01").getMonth());
         assertNotEquals("february", new Date("2020-02-01").getMonth());
+    }
+
+    @Test
+    public void isOutdated() {
+        String currentDateString = LocalDate.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
+        String invalidMonthString = currentDateString.substring(0, 5)
+                + String.format("%02d", (Integer.valueOf(currentDateString.substring(5, 7)) + 1) % 12)
+                + currentDateString.substring(7);
+        String invalidYearString = "1900" + currentDateString.substring(4);
+        Date currentDate = new Date(currentDateString);
+
+        assertFalse(currentDate.isOutdated());
+        assertTrue(new Date(invalidMonthString).isOutdated());
+        assertTrue(new Date(invalidYearString).isOutdated());
     }
 }

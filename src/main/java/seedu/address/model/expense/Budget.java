@@ -69,7 +69,7 @@ public class Budget {
      * used to check whether the budget has been depleted.
      */
     public boolean isUndefined() {
-        return this.budgetAmount.isZero();
+        return this.budgetDate.isOutdated();
     }
 
     @Override

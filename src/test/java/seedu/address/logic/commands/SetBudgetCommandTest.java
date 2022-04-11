@@ -43,7 +43,7 @@ public class SetBudgetCommandTest {
     @Test
     public void execute_zeroBudgetAcceptedByModel_setSuccessful() throws Exception {
         ModelStubAcceptingBudgetSet modelStub = new ModelStubAcceptingBudgetSet();
-        Budget validBudget = new BudgetBuilder().withBudgetAmount("0.00").build();
+        Budget validBudget = new BudgetBuilder().withBudgetDate("1900-11-11").build();
 
         CommandResult commandResult = new SetBudgetCommand(validBudget).execute(modelStub);
 

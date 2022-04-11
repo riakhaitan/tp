@@ -1,5 +1,8 @@
 package seedu.address.testutil;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+
 import seedu.address.model.expense.Amount;
 import seedu.address.model.expense.Budget;
 import seedu.address.model.expense.Date;
@@ -10,7 +13,7 @@ import seedu.address.model.expense.Date;
 public class BudgetBuilder {
 
     public static final String DEFAULT_BUDGET_AMOUNT = "700";
-    public static final String DEFAULT_BUDGET_DATE = "2022-01-01";
+    public static final String DEFAULT_BUDGET_DATE = LocalDate.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
 
     private Amount budgetAmount;
     private Date budgetDate;
