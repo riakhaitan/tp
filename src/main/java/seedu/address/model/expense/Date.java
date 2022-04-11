@@ -59,6 +59,16 @@ public class Date {
         return date.format(DateTimeFormatter.ofPattern("MMMM"));
     }
 
+    /**
+     * Returns whether date is outdated i.e. not from this month, this year.
+     */
+    public boolean isOutdated() {
+        boolean monthUpdated = LocalDate.now().getMonthValue() == (date.getMonthValue());
+        boolean yearUpdated = (LocalDate.now().getYear() == (date.getYear()));
+
+        return !(monthUpdated && yearUpdated);
+    }
+
     @Override
     public String toString() {
         return date.format(dtf);

@@ -24,6 +24,8 @@ import seedu.address.model.ExpenseExpert;
 import seedu.address.model.Model;
 import seedu.address.model.ModelManager;
 import seedu.address.model.UserPrefs;
+import seedu.address.model.expense.Amount;
+import seedu.address.model.expense.Budget;
 import seedu.address.model.expense.Expense;
 import seedu.address.testutil.EditExpenseDescriptorBuilder;
 import seedu.address.testutil.ExpenseBuilder;
@@ -45,8 +47,9 @@ public class EditCommandTest {
 
         Model expectedModel = new ModelManager(new ExpenseExpert(model.getExpenseExpert()), new UserPrefs());
         expectedModel.setExpense(model.getFilteredExpenseList().get(0), editedExpense);
+        setNewBudget(expectedModel, model.getFilteredExpenseList().get(0), editedExpense);
 
-        assertCommandSuccess(editCommand, model, expectedMessage, model);
+        assertCommandSuccess(editCommand, model, expectedMessage, expectedModel);
     }
 
     @Test
@@ -71,8 +74,9 @@ public class EditCommandTest {
 
         Model expectedModel = new ModelManager(new ExpenseExpert(model.getExpenseExpert()), new UserPrefs());
         expectedModel.setExpense(lastExpense, editedExpense);
+        setNewBudget(expectedModel, lastExpense, editedExpense);
 
-        assertCommandSuccess(editCommand, model, expectedMessage, model);
+        assertCommandSuccess(editCommand, model, expectedMessage, expectedModel);
     }
 
     @Test
@@ -83,8 +87,8 @@ public class EditCommandTest {
         String expectedMessage = String.format(EditCommand.MESSAGE_EDIT_EXPENSE_SUCCESS, editedExpense);
 
         Model expectedModel = new ModelManager(new ExpenseExpert(model.getExpenseExpert()), new UserPrefs());
-
-        assertCommandSuccess(editCommand, model, expectedMessage, model);
+        noNewBudget(expectedModel, editedExpense);
+        assertCommandSuccess(editCommand, model, expectedMessage, expectedModel);
     }
 
     @Test
@@ -101,8 +105,10 @@ public class EditCommandTest {
 
         Model expectedModel = new ModelManager(new ExpenseExpert(model.getExpenseExpert()), new UserPrefs());
         expectedModel.setExpense(model.getFilteredExpenseList().get(0), editedExpense);
+        setNewBudget(expectedModel, model.getFilteredExpenseList().get(0), editedExpense);
 
-        assertCommandSuccess(editCommand, model, expectedMessage, model);
+
+        assertCommandSuccess(editCommand, model, expectedMessage, expectedModel);
     }
 
     @Test
@@ -176,6 +182,30 @@ public class EditCommandTest {
 
         // different descriptor -> returns false
         assertFalse(standardCommand.equals(new EditCommand(INDEX_FIRST_EXPENSE, DESC_BUILD_A_BEAR)));
+    }
+
+    /**
+     * Update's model's budget according to the new transaction recorded.
+     */
+    private void setNewBudget(Model model, Expense expenseToEdit, Expense editedExpense) {
+        double difference = expenseToEdit.getAmount().amount - editedExpense.getAmount().amount;
+        String amt = String.valueOf((model.getBudget().getBudgetAmount().amount + difference));
+        Amount newAmount = new Amount(amt);
+        Budget budget = new Budget(newAmount);
+        model.setBudget(budget);
+    }
+
+    /**
+     * Update's model's budget according to the new transaction recorded.
+     * @param model model whose budget is to be updated.
+     * @param editedExpense the edited transaction
+     */
+    private void noNewBudget(Model model, Expense editedExpense) {
+        double difference = editedExpense.getAmount().amount - editedExpense.getAmount().amount;
+        String amt = String.valueOf((model.getBudget().getBudgetAmount().amount + difference));
+        Amount newAmount = new Amount(amt);
+        Budget budget = new Budget(newAmount);
+        model.setBudget(budget);
     }
 
 }

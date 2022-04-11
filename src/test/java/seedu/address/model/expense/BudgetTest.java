@@ -6,7 +6,8 @@ import static seedu.address.logic.commands.CommandTestUtil.VALID_BUDGET_AMOUNT_A
 import static seedu.address.logic.commands.CommandTestUtil.VALID_BUDGET_AMOUNT_BETA;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_BUDGET_DATE_ALPHA;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_BUDGET_DATE_BETA;
-import static seedu.address.logic.commands.CommandTestUtil.VALID_UNDEFINED_BUDGET_AMOUNT;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_OUTDATED_DATE;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_UPDATED_DATE;
 import static seedu.address.testutil.TypicalBudgets.ALPHA_BUDGET;
 import static seedu.address.testutil.TypicalBudgets.BETA_BUDGET;
 
@@ -39,8 +40,8 @@ public class BudgetTest {
 
     @Test
     public void isUndefined() {
-        Budget alphaCopy = new BudgetBuilder(ALPHA_BUDGET).build();
-        Budget betaCopy = new BudgetBuilder(BETA_BUDGET).withBudgetAmount(VALID_UNDEFINED_BUDGET_AMOUNT).build();
+        Budget alphaCopy = new BudgetBuilder(ALPHA_BUDGET).withBudgetDate(VALID_UPDATED_DATE).build();
+        Budget betaCopy = new BudgetBuilder(BETA_BUDGET).withBudgetDate(VALID_OUTDATED_DATE).build();
 
         assertFalse(alphaCopy.isUndefined());
         assertTrue(betaCopy.isUndefined());

@@ -3,20 +3,21 @@ layout: page
 title: User Guide
 ---
 
-Expense Expert is a **desktop app for keeping track of your expenses, and managing your budget, optimized for use via a Command Line Interface** (CLI) while still having the benefits of a Graphical User Interface (GUI). If you can type fast, Expense Expert can get your expense management done faster than traditional GUI apps.
+Expense Expert is a **desktop app for keeping track of your expenses, and managing your budget, optimized for use via a Command Line Interface** (CLI) enhanced with a light-weight Graphical User Interface (GUI). If you can type fast, Expense Expert can get your expense management done faster than traditional GUI apps.
 
 ## Table of Contents
 
 - [Quick Start](#quick-start)
+- [Breakdown of the UI](#breakdown-of-the-ui)
 - [Features](#features)
-  - [Commands](#adding-an-expense--add)
+  - [Commands](#commands)
     - [Viewing help: ](#viewing-help--help) `help`
     - [Adding an expense: ](#adding-an-expense--add) `add`
     - [Deleting an expense: ](#deleting-an-expense--delete) `delete`
     - [Editing an expense: ](#editing-an-expense--edit) `edit`
     - [Listing all expenses: ](#listing-all-expenses--list) `list`
-    - [Filtering expenses: ](#filtering-expenses-filter) `filter`
-    - [Finding expenses: ](#finding-expenses-find) `find`
+    - [Filtering expense(s): ](#filtering-expenses-filter) `filter`
+    - [Finding expense(s): ](#finding-expenses-find) `find`
     - [Setting a monthly budget: ](#setting-a-monthly-budget-budget) `budget`
     - [Adding an Expense Category: ](#adding-an-expense-category-addcat) `addCat`
     - [Listing all Expense Categories: ](#listing-all-expense-categories-listcat) `listCat`
@@ -25,10 +26,9 @@ Expense Expert is a **desktop app for keeping track of your expenses, and managi
     - [Updating the amount a person owes you: ](#updating-the-amount-a-person-owes-you-update) `update`
     - [Clearing the program data: ](#clearing-the-program-data--clear) `clear`
     - [Exiting the program: ](#exiting-the-program--exit) `exit`
-  - [Storage](#saving-the-data)
+  - [Storage](#storage)
     - [Saving the data](#saving-the-data)
     - [Editing the data file](#editing-the-data-file)
-    - [Archiving data files](#archiving-data-files-coming-in-v20)
 - [FAQ](#faq)
 - [Command summary](#command-summary)
 
@@ -38,14 +38,15 @@ Expense Expert is a **desktop app for keeping track of your expenses, and managi
 
 1. Ensure you have Java `11` or above installed in your Computer.
 
-1. Download the latest `ExpenseExpert.jar` from [here](https://github.com/AY2122S2-CS2103T-W09-3/tp/releases).
+2. Download the latest `expenseexpert.jar` from [here](https://github.com/AY2122S2-CS2103T-W09-3/tp/releases).
 
-1. Copy the file to the folder you want to use as the _home folder_ for your Expense Expert.
+3. Copy the file to the folder you want to use as the _home folder_ for your Expense Expert.
 
-1. Double-click the file to start the app. The GUI similar to the below should appear in a few seconds. Note how the app contains some sample data.<br>
+4. Double-click the file to start the app. The GUI similar to the below should appear in a few seconds. 
+5. The data is just for demonstration purposes. When you launch ExpenseExpert for the first time, it is not preloaded with any data.<br>
    ![Ui](images/Ui.png)
 
-1. Type the command in the command box and press Enter to execute it. e.g. typing **`help`** and pressing Enter will open the help window.<br>
+6. Type the command in the command box and press Enter to execute it. e.g. typing **`help`** and pressing Enter will open the help window.<br>
    Some example commands you can try:
 
    - **`list`** : Lists all the expenses you have recorded.
@@ -56,20 +57,20 @@ Expense Expert is a **desktop app for keeping track of your expenses, and managi
 
    - **`exit`** : Exits the app for you.
 
-1. Refer to the [Features](#features) below for details of each command.
+7. Refer to the [Features](#features) below for details of each command.
 
 ---
 
-# Breakdown of the UI
+## Breakdown of the UI
 
 ![Ui](images/Ui_Breakdown.png)
 
-1. **Menu Bar** : To facilitate quick access to the help window. Also allows you to quit the application through the file button.
-2. **Command Box**: To allow the user to enter the desired commands.
-3. **Budget Display Box**: This allows the user to see their remaining budget.
-4. **Result Box**: The result and action of the user entered command is displayed here.
-5. **Expense List**: This is the list of the expenses entered by the user.
-6. **Person List**: This is the list of the people who owe the user the said money.
+1. **Menu Bar** : Facilitate quick access to the help window. Quiting of the application can also be done through the file drop-down option.
+2. **Command Box**: Allows the user to input commands.
+3. **Budget Display Box**: Displays the remaining budget.
+4. **Result Box**: Displays the results of the command that the user parsed.
+5. **Expense List**: List of expenses (can be all the expenses or filtered list if command had been passed).
+6. **Person List**: List of people who owe the user the said sum of money.
 
 ---
 
@@ -77,7 +78,7 @@ Expense Expert is a **desktop app for keeping track of your expenses, and managi
 
 <div markdown="block" class="alert alert-info">
 
-**:information_source: Notes about the command format:**<br>
+**information_source: Notes about the command format:**<br>
 
 - Words in `UPPER_CASE` are the parameters to be supplied by the user.<br>
   e.g. in `d/DESCRIPTION`, `DESCRIPTION` is a parameter which can be used as `d/Dinner at ECP`.
@@ -99,9 +100,11 @@ Expense Expert is a **desktop app for keeping track of your expenses, and managi
 
 </div>
 
+## Commands
 ### Viewing help : `help`
 
-Shows a message explaining how to access the help page, can also show the usage of a particular command.
+Shows a help window explaining how to use each command, with an added link to the user guide. 
+It can also show the usage of a particular command.
 
 ![Help](images/Help_Ui.png)
 
@@ -110,7 +113,7 @@ Format: `help [COMMAND_NAME]`
 ### Adding an expense : `add`
 
 Adds an expense to the list. Description and expense category provided must be in alphanumerical format, amount can only be positive number up to 2 decimal places
-and expense date must be in yyyy-MM-dd format. Expense category must be from a list of user-defined categories. If Expense category is undefined, it will default to the `General` Expense Category
+and expense date must be in yyyy-MM-dd format. Description must be unique and different from all other expenses in Expense Expert. Expense category must be from a list of user-defined categories. If Expense category is undefined, it will default to the `General` Expense Category.
 
 Format: `add d/DESCRIPTION a/AMOUNT [c/EXPENSE_CATEGORY] t/EXPENSE_DATE`
 
@@ -125,7 +128,6 @@ _This is the result of executing the command(s) above:_
 
 ![Add](images/AddCommandExample1.png)
 
-
 ### Deleting an expense : `delete`
 
 Deletes the expense specified by the index from the list. Run `list` before executing the command to identify the index of the expense.
@@ -138,9 +140,7 @@ Examples:
 
 _This is the result of executing the command(s) above:_
 
-
 ![Delete](images/DeleteCommandExample.png)
-
 
 ### Editing an expense : `edit`
 
@@ -156,9 +156,7 @@ Examples:
 
 _This is the result of executing the command(s) above:_
 
-
 ![Edit](images/EditCommandExample.png)
-
 
 ### Listing all expenses : `list`
 
@@ -168,13 +166,11 @@ Format: `list`
 
 _This is the result of executing the command(s) above:_
 
-
 ![List](images/ListCommandExample.png)
 
+### Filtering expense(s): `filter`
 
-### Filtering expenses: `filter`
-
-Filters expenses with the date or category provided. At least one of the fields in brackets need to be present.
+Filters the expenses with the date or category provided. At least one of the fields in brackets need to be present.
 Date format must be provided in yyyy-MM-dd format or in yyyy-MM format. If date provided is in yyyy-MM format,
 the displayed will include all the results of that month.
 
@@ -187,13 +183,16 @@ Examples:
 - `filter c/Transport`
 - `filter ft/2022-03 c/Transport`
 
-_This is the result of executing the command(s) above:_
+The expense list before executing the `filter` command looked as follows:
+![Filter](images/Sample_Data_For_Filter.png)
 
+_Result of executing`filter ft/2022-03` is shown below:_
 
 ![Filter](images/FilterCommandExample.png)
 
+**Disclaimer** : result may vary depending upon the existing data in ExpenseExpert.
 
-### Finding expenses: `find`
+### Finding expense(s): `find`
 
 Finds expense(s) with the stated keyword(s) in descriptors. If more than one keyword is provided, returns list of expenses with expense description that matches any of the keywords provided.
 
@@ -204,20 +203,23 @@ Examples:
 - `find Cafe`
 - `find Cafe Grab`
 
-_This is the result of executing the command(s) above:_
+The expense list before executing the `find` command looked as follows:
+![Filter](images/Sample_Data_For_Find.png)
 
+
+_Result of executing `find Cafe` is shown below:_
 
 ![Find](images/FindCommandExample.png)
 
+**Disclaimer** : result may vary depending upon the existing data in ExpenseExpert.
 
 ### Setting a monthly Budget: `budget`
 
 Sets a budget for the month.
 
-_The `add`, `delete` and `edit` command affect the monthly budget to reflect the remaining budget. 
+_The `add`, `delete` and `edit` command affect the monthly budget to reflect the user's remaining budget.
 However, due to an incomplete implementation of the budget, transaction for every month are reflected in the current month's budget.
 This is going to be rectified in the future iterations._
-
 
 Format: `budget a/AMOUNT`
 
@@ -227,9 +229,7 @@ Examples:
 
 _This is the result of executing the command(s) above:_
 
-
 ![Budget](images/BudgetCommandExample.png)
-
 
 ### Adding an Expense Category: `addCat`
 
@@ -243,9 +243,7 @@ Examples:
 
 _This is the result of executing the command(s) above:_
 
-
 ![AddCategory](images/AddCategoryCommandExample.png)
-
 
 ### Listing all Expense Categories: `listCat`
 
@@ -255,9 +253,7 @@ Format: `listCat`
 
 _This is the result of executing the command(s) above:_
 
-
 ![ListCategory](images/ListCategoryCommandExample.png)
-
 
 ---
 
@@ -278,9 +274,7 @@ Examples:
 
 _This is the result of executing the command(s) above:_
 
-
 ![Person](images/PersonCommandExample.png)
-
 
 ### Removing a person who has paid the owed money: `paid`
 
@@ -294,9 +288,7 @@ Examples:
 
 _This is the result of executing the command(s) above:_
 
-
 ![Paid](images/PaidCommandExample.png)
-
 
 ### Updating the amount a person owes you: `update`
 
@@ -310,9 +302,7 @@ Examples:
 
 _This is the result of executing the command(s) above:_
 
-
 ![Update](images/UpdateCommandExample.png)
-
 
 ---
 
@@ -324,9 +314,7 @@ Format: `clear`
 
 _This is the result of executing the command(s) above:_
 
-
 ![Clear](images/ClearCommandExample.png)
-
 
 ### Exiting the program : `exit`
 
@@ -334,6 +322,7 @@ Exits the program.
 
 Format: `exit`
 
+## Storage
 ### Saving the data
 
 Expense Expert data are saved in the hard disk automatically after any command that changes the data. There is no need to save manually.
@@ -353,24 +342,27 @@ If your changes to the data file makes its format invalid, Expense Expert will d
 **Q**: How can I transfer my data to another Computer?<br>
 **A**: Install the app in the other computer and overwrite the empty data file it creates with the file that contains the data of your previous Expense Expert home folder.
 
+**Q**: Can I archive the data files?
+**A**: At the moment, the application doesn't support archiving. It will be available in v2.0.
+
 ---
 
 ## Command summary
 
-| Action      | Format, Examples                                                                                                                          |
-| ----------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
-| **Help**    | `help`                                                                                                                                    |
-| **Add**     | `add d/DESCRIPTION a/AMOUNT [c/EXPENSE_CATEGORY] t/EXPENSE_DATE ` <br> Example: `add d/Lunch at VivoCity a/12.95 c/Food t/2022-03-20`     |
-| **Delete**  | `delete INDEX`<br> Example: `delete 3`                                                                                                    |
-| **Edit**    | `edit INDEX (d/DESCRIPTION) (a/AMOUNT) (c/EXPENSE_CATEGORY) (t/EXPENSE_DATE)`<br> Example: `edit 2 d/Lunch at Harbourfront Centre a/6.50` |
-| **List**    | `list`                                                                                                                                    |
-| **Filter**  | `filter (ft/FILTER_DATE) (c/CATEGORY)` <br> Example: `filter ft/2022-03 c/Transport`                                                      |
-| **Find**    | `find KEYWORD [MORE_KEYWORDS]` <br> Example: `find Cafe Grab Basketball`                                                                  |
-| **Budget**  | `budget a/AMOUNT` <br> Example: `budget a/1000`                                                                                           |
-| **AddCat**  | `addCat c/EXPENSE_CATEGORY` <br> Example: `addCat c/transport`                                                                            |
-| **ListCat** | `listCat`                                                                                                                                 |
-| **Person**  | `person n/PERSON_NAME a/PERSON_AMOUNT` <br> Example: `person n/Alex a/50`                                                                 |
-| **Paid**    | `paid INDEX` <br> Example: `paid 1`<br/>                                                                                                  |
-| **Update**  | `update INDEX a/AMOUNT`<br/> Example: `update 4 a/200`                                                                                    |
-| **Clear**   | `clear`<br/>                                                                                                                              |
-| **Exit**    | `exit`                                                                                                                                    |
+| Action                                        | Format, Examples                                                                                                                          |
+|-----------------------------------------------| ----------------------------------------------------------------------------------------------------------------------------------------- |
+| **Getting help**                              | `help`                                                                                                                                    |
+| **Adding an expense**                         | `add d/DESCRIPTION a/AMOUNT [c/EXPENSE_CATEGORY] t/EXPENSE_DATE ` <br> Example: `add d/Lunch at VivoCity a/12.95 c/Food t/2022-03-20`     |
+| **Deleting an expense**                       | `delete INDEX`<br> Example: `delete 3`                                                                                                    |
+| **Editing an expense**                        | `edit INDEX (d/DESCRIPTION) (a/AMOUNT) (c/EXPENSE_CATEGORY) (t/EXPENSE_DATE)`<br> Example: `edit 2 d/Lunch at Harbourfront Centre a/6.50` |
+| **Listing all expenses**                      | `list`                                                                                                                                    |
+| **Filtering expense(s)**                      | `filter (ft/FILTER_DATE) (c/CATEGORY)` <br> Example: `filter ft/2022-03 c/Transport`                                                      |
+| **Finding expense(s)**                        | `find KEYWORD [MORE_KEYWORDS]` <br> Example: `find Cafe Grab Basketball`                                                                  |
+| **Setting a monthly budget**                  | `budget a/AMOUNT` <br> Example: `budget a/1000`                                                                                           |
+| **Adding an expense category**                | `addCat c/EXPENSE_CATEGORY` <br> Example: `addCat c/transport`                                                                            |
+| **Listing all expense category**              | `listCat`                                                                                                                                 |
+| **Adding a person who owes you money**        | `person n/PERSON_NAME a/PERSON_AMOUNT` <br> Example: `person n/Alex a/50`                                                                 |
+| **Removing a person who paid the owed money** | `paid INDEX` <br> Example: `paid 1`<br/>                                                                                                  |
+| **Updating the amount a person owes you**     | `update INDEX a/AMOUNT`<br/> Example: `update 4 a/200`                                                                                    |
+| **Clearing the program data**                 | `clear`<br/>                                                                                                                              |
+| **Exiting the program**                       | `exit`                                                                                                                                    |
