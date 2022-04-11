@@ -18,16 +18,11 @@ import seedu.address.model.person.PersonName;
 public class SampleDataUtil {
     public static Expense[] getSampleExpenses() {
         return new Expense[] {
-            new Expense(new Description("Lunch"),
-                    new ExpenseCategory("General"), new Amount("89"), new Date("2002-02-02")),
-            new Expense(new Description("Bought clothes"),
-                    new ExpenseCategory("General"), new Amount("25"), new Date("2002-02-02")),
         };
     }
 
     public static Person[] getSamplePersons() {
-        return new Person[] {
-            new Person(new PersonName("Alex"), new PersonAmount("20"))};
+        return new Person[] {};
     }
 
     public static ExpenseCategory[] getSampleCategories() {
