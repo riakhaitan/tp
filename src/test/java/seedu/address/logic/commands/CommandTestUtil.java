@@ -182,14 +182,18 @@ public class CommandTestUtil {
         assertEquals(1, model.getFilteredExpenseList().size());
     }
 
-        public static void showPersonAtIndex(Model model, Index targetIndex) {
-            assertTrue(targetIndex.getZeroBased() < model.getFilteredPersonList().size());
+    /**
+     * Updates {@code model}'s filtered list to show only the person at the given {@code targetIndex} in the
+     * {@code model}'s ExpenseExpert.
+     */
+    public static void showPersonAtIndex(Model model, Index targetIndex) {
+        assertTrue(targetIndex.getZeroBased() < model.getFilteredPersonList().size());
 
-            Person person = model.getFilteredPersonList().get(targetIndex.getZeroBased());
-            final String[] splitName = person.getPersonName().personName.split("\\s+");
-            model.updateFilteredPersonList(new PersonNameContainsKeywordsPredicate(Arrays.asList(splitName[0])));
+        Person person = model.getFilteredPersonList().get(targetIndex.getZeroBased());
+        final String[] splitName = person.getPersonName().personName.split("\\s+");
+        model.updateFilteredPersonList(new PersonNameContainsKeywordsPredicate(Arrays.asList(splitName[0])));
 
-            assertEquals(1, model.getFilteredPersonList().size());
-        }
+        assertEquals(1, model.getFilteredPersonList().size());
+    }
 
 }

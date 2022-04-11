@@ -1,13 +1,14 @@
 package seedu.address.logic.commands;
 
-import org.junit.jupiter.api.Test;
-import seedu.address.testutil.EditExpenseDescriptorBuilder;
-import seedu.address.testutil.EditPersonDescriptorBuilder;
-
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-import static seedu.address.logic.commands.CommandTestUtil.*;
-import static seedu.address.logic.commands.CommandTestUtil.DESC_ANNUAL_SPOTIFY_FEES;
+import static seedu.address.logic.commands.CommandTestUtil.ALEX;
+import static seedu.address.logic.commands.CommandTestUtil.BOB;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_PERSON_1_AMOUNT;
+
+import org.junit.jupiter.api.Test;
+
+import seedu.address.testutil.EditPersonDescriptorBuilder;
 
 public class EditPersonDescriptorTest {
     @Test

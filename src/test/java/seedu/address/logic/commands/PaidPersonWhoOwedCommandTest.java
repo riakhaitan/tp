@@ -1,6 +1,16 @@
 package seedu.address.logic.commands;
 
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static seedu.address.logic.commands.CommandTestUtil.assertCommandFailure;
+import static seedu.address.logic.commands.CommandTestUtil.assertCommandSuccess;
+import static seedu.address.logic.commands.CommandTestUtil.showPersonAtIndex;
+import static seedu.address.testutil.TypicalExpenses.getTypicalExpenseExpert;
+import static seedu.address.testutil.TypicalIndexes.INDEX_FIRST_EXPENSE;
+import static seedu.address.testutil.TypicalIndexes.INDEX_SECOND_EXPENSE;
+
 import org.junit.jupiter.api.Test;
+
 import seedu.address.commons.core.Messages;
 import seedu.address.commons.core.index.Index;
 import seedu.address.model.Model;
@@ -10,15 +20,6 @@ import seedu.address.model.expense.Amount;
 import seedu.address.model.expense.Budget;
 import seedu.address.model.expense.Expense;
 import seedu.address.model.person.Person;
-
-import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertTrue;
-import static seedu.address.logic.commands.CommandTestUtil.assertCommandFailure;
-import static seedu.address.logic.commands.CommandTestUtil.assertCommandSuccess;
-import static seedu.address.logic.commands.CommandTestUtil.showPersonAtIndex;
-import static seedu.address.testutil.TypicalExpenses.getTypicalExpenseExpert;
-import static seedu.address.testutil.TypicalIndexes.INDEX_FIRST_EXPENSE;
-import static seedu.address.testutil.TypicalIndexes.INDEX_SECOND_EXPENSE;
 
 /**
  * Test class to test the methods of the PaidPersonWhoOwedCommand class.
@@ -50,7 +51,7 @@ public class PaidPersonWhoOwedCommandTest {
     @Test
     public void execute_invalidIndexUnfilteredList_throwsCommandException() {
         Index outOfBoundIndex = Index.fromOneBased(model.getFilteredPersonList().size() + 1);
-        PaidPersonWhoOwedCommand paidPersonWhoOwedCommand= new PaidPersonWhoOwedCommand(outOfBoundIndex);
+        PaidPersonWhoOwedCommand paidPersonWhoOwedCommand = new PaidPersonWhoOwedCommand(outOfBoundIndex);
 
         assertCommandFailure(paidPersonWhoOwedCommand, model, Messages.MESSAGE_INVALID_EXPENSE_DISPLAYED_INDEX);
     }
