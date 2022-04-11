@@ -189,7 +189,7 @@ _This is the result of executing the command `filter ft/2022-03`:_
 
 ![Filter](images/FilterCommandExample.png)
 
-**Disclaimer** : result may vary depending upon the user input.
+**Disclaimer** : result may vary depending upon the existing data in ExpenseExpert.
 
 ### Finding expenses: `find`
 
@@ -210,7 +210,7 @@ _This is the result of executing the command `find Cafe`:_
 
 ![Find](images/FindCommandExample.png)
 
-**Disclaimer** : result may vary depending upon the user input.
+**Disclaimer** : result may vary depending upon the existing data in ExpenseExpert.
 
 ### Setting a monthly Budget: `budget`
 
