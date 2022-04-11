@@ -43,7 +43,7 @@ Expense Expert is a **desktop app for keeping track of your expenses, and managi
 3. Copy the file to the folder you want to use as the _home folder_ for your Expense Expert.
 
 4. Double-click the file to start the app. The GUI similar to the below should appear in a few seconds. 
-5. The data is just for show, in reality the application will be blank in the beginning.<br>
+5. The data is just for demonstration purposes, in reality the application will be blank in the beginning.<br>
    ![Ui](images/Ui.png)
 
 6. Type the command in the command box and press Enter to execute it. e.g. typing **`help`** and pressing Enter will open the help window.<br>
