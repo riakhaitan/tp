@@ -101,7 +101,6 @@ Expense Expert is a **desktop app for keeping track of your expenses, and managi
 </div>
 
 ## Commands
-
 ### Viewing help : `help`
 
 Shows a help window explaining how to use each command, with an added link to the user guide. 
@@ -324,7 +323,6 @@ Exits the program.
 Format: `exit`
 
 ## Storage
-
 ### Saving the data
 
 Expense Expert data are saved in the hard disk automatically after any command that changes the data. There is no need to save manually.
